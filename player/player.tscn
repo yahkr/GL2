@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://drvltpwqp6klo"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
+[ext_resource type="PackedScene" uid="uid://cv8fu600voyxv" path="res://options/options.tscn" id="2_jnfbw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dbrtn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lif66"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource( "1_whha0" )
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+current = true
+fov = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource( "CapsuleMesh_dbrtn" )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource( "CapsuleShape3D_lif66" )
+
+[node name="Crosshair" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+
+[node name="Options" parent="." instance=ExtResource( "2_jnfbw" )]
+visible = false

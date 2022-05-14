@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cpsxcnlco62yp"]
+
+[ext_resource type="Script" path="res://options/option_types/slider_option.gd" id="1_dwyig"]
+
+[resource]
+script = ExtResource( "1_dwyig" )
+value = 100.0
+min_value = null
+max_value = 100.0
+step = 1.0
