@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @onready var camera = $Camera3D
 @onready var crosshair = $Crosshair
-@onready var options = $Options
+@onready var options_menu = $OptionsMenu
 
 const AIR_ACCELERATION = 2.0
 const GROUND_ACCELERATION = 20.0
@@ -15,72 +15,60 @@ const WALK_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
 
 var acceleration: float
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var joypad_look: Vector2
 var movement: Vector2
 var speed: float
 
-var JOYPAD_LOOK_CURVE = 2.0
-var JOYPAD_LOOK_INVERTED_X = false
-var JOYPAD_LOOK_INVERTED_Y = false
-var JOYPAD_LOOK_OUTER_THRESHOLD = 0.02
-var joypad_look_sensitivity_x
-var joypad_look_sensitivity_y
+var joypad_look_curve: float
+var joypad_look_inverted_x: bool
+var joypad_look_inverted_y: bool
+var joypad_look_outer_threshold: float
+var joypad_look_sensitivity_x: float
+var joypad_look_sensitivity_y: float
 
-var MOUSE_LOOK_INVERTED_X = false
-var MOUSE_LOOK_INVERTED_Y = false
-var mouse_look_sensitivity
-
-
-func apply_options(_section: String, key: String, value: Variant):
-	match key:
-		"mouse_sensitivity":
-			mouse_look_sensitivity = value
-		"controller_sensitivity_x":
-			joypad_look_sensitivity_x = value
-		"controller_sensitivity_y":
-			joypad_look_sensitivity_y = value
-		"fov":
-			camera.fov = value
+var mouse_look_inverted_x: bool
+var mouse_look_inverted_y: bool
+var mouse_look_sensitivity: float
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
 func _input(event):
-	return
 	if event is InputEventMouseMotion:
 		var input = event.relative
-		if MOUSE_LOOK_INVERTED_X:
+		if mouse_look_inverted_x:
 			input.x *= -1
-		if MOUSE_LOOK_INVERTED_Y:
+		if mouse_look_inverted_y:
 			input.y *= -1
 		
-		rotate_y(-input.x * mouse_look_sensitivity)
-		camera.rotate_x(-input.y * mouse_look_sensitivity)
+		rotate_y(-input.x * mouse_look_sensitivity / 100)
+		camera.rotate_x(-input.y * mouse_look_sensitivity / 100)
 
 
 func _physics_process(delta):
-	return
 	# Joypad look
 	if Input.get_connected_joypads().size() > 0:
 		var input = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 		
-		if JOYPAD_LOOK_INVERTED_X:
+		if joypad_look_inverted_x:
 			input.x *= -1
-		if JOYPAD_LOOK_INVERTED_Y:
+		if joypad_look_inverted_y:
 			input.y *= -1
 		
-		joypad_look.x = pow(abs(input.x), JOYPAD_LOOK_CURVE) * joypad_look_sensitivity_x
+		if abs(input.x) > 1 - joypad_look_outer_threshold:
+			input.x = round(input.x)
+		joypad_look.x = pow(abs(input.x), joypad_look_curve) * joypad_look_sensitivity_x / 10
 		if input.x < 0:
 			joypad_look.x *= -1
-		if abs(input.x) >= 1 - JOYPAD_LOOK_OUTER_THRESHOLD:
-			input.x = round(input.x)
-		joypad_look.y = pow(abs(input.y), JOYPAD_LOOK_CURVE) * joypad_look_sensitivity_y
+		
+		if abs(input.y) > 1 - joypad_look_outer_threshold:
+			input.y = round(input.y)
+		joypad_look.y = pow(abs(input.y), joypad_look_curve) * joypad_look_sensitivity_y / 10
 		if input.y < 0:
 			joypad_look.y *= -1
-		if abs(input.y) >= 1 - JOYPAD_LOOK_OUTER_THRESHOLD:
-			input.y = round(input.y)
 		
 		rotate_y(-joypad_look.x)
 		camera.rotate_x(-joypad_look.y)

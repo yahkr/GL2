@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://drvltpwqp6klo"]
+[gd_scene load_steps=6 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
-[ext_resource type="PackedScene" uid="uid://cv8fu600voyxv" path="res://options/options.tscn" id="2_jnfbw"]
+[ext_resource type="PackedScene" uid="uid://ccjijngfwurb6" path="res://options_menu/options_menu.tscn" id="2_jnfbw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dbrtn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lif66"]
+
+[sub_resource type="GDScript" id="GDScript_qo00c"]
+script/source = "extends Label
+
+func _process(_delta):
+	if visible:
+		text = \"FPS: \" + str(Engine.get_frames_per_second())
+"
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource( "1_whha0" )
@@ -33,5 +41,12 @@ offset_top = -2.5
 offset_right = 2.5
 offset_bottom = 2.5
 
-[node name="Options" parent="." instance=ExtResource( "2_jnfbw" )]
+[node name="OptionsMenu" parent="." instance=ExtResource( "2_jnfbw" )]
 visible = false
+
+[node name="FPS" type="Label" parent="."]
+process_mode = 3
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = SubResource( "GDScript_qo00c" )

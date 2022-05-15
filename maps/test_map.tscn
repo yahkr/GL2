@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://60bi61xbb2us"]
 
-[ext_resource type="PackedScene" uid="uid://drvltpwqp6klo" path="res://player/player.tscn" id="1_pv543"]
+[ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -14,6 +14,8 @@ background_mode = 2
 sky = SubResource( "Sky_heffr" )
 tonemap_mode = 2
 glow_enabled = true
+glow_bloom = 0.05
+adjustment_enabled = true
 
 [node name="TestMap" type="Node3D"]
 

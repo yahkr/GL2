@@ -1,0 +1,750 @@
+[gd_scene format=3 uid="uid://0jibk63q60tj"]
+
+[node name="Tabs" type="Control"]
+offset_top = 35.0
+offset_right = 1024.0
+offset_bottom = 565.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Gameplay" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+
+[node name="Mouse" type="Label" parent="Gameplay"]
+offset_right = 1024.0
+offset_bottom = 26.0
+text = "Mouse"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MouseSensitivity" type="HBoxContainer" parent="Gameplay"]
+offset_top = 30.0
+offset_right = 1024.0
+offset_bottom = 56.0
+
+[node name="Name" type="Label" parent="Gameplay/MouseSensitivity"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Gameplay/MouseSensitivity"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 2.0
+step = 0.01
+value = 1.0
+tick_count = 20
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Gameplay/MouseSensitivity"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="MouseHorizontalInverted" type="HBoxContainer" parent="Gameplay"]
+offset_top = 60.0
+offset_right = 1024.0
+offset_bottom = 91.0
+
+[node name="Name" type="Label" parent="Gameplay/MouseHorizontalInverted"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Gameplay/MouseHorizontalInverted"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Gameplay/MouseHorizontalInverted"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="MouseVerticalInverted" type="HBoxContainer" parent="Gameplay"]
+offset_top = 95.0
+offset_right = 1024.0
+offset_bottom = 126.0
+
+[node name="Name" type="Label" parent="Gameplay/MouseVerticalInverted"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Gameplay/MouseVerticalInverted"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Gameplay/MouseVerticalInverted"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="Controller" type="Label" parent="Gameplay"]
+offset_top = 130.0
+offset_right = 1024.0
+offset_bottom = 156.0
+text = "Controller"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ControllerHorizontalSensitivity" type="HBoxContainer" parent="Gameplay"]
+offset_top = 160.0
+offset_right = 1024.0
+offset_bottom = 186.0
+
+[node name="Name" type="Label" parent="Gameplay/ControllerHorizontalSensitivity"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Gameplay/ControllerHorizontalSensitivity"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 2.0
+step = 0.01
+value = 1.0
+tick_count = 20
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Gameplay/ControllerHorizontalSensitivity"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="ControllerVerticalSensitivity" type="HBoxContainer" parent="Gameplay"]
+offset_top = 190.0
+offset_right = 1024.0
+offset_bottom = 216.0
+
+[node name="Name" type="Label" parent="Gameplay/ControllerVerticalSensitivity"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Gameplay/ControllerVerticalSensitivity"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 2.0
+step = 0.01
+value = 1.0
+tick_count = 20
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Gameplay/ControllerVerticalSensitivity"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="ControllerHorizontalInverted" type="HBoxContainer" parent="Gameplay"]
+offset_top = 220.0
+offset_right = 1024.0
+offset_bottom = 251.0
+
+[node name="Name" type="Label" parent="Gameplay/ControllerHorizontalInverted"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Gameplay/ControllerHorizontalInverted"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Gameplay/ControllerHorizontalInverted"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="ControllerVerticalInverted" type="HBoxContainer" parent="Gameplay"]
+offset_top = 255.0
+offset_right = 1024.0
+offset_bottom = 286.0
+
+[node name="Name" type="Label" parent="Gameplay/ControllerVerticalInverted"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Gameplay/ControllerVerticalInverted"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Gameplay/ControllerVerticalInverted"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="ControllerResponseCurve" type="HBoxContainer" parent="Gameplay"]
+offset_top = 290.0
+offset_right = 1024.0
+offset_bottom = 316.0
+
+[node name="Name" type="Label" parent="Gameplay/ControllerResponseCurve"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Gameplay/ControllerResponseCurve"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 4.0
+step = 0.1
+value = 2.0
+tick_count = 4
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Gameplay/ControllerResponseCurve"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="ControllerOuterThreshold" type="HBoxContainer" parent="Gameplay"]
+offset_top = 320.0
+offset_right = 1024.0
+offset_bottom = 346.0
+
+[node name="Name" type="Label" parent="Gameplay/ControllerOuterThreshold"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Gameplay/ControllerOuterThreshold"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 0.5
+step = 0.01
+value = 0.01
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Gameplay/ControllerOuterThreshold"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="Video" type="VBoxContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+
+[node name="3DScale" type="HBoxContainer" parent="Video"]
+offset_right = 1024.0
+offset_bottom = 26.0
+
+[node name="Name" type="Label" parent="Video/3DScale"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Video/3DScale"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+tick_count = 7
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Video/3DScale"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="AntiAliasing" type="HBoxContainer" parent="Video"]
+offset_top = 30.0
+offset_right = 1024.0
+offset_bottom = 61.0
+
+[node name="Name" type="Label" parent="Video/AntiAliasing"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="OptionButton" parent="Video/AntiAliasing"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+item_count = 3
+selected = 1
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA"
+popup/item_2/id = 2
+
+[node name="Spacer" type="Control" parent="Video/AntiAliasing"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="Bloom" type="HBoxContainer" parent="Video"]
+offset_top = 65.0
+offset_right = 1024.0
+offset_bottom = 96.0
+
+[node name="Name" type="Label" parent="Video/Bloom"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Video/Bloom"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+button_pressed = true
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Video/Bloom"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="Brightness" type="HBoxContainer" parent="Video"]
+offset_top = 100.0
+offset_right = 1024.0
+offset_bottom = 126.0
+
+[node name="Name" type="Label" parent="Video/Brightness"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Video/Brightness"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.0
+tick_count = 7
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Video/Brightness"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="FOV" type="HBoxContainer" parent="Video"]
+offset_top = 130.0
+offset_right = 1024.0
+offset_bottom = 156.0
+
+[node name="Name" type="Label" parent="Video/FOV"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Video/FOV"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 60.0
+max_value = 120.0
+value = 90.0
+tick_count = 7
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Video/FOV"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="FSR" type="HBoxContainer" parent="Video"]
+offset_top = 160.0
+offset_right = 1024.0
+offset_bottom = 191.0
+
+[node name="Name" type="Label" parent="Video/FSR"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="OptionButton" parent="Video/FSR"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+item_count = 5
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Ultra Quality"
+popup/item_1/id = 1
+popup/item_2/text = "Quality"
+popup/item_2/id = 2
+popup/item_3/text = "Balanced"
+popup/item_3/id = 3
+popup/item_4/text = "Performance"
+popup/item_4/id = 4
+
+[node name="Spacer" type="Control" parent="Video/FSR"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="Fullscreen" type="HBoxContainer" parent="Video"]
+offset_top = 195.0
+offset_right = 1024.0
+offset_bottom = 226.0
+
+[node name="Name" type="Label" parent="Video/Fullscreen"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Video/Fullscreen"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+button_pressed = true
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Video/Fullscreen"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="MaxFPS" type="HBoxContainer" parent="Video"]
+offset_top = 230.0
+offset_right = 1024.0
+offset_bottom = 256.0
+
+[node name="Name" type="Label" parent="Video/MaxFPS"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Video/MaxFPS"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+min_value = 10.0
+max_value = 240.0
+value = 240.0
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Video/MaxFPS"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="ShowFPS" type="HBoxContainer" parent="Video"]
+offset_top = 260.0
+offset_right = 1024.0
+offset_bottom = 291.0
+
+[node name="Name" type="Label" parent="Video/ShowFPS"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Video/ShowFPS"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Video/ShowFPS"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="VSync" type="HBoxContainer" parent="Video"]
+offset_top = 295.0
+offset_right = 1024.0
+offset_bottom = 326.0
+
+[node name="Name" type="Label" parent="Video/VSync"]
+offset_top = 2.0
+offset_right = 308.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="CheckBox" parent="Video/VSync"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_right = 712.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+button_pressed = true
+text = "Value"
+
+[node name="Spacer" type="Control" parent="Video/VSync"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="Audio" type="VBoxContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+
+[node name="VolumeMaster" type="HBoxContainer" parent="Audio"]
+offset_right = 1024.0
+offset_bottom = 26.0
+
+[node name="Name" type="Label" parent="Audio/VolumeMaster"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Audio/VolumeMaster"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Audio/VolumeMaster"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="VolumeSFX" type="HBoxContainer" parent="Audio"]
+offset_top = 30.0
+offset_right = 1024.0
+offset_bottom = 56.0
+
+[node name="Name" type="Label" parent="Audio/VolumeSFX"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Audio/VolumeSFX"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Audio/VolumeSFX"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="VolumeMusic" type="HBoxContainer" parent="Audio"]
+offset_top = 60.0
+offset_right = 1024.0
+offset_bottom = 86.0
+
+[node name="Name" type="Label" parent="Audio/VolumeMusic"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Audio/VolumeMusic"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Audio/VolumeMusic"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="VolumeDialog" type="HBoxContainer" parent="Audio"]
+offset_top = 90.0
+offset_right = 1024.0
+offset_bottom = 116.0
+
+[node name="Name" type="Label" parent="Audio/VolumeDialog"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Audio/VolumeDialog"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Audio/VolumeDialog"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"

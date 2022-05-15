@@ -8,22 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Resource",
-"class": &"CheckboxOption",
-"language": &"GDScript",
-"path": "res://options/option_types/checkbox_option.gd"
-}, {
-"base": "Resource",
-"class": &"SliderOption",
-"language": &"GDScript",
-"path": "res://options/option_types/slider_option.gd"
-}]
-_global_script_class_icons={
-"CheckboxOption": "",
-"SliderOption": ""
-}
-
 [application]
 
 config/name="FPS"
@@ -33,7 +17,7 @@ config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [autoload]
 
-SaveManager="*res://options/save_manager.gd"
+SaveManager="*res://options_menu/save_manager.gd"
 
 [display]
 
@@ -112,7 +96,7 @@ crouch={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translations.de.translation", "res://translations.en.translation")
+locale/translations=PackedStringArray("res://translations/translations.de.translation", "res://translations/translations.en.translation")
 
 [physics]
 
