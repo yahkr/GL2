@@ -1,5 +1,6 @@
 keys,en,de
-Gameplay,Gameplay,Gameplay
+Controls,Controls,Steuerung
+InputMapping,Input Mapping,Eingabzuweisung
 Video,Video,Video
 Audio,Audio,Audio
 Enabled,Enabled,Aktiviert
@@ -30,3 +31,11 @@ VolumeSFX,Sound effects volume:,Geräusch-Lautstärke:
 VolumeMusic,Music volume:,Musik-Lautstärke:
 VolumeDialog,Dialog volume:,Dialog-Lautstärke
 RestoreDefaults,Restore default values,Standardwerte wiederherstellen
+RemapInputs,Remap inputs,Eingaben neu zuweisen
+move_forward,Move forward,Nach vorne bewegen
+move_backward,Move backward,Nach hinten bewegen
+move_left,Move left,Nach links bewegen
+move_right,Move right,Nach rechts bewegen
+jump,Jump,Springen
+sprint,Sprint,Sprinten
+crouch,Crouch,Ducken

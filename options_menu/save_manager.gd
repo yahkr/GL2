@@ -21,3 +21,8 @@ func set_config_value(new_value: Variant, tab: StringName, option: StringName):
 
 func save_config_file():
 	config.save("user://options.cfg")
+
+
+func restore_defaults(tab: String):
+	if config.has_section(tab):
+		config.erase_section(tab)
