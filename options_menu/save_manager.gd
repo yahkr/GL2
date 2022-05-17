@@ -10,7 +10,10 @@ func _ready():
 
 func get_config_value(tab: StringName, option: StringName, default_value: Variant) -> Variant:
 	if not config.has_section_key(tab, option):
-		config.set_value(tab, option, default_value)
+		if default_value == null:
+			return null
+		else:
+			config.set_value(tab, option, default_value)
 	return config.get_value(tab, option)
 
 

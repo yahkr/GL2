@@ -50,28 +50,27 @@ func _input(event):
 
 func _physics_process(delta):
 	# Joypad look
-	if Input.get_connected_joypads().size() > 0:
-		var input = Input.get_vector("look_left", "look_right", "look_up", "look_down")
-		
-		if joypad_look_inverted_x:
-			input.x *= -1
-		if joypad_look_inverted_y:
-			input.y *= -1
-		
-		if abs(input.x) > 1 - joypad_look_outer_threshold:
-			input.x = round(input.x)
-		joypad_look.x = pow(abs(input.x), joypad_look_curve) * joypad_look_sensitivity_x / 10
-		if input.x < 0:
-			joypad_look.x *= -1
-		
-		if abs(input.y) > 1 - joypad_look_outer_threshold:
-			input.y = round(input.y)
-		joypad_look.y = pow(abs(input.y), joypad_look_curve) * joypad_look_sensitivity_y / 10
-		if input.y < 0:
-			joypad_look.y *= -1
-		
-		rotate_y(-joypad_look.x)
-		camera.rotate_x(-joypad_look.y)
+	var look_input = Input.get_vector("look_left", "look_right", "look_up", "look_down")
+	
+	if joypad_look_inverted_x:
+		look_input.x *= -1
+	if joypad_look_inverted_y:
+		look_input.y *= -1
+	
+	if abs(look_input.x) > 1 - joypad_look_outer_threshold:
+		look_input.x = round(look_input.x)
+	joypad_look.x = pow(abs(look_input.x), joypad_look_curve) * joypad_look_sensitivity_x / 10
+	if look_input.x < 0:
+		joypad_look.x *= -1
+	
+	if abs(look_input.y) > 1 - joypad_look_outer_threshold:
+		look_input.y = round(look_input.y)
+	joypad_look.y = pow(abs(look_input.y), joypad_look_curve) * joypad_look_sensitivity_y / 10
+	if look_input.y < 0:
+		joypad_look.y *= -1
+	
+	rotate_y(-joypad_look.x)
+	camera.rotate_x(-joypad_look.y)
 	
 	# Clamp vertical camera rotation for both mouse and joypad
 	camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2)
@@ -94,9 +93,9 @@ func _physics_process(delta):
 		speed = WALK_SPEED
 	
 	# Get input and move with acceleration/deceleration
-	var input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	input = input.rotated(-rotation.y)
-	movement = movement.lerp(input * speed, acceleration * delta)
+	var move_input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	move_input = move_input.rotated(-rotation.y)
+	movement = movement.lerp(move_input * speed, acceleration * delta)
 	velocity.x = movement.x
 	velocity.z = movement.y
 	move_and_slide()

@@ -1,166 +1,190 @@
 extends Control
 
 
-const axis_deadzone = 0.5
+enum { KBM, JOYPAD }
 
-const prompts_prefix = "res://options_menu/input_mapping/prompts/%s/"
+const axis_deadzone = 0.5
+const prompts_prefix = "res://options_menu/input_mapping/prompts/"
 const prompts_suffix = ".png"
 
-const kbm_prompts_prefix = prompts_prefix % "kbm/dark"
-const kbm_prompts_suffix = "_key_dark.png"
-
-const ps3_prompts_prefix = prompts_prefix % "ps3"
-
-const ps4_prompts_prefix = prompts_prefix % "ps4"
-
-const ps5_prompts_prefix = prompts_prefix % "ps5"
-
-const switch_prompts_prefix = prompts_prefix % "switch"
-
-const xbox_prompts_prefix = prompts_prefix % "xbox"
-
-var axis_mapped: bool
 var joy_name: String
-var selected_action_button: Button
+var selected_mapping_button: Button
 
 
 func _ready():
-	for control in get_children():
-		if not control is Panel:
-			continue
-		
-		var hbox := control.get_node("HBoxContainer")
-		
-		var action_label := hbox.get_node("Action")
-		action_label.text = tr(control.name)
-		
-		var action_button_kbm := hbox.get_node("KBMActionButton")
-		update_action_button(action_button_kbm, get_first_mapping(control.name))
-		action_button_kbm.toggled.connect(toggle_action_remap.bind(action_button_kbm))
-		
-		if Input.get_connected_joypads().size() > 0:
-			joy_name = Input.get_joy_name(0)
-		else:
-			joy_name = "Joypad"
-		
-		var action_button_controller := hbox.get_node("ControllerActionButton")
-		update_action_button(action_button_controller, get_first_mapping(control.name, true), true)
-		action_button_controller.toggled.connect(toggle_action_remap.bind(action_button_controller))
+	if Input.get_connected_joypads().size() > 0:
+		joy_name = Input.get_joy_name(0)
+	else:
+		joy_name = "Joypad"
+	
+	initialize_actions()
+
 
 
 func _input(event):
-	if not selected_action_button:
+	if not selected_mapping_button:
 		return
 	
-	if event is InputEventJoypadButton:
-		if event.pressed:
-			accept_event()
-			
-			joy_name = Input.get_joy_name(event.device)
-			
-			update_action_button(selected_action_button, event.button_index, true)
+	if event.is_pressed():
+		accept_event()
+		
+		var action = selected_mapping_button.get_parent().get_parent().name
+		
+		if selected_mapping_button.name == "ControllerMappingButton":
+			if is_joypad_event(event):
+				update_mapping_button(event)
+				update_input_map(action, event, JOYPAD)
+			else:
+				update_mapping_button(get_input_map(action)[JOYPAD])
 		else:
-			selected_action_button.button_pressed = false
-			selected_action_button = null
-			axis_mapped = false
-	elif event is InputEventJoypadMotion:
-		joy_name = Input.get_joy_name(event.device)
-		var axis_str := "axis/"
+			if event is InputEventKey and event.keycode == KEY_ESCAPE or is_joypad_event(event):
+				update_mapping_button(get_input_map(action)[KBM])
+			else:
+				update_mapping_button(event)
+				update_input_map(action, event, KBM)
 		
-		var largest_axis := 0
-		var largest_axis_value := 0.0
-		for i in range(6):
-			var axis_value := Input.get_joy_axis(event.device, i)
-			if abs(axis_value) > abs(largest_axis_value):
-				largest_axis = i
-				largest_axis_value = axis_value
-		
-		axis_str += str(largest_axis)
-		
-		if largest_axis_value > axis_deadzone:
-			axis_str += "+"
-			axis_mapped = true
-		elif largest_axis_value < -axis_deadzone:
-			axis_str += "-"
-			axis_mapped = true
-		else:
-			if axis_mapped:
-				selected_action_button.button_pressed = false
-				selected_action_button = null
-				axis_mapped = false
-			return
-		
-		update_action_button(selected_action_button, largest_axis, true, axis_str)
-	elif event is InputEventKey:
-		if event.pressed:
-			if event.echo:
-				return
-			
-			accept_event()
-			
-			var action_name = selected_action_button.get_parent().get_parent().name
-			
-			for mapping in InputMap.action_get_events(action_name):
-				if mapping is InputEventKey:
-					InputMap.action_erase_event(action_name, mapping)
-			
-			InputMap.action_add_event(action_name, event)
-		
-			update_action_button(selected_action_button, event.keycode)
-		else:
-			selected_action_button.button_pressed = false
-			selected_action_button = null
-			axis_mapped = false
+		selected_mapping_button.button_pressed = false
+		selected_mapping_button = null
 
 
-func get_first_mapping(action: String, joypad := false) -> int:
-	for mapping in InputMap.action_get_events(action):
-			if joypad:
-				if mapping is InputEventJoypadButton:
-					return mapping.button_index
-			elif mapping is InputEventKey:
-				var physical_keycode: int = mapping.physical_keycode
-				var keycode := DisplayServer.keyboard_get_keycode_from_physical(physical_keycode)
-				return keycode
-	return 0
+func connect_selected_mapping_button():
+	if selected_mapping_button.toggled.get_connections().size() == 0:
+		selected_mapping_button.toggled.connect(toggle_action_mapping.bind(selected_mapping_button))
 
 
-func toggle_action_remap(button_pressed: bool, action_button: Button):
-	selected_action_button = action_button
+func get_axis_str(axis: int, axis_value: float) -> String:
+	var axis_str = "axis/" + str(axis)
+	if axis_value > 0:
+		axis_str += "+"
+	elif axis_value < 0:
+		axis_str += "-"
+	return axis_str
+
+
+func get_input_map(action: String) -> Array:
+	var input_map = [null, null]
 	
-	for button in get_tree().get_nodes_in_group("ActionButton"):
-		button.disabled = button_pressed and button != action_button
+	var events := InputMap.action_get_events(action)
+	
+	for i in events.size():
+		var event: InputEvent = events[-i-1]
+		
+		if not input_map[KBM]:
+			if not is_joypad_event(event):
+				input_map[KBM] = event
+		
+		if not input_map[JOYPAD]:
+			if is_joypad_event(event):
+				input_map[JOYPAD] = event
+		
+		if input_map[KBM] and input_map[JOYPAD]:
+			break
+	return input_map
+
+
+func initialize_actions():
+	for action in get_children():
+		if not action.is_in_group("Action"):
+			continue
+		
+		var events: Variant = SaveManager.get_config_value("InputMapping", action.name, null)
+		
+		if events:
+			for event in events:
+				InputMap.action_add_event(action.name, event)
+		
+		var hbox := action.get_node("HBoxContainer")
+		
+		var action_label := hbox.get_node("Action")
+		action_label.text = tr(action.name)
+		
+		## If multiple inputs are bound to an input type (KBM or Joypad),
+		## then the last input mapping of that input type will be used.
+		var input_map = get_input_map(action.name)
+		
+		selected_mapping_button = hbox.get_node("KBMMappingButton")
+		connect_selected_mapping_button()
+		if input_map[KBM]:
+			input_map[KBM].set_meta("customizable", true)
+			update_mapping_button(input_map[KBM])
+		
+		selected_mapping_button = hbox.get_node("ControllerMappingButton")
+		connect_selected_mapping_button()
+		if input_map[JOYPAD]:
+			input_map[JOYPAD].set_meta("customizable", true)
+			update_mapping_button(input_map[JOYPAD])
+		
+		selected_mapping_button = null
+
+
+func is_joypad_event(event: InputEvent):
+	return event is InputEventJoypadButton or event is InputEventJoypadMotion
+
+
+func restore_defaults():
+	InputMap.load_from_project_settings()
+	for button in get_tree().get_nodes_in_group("MappingButton"):
+		button.icon = null
+		button.text = ""
+	initialize_actions()
+
+
+func toggle_action_mapping(button_pressed: bool, mapping_button: Button):
+	for button in get_tree().get_nodes_in_group("MappingButton"):
+		button.disabled = button_pressed and button != mapping_button
 	
 	if button_pressed:
-		action_button.icon = null
-		action_button.text = "Press any button..."
-		action_button.disabled = false
-
-
-func update_action_button(action_button: Button, button: int, joypad := false, axis_str := ""):
-	var button_name: String
-	
-	if joypad:
-		if axis_str.is_empty():
-			button_name = str(button)
-		else:
-			button_name = str(axis_str)
+		selected_mapping_button = mapping_button
 		
-		if joy_name.contains("PS3"):
-			action_button.icon = load(ps3_prompts_prefix + button_name + prompts_suffix)
-		elif joy_name.contains("PS4"):
-			action_button.icon = load(ps4_prompts_prefix + button_name + prompts_suffix)
-		elif joy_name.contains("PS5"):
-			action_button.icon = load(ps5_prompts_prefix + button_name + prompts_suffix)
-		elif joy_name.contains("Switch"):
-			action_button.icon = load(switch_prompts_prefix + button_name + prompts_suffix)
-		else:
-			action_button.icon = load(xbox_prompts_prefix + button_name + prompts_suffix)
-	else:
-		button_name = OS.get_keycode_string(button)
-		action_button.icon = load(kbm_prompts_prefix + button_name.to_lower() + kbm_prompts_suffix)
+		mapping_button.icon = null
+		mapping_button.text = "Press any button..."
+		mapping_button.disabled = false
+
+
+func update_input_map(action: String, event: InputEvent, input_type: int):
+	var input_map = get_input_map(action)
 	
-	if action_button.icon == null:
-		action_button.text = button_name
+	if input_map[input_type] and input_map[input_type].get_meta("customizable"):
+		InputMap.action_erase_event(action, input_map[input_type])
+	
+	if not InputMap.action_has_event(action, event):
+		event.set_meta("customizable", true)
+	InputMap.action_add_event(action, event)
+	
+	SaveManager.set_config_value(InputMap.action_get_events(action), "InputMapping", action)
+
+func update_mapping_button(input: InputEvent):
+	var kbm: String
+	var joypad: String
+	if input is InputEventKey:
+		var physical_keycode: int = input.physical_keycode
+		var keycode := DisplayServer.keyboard_get_keycode_from_physical(physical_keycode)
+		kbm = OS.get_keycode_string(keycode)
+	elif input is InputEventMouseButton:
+		kbm = "mouse_" + str(input.button_index)
+	elif input is InputEventJoypadButton:
+		joypad = str(input.button_index)
+	elif input is InputEventJoypadMotion:
+		joypad = get_axis_str(input.axis, input.axis_value)
+	
+	var icon_path: String
+	if kbm:
+		icon_path = prompts_prefix + "kbm/dark/" + kbm.to_lower() + "_key_dark" + prompts_suffix
+	elif joypad:
+		if joy_name.contains("PS3"):
+			icon_path = prompts_prefix + "ps3/" + joypad + prompts_suffix
+		elif joy_name.contains("PS4"):
+			icon_path = prompts_prefix + "ps4/" + joypad + prompts_suffix
+		elif joy_name.contains("PS5"):
+			icon_path = prompts_prefix + "ps5/" + joypad + prompts_suffix
+		elif joy_name.contains("Switch"):
+			icon_path = prompts_prefix + "switch/" + joypad + prompts_suffix
+		else:
+			icon_path = prompts_prefix + "xbox/" + joypad + prompts_suffix
+	
+	if ResourceLoader.exists(icon_path):
+		selected_mapping_button.icon = load(icon_path)
+		selected_mapping_button.text = ""
 	else:
-		action_button.text = ""
+		selected_mapping_button.icon = null
+		selected_mapping_button.text = kbm + joypad

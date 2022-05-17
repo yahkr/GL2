@@ -42,7 +42,7 @@ ui_cancel={
 look_up={
 "deadzone": 0.1,
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":-1.0,"script":null)
-]
+, null]
 }
 look_down={
 "deadzone": 0.1,

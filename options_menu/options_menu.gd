@@ -5,6 +5,7 @@ extends Control
 @onready var vbox := $VBoxContainer
 @onready var tab_bar := $VBoxContainer/TabBar
 @onready var tabs := $VBoxContainer/Tabs
+@onready var input_mapping := tabs.get_node("InputMapping")
 
 const FSR = [0.77, 0.67, 0.59, 0.5]
 
@@ -14,7 +15,7 @@ func _ready():
 		initialize_tab(tab)
 
 
-func _process(_delta):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		visible = !visible
 		get_tree().paused = visible
@@ -132,7 +133,7 @@ func initialize_tab(tab: VBoxContainer):
 		var config_value = SaveManager.get_config_value(tab.name, option.name, default_value)
 		set_func.call(config_value)
 		
-		update_value_label(default_value, setter)
+		update_value_label(config_value, setter)
 		apply_option(config_value, option.name)
 		
 		if change_signal.get_connections().size() == 0:
@@ -158,8 +159,14 @@ func update_value_label(new_value: Variant, setter: Control):
 
 
 func _on_restore_defaults_button_pressed():
-	SaveManager.restore_defaults(tab_bar.get_tab_title(tab_bar.current_tab))
-	initialize_tab(tabs.get_child(tab_bar.current_tab))
+	var tab_title: String = tab_bar.get_tab_title(tab_bar.current_tab)
+	
+	SaveManager.restore_defaults(tab_title)
+	if input_mapping.visible:
+		SaveManager.save_config_file()
+		input_mapping.restore_defaults()
+	else:
+		initialize_tab(tabs.get_child(tab_bar.current_tab))
 
 
 func _on_tab_bar_tab_changed(index):

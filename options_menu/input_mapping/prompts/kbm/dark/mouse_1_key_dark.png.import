@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4i4ddsmhpf4v"
-path="res://.godot/imported/mouse_left_key_dark.png-a6246942036c52a2743dda356570b2b6.ctex"
+uid="uid://dhop7e5csr42r"
+path="res://.godot/imported/mouse_1_key_dark.png-5779af0fa51071008a05bf00d704a31c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://options_menu/input_mapping/prompts/kbm/dark/mouse_left_key_dark.png"
-dest_files=["res://.godot/imported/mouse_left_key_dark.png-a6246942036c52a2743dda356570b2b6.ctex"]
+source_file="res://options_menu/input_mapping/prompts/kbm/dark/mouse_1_key_dark.png"
+dest_files=["res://.godot/imported/mouse_1_key_dark.png-5779af0fa51071008a05bf00d704a31c.ctex"]
 
 [params]
 
