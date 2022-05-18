@@ -32,6 +32,10 @@ VolumeMusic,Music volume:,Musik-Lautstärke:
 VolumeDialog,Dialog volume:,Dialog-Lautstärke
 RestoreDefaults,Restore default values,Standardwerte wiederherstellen
 RemapInputs,Remap inputs,Eingaben neu zuweisen
+look_up,Look up,Nach oben schauen
+look_down,Look down,Nach unten schauen
+look_left,Look left,Nach links schauen
+look_right,Look right,Nach rechts schauen
 move_forward,Move forward,Nach vorne bewegen
 move_backward,Move backward,Nach hinten bewegen
 move_left,Move left,Nach links bewegen

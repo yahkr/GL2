@@ -36,7 +36,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		var input = event.relative
 		if mouse_look_inverted_x:

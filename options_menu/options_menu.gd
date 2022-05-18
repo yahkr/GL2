@@ -15,15 +15,18 @@ func _ready():
 		initialize_tab(tab)
 
 
-func _input(_event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		visible = !visible
-		get_tree().paused = visible
+func _input(event):
+	if event.is_pressed():
+		if (event is InputEventKey and event.keycode == KEY_ESCAPE
+				or event is InputEventJoypadButton and event.button_index == JOY_BUTTON_START):
 		
-		if visible:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			visible = !visible
+			get_tree().paused = visible
+			
+			if visible:
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			else:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func apply_option(new_value: Variant, option: StringName):
@@ -105,7 +108,7 @@ func apply_option(new_value: Variant, option: StringName):
 		&"VolumeDialog":
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialog"), linear2db(new_value))
 
-func initialize_tab(tab: VBoxContainer):
+func initialize_tab(tab: Control):
 	for option in tab.get_children():
 		if not option.is_in_group("Option"):
 			continue

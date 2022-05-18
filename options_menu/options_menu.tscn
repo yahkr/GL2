@@ -346,8 +346,6 @@ text = "Value"
 
 [node name="InputMapping" parent="VBoxContainer/Tabs" instance=ExtResource( "2_owuij" )]
 visible = false
-offset_bottom = 530.0
-grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 

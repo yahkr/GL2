@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj8i3hmydienn"
-path="res://.godot/imported/xboxseriesx_diagram_Simple.png-2007c06f089e6576709ca964971a14b3.ctex"
+uid="uid://dw8sf0oagtvat"
+path="res://.godot/imported/xboxseriesx_diagram_simple.png-636dd5be75c99ccbb2db249409be4114.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://options_menu/input_mapping/prompts/xbox/xboxseriesx_diagram_Simple.png"
-dest_files=["res://.godot/imported/xboxseriesx_diagram_Simple.png-2007c06f089e6576709ca964971a14b3.ctex"]
+source_file="res://options_menu/input_mapping/prompts/xbox/xboxseriesx_diagram_simple.png"
+dest_files=["res://.godot/imported/xboxseriesx_diagram_simple.png-636dd5be75c99ccbb2db249409be4114.ctex"]
 
 [params]
 

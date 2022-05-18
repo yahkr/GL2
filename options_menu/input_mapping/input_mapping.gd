@@ -20,7 +20,6 @@ func _ready():
 	initialize_actions()
 
 
-
 func _input(event):
 	if not selected_mapping_button:
 		return
@@ -30,18 +29,29 @@ func _input(event):
 		
 		var action = selected_mapping_button.get_parent().get_parent().name
 		
-		if selected_mapping_button.name == "ControllerMappingButton":
-			if is_joypad_event(event):
-				update_mapping_button(event)
-				update_input_map(action, event, JOYPAD)
-			else:
-				update_mapping_button(get_input_map(action)[JOYPAD])
-		else:
-			if event is InputEventKey and event.keycode == KEY_ESCAPE or is_joypad_event(event):
-				update_mapping_button(get_input_map(action)[KBM])
-			else:
+		var unbind: bool
+		if (event is InputEventKey and event.keycode == KEY_ESCAPE
+				or event is InputEventJoypadButton and event.button_index == JOY_BUTTON_START):
+			unbind = true
+		
+		if selected_mapping_button.name == "KBMMappingButton":
+			if unbind:
+				update_mapping_button(null)
+				update_input_map(action, null, KBM)
+			elif get_input_type(event) == KBM:
 				update_mapping_button(event)
 				update_input_map(action, event, KBM)
+			elif get_input_type(event) == JOYPAD:
+				update_mapping_button(get_input_map(action)[KBM])
+		elif selected_mapping_button.name == "ControllerMappingButton":
+			if unbind:
+				update_mapping_button(null)
+				update_input_map(action, null, JOYPAD)
+			if get_input_type(event) == KBM:
+				update_mapping_button(get_input_map(action)[JOYPAD])
+			elif get_input_type(event) == JOYPAD:
+				update_mapping_button(event)
+				update_input_map(action, event, JOYPAD)
 		
 		selected_mapping_button.button_pressed = false
 		selected_mapping_button = null
@@ -53,7 +63,7 @@ func connect_selected_mapping_button():
 
 
 func get_axis_str(axis: int, axis_value: float) -> String:
-	var axis_str = "axis/" + str(axis)
+	var axis_str = str(axis)
 	if axis_value > 0:
 		axis_str += "+"
 	elif axis_value < 0:
@@ -70,11 +80,11 @@ func get_input_map(action: String) -> Array:
 		var event: InputEvent = events[-i-1]
 		
 		if not input_map[KBM]:
-			if not is_joypad_event(event):
+			if get_input_type(event) == KBM:
 				input_map[KBM] = event
 		
 		if not input_map[JOYPAD]:
-			if is_joypad_event(event):
+			if get_input_type(event) == JOYPAD:
 				input_map[JOYPAD] = event
 		
 		if input_map[KBM] and input_map[JOYPAD]:
@@ -82,16 +92,36 @@ func get_input_map(action: String) -> Array:
 	return input_map
 
 
+func get_input_str(input: InputEvent) -> String:
+	if input is InputEventKey:
+		return OS.get_keycode_string(input.physical_keycode)
+	elif input is InputEventMouseButton:
+		return "Mouse_" + str(input.button_index)
+	elif input is InputEventJoypadButton:
+		return "Button_" + str(input.button_index)
+	elif input is InputEventJoypadMotion:
+		return "Axis_" + get_axis_str(input.axis, input.axis_value)
+	return ""
+
+
+func get_input_type(input: InputEvent) -> int:
+	if input is InputEventKey or input is InputEventMouseButton:
+		return KBM
+	elif input is InputEventJoypadButton or input is InputEventJoypadMotion:
+		return JOYPAD
+	return -1
+
+
 func initialize_actions():
-	for action in get_children():
+	for action in get_node("ScrollContainer").get_node("VBoxContainer").get_children():
 		if not action.is_in_group("Action"):
 			continue
 		
-		var events: Variant = SaveManager.get_config_value("InputMapping", action.name, null)
-		
-		if events:
-			for event in events:
-				InputMap.action_add_event(action.name, event)
+#		var events: Variant = SaveManager.get_config_value("InputMapping", action.name, null)
+#
+#		if events:
+#			for event in events:
+#				InputMap.action_add_event(action.name, event)
 		
 		var hbox := action.get_node("HBoxContainer")
 		
@@ -117,10 +147,6 @@ func initialize_actions():
 		selected_mapping_button = null
 
 
-func is_joypad_event(event: InputEvent):
-	return event is InputEventJoypadButton or event is InputEventJoypadMotion
-
-
 func restore_defaults():
 	InputMap.load_from_project_settings()
 	for button in get_tree().get_nodes_in_group("MappingButton"):
@@ -141,50 +167,50 @@ func toggle_action_mapping(button_pressed: bool, mapping_button: Button):
 		mapping_button.disabled = false
 
 
-func update_input_map(action: String, event: InputEvent, input_type: int):
+func update_input_map(action: String, input: InputEvent, input_type: int):
 	var input_map = get_input_map(action)
 	
 	if input_map[input_type] and input_map[input_type].get_meta("customizable"):
 		InputMap.action_erase_event(action, input_map[input_type])
 	
-	if not InputMap.action_has_event(action, event):
-		event.set_meta("customizable", true)
-	InputMap.action_add_event(action, event)
+	var option_suffix: String
+	if input_type == KBM:
+		option_suffix = "_kbm"
+	elif input_type == JOYPAD:
+		option_suffix = "_joypad"
 	
-	SaveManager.set_config_value(InputMap.action_get_events(action), "InputMapping", action)
+	if input:
+		if not InputMap.action_has_event(action, input):
+			input.set_meta("customizable", true)
+			InputMap.action_add_event(action, input)
+		
+		SaveManager.set_config_value(get_input_str(input), "InputMapping", action + option_suffix)
+	else:
+		SaveManager.remove_config_value("InputMapping", action + option_suffix)
 
 func update_mapping_button(input: InputEvent):
-	var kbm: String
-	var joypad: String
-	if input is InputEventKey:
-		var physical_keycode: int = input.physical_keycode
-		var keycode := DisplayServer.keyboard_get_keycode_from_physical(physical_keycode)
-		kbm = OS.get_keycode_string(keycode)
-	elif input is InputEventMouseButton:
-		kbm = "mouse_" + str(input.button_index)
-	elif input is InputEventJoypadButton:
-		joypad = str(input.button_index)
-	elif input is InputEventJoypadMotion:
-		joypad = get_axis_str(input.axis, input.axis_value)
+	var input_str := get_input_str(input)
+	var input_str_path := input_str.to_lower()
 	
 	var icon_path: String
-	if kbm:
-		icon_path = prompts_prefix + "kbm/dark/" + kbm.to_lower() + "_key_dark" + prompts_suffix
-	elif joypad:
+	if get_input_type(input) == KBM:
+		icon_path = prompts_prefix + "kbm/dark/" + input_str_path + prompts_suffix
+	elif get_input_type(input) == JOYPAD:
 		if joy_name.contains("PS3"):
-			icon_path = prompts_prefix + "ps3/" + joypad + prompts_suffix
+			icon_path = prompts_prefix + "ps3/" + input_str_path + prompts_suffix
 		elif joy_name.contains("PS4"):
-			icon_path = prompts_prefix + "ps4/" + joypad + prompts_suffix
+			icon_path = prompts_prefix + "ps4/" + input_str_path + prompts_suffix
 		elif joy_name.contains("PS5"):
-			icon_path = prompts_prefix + "ps5/" + joypad + prompts_suffix
+			icon_path = prompts_prefix + "ps5/" + input_str_path + prompts_suffix
 		elif joy_name.contains("Switch"):
-			icon_path = prompts_prefix + "switch/" + joypad + prompts_suffix
+			icon_path = prompts_prefix + "switch/" + input_str_path + prompts_suffix
 		else:
-			icon_path = prompts_prefix + "xbox/" + joypad + prompts_suffix
+			icon_path = prompts_prefix + "xbox/" + input_str_path + prompts_suffix
+	
 	
 	if ResourceLoader.exists(icon_path):
 		selected_mapping_button.icon = load(icon_path)
 		selected_mapping_button.text = ""
 	else:
 		selected_mapping_button.icon = null
-		selected_mapping_button.text = kbm + joypad
+		selected_mapping_button.text = input_str.replace("_", " ")
