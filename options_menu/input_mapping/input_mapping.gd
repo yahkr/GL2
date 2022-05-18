@@ -12,19 +12,12 @@ var selected_mapping_button: Button
 
 
 func _ready():
-	if Input.get_connected_joypads().size() > 0:
-		joy_name = Input.get_joy_name(0)
-	else:
-		joy_name = "Joypad"
-	
-	initialize_actions()
+	joy_connection_changed(-1, true)
+	Input.joy_connection_changed.connect(joy_connection_changed)
 
 
 func _input(event):
-	if not selected_mapping_button:
-		return
-	
-	if event.is_pressed():
+	if event.is_pressed() and selected_mapping_button:
 		accept_event()
 		
 		var action = selected_mapping_button.get_parent().get_parent().name
@@ -47,14 +40,13 @@ func _input(event):
 			if unbind:
 				update_mapping_button(null)
 				update_input_map(action, null, JOYPAD)
-			if get_input_type(event) == KBM:
+			elif get_input_type(event) == KBM:
 				update_mapping_button(get_input_map(action)[JOYPAD])
 			elif get_input_type(event) == JOYPAD:
 				update_mapping_button(event)
 				update_input_map(action, event, JOYPAD)
 		
-		selected_mapping_button.button_pressed = false
-		selected_mapping_button = null
+		toggle_action_mapping(false, selected_mapping_button)
 
 
 func connect_selected_mapping_button():
@@ -94,7 +86,9 @@ func get_input_map(action: String) -> Array:
 
 func get_input_str(input: InputEvent) -> String:
 	if input is InputEventKey:
-		return OS.get_keycode_string(input.physical_keycode)
+		if input.physical_keycode:
+			return OS.get_keycode_string(input.physical_keycode)
+		return OS.get_keycode_string(input.keycode)
 	elif input is InputEventMouseButton:
 		return "Mouse_" + str(input.button_index)
 	elif input is InputEventJoypadButton:
@@ -117,25 +111,57 @@ func initialize_actions():
 		if not action.is_in_group("Action"):
 			continue
 		
-#		var events: Variant = SaveManager.get_config_value("InputMapping", action.name, null)
-#
-#		if events:
-#			for event in events:
-#				InputMap.action_add_event(action.name, event)
+		## If multiple inputs are bound to an input type (KBM or Joypad),
+		## then the last input mapping of that input type will be used.
+		var input_map = get_input_map(action.name)
+		
+		for input_type in [KBM, JOYPAD]:
+			var option: String = action.name
+			if input_type == KBM:
+				option += "_kbm"
+			elif input_type == JOYPAD:
+				option += "_joypad"
+			
+			var input = SaveManager.get_config_value("InputMapping", option, null)
+			if input != null:
+				var event: InputEvent
+				if input.begins_with("Mouse_"):
+					event = InputEventMouseButton.new()
+					event.button_index = input.trim_prefix("Mouse_").to_int()
+				elif input.begins_with("Button_"):
+					event = InputEventJoypadButton.new()
+					event.button_index = input.trim_prefix("Button_").to_int()
+				elif input.begins_with("Axis_"):
+					event = InputEventJoypadMotion.new()
+					event.axis = input.trim_prefix("Key_").to_int()
+					
+					if input.ends_with("-"):
+						event.axis_value = -1
+					else:
+						event.axis_value = 1
+				elif not input.is_empty():
+					event = InputEventKey.new()
+					event.keycode = OS.find_keycode_from_string(input)
+				else:
+					event = null
+				
+				if input_map[input_type]:
+					InputMap.action_erase_event(action.name, input_map[input_type])
+				
+				InputMap.action_add_event(action.name, event)
+		
+		input_map = get_input_map(action.name)
 		
 		var hbox := action.get_node("HBoxContainer")
 		
 		var action_label := hbox.get_node("Action")
 		action_label.text = tr(action.name)
 		
-		## If multiple inputs are bound to an input type (KBM or Joypad),
-		## then the last input mapping of that input type will be used.
-		var input_map = get_input_map(action.name)
-		
 		selected_mapping_button = hbox.get_node("KBMMappingButton")
 		connect_selected_mapping_button()
 		if input_map[KBM]:
 			input_map[KBM].set_meta("customizable", true)
+			
 			update_mapping_button(input_map[KBM])
 		
 		selected_mapping_button = hbox.get_node("ControllerMappingButton")
@@ -145,6 +171,19 @@ func initialize_actions():
 			update_mapping_button(input_map[JOYPAD])
 		
 		selected_mapping_button = null
+
+
+func joy_connection_changed(device: int, connected: bool):
+	if selected_mapping_button:
+		toggle_action_mapping(false, selected_mapping_button)
+	
+	if connected and device >= 0:
+		joy_name = Input.get_joy_name(device)
+	elif Input.get_connected_joypads().size() > 0:
+		joy_name = Input.get_joy_name(Input.get_connected_joypads().size() - 1)
+	else:
+		joy_name = "Joypad"
+	initialize_actions()
 
 
 func restore_defaults():
@@ -165,6 +204,10 @@ func toggle_action_mapping(button_pressed: bool, mapping_button: Button):
 		mapping_button.icon = null
 		mapping_button.text = "Press any button..."
 		mapping_button.disabled = false
+	else:
+		selected_mapping_button = null
+		
+		mapping_button.button_pressed = false
 
 
 func update_input_map(action: String, input: InputEvent, input_type: int):
@@ -183,10 +226,8 @@ func update_input_map(action: String, input: InputEvent, input_type: int):
 		if not InputMap.action_has_event(action, input):
 			input.set_meta("customizable", true)
 			InputMap.action_add_event(action, input)
-		
-		SaveManager.set_config_value(get_input_str(input), "InputMapping", action + option_suffix)
-	else:
-		SaveManager.remove_config_value("InputMapping", action + option_suffix)
+	
+	SaveManager.set_config_value(get_input_str(input), "InputMapping", action + option_suffix)
 
 func update_mapping_button(input: InputEvent):
 	var input_str := get_input_str(input)

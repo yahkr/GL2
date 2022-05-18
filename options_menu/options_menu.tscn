@@ -378,6 +378,7 @@ size_flags_horizontal = 3
 text = "Value"
 
 [node name="InputMapping" parent="Options/Tabs" instance=ExtResource( "2_owuij" )]
+process_mode = 2
 visible = false
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
