@@ -2,9 +2,10 @@ extends Control
 
 
 @onready var player := get_parent()
-@onready var vbox := $VBoxContainer
-@onready var tab_bar := $VBoxContainer/TabBar
-@onready var tabs := $VBoxContainer/Tabs
+@onready var options := get_node("Options")
+@onready var pause_controls := get_node("PauseControls")
+@onready var tab_bar := options.get_node("TabBar")
+@onready var tabs := options.get_node("Tabs")
 @onready var input_mapping := tabs.get_node("InputMapping")
 
 const FSR = [0.77, 0.67, 0.59, 0.5]
@@ -19,14 +20,11 @@ func _input(event):
 	if event.is_pressed():
 		if (event is InputEventKey and event.keycode == KEY_ESCAPE
 				or event is InputEventJoypadButton and event.button_index == JOY_BUTTON_START):
-		
-			visible = !visible
-			get_tree().paused = visible
-			
-			if visible:
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			else:
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			if pause_controls.visible:
+				toggle_pause()
+			elif options.visible:
+				options.visible = false
+				pause_controls.visible = true
 
 
 func apply_option(new_value: Variant, option: StringName):
@@ -50,6 +48,9 @@ func apply_option(new_value: Variant, option: StringName):
 			player.joypad_look_inverted_y = new_value
 		&"ControllerResponseCurve":
 			player.joypad_look_curve = new_value
+		&"ControllerDeadzone":
+			for action in ["look_up", "look_down", "look_left", "look_right"]:
+				InputMap.action_set_deadzone(action, new_value)
 		&"ControllerOuterThreshold":
 			player.joypad_look_outer_threshold = new_value
 		
@@ -147,6 +148,16 @@ func initialize_tab(tab: Control):
 	SaveManager.save_config_file()
 
 
+func toggle_pause():
+	visible = !visible
+	get_tree().paused = visible
+	
+	if visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
 func update_value_label(new_value: Variant, setter: Control):
 	if new_value is float:
 		var value_label := setter.get_parent().get_node("Value")
@@ -175,3 +186,16 @@ func _on_restore_defaults_button_pressed():
 func _on_tab_bar_tab_changed(index):
 	for tab in tabs.get_children():
 		tab.visible = tab.get_index() == index
+
+
+func _on_resume_button_pressed():
+	toggle_pause()
+
+
+func _on_options_button_pressed():
+	options.visible = !options.visible
+	pause_controls.visible = !pause_controls.visible
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()

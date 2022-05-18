@@ -1,4 +1,7 @@
 keys,en,de
+Resume,Resume,Fortsetzen
+Options,Options,Optionen
+Quit,Quit,Beenden
 Controls,Controls,Steuerung
 InputMapping,Input Mapping,Eingabezuweisung
 Video,Video,Video
@@ -14,6 +17,7 @@ ControllerHorizontalSensitivity,Horizontal sensitivity:,Horizontale Empfindlichk
 ControllerVerticalSensitivity,Vertical sensitivity:,Vertikale Empfindlichkeit:
 ControllerHorizontalInverted,Horizontal inverted:,Horizontal invertiert:
 ControllerVerticalInverted,Vertical inverted:,Vertikal invertiert:
+ControllerDeadzone,Deadzone:,Totzone:
 ControllerResponseCurve,Response curve:,Reaktionskurve:
 ControllerOuterThreshold,Outer threshold:,Äußere Schwelle:
 3DScale,3D resolution scale:,3D Auflösungs-Skalierung:
@@ -31,7 +35,7 @@ VolumeSFX,Sound effects volume:,Geräusch-Lautstärke:
 VolumeMusic,Music volume:,Musik-Lautstärke:
 VolumeDialog,Dialog volume:,Dialog-Lautstärke
 RestoreDefaults,Restore default values,Standardwerte wiederherstellen
-RemapInputs,Remap inputs,Eingaben neu zuweisen
+MouseKeyboard,Mouse/Keyboard,Maus/Tastatur
 look_up,Look up,Nach oben schauen
 look_down,Look down,Nach unten schauen
 look_left,Look left,Nach links schauen

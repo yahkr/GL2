@@ -12,14 +12,15 @@ color = Color(0, 0, 0, 0.588235)
 script = ExtResource( "1_b2bsq" )
 metadata/_edit_vertical_guides_ = []
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
-[node name="TabBar" type="TabBar" parent="VBoxContainer"]
+[node name="TabBar" type="TabBar" parent="Options"]
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
@@ -31,38 +32,38 @@ tab_1/title = "InputMapping"
 tab_2/title = "Video"
 tab_3/title = "Audio"
 
-[node name="Tabs" type="Control" parent="VBoxContainer"]
+[node name="Tabs" type="Control" parent="Options"]
 offset_top = 35.0
 offset_right = 1024.0
 offset_bottom = 565.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Controls" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+[node name="Controls" type="VBoxContainer" parent="Options/Tabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 
-[node name="Mouse" type="Label" parent="VBoxContainer/Tabs/Controls"]
+[node name="Mouse" type="Label" parent="Options/Tabs/Controls"]
 offset_right = 1024.0
 offset_bottom = 26.0
 text = "Mouse"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MouseSensitivity" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="MouseSensitivity" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 30.0
 offset_right = 1024.0
 offset_bottom = 56.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/MouseSensitivity"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/MouseSensitivity"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Controls/MouseSensitivity"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Controls/MouseSensitivity"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -79,19 +80,19 @@ tick_count = 20
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Controls/MouseSensitivity"]
+[node name="Value" type="Label" parent="Options/Tabs/Controls/MouseSensitivity"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="MouseHorizontalInverted" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="MouseHorizontalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 60.0
 offset_right = 1024.0
 offset_bottom = 91.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/MouseHorizontalInverted"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -99,7 +100,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Controls/MouseHorizontalInverted"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -108,18 +109,18 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Controls/MouseHorizontalInverted"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="MouseVerticalInverted" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="MouseVerticalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 95.0
 offset_right = 1024.0
 offset_bottom = 126.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/MouseVerticalInverted"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/MouseVerticalInverted"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -127,7 +128,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Controls/MouseVerticalInverted"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/MouseVerticalInverted"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -136,13 +137,13 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Controls/MouseVerticalInverted"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Controls/MouseVerticalInverted"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="Controller" type="Label" parent="VBoxContainer/Tabs/Controls"]
+[node name="Controller" type="Label" parent="Options/Tabs/Controls"]
 offset_top = 130.0
 offset_right = 1024.0
 offset_bottom = 156.0
@@ -150,19 +151,19 @@ text = "Controller"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="ControllerHorizontalSensitivity" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="ControllerHorizontalSensitivity" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 160.0
 offset_right = 1024.0
 offset_bottom = 186.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerHorizontalSensitivity"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerHorizontalSensitivity"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Controls/ControllerHorizontalSensitivity"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerHorizontalSensitivity"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -179,26 +180,26 @@ tick_count = 20
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerHorizontalSensitivity"]
+[node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerHorizontalSensitivity"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="ControllerVerticalSensitivity" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="ControllerVerticalSensitivity" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 190.0
 offset_right = 1024.0
 offset_bottom = 216.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerVerticalSensitivity"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerVerticalSensitivity"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Controls/ControllerVerticalSensitivity"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerVerticalSensitivity"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -215,19 +216,19 @@ tick_count = 20
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerVerticalSensitivity"]
+[node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerVerticalSensitivity"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="ControllerHorizontalInverted" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="ControllerHorizontalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 220.0
 offset_right = 1024.0
 offset_bottom = 251.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerHorizontalInverted"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -235,7 +236,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Controls/ControllerHorizontalInverted"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -244,18 +245,18 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Controls/ControllerHorizontalInverted"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="ControllerVerticalInverted" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="ControllerVerticalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 255.0
 offset_right = 1024.0
 offset_bottom = 286.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerVerticalInverted"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -263,7 +264,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Controls/ControllerVerticalInverted"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -272,25 +273,25 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Controls/ControllerVerticalInverted"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="ControllerResponseCurve" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="ControllerResponseCurve" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 290.0
 offset_right = 1024.0
 offset_bottom = 316.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerResponseCurve"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerResponseCurve"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Controls/ControllerResponseCurve"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerResponseCurve"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -305,26 +306,26 @@ tick_count = 4
 ticks_on_borders = true
 metadata/default_value = 2.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerResponseCurve"]
+[node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerResponseCurve"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="ControllerOuterThreshold" type="HBoxContainer" parent="VBoxContainer/Tabs/Controls" groups=["Option"]]
+[node name="ControllerDeadzone" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
 offset_top = 320.0
 offset_right = 1024.0
 offset_bottom = 346.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerOuterThreshold"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerDeadzone"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Controls/ControllerOuterThreshold"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerDeadzone"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -333,40 +334,72 @@ offset_bottom = 21.0
 size_flags_vertical = 4
 max_value = 0.5
 step = 0.01
-tick_count = 5
+tick_count = 6
 ticks_on_borders = true
-metadata/default_value = 0.01
+metadata/default_value = 0.1
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Controls/ControllerOuterThreshold"]
+[node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerDeadzone"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="InputMapping" parent="VBoxContainer/Tabs" instance=ExtResource( "2_owuij" )]
-visible = false
-grow_vertical = 2
-metadata/_edit_layout_mode = 1
-
-[node name="Video" type="VBoxContainer" parent="VBoxContainer/Tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_vertical = 3
-
-[node name="3DScale" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="ControllerOuterThreshold" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
+offset_top = 350.0
 offset_right = 1024.0
-offset_bottom = 26.0
+offset_bottom = 376.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/3DScale"]
+[node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerOuterThreshold"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Video/3DScale"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerOuterThreshold"]
+minimum_size = Vector2(400, 0)
+offset_left = 312.0
+offset_top = 5.0
+offset_right = 712.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 0.5
+step = 0.01
+tick_count = 6
+ticks_on_borders = true
+metadata/default_value = 0.01
+
+[node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerOuterThreshold"]
+offset_left = 716.0
+offset_right = 1024.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="InputMapping" parent="Options/Tabs" instance=ExtResource( "2_owuij" )]
+visible = false
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="Video" type="VBoxContainer" parent="Options/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+
+[node name="3DScale" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
+offset_right = 1024.0
+offset_bottom = 26.0
+
+[node name="Name" type="Label" parent="Options/Tabs/Video/3DScale"]
+offset_right = 308.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Options/Tabs/Video/3DScale"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -383,19 +416,19 @@ tick_count = 7
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Video/3DScale"]
+[node name="Value" type="Label" parent="Options/Tabs/Video/3DScale"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="AntiAliasing" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="AntiAliasing" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 30.0
 offset_right = 1024.0
 offset_bottom = 61.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/AntiAliasing"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/AntiAliasing"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -403,7 +436,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="OptionButton" parent="VBoxContainer/Tabs/Video/AntiAliasing"]
+[node name="Setter" type="OptionButton" parent="Options/Tabs/Video/AntiAliasing"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -418,18 +451,18 @@ popup/item_2/text = "MSAA"
 popup/item_2/id = 2
 metadata/default_value = 1
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Video/AntiAliasing"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Video/AntiAliasing"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="Bloom" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="Bloom" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 65.0
 offset_right = 1024.0
 offset_bottom = 96.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/Bloom"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/Bloom"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -437,7 +470,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Video/Bloom"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Video/Bloom"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -446,25 +479,25 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = true
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Video/Bloom"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Video/Bloom"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="Brightness" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="Brightness" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 100.0
 offset_right = 1024.0
 offset_bottom = 126.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/Brightness"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/Brightness"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Video/Brightness"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Video/Brightness"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -481,26 +514,26 @@ tick_count = 7
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Video/Brightness"]
+[node name="Value" type="Label" parent="Options/Tabs/Video/Brightness"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="FOV" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="FOV" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 130.0
 offset_right = 1024.0
 offset_bottom = 156.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/FOV"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/FOV"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Video/FOV"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Video/FOV"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -516,19 +549,19 @@ tick_count = 7
 ticks_on_borders = true
 metadata/default_value = 90.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Video/FOV"]
+[node name="Value" type="Label" parent="Options/Tabs/Video/FOV"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="FSR" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="FSR" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 160.0
 offset_right = 1024.0
 offset_bottom = 191.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/FSR"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/FSR"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -536,7 +569,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="OptionButton" parent="VBoxContainer/Tabs/Video/FSR"]
+[node name="Setter" type="OptionButton" parent="Options/Tabs/Video/FSR"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -555,18 +588,18 @@ popup/item_4/text = "Performance"
 popup/item_4/id = 4
 metadata/default_value = 0
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Video/FSR"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Video/FSR"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="Fullscreen" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 195.0
 offset_right = 1024.0
 offset_bottom = 226.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/Fullscreen"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/Fullscreen"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -574,7 +607,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Video/Fullscreen"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Video/Fullscreen"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -583,25 +616,25 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = true
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Video/Fullscreen"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Video/Fullscreen"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="MaxFPS" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="MaxFPS" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 230.0
 offset_right = 1024.0
 offset_bottom = 256.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/MaxFPS"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/MaxFPS"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Video/MaxFPS"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Video/MaxFPS"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -616,19 +649,19 @@ allow_lesser = true
 ticks_on_borders = true
 metadata/default_value = 240.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Video/MaxFPS"]
+[node name="Value" type="Label" parent="Options/Tabs/Video/MaxFPS"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="ShowFPS" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="ShowFPS" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 260.0
 offset_right = 1024.0
 offset_bottom = 291.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/ShowFPS"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/ShowFPS"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -636,7 +669,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Video/ShowFPS"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Video/ShowFPS"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -645,18 +678,18 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Video/ShowFPS"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Video/ShowFPS"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="VSync" type="HBoxContainer" parent="VBoxContainer/Tabs/Video" groups=["Option"]]
+[node name="VSync" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
 offset_top = 295.0
 offset_right = 1024.0
 offset_bottom = 326.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Video/VSync"]
+[node name="Name" type="Label" parent="Options/Tabs/Video/VSync"]
 offset_top = 2.0
 offset_right = 308.0
 offset_bottom = 28.0
@@ -664,7 +697,7 @@ size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="CheckBox" parent="VBoxContainer/Tabs/Video/VSync"]
+[node name="Setter" type="CheckBox" parent="Options/Tabs/Video/VSync"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
@@ -673,30 +706,30 @@ size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
-[node name="Spacer" type="Control" parent="VBoxContainer/Tabs/Video/VSync"]
+[node name="Spacer" type="Control" parent="Options/Tabs/Video/VSync"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 
-[node name="Audio" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+[node name="Audio" type="VBoxContainer" parent="Options/Tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 
-[node name="VolumeMaster" type="HBoxContainer" parent="VBoxContainer/Tabs/Audio" groups=["Option"]]
+[node name="VolumeMaster" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
 offset_right = 1024.0
 offset_bottom = 26.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeMaster"]
+[node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeMaster"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Audio/VolumeMaster"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeMaster"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -710,26 +743,26 @@ tick_count = 11
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeMaster"]
+[node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeMaster"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="VolumeSFX" type="HBoxContainer" parent="VBoxContainer/Tabs/Audio" groups=["Option"]]
+[node name="VolumeSFX" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
 offset_top = 30.0
 offset_right = 1024.0
 offset_bottom = 56.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeSFX"]
+[node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeSFX"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Audio/VolumeSFX"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeSFX"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -743,26 +776,26 @@ tick_count = 11
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeSFX"]
+[node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeSFX"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="VolumeMusic" type="HBoxContainer" parent="VBoxContainer/Tabs/Audio" groups=["Option"]]
+[node name="VolumeMusic" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
 offset_top = 60.0
 offset_right = 1024.0
 offset_bottom = 86.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeMusic"]
+[node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeMusic"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Audio/VolumeMusic"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeMusic"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -776,26 +809,26 @@ tick_count = 11
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeMusic"]
+[node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeMusic"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="VolumeDialog" type="HBoxContainer" parent="VBoxContainer/Tabs/Audio" groups=["Option"]]
+[node name="VolumeDialog" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
 offset_top = 90.0
 offset_right = 1024.0
 offset_bottom = 116.0
 
-[node name="Name" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeDialog"]
+[node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeDialog"]
 offset_right = 308.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
-[node name="Setter" type="HSlider" parent="VBoxContainer/Tabs/Audio/VolumeDialog"]
+[node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeDialog"]
 minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
@@ -809,19 +842,63 @@ tick_count = 11
 ticks_on_borders = true
 metadata/default_value = 1.0
 
-[node name="Value" type="Label" parent="VBoxContainer/Tabs/Audio/VolumeDialog"]
+[node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeDialog"]
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="RestoreDefaultsButton" type="Button" parent="VBoxContainer"]
+[node name="RestoreDefaultsButton" type="Button" parent="Options"]
 offset_top = 569.0
 offset_right = 1024.0
 offset_bottom = 600.0
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "RestoreDefaults"
 
-[connection signal="tab_changed" from="VBoxContainer/TabBar" to="." method="_on_tab_bar_tab_changed"]
-[connection signal="pressed" from="VBoxContainer/RestoreDefaultsButton" to="." method="_on_restore_defaults_button_pressed"]
+[node name="PauseControls" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -100.0
+offset_right = 532.0
+offset_bottom = 100.0
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="GameTitle" type="Label" parent="PauseControls"]
+offset_right = 500.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 48
+text = "FPS"
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseControls"]
+offset_top = 74.0
+offset_right = 500.0
+offset_bottom = 105.0
+text = "Resume"
+flat = true
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="PauseControls"]
+offset_top = 109.0
+offset_right = 500.0
+offset_bottom = 140.0
+text = "Options"
+flat = true
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="PauseControls"]
+offset_top = 144.0
+offset_right = 500.0
+offset_bottom = 175.0
+text = "Quit"
+flat = true
+alignment = 0
+
+[connection signal="tab_changed" from="Options/TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="pressed" from="Options/RestoreDefaultsButton" to="." method="_on_restore_defaults_button_pressed"]
+[connection signal="pressed" from="PauseControls/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseControls/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseControls/QuitButton" to="." method="_on_quit_button_pressed"]
