@@ -1,14 +1,14 @@
 keys,en,de
-Resume,Resume,Fortsetzen
-Options,Options,Optionen
-Quit,Quit,Beenden
-Controls,Controls,Steuerung
+Resume,,Fortsetzen
+Options,,Optionen
+Quit,,Beenden
+Controls,,Steuerung
 InputMapping,Input Mapping,Eingabezuweisung
-Video,Video,Video
-Audio,Audio,Audio
-Enabled,Enabled,Aktiviert
-Disabled,Disabled,Deaktiviert
-Mouse,Mouse,Maus
+Video,,
+Audio,,
+Enabled,,Aktiviert
+Disabled,,Deaktiviert
+Mouse,,Maus
 MouseSensitivity,Mouse sensitvity:,Mausempfindlichkeit:
 MouseHorizontalInverted,Horizontal inverted:,Horizontal invertiert:
 MouseVerticalInverted,Vertical inverted:,Vertikal invertiert:

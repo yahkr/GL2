@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://4wbav72xfqom"]
+
+[ext_resource type="Script" path="res://objects/health_charger.gd" id="1_nd8xx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dry0"]
+size = Vector3(0.6, 1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6r1i3"]
+albedo_color = Color(0.0705882, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqldx"]
+size = Vector3(0.6, 1, 0.2)
+
+[node name="HealthCharger" type="StaticBody3D"]
+script = ExtResource( "1_nd8xx" )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource( "BoxMesh_4dry0" )
+surface_material_override/0 = SubResource( "StandardMaterial3D_6r1i3" )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource( "BoxShape3D_xqldx" )

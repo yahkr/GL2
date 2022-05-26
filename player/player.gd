@@ -2,8 +2,7 @@ extends CharacterBody3D
 
 
 @onready var camera = $Camera3D
-@onready var crosshair = $Crosshair
-@onready var options_menu = $OptionsMenu
+@onready var use_ray_cast = $Camera3D/UseRayCast3D
 
 const AIR_ACCELERATION = 2.0
 const GROUND_ACCELERATION = 20.0
@@ -13,6 +12,8 @@ const SPRINT_SPEED = 10.0
 const WALK_SPEED = 5.0
 
 const JUMP_VELOCITY = 6.0
+
+var health := 100
 
 var acceleration: float
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,6 +37,12 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
+func _process(_delta):
+	look()
+	
+#	print(health)
+
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		var input = event.relative
@@ -49,7 +56,24 @@ func _input(event):
 
 
 func _physics_process(delta):
-	# Joypad look
+	move(delta)
+	interact()
+
+
+func interact():
+	if use_ray_cast.is_colliding():
+		var interactable := use_ray_cast.get_collider() as Interactable
+		
+		if interactable:
+			if Input.is_action_just_pressed("use"):
+				interactable.interact(self)
+				return
+	
+	if Input.is_action_just_pressed("use"):
+		$SoundCannotUse.play()
+
+
+func look():
 	var look_input = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	
 	if joypad_look_inverted_x:
@@ -74,7 +98,9 @@ func _physics_process(delta):
 	
 	# Clamp vertical camera rotation for both mouse and joypad
 	camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2)
-	
+
+
+func move(delta):
 	# Gravity and jumping
 	if is_on_floor():
 		acceleration = GROUND_ACCELERATION
@@ -91,6 +117,9 @@ func _physics_process(delta):
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
+	
+	if Input.is_action_just_pressed("sprint"):
+		$SoundSprint.play()
 	
 	# Get input and move with acceleration/deceleration
 	var move_input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")

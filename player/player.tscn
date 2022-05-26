@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=8 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="PackedScene" uid="uid://ccjijngfwurb6" path="res://options_menu/options_menu.tscn" id="2_jnfbw"]
+[ext_resource type="AudioStream" uid="uid://0ixmllseisdw" path="res://sounds/player/cannot_use.wav" id="3_5o8hl"]
+[ext_resource type="AudioStream" uid="uid://fs0kme2hhi04" path="res://sounds/player/sprint.wav" id="4_0cti2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dbrtn"]
 
@@ -16,12 +18,16 @@ func _process(_delta):
 "
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 0
 script = ExtResource( "1_whha0" )
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 current = true
 fov = 90.0
+
+[node name="UseRayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -3)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -50,3 +56,11 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 script = SubResource( "GDScript_qo00c" )
+
+[node name="SoundCannotUse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "3_5o8hl" )
+
+[node name="SoundFootstep" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundSprint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "4_0cti2" )
