@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"Interactable",
 "language": &"GDScript",
 "path": "res://objects/interactable.gd"
+}, {
+"base": "CharacterBody3D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://player/player.gd"
 }]
 _global_script_class_icons={
-"Interactable": ""
+"Interactable": "",
+"Player": ""
 }
 
 [application]

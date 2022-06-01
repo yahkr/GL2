@@ -1,19 +1,32 @@
 extends CharacterBody3D
 
+class_name Player
 
-@onready var camera = $Camera3D
-@onready var use_ray_cast = $Camera3D/UseRayCast3D
+
+@onready var camera := $Camera3D as Camera3D
+@onready var health_label := $Indicators/Health/Label as Label
+@onready var suit_power_label := $Indicators/SuitPower/Label as Label
+@onready var use_ray_cast := $Camera3D/UseRayCast3D as RayCast3D
+@onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
 
 const AIR_ACCELERATION = 2.0
 const GROUND_ACCELERATION = 20.0
-
 const CROUCH_SPEED = 2.5
 const SPRINT_SPEED = 10.0
 const WALK_SPEED = 5.0
-
 const JUMP_VELOCITY = 6.0
 
-var health := 100
+var health: int:
+	set(value):
+		health_label.text = str(value)
+		health = value
+
+var suit_power: int:
+	set(value):
+		suit_power_label.text = str(value)
+		suit_power = value
+
+var current_interactable: Interactable
 
 var acceleration: float
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -35,12 +48,13 @@ var mouse_look_sensitivity: float
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	health = 50
+	suit_power = 50
 
 
 func _process(_delta):
 	look()
-	
-#	print(health)
 
 
 func _input(event):
@@ -61,16 +75,19 @@ func _physics_process(delta):
 
 
 func interact():
-	if use_ray_cast.is_colliding():
-		var interactable := use_ray_cast.get_collider() as Interactable
-		
-		if interactable:
-			if Input.is_action_just_pressed("use"):
-				interactable.interact(self)
-				return
+	var interactable := use_ray_cast.get_collider() as Interactable
 	
-	if Input.is_action_just_pressed("use"):
-		$SoundCannotUse.play()
+	if Input.is_action_just_released("use") or interactable != current_interactable:
+		if current_interactable:
+			current_interactable.stop_interact()
+			current_interactable = null
+	
+	if interactable:
+		if Input.is_action_pressed("use"):
+			interactable.interact(self)
+			current_interactable = interactable
+	elif Input.is_action_just_pressed("use"):
+		sound_cannot_use.play()
 
 
 func look():

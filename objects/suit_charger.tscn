@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dljem16vksx4f"]
+[gd_scene load_steps=8 format=3 uid="uid://dljem16vksx4f"]
 
-[ext_resource type="Script" path="res://objects/suit_charger.gd" id="1_ybc6f"]
+[ext_resource type="Script" path="res://objects/charger.gd" id="1_wtso5"]
+[ext_resource type="AudioStream" uid="uid://0sdhnt7i8ppl" path="res://sounds/items/suitchargeok1.wav" id="2_jr5lt"]
+[ext_resource type="AudioStream" uid="uid://54t3el0mhrmf" path="res://sounds/items/suitcharge1.wav" id="3_n5oku"]
+[ext_resource type="AudioStream" uid="uid://cryq635nw1hgk" path="res://sounds/items/suitchargeno1.wav" id="4_ajjpa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6fktd"]
 size = Vector3(0.6, 1, 0.2)
@@ -12,7 +15,8 @@ albedo_color = Color(1, 0.411765, 0, 1)
 size = Vector3(0.6, 1, 0.2)
 
 [node name="SuitCharger" type="StaticBody3D"]
-script = ExtResource( "1_ybc6f" )
+script = ExtResource( "1_wtso5" )
+type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource( "BoxMesh_6fktd" )
@@ -20,3 +24,26 @@ surface_material_override/0 = SubResource( "StandardMaterial3D_vccyg" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource( "BoxShape3D_yxc2f" )
+
+[node name="SoundShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "2_jr5lt" )
+bus = &"SFX"
+
+[node name="SoundCharge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "3_n5oku" )
+bus = &"SFX"
+
+[node name="SoundDeny" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "4_ajjpa" )
+bus = &"SFX"
+
+[node name="TimerCharge" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+
+[node name="TimerSound" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="TimerSound" to="." method="_on_timer_sound_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 [ext_resource type="PackedScene" uid="uid://ccsyutky0eas2" path="res://objects/wooden_crate.tscn" id="2_ays1q"]
-[ext_resource type="PackedScene" uid="uid://4wbav72xfqom" path="res://objects/health_charger.tscn" id="3_q5g7t"]
+[ext_resource type="PackedScene" uid="uid://c48v5iawad8b6" path="res://objects/health_charger.tscn" id="3_q5g7t"]
 [ext_resource type="PackedScene" uid="uid://dljem16vksx4f" path="res://objects/suit_charger.tscn" id="4_70oby"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
@@ -59,7 +59,7 @@ size = Vector3(16.6, 1, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
 
 [node name="HealthCharger" parent="." instance=ExtResource( "3_q5g7t" )]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2, 2)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2, 0.3)
 
 [node name="SuitCharger" parent="." instance=ExtResource( "4_70oby" )]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2, -2)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2, -0.3)

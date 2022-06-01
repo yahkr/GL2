@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqyayx344wb4g"]
+
+[ext_resource type="FontData" uid="uid://sumg0umwbx54" path="res://fonts/din1451alt.ttf" id="1_ykmml"]
+
+[sub_resource type="Font" id="Font_il34i"]
+data/0 = ExtResource( "1_ykmml" )
+
+[resource]
+default_font = SubResource( "Font_il34i" )
+Label/colors/font_color = Color(1, 0.839216, 0, 1)
