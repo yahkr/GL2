@@ -1,14 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=15 format=3 uid="uid://bydil0i5a5r0t"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
+[ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
 [ext_resource type="PackedScene" uid="uid://ccjijngfwurb6" path="res://options_menu/options_menu.tscn" id="2_jnfbw"]
 [ext_resource type="Theme" uid="uid://cqyayx344wb4g" path="res://theme.tres" id="2_t007i"]
 [ext_resource type="AudioStream" uid="uid://0ixmllseisdw" path="res://sounds/player/cannot_use.wav" id="3_5o8hl"]
+[ext_resource type="PackedScene" uid="uid://pm25bhay4glh" path="res://weapons/crowbar/crowbar.tscn" id="3_iksgm"]
 [ext_resource type="AudioStream" uid="uid://fs0kme2hhi04" path="res://sounds/player/sprint.wav" id="4_0cti2"]
+[ext_resource type="PackedScene" uid="uid://di8f1ywj7cdnn" path="res://weapons/pistol/pistol.tscn" id="4_bjifu"]
+[ext_resource type="FontData" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="6_scti2"]
+[ext_resource type="AudioStream" uid="uid://cfgs7h7q8l6tc" path="res://sounds/common/wpn_moveselect.wav" id="8_n4ouh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dbrtn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lif66"]
+
+[sub_resource type="Font" id="Font_gjiba"]
+data/0 = ExtResource( "6_scti2" )
 
 [sub_resource type="GDScript" id="GDScript_qo00c"]
 script/source = "extends Label
@@ -21,14 +29,53 @@ func _process(_delta):
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource( "1_whha0" )
+metadata/_edit_horizontal_guides_ = []
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cull_mask = 1048573
 current = true
 fov = 90.0
 
 [node name="UseRayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -3)
+
+[node name="WeaponRayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, 0)
+script = ExtResource( "2_0juje" )
+
+[node name="Crowbar" parent="Camera3D/WeaponRayCast3D" instance=ExtResource( "3_iksgm" )]
+visible = false
+
+[node name="GravityGun" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Pistol" parent="Camera3D/WeaponRayCast3D" instance=ExtResource( "4_bjifu" )]
+visible = false
+
+[node name="Node3D2" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Node3D3" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Node3D4" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Node3D5" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Node3D6" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Node3D7" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Node3D8" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
+[node name="Node3D9" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -86,6 +133,317 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Spacer" type="Control" parent="Indicators"]
+offset_left = 168.0
+offset_right = 882.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
+unique_name_in_owner = true
+offset_left = 886.0
+offset_right = 1024.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]
+offset_right = 138.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Spacer" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+offset_left = 8.0
+offset_right = 42.0
+offset_bottom = 40.0
+size_flags_vertical = 4
+theme_override_constants/separation = -15
+
+[node name="Icon" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
+offset_right = 34.0
+offset_bottom = 33.0
+theme_override_fonts/font = SubResource( "Font_gjiba" )
+theme_override_font_sizes/font_size = 24
+text = "p"
+horizontal_alignment = 1
+
+[node name="Mun" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
+offset_top = 18.0
+offset_right = 34.0
+offset_bottom = 40.0
+text = "MUN"
+
+[node name="Spacer2" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+offset_left = 50.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="LabelMagazine" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+minimum_size = Vector2(38, 0)
+offset_left = 58.0
+offset_right = 96.0
+offset_bottom = 40.0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "17"
+vertical_alignment = 1
+
+[node name="LabelReserve" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+minimum_size = Vector2(26, 32)
+offset_left = 104.0
+offset_top = 4.0
+offset_right = 130.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 20
+text = "100"
+vertical_alignment = 2
+
+[node name="Spacer3" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+offset_left = 138.0
+offset_right = 138.0
+offset_bottom = 40.0
+
+[node name="SecondaryAmmo" type="Panel" parent="Indicators"]
+unique_name_in_owner = true
+visible = false
+minimum_size = Vector2(80, 0)
+offset_left = 944.0
+offset_right = 1024.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Indicators/SecondaryAmmo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WeaponCategories" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="First" type="VBoxContainer" parent="WeaponCategories"]
+offset_right = 120.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Crowbar" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/First/Crowbar"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Crowbar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gravity Gun" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_top = 64.0
+offset_right = 120.0
+offset_bottom = 124.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/First/Gravity Gun"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Gravity Gun"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Second" type="VBoxContainer" parent="WeaponCategories"]
+offset_left = 124.0
+offset_right = 244.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Pistol" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Second/Pistol"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Pistol"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Revolver" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_top = 64.0
+offset_right = 120.0
+offset_bottom = 124.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Second/Revolver"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Revolver"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Third" type="VBoxContainer" parent="WeaponCategories"]
+offset_left = 248.0
+offset_right = 368.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="SMG" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Third/SMG"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "SMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pulse Rifle" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_top = 64.0
+offset_right = 120.0
+offset_bottom = 124.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Third/Pulse Rifle"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Pulse Rifle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
+offset_left = 372.0
+offset_right = 492.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Shotgun" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Fourth/Shotgun"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Shotgun"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crossbow" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_top = 64.0
+offset_right = 120.0
+offset_bottom = 124.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Fourth/Crossbow"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Crossbow"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
+offset_left = 496.0
+offset_right = 616.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Grenade" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Fifth/Grenade"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Grenade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RPG" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_top = 64.0
+offset_right = 120.0
+offset_bottom = 124.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Fifth/RPG"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "RPG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
+offset_left = 620.0
+offset_right = 740.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Bugbait" type="PanelContainer" parent="WeaponCategories/Sixth" groups=["WeaponSelectItem"]]
+minimum_size = Vector2(120, 60)
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="WeaponCategories/Sixth/Bugbait"]
+offset_right = 120.0
+offset_bottom = 60.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+text = "Bugbait"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="OptionsMenu" parent="." instance=ExtResource( "2_jnfbw" )]
 visible = false
 
@@ -105,4 +463,9 @@ bus = &"SFX"
 
 [node name="SoundSprint" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "4_0cti2" )
+bus = &"SFX"
+
+[node name="SoundSwitchWeapon" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( "8_n4ouh" )
 bus = &"SFX"

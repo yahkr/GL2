@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://crbqmogi48hhw"]
+
+[ext_resource type="PackedScene" uid="uid://cq4sssl1mgurg" path="res://weapons/pistol/pistol.glb" id="1_tt1sd"]
+
+[node name="pistol" instance=ExtResource( "1_tt1sd" )]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="v_pistolqc_skeleton" index="0"]
+bones/25/rotation = Quaternion(0.69228, 0.188741, -0.662252, 0.21575)
+bones/26/rotation = Quaternion(4.89699e-09, -3.20608e-09, -0.157676, 0.987491)
+bones/27/rotation = Quaternion(-0.598005, -0.0572206, 0.0823032, 0.795199)
+bones/36/position = Vector3(2.35782e-07, 1.60745, -0.0207555)

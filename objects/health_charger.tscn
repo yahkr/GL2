@@ -14,7 +14,7 @@ albedo_color = Color(0.0705882, 1, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xqldx"]
 size = Vector3(0.6, 1, 0.2)
 
-[node name="HealthCharger" type="StaticBody3D"]
+[node name="HealthCharger" type="StaticBody3D" groups=["MetalMaterial"]]
 script = ExtResource( "1_1wmf6" )
 type = 0
 

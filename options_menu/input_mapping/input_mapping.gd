@@ -229,6 +229,7 @@ func update_input_map(action: String, input: InputEvent, input_type: int):
 	
 	SaveManager.set_config_value(get_input_str(input), "InputMapping", action + option_suffix)
 
+
 func update_mapping_button(input: InputEvent):
 	var input_str := get_input_str(input)
 	var input_str_path := input_str.to_lower()
@@ -247,7 +248,6 @@ func update_mapping_button(input: InputEvent):
 			icon_path = prompts_prefix + "switch/" + input_str_path + prompts_suffix
 		else:
 			icon_path = prompts_prefix + "xbox/" + input_str_path + prompts_suffix
-	
 	
 	if ResourceLoader.exists(icon_path):
 		selected_mapping_button.icon = load(icon_path)

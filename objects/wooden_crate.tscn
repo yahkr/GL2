@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h4mag"]
 
-[node name="WoodenCrate" type="RigidDynamicBody3D"]
+[node name="WoodenCrate" type="RigidDynamicBody3D" groups=["WoodMaterial"]]
 script = ExtResource( "1_5hxxx" )
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
