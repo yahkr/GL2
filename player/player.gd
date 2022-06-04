@@ -3,36 +3,43 @@ extends CharacterBody3D
 class_name Player
 
 
+@export var speed: float
+
+@onready var anim_tree := $AnimationTree as AnimationTree
+@onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
 @onready var camera := $Camera3D as Camera3D
-@onready var health_label := $Indicators/Health/Label as Label
-@onready var suit_power_label := $Indicators/SuitPower/Label as Label
-@onready var use_ray_cast := $Camera3D/UseRayCast3D as RayCast3D
+@onready var health_label := %HealthValue as Label
+@onready var suit_power_label := %SuitValue as Label
+@onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
 @onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
 
 const AIR_ACCELERATION = 2.0
+const FALL_DAMAGE_THRESHOLD = 11.0
+const FALL_DAMAGE_MULTIPLIER = 15.0
 const GROUND_ACCELERATION = 20.0
-const CROUCH_SPEED = 2.5
-const SPRINT_SPEED = 10.0
-const WALK_SPEED = 5.0
 const JUMP_VELOCITY = 6.0
 
 var health: int:
 	set(value):
-		health_label.text = str(value)
-		health = value
+		health = clamp(value, 0, 100)
+		health_label.text = str(health)
+		if health < 20:
+			$Indicators/Health.modulate = Color(1.0, 0.25, 0.25)
+		else:
+			$Indicators/Health.modulate = Color.WHITE
 
 var suit_power: int:
 	set(value):
-		suit_power_label.text = str(value)
-		suit_power = value
+		suit_power = clamp(value, 0, 100)
+		suit_power_label.text = str(suit_power)
 
 var current_interactable: Interactable
 
 var acceleration: float
+var fall_velocity: float
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var joypad_look: Vector2
 var movement: Vector2
-var speed: float
 
 var joypad_look_curve: float
 var joypad_look_inverted_x: bool
@@ -49,8 +56,8 @@ var mouse_look_sensitivity: float
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	health = 50
-	suit_power = 50
+	health = 10
+	suit_power = 0
 
 
 func _process(_delta):
@@ -65,8 +72,8 @@ func _input(event):
 		if mouse_look_inverted_y:
 			input.y *= -1
 		
-		rotate_y(-input.x * mouse_look_sensitivity / 100)
-		camera.rotate_x(-input.y * mouse_look_sensitivity / 100)
+		rotate_y(-input.x * mouse_look_sensitivity / 500)
+		camera.rotate_x(-input.y * mouse_look_sensitivity / 500)
 
 
 func _physics_process(delta):
@@ -75,7 +82,7 @@ func _physics_process(delta):
 
 
 func interact():
-	var interactable := use_ray_cast.get_collider() as Interactable
+	var interactable := use_raycast.get_collider() as Interactable
 	
 	if Input.is_action_just_released("use") or interactable != current_interactable:
 		if current_interactable:
@@ -100,13 +107,13 @@ func look():
 	
 	if abs(look_input.x) > 1 - joypad_look_outer_threshold:
 		look_input.x = round(look_input.x)
-	joypad_look.x = pow(abs(look_input.x), joypad_look_curve) * joypad_look_sensitivity_x / 10
+	joypad_look.x = abs(look_input.x) ** joypad_look_curve * joypad_look_sensitivity_x / 10
 	if look_input.x < 0:
 		joypad_look.x *= -1
 	
 	if abs(look_input.y) > 1 - joypad_look_outer_threshold:
 		look_input.y = round(look_input.y)
-	joypad_look.y = pow(abs(look_input.y), joypad_look_curve) * joypad_look_sensitivity_y / 10
+	joypad_look.y = abs(look_input.y) ** joypad_look_curve * joypad_look_sensitivity_y / 10
 	if look_input.y < 0:
 		joypad_look.y *= -1
 	
@@ -120,23 +127,25 @@ func look():
 func move(delta):
 	# Gravity and jumping
 	if is_on_floor():
+		if fall_velocity < -FALL_DAMAGE_THRESHOLD:
+			health += int((fall_velocity + FALL_DAMAGE_THRESHOLD) * FALL_DAMAGE_MULTIPLIER)
+		fall_velocity = 0
 		acceleration = GROUND_ACCELERATION
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
 	else:
 		velocity.y -= gravity * delta
+		fall_velocity = velocity.y
 		acceleration = AIR_ACCELERATION
 	
 	# Crouching and sprinting
 	if Input.is_action_pressed("crouch"):
-		speed = CROUCH_SPEED
-	elif Input.is_action_pressed("sprint"):
-		speed = SPRINT_SPEED
-	else:
-		speed = WALK_SPEED
-	
-	if Input.is_action_just_pressed("sprint"):
-		$SoundSprint.play()
+		state_machine.travel("Crouch")
+	elif not test_move(transform, Vector3.UP):
+		if Input.is_action_pressed("sprint"):
+			state_machine.travel("Sprint")
+		else:
+			state_machine.travel("RESET")
 	
 	# Get input and move with acceleration/deceleration
 	var move_input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -145,3 +154,7 @@ func move(delta):
 	velocity.x = movement.x
 	velocity.z = movement.y
 	move_and_slide()
+
+
+func _on_stand_area_3d_body_entered(body):
+	print(body)

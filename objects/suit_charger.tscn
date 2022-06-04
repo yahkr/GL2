@@ -27,14 +27,17 @@ shape = SubResource( "BoxShape3D_yxc2f" )
 
 [node name="SoundShot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "2_jr5lt" )
+volume_db = -25.0
 bus = &"SFX"
 
 [node name="SoundCharge" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "3_n5oku" )
+volume_db = -25.0
 bus = &"SFX"
 
 [node name="SoundDeny" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "4_ajjpa" )
+volume_db = -25.0
 bus = &"SFX"
 
 [node name="TimerCharge" type="Timer" parent="."]

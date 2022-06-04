@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=25 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="PackedScene" uid="uid://ccjijngfwurb6" path="res://options_menu/options_menu.tscn" id="2_jnfbw"]
@@ -6,9 +6,26 @@
 [ext_resource type="AudioStream" uid="uid://0ixmllseisdw" path="res://sounds/player/cannot_use.wav" id="3_5o8hl"]
 [ext_resource type="AudioStream" uid="uid://fs0kme2hhi04" path="res://sounds/player/sprint.wav" id="4_0cti2"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dbrtn"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0sxox"]
+radius = 0.4
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lif66"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_ii0ry"]
+top_radius = 0.4
+bottom_radius = 0.4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvpj5"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr23b"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="GDScript" id="GDScript_qo00c"]
 script/source = "extends Label
@@ -18,27 +35,202 @@ func _process(_delta):
 		text = \"FPS: \" + str(Engine.get_frames_per_second())
 "
 
+[sub_resource type="Animation" id="Animation_f6825"]
+resource_name = "Crouch"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.5, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.9, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.5]
+}
+
+[sub_resource type="Animation" id="Animation_mmd56"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.9, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="Animation" id="Animation_grp1g"]
+resource_name = "Sprint"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundSprint")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u17eu"]
+_data = {
+"Crouch": SubResource( "Animation_f6825" ),
+"RESET": SubResource( "Animation_mmd56" ),
+"Sprint": SubResource( "Animation_grp1g" )
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gbghh"]
+animation = &"Crouch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n4q6v"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_60wjw"]
+animation = &"Sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s8pjf"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ut2pv"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7miyi"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rw263"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hiwme"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_biv5e"]
+states/Crouch/node = SubResource( "AnimationNodeAnimation_gbghh" )
+states/Crouch/position = Vector2(283, 167)
+states/RESET/node = SubResource( "AnimationNodeAnimation_n4q6v" )
+states/RESET/position = Vector2(283, 43)
+states/Sprint/node = SubResource( "AnimationNodeAnimation_60wjw" )
+states/Sprint/position = Vector2(494, 167)
+states/Start/position = Vector2(71, 43)
+transitions = ["Start", "RESET", SubResource( "AnimationNodeStateMachineTransition_s8pjf" ), "RESET", "Crouch", SubResource( "AnimationNodeStateMachineTransition_ut2pv" ), "Crouch", "RESET", SubResource( "AnimationNodeStateMachineTransition_7miyi" ), "RESET", "Sprint", SubResource( "AnimationNodeStateMachineTransition_rw263" ), "Sprint", "RESET", SubResource( "AnimationNodeStateMachineTransition_hiwme" )]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_yfxdi"]
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource( "1_whha0" )
+speed = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 current = true
 fov = 90.0
 
 [node name="UseRayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource( "CapsuleMesh_dbrtn" )
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource( "CapsuleShape3D_lif66" )
+shape = SubResource( "CylinderShape3D_0sxox" )
 
-[node name="Crosshair" type="ColorRect" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource( "CylinderMesh_ii0ry" )
+skeleton = NodePath("../..")
+
+[node name="Crosshair" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -47,6 +239,7 @@ offset_left = -2.5
 offset_top = -2.5
 offset_right = 2.5
 offset_bottom = 2.5
+theme_override_styles/panel = SubResource( "StyleBoxFlat_wvpj5" )
 
 [node name="Indicators" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -54,33 +247,88 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -40.0
 theme = ExtResource( "2_t007i" )
+theme_override_constants/separation = 8
 
 [node name="Health" type="Panel" parent="Indicators"]
-minimum_size = Vector2(80, 0)
-offset_right = 80.0
+minimum_size = Vector2(110, 0)
+offset_right = 110.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource( "StyleBoxFlat_pr23b" )
 
-[node name="Label" type="Label" parent="Indicators/Health"]
+[node name="MarginContainer" type="MarginContainer" parent="Indicators/Health"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Indicators/Health/MarginContainer"]
+offset_left = 4.0
+offset_right = 106.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Health" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
+offset_top = 9.0
+offset_right = 84.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+text = "HEALTH"
+vertical_alignment = 1
+
+[node name="HealthValue" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 88.0
+offset_right = 102.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SuitPower" type="Panel" parent="Indicators"]
-minimum_size = Vector2(80, 0)
-offset_left = 84.0
-offset_right = 164.0
+minimum_size = Vector2(110, 0)
+offset_left = 118.0
+offset_right = 228.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource( "StyleBoxFlat_pr23b" )
 
-[node name="Label" type="Label" parent="Indicators/SuitPower"]
+[node name="MarginContainer" type="MarginContainer" parent="Indicators/SuitPower"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Indicators/SuitPower/MarginContainer"]
+offset_left = 4.0
+offset_right = 106.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Suit" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
+offset_top = 9.0
+offset_right = 84.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+text = "SUIT"
+vertical_alignment = 1
+
+[node name="SuitValue" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 88.0
+offset_right = 102.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
@@ -98,11 +346,25 @@ script = SubResource( "GDScript_qo00c" )
 
 [node name="SoundCannotUse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "3_5o8hl" )
+volume_db = -20.0
 bus = &"SFX"
 
 [node name="SoundFootstep" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 bus = &"SFX"
 
 [node name="SoundSprint" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "4_0cti2" )
+volume_db = -20.0
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource( "AnimationLibrary_u17eu" )
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( "AnimationNodeStateMachine_biv5e" )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_yfxdi" )
