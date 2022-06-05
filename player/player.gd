@@ -154,7 +154,3 @@ func move(delta):
 	velocity.x = movement.x
 	velocity.z = movement.y
 	move_and_slide()
-
-
-func _on_stand_area_3d_body_entered(body):
-	print(body)
