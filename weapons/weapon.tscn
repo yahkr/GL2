@@ -1,0 +1,71 @@
+[gd_scene load_steps=17 format=3 uid="uid://dm70kt3t2n0nq"]
+
+[ext_resource type="AudioStream" uid="uid://3f0lkkvdxhfs" path="res://sounds/physics/concrete/concrete_impact_bullet1.wav" id="1_o5ck0"]
+[ext_resource type="AudioStream" uid="uid://c4anka32j2gw1" path="res://sounds/physics/concrete/concrete_impact_bullet2.wav" id="2_ntejh"]
+[ext_resource type="AudioStream" uid="uid://i1decfqcyn2r" path="res://sounds/physics/concrete/concrete_impact_bullet3.wav" id="3_ayk4n"]
+[ext_resource type="AudioStream" uid="uid://d4ahnlpwbum4p" path="res://sounds/physics/concrete/concrete_impact_bullet4.wav" id="4_rs3oj"]
+[ext_resource type="AudioStream" uid="uid://ci8gd1hty1j6g" path="res://sounds/physics/metal/metal_solid_impact_bullet1.wav" id="5_gwx1r"]
+[ext_resource type="AudioStream" uid="uid://66dwfegvvjtg" path="res://sounds/physics/metal/metal_solid_impact_bullet2.wav" id="6_kpu4v"]
+[ext_resource type="AudioStream" uid="uid://cekqflrqqs72v" path="res://sounds/physics/metal/metal_solid_impact_bullet3.wav" id="7_wb1pm"]
+[ext_resource type="AudioStream" uid="uid://b7tf56132hcyj" path="res://sounds/physics/wood/wood_solid_impact_bullet1.wav" id="8_4vmch"]
+[ext_resource type="AudioStream" uid="uid://gr0xxxbh587j" path="res://sounds/physics/metal/metal_solid_impact_bullet4.wav" id="8_7wjtn"]
+[ext_resource type="AudioStream" uid="uid://cvddtdujhqlch" path="res://sounds/physics/wood/wood_solid_impact_bullet2.wav" id="9_p7r2x"]
+[ext_resource type="AudioStream" uid="uid://bakhwx4nbjecx" path="res://sounds/physics/wood/wood_solid_impact_bullet3.wav" id="10_3272b"]
+[ext_resource type="AudioStream" uid="uid://cixc1amkduxnm" path="res://sounds/physics/wood/wood_solid_impact_bullet4.wav" id="11_7nua7"]
+[ext_resource type="AudioStream" uid="uid://beneh7vecoqt5" path="res://sounds/physics/wood/wood_solid_impact_bullet5.wav" id="12_cdqh1"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jrknc"]
+streams_count = 4
+random_pitch = 1.0
+stream_0/stream = ExtResource( "1_o5ck0" )
+stream_0/weight = 1.0
+stream_1/stream = ExtResource( "2_ntejh" )
+stream_1/weight = 1.0
+stream_2/stream = ExtResource( "3_ayk4n" )
+stream_2/weight = 1.0
+stream_3/stream = ExtResource( "4_rs3oj" )
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_33jq2"]
+streams_count = 4
+random_pitch = 1.0
+stream_0/stream = ExtResource( "5_gwx1r" )
+stream_0/weight = 1.0
+stream_1/stream = ExtResource( "6_kpu4v" )
+stream_1/weight = 1.0
+stream_2/stream = ExtResource( "7_wb1pm" )
+stream_2/weight = 1.0
+stream_3/stream = ExtResource( "8_7wjtn" )
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w6mgo"]
+streams_count = 5
+random_pitch = 1.0
+stream_0/stream = ExtResource( "8_4vmch" )
+stream_0/weight = 1.0
+stream_1/stream = ExtResource( "9_p7r2x" )
+stream_1/weight = 1.0
+stream_2/stream = ExtResource( "10_3272b" )
+stream_2/weight = 1.0
+stream_3/stream = ExtResource( "11_7nua7" )
+stream_3/weight = 1.0
+stream_4/stream = ExtResource( "12_cdqh1" )
+stream_4/weight = 1.0
+
+[node name="Weapon" type="Node3D"]
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="SoundHitConcrete" type="AudioStreamPlayer3D" parent="."]
+top_level = true
+stream = SubResource( "AudioStreamRandomizer_jrknc" )
+
+[node name="SoundHitMetal" type="AudioStreamPlayer3D" parent="."]
+top_level = true
+stream = SubResource( "AudioStreamRandomizer_33jq2" )
+
+[node name="SoundHitWood" type="AudioStreamPlayer3D" parent="."]
+top_level = true
+stream = SubResource( "AudioStreamRandomizer_w6mgo" )

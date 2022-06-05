@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://pm25bhay4glh"]
+
+[ext_resource type="PackedScene" uid="uid://dm70kt3t2n0nq" path="res://weapons/weapon.tscn" id="1_agbo3"]
+[ext_resource type="Script" path="res://weapons/crowbar/crowbar.gd" id="2_dik0g"]
+[ext_resource type="AudioStream" uid="uid://dy4yp8ch2yh2" path="res://sounds/weapons/crowbar/crowbar_swing1.wav" id="3_dduqe"]
+[ext_resource type="PackedScene" uid="uid://d0cb2orhtyncq" path="res://weapons/crowbar/crowbar_model.tscn" id="4_hmykn"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ffhmy"]
+streams_count = 1
+playback_mode = 2
+random_pitch = 1.05
+stream_0/stream = ExtResource( "3_dduqe" )
+stream_0/weight = 1.0
+
+[node name="Crowbar" instance=ExtResource( "1_agbo3" )]
+script = ExtResource( "2_dik0g" )
+
+[node name="SoundSwing" type="AudioStreamPlayer" parent="." index="4"]
+stream = SubResource( "AudioStreamRandomizer_ffhmy" )
+
+[node name="crowbar" parent="." index="5" instance=ExtResource( "4_hmykn" )]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0.5, 2)

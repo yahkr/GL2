@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0cb2orhtyncq"]
+
+[ext_resource type="PackedScene" uid="uid://ugln4wskmgnu" path="res://weapons/crowbar/crowbar.glb" id="1_2asi3"]
+
+[node name="crowbar" instance=ExtResource( "1_2asi3" )]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0)

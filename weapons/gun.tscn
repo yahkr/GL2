@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjw4bj31lew1j"]
+
+[ext_resource type="PackedScene" uid="uid://dm70kt3t2n0nq" path="res://weapons/weapon.tscn" id="1_o2sv8"]
+
+[node name="Gun" instance=ExtResource( "1_o2sv8" )]
+
+[node name="SoundShoot" type="AudioStreamPlayer" parent="." index="4"]
+
+[node name="SoundReload" type="AudioStreamPlayer" parent="." index="5"]
