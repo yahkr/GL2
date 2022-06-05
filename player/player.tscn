@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=31 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -220,10 +220,11 @@ transitions = ["Start", "RESET", SubResource( "AnimationNodeStateMachineTransiti
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource( "1_whha0" )
+speed = 5.0
 metadata/_edit_horizontal_guides_ = []
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 cull_mask = 1048573
 current = true
 fov = 90.0
@@ -267,10 +268,6 @@ visible = false
 
 [node name="Node3D9" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
 visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource( "CapsuleMesh_dbrtn" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -385,8 +382,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Indicators"]
-offset_left = 168.0
-offset_right = 882.0
+offset_left = 236.0
+offset_right = 878.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 
