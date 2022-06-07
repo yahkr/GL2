@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccjijngfwurb6"]
+[gd_scene load_steps=5 format=3 uid="uid://ccjijngfwurb6"]
 
 [ext_resource type="Script" path="res://options_menu/options_menu.gd" id="1_b2bsq"]
 [ext_resource type="PackedScene" uid="uid://bpvlofe3gn5pr" path="res://options_menu/input_mapping/input_mapping.tscn" id="2_owuij"]
+[ext_resource type="AudioStream" uid="uid://c0ewxew15m6ck" path="res://sounds/ui/buttonrollover.wav" id="3_lbhr5"]
+[ext_resource type="AudioStream" uid="uid://dkp8ud7l2yw7o" path="res://sounds/ui/buttonclickrelease.wav" id="4_o2cmd"]
 
 [node name="OptionsMenu" type="ColorRect"]
 process_mode = 3
@@ -898,8 +900,19 @@ text = "Quit"
 flat = true
 alignment = 0
 
+[node name="SoundHover" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( "3_lbhr5" )
+
+[node name="SoundClick" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( "4_o2cmd" )
+
 [connection signal="tab_changed" from="Options/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="Options/RestoreDefaultsButton" to="." method="_on_restore_defaults_button_pressed"]
+[connection signal="mouse_entered" from="PauseControls/ResumeButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="PauseControls/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="PauseControls/OptionsButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="PauseControls/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="PauseControls/QuitButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="PauseControls/QuitButton" to="." method="_on_quit_button_pressed"]

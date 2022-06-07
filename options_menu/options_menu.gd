@@ -189,13 +189,20 @@ func _on_tab_bar_tab_changed(index):
 
 
 func _on_resume_button_pressed():
+	%SoundClick.play()
 	toggle_pause()
 
 
 func _on_options_button_pressed():
+	%SoundClick.play()
 	options.visible = !options.visible
 	pause_controls.visible = !pause_controls.visible
 
 
 func _on_quit_button_pressed():
+	%SoundClick.play()
 	get_tree().quit()
+
+
+func _on_button_mouse_entered():
+	%SoundHover.play()

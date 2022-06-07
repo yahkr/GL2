@@ -47,3 +47,7 @@ move_right,Move right,Nach rechts bewegen
 jump,Jump,Springen
 sprint,Sprint,Sprinten
 crouch,Crouch,Ducken
+primary_attack,Primary Attack,Primärer Angriff
+secondary_attack,Secondary Attack,Sekundärer Angriff
+reload,Reload,Nachladen
+flashlight,Flashlight,Taschenlampe

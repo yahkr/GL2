@@ -15,8 +15,11 @@ stream_0/weight = 1.0
 [node name="Crowbar" instance=ExtResource( "1_agbo3" )]
 script = ExtResource( "2_dik0g" )
 
+[node name="Cooldown" parent="." index="0"]
+wait_time = 0.3
+
 [node name="SoundSwing" type="AudioStreamPlayer" parent="." index="4"]
 stream = SubResource( "AudioStreamRandomizer_ffhmy" )
 
-[node name="crowbar" parent="." index="5" instance=ExtResource( "4_hmykn" )]
-transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0.5, 2)
+[node name="Model" parent="." index="5" instance=ExtResource( "4_hmykn" )]
+transform = Transform3D(-0.01, 0, -1.50996e-09, 0, 0.01, 0, 1.50996e-09, 0, -0.01, 0, 0, 0.2)

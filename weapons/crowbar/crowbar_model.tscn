@@ -1,6 +1,21 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0cb2orhtyncq"]
 
-[ext_resource type="PackedScene" uid="uid://ugln4wskmgnu" path="res://weapons/crowbar/crowbar.glb" id="1_2asi3"]
+[ext_resource type="PackedScene" uid="uid://dw6c3hsuw0em4" path="res://weapons/crowbar/crowbar.glb" id="1_2asi3"]
 
-[node name="crowbar" instance=ExtResource( "1_2asi3" )]
-transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0)
+[node name="Model" instance=ExtResource( "1_2asi3" )]
+transform = Transform3D(-0.01, 0, -1.50996e-09, 0, 0.01, 0, 1.50996e-09, 0, -0.01, 0, 0, 0)
+
+[node name="Skeleton3D" parent="v_crowbarqc_skeleton" index="0"]
+bones/6/rotation = Quaternion(0.6833, -0.254838, -0.231258, 0.643955)
+bones/7/rotation = Quaternion(2.03454e-08, 1.83745e-08, -0.446539, 0.894764)
+bones/8/rotation = Quaternion(-0.382208, -0.18115, 0.389434, 0.818195)
+bones/9/position = Vector3(-14.1849, -19.2367, 11.4344)
+bones/9/rotation = Quaternion(-0.564973, 0.425183, -0.70591, 0.0414293)
+bones/11/position = Vector3(-1.35941, 1.32035, 0.121101)
+bones/11/rotation = Quaternion(0.288, -0.400379, 0.0957101, 0.864634)
+
+[node name="crowbar_reference" parent="v_crowbarqc_skeleton/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="AnimationPlayer" parent="." index="1"]
+playback_speed = 1.5

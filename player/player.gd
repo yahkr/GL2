@@ -12,9 +12,10 @@ class_name Player
 @onready var suit_power_label := %SuitValue as Label
 @onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
 @onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
+@onready var sound_flashlight := $SoundFlashlight as AudioStreamPlayer
 
 const AIR_ACCELERATION = 2.0
-const FALL_DAMAGE_THRESHOLD = 11.0
+const FALL_DAMAGE_THRESHOLD = 20.0
 const FALL_DAMAGE_MULTIPLIER = 15.0
 const GROUND_ACCELERATION = 20.0
 const JUMP_VELOCITY = 6.0
@@ -79,6 +80,13 @@ func _input(event):
 func _physics_process(delta):
 	move(delta)
 	interact()
+	flashlight()
+
+
+func flashlight():
+	if Input.is_action_just_pressed("flashlight"):
+		%Flashlight.visible = !%Flashlight.visible
+		sound_flashlight.play()
 
 
 func interact():

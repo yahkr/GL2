@@ -4,6 +4,8 @@
 
 [node name="Gun" instance=ExtResource( "1_o2sv8" )]
 
-[node name="SoundShoot" type="AudioStreamPlayer" parent="." index="4"]
+[node name="SoundShoot" type="AudioStreamPlayer" parent="." index="5"]
 
-[node name="SoundReload" type="AudioStreamPlayer" parent="." index="5"]
+[node name="SoundReload" type="AudioStreamPlayer" parent="." index="6"]
+
+[node name="SoundNoAmmo" type="AudioStreamPlayer" parent="." index="7"]

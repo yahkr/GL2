@@ -1,19 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://di8f1ywj7cdnn"]
+[gd_scene load_steps=7 format=3 uid="uid://di8f1ywj7cdnn"]
 
 [ext_resource type="PackedScene" uid="uid://cjw4bj31lew1j" path="res://weapons/gun.tscn" id="1_f3fct"]
 [ext_resource type="Script" path="res://weapons/pistol/pistol.gd" id="2_7a83t"]
 [ext_resource type="AudioStream" uid="uid://1qutsocq657l" path="res://sounds/weapons/pistol/pistol_fire2.wav" id="3_4o35o"]
 [ext_resource type="PackedScene" uid="uid://crbqmogi48hhw" path="res://weapons/pistol/pistol_model.tscn" id="3_shfkt"]
 [ext_resource type="AudioStream" uid="uid://cfploo25vr4ww" path="res://sounds/weapons/pistol/pistol_reload1.wav" id="4_552xb"]
+[ext_resource type="AudioStream" uid="uid://ba20clbgxjvnn" path="res://sounds/weapons/pistol/pistol_empty.wav" id="5_j2p7a"]
 
 [node name="Pistol" instance=ExtResource( "1_f3fct" )]
 script = ExtResource( "2_7a83t" )
 hit_range = 1000.0
-magazine_ammo = 17
-reserve_ammo = 100
+reserve_ammo = 17
 
 [node name="Cooldown" parent="." index="0"]
-wait_time = 0.15
+wait_time = 0.1
 
 [node name="SoundShoot" parent="." index="4"]
 stream = ExtResource( "3_4o35o" )
@@ -21,5 +21,8 @@ stream = ExtResource( "3_4o35o" )
 [node name="SoundReload" parent="." index="5"]
 stream = ExtResource( "4_552xb" )
 
-[node name="pistol" parent="." index="6" instance=ExtResource( "3_shfkt" )]
-transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 1.5)
+[node name="SoundNoAmmo" parent="." index="6"]
+stream = ExtResource( "5_j2p7a" )
+
+[node name="Model" parent="." index="7" instance=ExtResource( "3_shfkt" )]
+transform = Transform3D(-0.01, 0, -1.50996e-09, 0, 0.01, 0, 1.50996e-09, 0, -0.01, 0, 0, 0.14)

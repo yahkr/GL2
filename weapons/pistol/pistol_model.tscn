@@ -2,11 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://cq4sssl1mgurg" path="res://weapons/pistol/pistol.glb" id="1_tt1sd"]
 
-[node name="pistol" instance=ExtResource( "1_tt1sd" )]
-transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0)
+[node name="Model" instance=ExtResource( "1_tt1sd" )]
+transform = Transform3D(-0.01, 0, -1.50996e-09, 0, 0.01, 0, 1.50996e-09, 0, -0.01, 0, 0, 0)
 
 [node name="Skeleton3D" parent="v_pistolqc_skeleton" index="0"]
-bones/25/rotation = Quaternion(0.69228, 0.188741, -0.662252, 0.21575)
-bones/26/rotation = Quaternion(4.89699e-09, -3.20608e-09, -0.157676, 0.987491)
-bones/27/rotation = Quaternion(-0.598005, -0.0572206, 0.0823032, 0.795199)
-bones/36/position = Vector3(2.35782e-07, 1.60745, -0.0207555)
+bones/8/position = Vector3(11.4817, 2.50586e-06, -3.28133e-05)
+bones/25/rotation = Quaternion(0.607017, -0.24342, -0.512838, 0.556125)
+bones/26/rotation = Quaternion(1.07442e-08, 2.86941e-09, -0.525313, 0.850909)
+bones/27/rotation = Quaternion(-0.610059, -0.434278, 0.0309121, 0.662024)
+bones/36/position = Vector3(-1.19473e-06, 1.60746, -0.0207555)
+
+[node name="Pistol_reference" parent="v_pistolqc_skeleton/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="AnimationPlayer" parent="." index="1"]
+playback_speed = 1.5

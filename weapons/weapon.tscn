@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cixc1amkduxnm" path="res://sounds/physics/wood/wood_solid_impact_bullet4.wav" id="11_7nua7"]
 [ext_resource type="AudioStream" uid="uid://beneh7vecoqt5" path="res://sounds/physics/wood/wood_solid_impact_bullet5.wav" id="12_cdqh1"]
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jrknc"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_colca"]
 streams_count = 4
 random_pitch = 1.0
 stream_0/stream = ExtResource( "1_o5ck0" )
@@ -26,7 +26,7 @@ stream_2/weight = 1.0
 stream_3/stream = ExtResource( "4_rs3oj" )
 stream_3/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_33jq2"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t8377"]
 streams_count = 4
 random_pitch = 1.0
 stream_0/stream = ExtResource( "5_gwx1r" )
@@ -38,7 +38,7 @@ stream_2/weight = 1.0
 stream_3/stream = ExtResource( "8_7wjtn" )
 stream_3/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w6mgo"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j08vq"]
 streams_count = 5
 random_pitch = 1.0
 stream_0/stream = ExtResource( "8_4vmch" )
@@ -60,12 +60,12 @@ one_shot = true
 
 [node name="SoundHitConcrete" type="AudioStreamPlayer3D" parent="."]
 top_level = true
-stream = SubResource( "AudioStreamRandomizer_jrknc" )
+stream = SubResource( "AudioStreamRandomizer_colca" )
 
 [node name="SoundHitMetal" type="AudioStreamPlayer3D" parent="."]
 top_level = true
-stream = SubResource( "AudioStreamRandomizer_33jq2" )
+stream = SubResource( "AudioStreamRandomizer_t8377" )
 
 [node name="SoundHitWood" type="AudioStreamPlayer3D" parent="."]
 top_level = true
-stream = SubResource( "AudioStreamRandomizer_w6mgo" )
+stream = SubResource( "AudioStreamRandomizer_j08vq" )
