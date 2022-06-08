@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcmccvuaf3nnk"]
+
+[ext_resource type="PackedScene" uid="uid://ci3sji8ry1u48" path="res://objects/health_charger001.glb" id="1_q3sll"]
+
+[node name="health_charger001" instance=ExtResource( "1_q3sll" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0)
+
+[node name="health_charger001_physics" parent="health_charger001qc_skeleton/Skeleton3D" index="0"]
+visible = false
+
+[node name="health_charger001_reference" parent="health_charger001qc_skeleton/Skeleton3D" index="1"]
+visible = false
+
+[node name="health_charger001_reference_lod2" parent="health_charger001qc_skeleton/Skeleton3D" index="3"]
+visible = false
+
+[node name="health_charger001_reference_lod3" parent="health_charger001qc_skeleton/Skeleton3D" index="4"]
+visible = false

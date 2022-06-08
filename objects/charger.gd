@@ -5,6 +5,7 @@ enum ChargerType {HEALTH, SUIT}
 
 @export var type: ChargerType
 
+@onready var animation_player := $Model/AnimationPlayer as AnimationPlayer
 @onready var sound_shot := $SoundShot as AudioStreamPlayer
 @onready var sound_charge := $SoundCharge as AudioStreamPlayer
 @onready var sound_deny := $SoundDeny as AudioStreamPlayer
@@ -40,6 +41,7 @@ func interact(player):
 			timer_charge.one_shot = false
 			sound_shot.play()
 			timer_sound.start()
+			animation_player.play("idle")
 	elif not sound_deny.playing:
 		timer_charge.stop()
 		sound_charge.stop()
@@ -52,6 +54,7 @@ func stop_interact():
 		timer_charge.one_shot = true
 		timer_sound.stop()
 		sound_charge.stop()
+		animation_player.stop(false)
 
 
 func _on_timer_sound_timeout():

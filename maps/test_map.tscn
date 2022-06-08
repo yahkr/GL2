@@ -59,7 +59,7 @@ size = Vector3(16.6, 1, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
 
 [node name="HealthCharger" parent="." instance=ExtResource( "3_q5g7t" )]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2, 0.3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1.7, 0.5)
 
 [node name="SuitCharger" parent="." instance=ExtResource( "4_70oby" )]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 2, -0.3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1.7, -0.4)

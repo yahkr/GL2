@@ -1,29 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://dljem16vksx4f"]
+[gd_scene load_steps=7 format=3 uid="uid://dljem16vksx4f"]
 
 [ext_resource type="Script" path="res://objects/charger.gd" id="1_wtso5"]
+[ext_resource type="PackedScene" uid="uid://cpcyvvwgsh3c3" path="res://objects/suit_charger_001.tscn" id="2_iy4hw"]
 [ext_resource type="AudioStream" uid="uid://0sdhnt7i8ppl" path="res://sounds/items/suitchargeok1.wav" id="2_jr5lt"]
 [ext_resource type="AudioStream" uid="uid://54t3el0mhrmf" path="res://sounds/items/suitcharge1.wav" id="3_n5oku"]
 [ext_resource type="AudioStream" uid="uid://cryq635nw1hgk" path="res://sounds/items/suitchargeno1.wav" id="4_ajjpa"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_6fktd"]
-size = Vector3(0.6, 1, 0.2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vccyg"]
-albedo_color = Color(1, 0.411765, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yxc2f"]
-size = Vector3(0.6, 1, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqldx"]
+size = Vector3(0.8, 1.4, 0.2)
 
 [node name="SuitCharger" type="StaticBody3D" groups=["MetalMaterial"]]
 script = ExtResource( "1_wtso5" )
 type = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource( "BoxMesh_6fktd" )
-surface_material_override/0 = SubResource( "StandardMaterial3D_vccyg" )
+[node name="Model" parent="." instance=ExtResource( "2_iy4hw" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, -0.1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource( "BoxShape3D_yxc2f" )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+shape = SubResource( "BoxShape3D_xqldx" )
 
 [node name="TimerCharge" type="Timer" parent="."]
 process_callback = 0

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpcyvvwgsh3c3"]
+
+[ext_resource type="PackedScene" uid="uid://cfkhtx0vxi8sl" path="res://objects/suit_charger001.glb" id="1_fc2n0"]
+
+[node name="suit_charger001" instance=ExtResource( "1_fc2n0" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0)
+
+[node name="Skeleton3D" parent="suit_charger001qc_skeleton" index="0"]
+bones/1/position = Vector3(-4.26193, 7.82985, 6.46791)
+bones/2/position = Vector3(-4.46834, 0.121294, 3.88202)
+
+[node name="suit_charger001_physics" parent="suit_charger001qc_skeleton/Skeleton3D" index="0"]
+visible = false
+
+[node name="suit_charger001_reference" parent="suit_charger001qc_skeleton/Skeleton3D" index="1"]
+visible = false
+
+[node name="suit_charger001_reference_lod2" parent="suit_charger001qc_skeleton/Skeleton3D" index="3"]
+visible = false
+
+[node name="suit_charger001_reference_lod3" parent="suit_charger001qc_skeleton/Skeleton3D" index="4"]
+visible = false
+
+[node name="AnimationPlayer" parent="." index="1"]
+playback_speed = 0.3
