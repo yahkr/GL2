@@ -9,7 +9,7 @@ func _ready():
 
 
 func _process(_delta):
-	if visible and Input.is_action_just_pressed("primary_attack") and cooldown.is_stopped():
+	if is_attacking():
 		cooldown.start()
 		sound_swing.play()
 		animation_player.stop()

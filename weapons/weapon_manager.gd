@@ -30,7 +30,7 @@ func select_weapon(index: int):
 	
 	weapon_select_items[current_weapon].add_theme_stylebox_override("panel", selected_panel)
 	
-	get_child(current_weapon).visible = true
+	get_child(current_weapon).emit_signal("weapon_selected")
 	
 	var gun := get_child(current_weapon) as Gun
 	if gun:

@@ -26,10 +26,7 @@ func _ready():
 
 
 func shoot_gun():
-	if not visible or animation_player.current_animation == "reload":
-		return
-	
-	if Input.is_action_just_pressed("primary_attack") and cooldown.is_stopped():
+	if is_attacking():
 		if magazine_ammo > 0:
 			cooldown.start()
 			sound_shoot.play()

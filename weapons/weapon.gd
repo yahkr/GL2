@@ -15,9 +15,21 @@ class_name Weapon
 const bullet_hole = preload("res://weapons/decals/bullet_hole.tscn")
 
 
+signal weapon_selected
+
+
 func _ready():
-	connect("visibility_changed", draw_weapon)
-	animation_player.connect("animation_finished", play_idle)
+	weapon_selected.connect(draw_weapon)
+	animation_player.animation_finished.connect(play_idle)
+
+
+func is_attacking() -> bool:
+	return (visible
+			and Input.is_action_just_pressed("primary_attack")
+			and cooldown.is_stopped()
+			and not (animation_player.current_animation == "draw"
+					and animation_player.current_animation_position < 0.5)
+			and animation_player.current_animation != "reload")
 
 
 func hit():
@@ -39,11 +51,10 @@ func hit():
 
 func draw_weapon():
 	weapon_raycast.target_position = Vector3.FORWARD * hit_range
-	if visible:
-		animation_player.play("draw")
-	else:
-		animation_player.play("holster")
-		animation_player.advance(100)
+	animation_player.stop()
+	animation_player.play("draw", 0)
+	animation_player.advance(0)
+	visible = true
 
 
 func play_idle(anim_name: String):

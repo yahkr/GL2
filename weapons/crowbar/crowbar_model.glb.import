@@ -3,19 +3,19 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dw6c3hsuw0em4"
-path="res://.godot/imported/crowbar.glb-05be62b4546721bd365865f25f7509d6.scn"
+uid="uid://dymutk8nhnnpj"
+path="res://.godot/imported/crowbar_model.glb-e25e9b002e73c1d15d28756ed2294448.scn"
 
 [deps]
 
-source_file="res://weapons/crowbar/crowbar.glb"
-dest_files=["res://.godot/imported/crowbar.glb-05be62b4546721bd365865f25f7509d6.scn"]
+source_file="res://weapons/crowbar/crowbar_model.glb"
+dest_files=["res://.godot/imported/crowbar_model.glb-e25e9b002e73c1d15d28756ed2294448.scn"]
 
 [params]
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
-nodes/root_scale=0.01
+nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

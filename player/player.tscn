@@ -251,6 +251,9 @@ visible = false
 [node name="Pistol" parent="Camera3D/WeaponRayCast3D" instance=ExtResource( "4_bjifu" )]
 visible = false
 
+[node name="Node3D" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+visible = false
+
 [node name="Node3D2" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
 visible = false
 
@@ -270,9 +273,6 @@ visible = false
 visible = false
 
 [node name="Node3D8" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
-visible = false
-
-[node name="Node3D9" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -390,15 +390,16 @@ vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Indicators"]
 offset_left = 236.0
-offset_right = 1134.0
+offset_right = 878.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
-offset_left = 1142.0
-offset_right = 1280.0
+offset_left = 886.0
+offset_right = 1024.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource( "StyleBoxFlat_pr23b" )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]
 offset_right = 138.0
@@ -468,6 +469,7 @@ minimum_size = Vector2(80, 0)
 offset_left = 944.0
 offset_right = 1024.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource( "StyleBoxFlat_pr23b" )
 
 [node name="Label" type="Label" parent="Indicators/SecondaryAmmo"]
 anchor_right = 1.0
@@ -485,7 +487,7 @@ anchor_bottom = 1.0
 
 [node name="First" type="VBoxContainer" parent="WeaponCategories"]
 offset_right = 120.0
-offset_bottom = 720.0
+offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="Crowbar" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
@@ -524,7 +526,7 @@ vertical_alignment = 1
 [node name="Second" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 124.0
 offset_right = 244.0
-offset_bottom = 720.0
+offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="Pistol" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
@@ -563,7 +565,7 @@ vertical_alignment = 1
 [node name="Third" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 248.0
 offset_right = 368.0
-offset_bottom = 720.0
+offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="SMG" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
@@ -602,7 +604,7 @@ vertical_alignment = 1
 [node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 372.0
 offset_right = 492.0
-offset_bottom = 720.0
+offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="Shotgun" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
@@ -641,7 +643,7 @@ vertical_alignment = 1
 [node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 496.0
 offset_right = 616.0
-offset_bottom = 720.0
+offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="Grenade" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
@@ -680,7 +682,7 @@ vertical_alignment = 1
 [node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 620.0
 offset_right = 740.0
-offset_bottom = 720.0
+offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="Bugbait" type="PanelContainer" parent="WeaponCategories/Sixth" groups=["WeaponSelectItem"]]

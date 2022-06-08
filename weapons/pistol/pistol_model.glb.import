@@ -1,0 +1,34 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bnas0unub6rf3"
+path="res://.godot/imported/pistol_model.glb-0ce9e670f962fb29ba816493db048515.scn"
+
+[deps]
+
+source_file="res://weapons/pistol/pistol_model.glb"
+dest_files=["res://.godot/imported/pistol_model.glb-0ce9e670f962fb29ba816493db048515.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30.0
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": false
+}
+}
+}
