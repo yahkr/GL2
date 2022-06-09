@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://dtofapfmqp1k"]
+[gd_scene load_steps=3 format=3 uid="uid://dtofapfmqp1k"]
 
-[node name="SuitBattery" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://6rb1gq64ejiu" path="res://objects/suit_battery/suit_battery_model.tscn" id="1_agfgn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lus2b"]
+size = Vector3(0.2, 0.3, 0.2)
+
+[node name="SuitBattery" type="RigidDynamicBody3D" groups=["SuitBattery"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource( "BoxShape3D_lus2b" )
+
+[node name="suit_battery_model" parent="." instance=ExtResource( "1_agfgn" )]

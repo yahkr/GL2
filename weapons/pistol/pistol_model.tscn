@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bnas0unub6rf3" path="res://weapons/pistol/pistol_model.glb" id="1_ha0ln"]
 
 [node name="pistol_model" instance=ExtResource( "1_ha0ln" )]
-transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0.125)
+transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0.13)
 
 [node name="Skeleton3D" parent="v_pistolqc_skeleton" index="0"]
 bones/0/position = Vector3(-5e-06, -29.4219, 0.533203)

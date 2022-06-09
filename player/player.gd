@@ -13,6 +13,8 @@ class_name Player
 @onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
 @onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
 @onready var sound_flashlight := $SoundFlashlight as AudioStreamPlayer
+@onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
+@onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
 
 const AIR_ACCELERATION = 2.0
 const FALL_DAMAGE_THRESHOLD = 20.0
@@ -162,3 +164,20 @@ func move(delta):
 	velocity.x = movement.x
 	velocity.z = movement.y
 	move_and_slide()
+
+
+func _on_area_3d_body_entered(body):
+	if body.is_in_group("HealthKit"):
+		if health < 100:
+			health += 15
+			body.queue_free()
+			sound_health_kit.play()
+		else:
+			print("Full Health")
+	elif body.is_in_group("SuitBattery"):
+		if suit_power < 100:
+			suit_power += 15
+			body.queue_free()
+			sound_suit_battery.play()
+		else:
+			print("Full Health")

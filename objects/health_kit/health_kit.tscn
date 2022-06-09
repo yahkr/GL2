@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://rd8yuk5xc4pq"]
+[gd_scene load_steps=3 format=3 uid="uid://rd8yuk5xc4pq"]
 
-[node name="HealthKit" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://dq57pbout0av" path="res://objects/health_kit/health_kit_model.tscn" id="1_gk8d7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ws7uc"]
+size = Vector3(0.4, 0.2, 0.5)
+
+[node name="HealthKit" type="RigidDynamicBody3D" groups=["HealthKit"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource( "BoxShape3D_ws7uc" )
+
+[node name="health_kit_model" parent="." instance=ExtResource( "1_gk8d7" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0.15)

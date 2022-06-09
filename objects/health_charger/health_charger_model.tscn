@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcmccvuaf3nnk"]
+
+[ext_resource type="PackedScene" uid="uid://c2q2mg28bf7mx" path="res://objects/health_charger/health_charger_model.glb" id="1_q3sll"]
+
+[node name="health_charger001" instance=ExtResource( "1_q3sll" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0)
+
+[node name="Skeleton3D" parent="health_charger001qc_skeleton" index="0"]
+bones/0/rotation = Quaternion(-6.11877e-05, -3.04981e-05, -3.05019e-05, 1)
+bones/1/position = Vector3(0.0670781, -1.13574, 6.88281)
+bones/2/position = Vector3(2.55469, 5.36719, 0.946777)
+
+[node name="AnimationPlayer" parent="." index="1"]
+playback_process_mode = 0
+playback_default_blend_time = 0.1

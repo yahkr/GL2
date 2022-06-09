@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=45 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -11,6 +11,8 @@
 [ext_resource type="FontData" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="6_scti2"]
 [ext_resource type="AudioStream" uid="uid://cfgs7h7q8l6tc" path="res://sounds/common/wpn_moveselect.wav" id="8_n4ouh"]
 [ext_resource type="AudioStream" uid="uid://cu2o1akeaotuw" path="res://sounds/items/flashlight1.wav" id="11_b3cvp"]
+[ext_resource type="AudioStream" uid="uid://c7vgxaewy3u0k" path="res://sounds/items/smallmedkit1.wav" id="12_h3h6x"]
+[ext_resource type="AudioStream" uid="uid://c01qlwuefurg2" path="res://sounds/items/battery_pickup.wav" id="13_8p2uw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0sxox"]
 radius = 0.4
@@ -387,9 +389,11 @@ visible = false
 
 [node name="UseRayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -3)
+collision_mask = 3
 
 [node name="WeaponRayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, 0)
+collision_mask = 3
 script = ExtResource( "2_0juje" )
 
 [node name="Crowbar" parent="Camera3D/WeaponRayCast3D" instance=ExtResource( "3_iksgm" )]
@@ -424,6 +428,15 @@ visible = false
 
 [node name="Node3D8" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
 visible = false
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource( "CylinderShape3D_0sxox" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -538,14 +551,14 @@ vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Indicators"]
 offset_left = 236.0
-offset_right = 878.0
+offset_right = 1134.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
-offset_left = 886.0
-offset_right = 1024.0
+offset_left = 1142.0
+offset_right = 1280.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]
@@ -637,7 +650,7 @@ theme_override_constants/separation = 12
 
 [node name="First" type="VBoxContainer" parent="WeaponCategories"]
 offset_right = 120.0
-offset_bottom = 600.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
@@ -715,7 +728,7 @@ vertical_alignment = 1
 [node name="Second" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 132.0
 offset_right = 252.0
-offset_bottom = 600.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
@@ -793,7 +806,7 @@ vertical_alignment = 1
 [node name="Third" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 264.0
 offset_right = 384.0
-offset_bottom = 600.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
@@ -871,7 +884,7 @@ vertical_alignment = 1
 [node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 396.0
 offset_right = 516.0
-offset_bottom = 600.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
@@ -949,7 +962,7 @@ vertical_alignment = 1
 [node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 528.0
 offset_right = 648.0
-offset_bottom = 600.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
@@ -1027,7 +1040,7 @@ vertical_alignment = 1
 [node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 660.0
 offset_right = 780.0
-offset_bottom = 600.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
@@ -1096,6 +1109,14 @@ bus = &"SFX"
 stream = ExtResource( "11_b3cvp" )
 bus = &"SFX"
 
+[node name="SoundHealthKit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "12_h3h6x" )
+bus = &"SFX"
+
+[node name="SoundSuitBattery" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "13_8p2uw" )
+bus = &"SFX"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource( "AnimationLibrary_u17eu" )
@@ -1111,4 +1132,5 @@ parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_yfxdi" )
 unique_name_in_owner = true
 one_shot = true
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponRayCast3D" method="_on_timer_weapon_select_fade_timeout"]

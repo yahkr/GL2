@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://6rb1gq64ejiu"]
+
+[ext_resource type="PackedScene" uid="uid://48s57xywalx" path="res://objects/suit_battery/suit_battery_model.glb" id="1_1nwry"]
+
+[node name="suit_battery_model" instance=ExtResource( "1_1nwry" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0)
+
+[node name="battery_physics" parent="batteryqc_skeleton/Skeleton3D" index="0"]
+visible = false
+
+[node name="battery_reference_lod1" parent="batteryqc_skeleton/Skeleton3D" index="2"]
+visible = false
+
+[node name="battery_reference_lod2" parent="batteryqc_skeleton/Skeleton3D" index="3"]
+visible = false
+
+[node name="battery_reference_lod3" parent="batteryqc_skeleton/Skeleton3D" index="4"]
+visible = false
+
+[node name="battery_reference_lod4" parent="batteryqc_skeleton/Skeleton3D" index="5"]
+visible = false

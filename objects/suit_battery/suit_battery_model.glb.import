@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ci3sji8ry1u48"
-path="res://.godot/imported/health_charger001.glb-484c97fd65d9418f2f5ffb56dbee27e6.scn"
+uid="uid://48s57xywalx"
+path="res://.godot/imported/suit_battery_model.glb-dfc2ffb42f66aa39286eb693607b826f.scn"
 
 [deps]
 
-source_file="res://objects/health_charger001.glb"
-dest_files=["res://.godot/imported/health_charger001.glb-484c97fd65d9418f2f5ffb56dbee27e6.scn"]
+source_file="res://objects/suit_battery/suit_battery_model.glb"
+dest_files=["res://.godot/imported/suit_battery_model.glb-dfc2ffb42f66aa39286eb693607b826f.scn"]
 
 [params]
 
@@ -25,10 +25,4 @@ skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": false
-}
-}
-}
+_subresources={}

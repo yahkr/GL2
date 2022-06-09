@@ -49,6 +49,8 @@ SaveManager="*res://options_menu/save_manager.gd"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/fullscreen=true
 
 [input]
@@ -175,6 +177,11 @@ flashlight={
 [internationalization]
 
 locale/translations=PackedStringArray("res://translations/translations.de.translation", "res://translations/translations.en.translation")
+
+[layer_names]
+
+3d_physics/layer_1="General"
+3d_physics/layer_2="Items"
 
 [physics]
 

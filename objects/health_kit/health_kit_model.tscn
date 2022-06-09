@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq57pbout0av"]
+
+[ext_resource type="PackedScene" uid="uid://bylt2gs7pdcru" path="res://objects/health_kit/health_kit_model.glb" id="1_jomtb"]
+
+[node name="health_kit_model" instance=ExtResource( "1_jomtb" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0)
+
+[node name="healthkit_physics" parent="healthkitqc_skeleton/Skeleton3D" index="0"]
+visible = false
+
+[node name="healthKit_reference_lod1" parent="healthkitqc_skeleton/Skeleton3D" index="2"]
+visible = false
+
+[node name="healthKit_reference_lod2" parent="healthkitqc_skeleton/Skeleton3D" index="3"]
+visible = false
+
+[node name="healthKit_reference_lod3" parent="healthkitqc_skeleton/Skeleton3D" index="4"]
+visible = false
+
+[node name="healthKit_reference_lod4" parent="healthkitqc_skeleton/Skeleton3D" index="5"]
+visible = false

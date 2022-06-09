@@ -1,0 +1,34 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c2q2mg28bf7mx"
+path="res://.godot/imported/health_charger_model.glb-19c4d582ab8146838b894d4bfa3380a3.scn"
+
+[deps]
+
+source_file="res://objects/health_charger/health_charger_model.glb"
+dest_files=["res://.godot/imported/health_charger_model.glb-19c4d582ab8146838b894d4bfa3380a3.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": false
+}
+}
+}

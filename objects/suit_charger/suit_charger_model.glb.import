@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cfkhtx0vxi8sl"
-path="res://.godot/imported/suit_charger001.glb-9a21720350153eb32dd9bee6c370bab3.scn"
+path="res://.godot/imported/suit_charger_model.glb-c0ae84f38614912250727ca79e18e194.scn"
 
 [deps]
 
-source_file="res://objects/suit_charger001.glb"
-dest_files=["res://.godot/imported/suit_charger001.glb-9a21720350153eb32dd9bee6c370bab3.scn"]
+source_file="res://objects/suit_charger/suit_charger_model.glb"
+dest_files=["res://.godot/imported/suit_charger_model.glb-c0ae84f38614912250727ca79e18e194.scn"]
 
 [params]
 
