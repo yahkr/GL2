@@ -7,19 +7,15 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mddht"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c254r"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -33,4 +29,4 @@ data/0 = ExtResource( "1_ykmml" )
 default_font = SubResource( "Font_il34i" )
 Label/colors/font_color = Color(1, 0.839216, 0, 1)
 Panel/styles/panel = SubResource( "StyleBoxFlat_sn4s6" )
-Panel/styles/panel_fg = SubResource( "StyleBoxFlat_mddht" )
+PanelContainer/styles/panel = SubResource( "StyleBoxFlat_c254r" )

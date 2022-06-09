@@ -1,8 +1,9 @@
 extends RayCast3D
 
 
+@onready var timer := %TimerWeaponSelectFade as Timer
+
 var current_weapon := 0
-var selected_panel := preload("res://weapons/selected_panel.tres")
 
 
 func _ready():
@@ -22,13 +23,17 @@ func select_weapon(index: int):
 	if current_weapon != index:
 		%SoundSwitchWeapon.play()
 		
-		weapon_select_items[current_weapon].remove_theme_stylebox_override("panel")
+		weapon_select_items[current_weapon].get_theme_stylebox("panel").border_color = "1a1a1ac8"
 		
 		get_child(current_weapon).visible = false
+		
+		timer.start()
+		var tween := get_tree().create_tween()
+		tween.tween_property(%WeaponCategories, "modulate", Color.WHITE, 0.1)
 	
 	current_weapon = posmod(index, weapon_select_items.size())
 	
-	weapon_select_items[current_weapon].add_theme_stylebox_override("panel", selected_panel)
+	weapon_select_items[current_weapon].get_theme_stylebox("panel").border_color = "ffd600"
 	
 	get_child(current_weapon).emit_signal("weapon_selected")
 	
@@ -39,3 +44,8 @@ func select_weapon(index: int):
 	else:
 		%PrimaryAmmo.visible = false
 		%SecondaryAmmo.visible = false
+
+
+func _on_timer_weapon_select_fade_timeout():
+	var tween := get_tree().create_tween()
+	tween.tween_property(%WeaponCategories, "modulate", Color.TRANSPARENT, 0.1)
