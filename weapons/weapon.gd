@@ -48,7 +48,7 @@ func hit():
 		var bullet_hole_instance = bullet_hole.instantiate()
 		get_tree().get_root().add_child(bullet_hole_instance)
 		bullet_hole_instance.position = weapon_raycast.get_collision_point()
-		if weapon_raycast.get_collision_normal() == Vector3.UP:
+		if Vector3.UP.is_equal_approx(weapon_raycast.get_collision_normal()):
 			bullet_hole_instance.rotation.x = -PI / 2
 		else:
 			bullet_hole_instance.look_at(

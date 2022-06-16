@@ -101,6 +101,7 @@ func apply_option(new_value: Variant, option: StringName):
 		
 		# Audio
 		&"VolumeMaster":
+			new_value /= 4
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(new_value))
 		&"VolumeSFX":
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(new_value))
