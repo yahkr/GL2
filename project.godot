@@ -40,8 +40,8 @@ _global_script_class_icons={
 
 config/name="FPS"
 run/main_scene="res://maps/test_map.tscn"
-config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://icon.png"
 
 [autoload]
 
@@ -52,6 +52,10 @@ SaveManager="*res://options_menu/save_manager.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/fullscreen=true
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [input]
 

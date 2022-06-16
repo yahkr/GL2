@@ -22,6 +22,8 @@ const FALL_DAMAGE_MULTIPLIER = 15.0
 const GROUND_ACCELERATION = 20.0
 const JUMP_VELOCITY = 6.0
 
+const item_notification = preload("res://objects/item_notification.tscn")
+
 var health: int:
 	set(value):
 		health = clamp(value, 0, 100)
@@ -167,17 +169,16 @@ func move(delta):
 
 
 func _on_area_3d_body_entered(body):
+	var notification_instance = item_notification.instantiate()
+	%ItemNotifications.add_child(notification_instance)
 	if body.is_in_group("HealthKit"):
 		if health < 100:
 			health += 15
 			body.queue_free()
 			sound_health_kit.play()
-		else:
-			print("Full Health")
 	elif body.is_in_group("SuitBattery"):
 		if suit_power < 100:
 			suit_power += 15
 			body.queue_free()
 			sound_suit_battery.play()
-		else:
-			print("Full Health")
+			notification_instance.text = "*"

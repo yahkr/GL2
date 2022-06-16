@@ -14,12 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://c7vgxaewy3u0k" path="res://sounds/items/smallmedkit1.wav" id="12_h3h6x"]
 [ext_resource type="AudioStream" uid="uid://c01qlwuefurg2" path="res://sounds/items/battery_pickup.wav" id="13_8p2uw"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_0sxox"]
-radius = 0.4
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngjqs"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ii0ry"]
-top_radius = 0.4
-bottom_radius = 0.4
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_52ae5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvpj5"]
 bg_color = Color(1, 1, 1, 1)
@@ -196,32 +193,32 @@ func _process(_delta):
 		text = \"FPS: \" + str(Engine.get_frames_per_second())
 "
 
-[sub_resource type="Animation" id="Animation_f6825"]
+[sub_resource type="Animation" id="Animation_mtdyv"]
 resource_name = "Crouch"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:scale")
+tracks/0/path = NodePath("CollisionShape3D:shape:height")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 0.5, 1)]
+"values": [1.5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.5, 0)]
+"values": [1.5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -233,7 +230,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.9, 0)]
+"values": [Vector3(0, 1.4, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -248,31 +245,31 @@ tracks/3/keys = {
 "values": [2.5]
 }
 
-[sub_resource type="Animation" id="Animation_mmd56"]
+[sub_resource type="Animation" id="Animation_45v5g"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:scale")
+tracks/0/path = NodePath("CollisionShape3D:shape:height")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [2.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1, 0)]
+"values": [2.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -331,8 +328,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u17eu"]
 _data = {
-"Crouch": SubResource( "Animation_f6825" ),
-"RESET": SubResource( "Animation_mmd56" ),
+"Crouch": SubResource( "Animation_mtdyv" ),
+"RESET": SubResource( "Animation_45v5g" ),
 "Sprint": SubResource( "Animation_grp1g" )
 }
 
@@ -436,15 +433,15 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource( "CylinderShape3D_0sxox" )
+shape = SubResource( "CapsuleShape3D_ngjqs" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource( "CylinderShape3D_0sxox" )
+shape = SubResource( "CapsuleShape3D_ngjqs" )
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 cast_shadow = 0
-mesh = SubResource( "CylinderMesh_ii0ry" )
+mesh = SubResource( "CapsuleMesh_52ae5" )
 skeleton = NodePath("../..")
 
 [node name="Crosshair" type="Panel" parent="."]
@@ -1078,6 +1075,19 @@ theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 text = "Bugbait"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ItemNotifications" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 0.75
+offset_right = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource( "2_t007i" )
+alignment = 2
+metadata/_edit_use_custom_anchors = true
 
 [node name="OptionsMenu" parent="." instance=ExtResource( "2_jnfbw" )]
 visible = false

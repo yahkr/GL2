@@ -44,10 +44,16 @@ func hit():
 		else:
 			sound_hit_concrete.position = weapon_raycast.get_collision_point()
 			sound_hit_concrete.play()
+		
 		var bullet_hole_instance = bullet_hole.instantiate()
 		get_tree().get_root().add_child(bullet_hole_instance)
 		bullet_hole_instance.position = weapon_raycast.get_collision_point()
-
+		if weapon_raycast.get_collision_normal() == Vector3.UP:
+			bullet_hole_instance.rotation.x = -PI / 2
+		else:
+			bullet_hole_instance.look_at(
+					bullet_hole_instance.position - weapon_raycast.get_collision_normal()
+			)
 
 func draw_weapon():
 	weapon_raycast.target_position = Vector3.FORWARD * hit_range

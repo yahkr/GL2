@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dljem16vksx4f"]
 
 [ext_resource type="Script" path="res://objects/charger.gd" id="1_wtso5"]
-[ext_resource type="PackedScene" uid="uid://cpcyvvwgsh3c3" path="res://objects/suit_charger/suit_charger_model.tscn" id="2_iy4hw"]
+[ext_resource type="PackedScene" uid="uid://bydjjgbtlrt0q" path="res://objects/suit_charger/suit_charger_model.tscn" id="2_iy4hw"]
 [ext_resource type="AudioStream" uid="uid://0sdhnt7i8ppl" path="res://sounds/items/suitchargeok1.wav" id="2_jr5lt"]
 [ext_resource type="AudioStream" uid="uid://54t3el0mhrmf" path="res://sounds/items/suitcharge1.wav" id="3_n5oku"]
 [ext_resource type="AudioStream" uid="uid://cryq635nw1hgk" path="res://sounds/items/suitchargeno1.wav" id="4_ajjpa"]
@@ -14,7 +14,6 @@ script = ExtResource( "1_wtso5" )
 type = 1
 
 [node name="Model" parent="." instance=ExtResource( "2_iy4hw" )]
-transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, -0.1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
