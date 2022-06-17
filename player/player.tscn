@@ -1142,5 +1142,7 @@ parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_yfxdi" )
 unique_name_in_owner = true
 one_shot = true
 
+[node name="SoundFVOX" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponRayCast3D" method="_on_timer_weapon_select_fade_timeout"]

@@ -15,6 +15,7 @@ class_name Player
 @onready var sound_flashlight := $SoundFlashlight as AudioStreamPlayer
 @onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
 @onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
+@onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
 
 const AIR_ACCELERATION = 2.0
 const FALL_DAMAGE_THRESHOLD = 20.0
@@ -23,6 +24,7 @@ const GROUND_ACCELERATION = 20.0
 const JUMP_VELOCITY = 6.0
 
 const item_notification = preload("res://objects/item_notification.tscn")
+const fvox_file = "res://sounds/fvox/%s.wav"
 
 var health: int:
 	set(value):
@@ -168,6 +170,11 @@ func move(delta):
 	move_and_slide()
 
 
+func play_fvox(sound_name: String):
+	sound_fvox.stream = load(fvox_file % sound_name)
+	sound_fvox.play()
+
+
 func _on_area_3d_body_entered(body):
 	var notification_instance = item_notification.instantiate()
 	%ItemNotifications.add_child(notification_instance)
@@ -178,7 +185,60 @@ func _on_area_3d_body_entered(body):
 			sound_health_kit.play()
 	elif body.is_in_group("SuitBattery"):
 		if suit_power < 100:
-			suit_power += 15
+			suit_power += 6
 			body.queue_free()
 			sound_suit_battery.play()
 			notification_instance.text = "*"
+			
+			play_fvox("fuzz")
+			
+			await sound_fvox.finished
+			await get_tree().create_timer(0.5).timeout
+			
+			var snap := snapped(suit_power, 5)
+			var five := fmod(snap, 10)
+			var tens := int(snap / 10)
+			
+			if tens != 10:
+				play_fvox("power")
+				
+				await sound_fvox.finished
+			
+			match tens:
+				1:
+					if five:
+						play_fvox("fifteen")
+					else:
+						play_fvox("ten")
+				2:
+					play_fvox("twenty")
+				3:
+					play_fvox("thirty")
+				4:
+					play_fvox("fourty")
+				5:
+					play_fvox("fifty")
+				6:
+					play_fvox("sixty")
+				7:
+					play_fvox("seventy")
+				8:
+					play_fvox("eighty")
+				9:
+					play_fvox("ninety")
+				10:
+					play_fvox("power_level_is")
+					
+					await sound_fvox.finished
+					
+					play_fvox("onehundred")
+			
+			if tens != 0:
+				await sound_fvox.finished
+			
+			if five and tens != 1:
+				play_fvox("five")
+				
+				await sound_fvox.finished
+			
+			play_fvox("percent")

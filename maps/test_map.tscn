@@ -81,6 +81,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
 [node name="SuitBattery5" parent="." instance=ExtResource( "5_q20qu" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
 
+[node name="SuitBattery6" parent="." instance=ExtResource( "5_q20qu" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
+
+[node name="SuitBattery7" parent="." instance=ExtResource( "5_q20qu" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+
 [node name="HealthKit" parent="." instance=ExtResource( "6_77lcb" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 
@@ -95,3 +101,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
 
 [node name="HealthKit5" parent="." instance=ExtResource( "6_77lcb" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="HealthKit6" parent="." instance=ExtResource( "6_77lcb" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+
+[node name="HealthKit7" parent="." instance=ExtResource( "6_77lcb" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
