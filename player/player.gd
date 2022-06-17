@@ -176,18 +176,27 @@ func play_fvox(sound_name: String):
 
 
 func _on_area_3d_body_entered(body):
-	var notification_instance = item_notification.instantiate()
-	%ItemNotifications.add_child(notification_instance)
+	if body.is_in_group("HEVSuit"):
+		body.queue_free()
+		play_fvox("bell")
+		await sound_fvox.finished
+		play_fvox("hev_logon")
+		return
+	
 	if body.is_in_group("HealthKit"):
 		if health < 100:
 			health += 15
 			body.queue_free()
 			sound_health_kit.play()
+			var notification_instance = item_notification.instantiate()
+			%ItemNotifications.add_child(notification_instance)
 	elif body.is_in_group("SuitBattery"):
 		if suit_power < 100:
 			suit_power += 15
 			body.queue_free()
 			sound_suit_battery.play()
+			var notification_instance = item_notification.instantiate()
+			%ItemNotifications.add_child(notification_instance)
 			notification_instance.text = "*"
 			
 			play_fvox("fuzz")

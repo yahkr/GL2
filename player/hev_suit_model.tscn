@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://4l84fac3ceob"]
+
+[ext_resource type="PackedScene" uid="uid://1iieybrrmquv" path="res://player/hev_suit_model.glb" id="1_ifrjw"]
+
+[node name="hev_suit_model" instance=ExtResource( "1_ifrjw" )]
+transform = Transform3D(-0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0)
+
+[node name="hevsuit_reference_lod1" parent="hevsuitqc_skeleton/Skeleton3D" index="1"]
+visible = false
+
+[node name="hevsuit_reference_lod2" parent="hevsuitqc_skeleton/Skeleton3D" index="2"]
+visible = false
+
+[node name="hevsuit_reference_lod3" parent="hevsuitqc_skeleton/Skeleton3D" index="3"]
+visible = false
