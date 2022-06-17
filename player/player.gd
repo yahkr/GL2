@@ -185,7 +185,7 @@ func _on_area_3d_body_entered(body):
 			sound_health_kit.play()
 	elif body.is_in_group("SuitBattery"):
 		if suit_power < 100:
-			suit_power += 6
+			suit_power += 15
 			body.queue_free()
 			sound_suit_battery.play()
 			notification_instance.text = "*"
