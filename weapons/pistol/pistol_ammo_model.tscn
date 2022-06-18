@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dugkmvej33x3s"]
+
+[ext_resource type="PackedScene" uid="uid://bd4jymdm0wawb" path="res://weapons/pistol/pistol_ammo_model.glb" id="1_1ybir"]
+
+[node name="pistol_ammo_model" instance=ExtResource( "1_1ybir" )]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="boxsrounds_physics" parent="boxsroundsqc_skeleton/Skeleton3D" index="0"]
+visible = false

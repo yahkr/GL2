@@ -100,7 +100,7 @@ func _physics_process(delta):
 
 
 func flashlight():
-	if Input.is_action_just_pressed("flashlight"):
+	if Input.is_action_just_pressed("flashlight") and suit:
 		%Flashlight.visible = !%Flashlight.visible
 		sound_flashlight.play()
 

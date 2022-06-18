@@ -9,7 +9,7 @@
 
 [node name="Pistol" instance=ExtResource( "1_f3fct" )]
 script = ExtResource( "2_sl3ep" )
-reserve_ammo = 17
+hit_range = 1000.0
 
 [node name="Cooldown" parent="." index="0"]
 wait_time = 0.1

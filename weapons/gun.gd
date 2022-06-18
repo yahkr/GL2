@@ -6,11 +6,12 @@ class_name Gun
 @onready var sound_reload := $SoundReload as AudioStreamPlayer
 @onready var sound_shoot := $SoundShoot as AudioStreamPlayer
 
-@export var magazine_ammo := 17:
+@export var magazine_ammo := 18:
 	set(value):
 		call_deferred("update_ammo_labels")
 		magazine_ammo = value
-@export var magazine_size := 17
+@export var magazine_size := 18
+@export var reserve_size := 150
 @export var reserve_ammo := 0:
 	set(value):
 			call_deferred("update_ammo_labels")

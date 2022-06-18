@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1av2wkw5rwc0"]
+[gd_scene load_steps=12 format=3 uid="uid://1av2wkw5rwc0"]
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 [ext_resource type="PackedScene" uid="uid://ccsyutky0eas2" path="res://objects/wooden_crate/wooden_crate.tscn" id="2_ays1q"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dtofapfmqp1k" path="res://objects/suit_battery/suit_battery.tscn" id="5_q20qu"]
 [ext_resource type="PackedScene" uid="uid://rd8yuk5xc4pq" path="res://objects/health_kit/health_kit.tscn" id="6_77lcb"]
 [ext_resource type="PackedScene" uid="uid://b6rvp451es7yr" path="res://player/hev_suit.tscn" id="7_l2yjo"]
+[ext_resource type="PackedScene" uid="uid://jnlrwj3lwwto" path="res://weapons/pistol/pistol_ammo.tscn" id="8_w5vg1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -111,3 +112,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
 
 [node name="HEVSuit" parent="." instance=ExtResource( "7_l2yjo" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142626, 0, 7.59912)
+
+[node name="PistolAmmo" parent="." instance=ExtResource( "8_w5vg1" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="PistolAmmo2" parent="." instance=ExtResource( "8_w5vg1" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="PistolAmmo3" parent="." instance=ExtResource( "8_w5vg1" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=46 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cu2o1akeaotuw" path="res://sounds/items/flashlight1.wav" id="11_b3cvp"]
 [ext_resource type="AudioStream" uid="uid://c7vgxaewy3u0k" path="res://sounds/items/smallmedkit1.wav" id="12_h3h6x"]
 [ext_resource type="AudioStream" uid="uid://c01qlwuefurg2" path="res://sounds/items/battery_pickup.wav" id="13_8p2uw"]
+[ext_resource type="AudioStream" uid="uid://d2r0gb0j3dgwy" path="res://sounds/items/ammo_pickup.wav" id="14_cr7ok"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngjqs"]
 
@@ -1129,6 +1130,12 @@ bus = &"SFX"
 stream = ExtResource( "13_8p2uw" )
 bus = &"SFX"
 
+[node name="SoundFVOX" type="AudioStreamPlayer" parent="."]
+
+[node name="SoundCollectAmmo" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( "14_cr7ok" )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource( "AnimationLibrary_u17eu" )
@@ -1144,8 +1151,7 @@ parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_yfxdi" )
 unique_name_in_owner = true
 one_shot = true
 
-[node name="SoundFVOX" type="AudioStreamPlayer" parent="."]
-
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]
+[connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Pistol" method="_on_area_3d_body_entered"]
 [connection signal="finished" from="SoundFVOX" to="." method="_on_sound_fvox_finished"]
+[connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]
