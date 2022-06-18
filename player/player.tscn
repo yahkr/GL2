@@ -388,42 +388,42 @@ visible = false
 target_position = Vector3(0, 0, -3)
 collision_mask = 3
 
-[node name="WeaponRayCast3D" type="RayCast3D" parent="Camera3D"]
+[node name="WeaponManager" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, 0)
 collision_mask = 3
 script = ExtResource( "2_0juje" )
 
-[node name="Crowbar" parent="Camera3D/WeaponRayCast3D" instance=ExtResource( "3_iksgm" )]
+[node name="Crowbar" parent="Camera3D/WeaponManager" instance=ExtResource( "3_iksgm" )]
 visible = false
 
-[node name="GravityGun" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="GravityGun" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Pistol" parent="Camera3D/WeaponRayCast3D" instance=ExtResource( "4_bjifu" )]
+[node name="Pistol" parent="Camera3D/WeaponManager" instance=ExtResource( "4_bjifu" )]
 visible = false
 
-[node name="Node3D" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Node3D2" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D2" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Node3D3" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D3" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Node3D4" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D4" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Node3D5" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D5" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Node3D6" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D6" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Node3D7" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D7" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
-[node name="Node3D8" type="Node3D" parent="Camera3D/WeaponRayCast3D"]
+[node name="Node3D8" type="Node3D" parent="Camera3D/WeaponManager"]
 visible = false
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -455,6 +455,7 @@ offset_bottom = 2.5
 theme_override_styles/panel = SubResource( "StyleBoxFlat_wvpj5" )
 
 [node name="Indicators" type="HBoxContainer" parent="."]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -638,6 +639,7 @@ vertical_alignment = 1
 
 [node name="WeaponCategories" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0)
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1077,6 +1079,7 @@ vertical_alignment = 1
 
 [node name="ItemNotifications" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_left = 1.0
 anchor_top = 0.75
 anchor_right = 1.0
@@ -1144,4 +1147,4 @@ one_shot = true
 [node name="SoundFVOX" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponRayCast3D" method="_on_timer_weapon_select_fade_timeout"]
+[connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]

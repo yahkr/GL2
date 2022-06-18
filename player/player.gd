@@ -4,6 +4,12 @@ class_name Player
 
 
 @export var speed: float
+var suit: bool:
+	set(value):
+		suit = value
+		$Indicators.visible = suit
+		%WeaponCategories.visible = suit
+		%ItemNotifications.visible = suit
 
 @onready var anim_tree := $AnimationTree as AnimationTree
 @onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
@@ -65,6 +71,7 @@ func _ready():
 	
 	health = 10
 	suit_power = 0
+	suit = false
 
 
 func _process(_delta):
@@ -156,7 +163,7 @@ func move(delta):
 	if Input.is_action_pressed("crouch"):
 		state_machine.travel("Crouch")
 	elif not test_move(transform, Vector3.UP):
-		if Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("sprint") and suit:
 			state_machine.travel("Sprint")
 		else:
 			state_machine.travel("RESET")
@@ -176,8 +183,9 @@ func play_fvox(sound_name: String):
 
 
 func _on_area_3d_body_entered(body):
-	if body.is_in_group("HEVSuit"):
+	if body.is_in_group("HEVSuit") and not suit:
 		body.queue_free()
+		suit = true
 		play_fvox("bell")
 		await sound_fvox.finished
 		play_fvox("hev_logon")
@@ -190,7 +198,7 @@ func _on_area_3d_body_entered(body):
 			sound_health_kit.play()
 			var notification_instance = item_notification.instantiate()
 			%ItemNotifications.add_child(notification_instance)
-	elif body.is_in_group("SuitBattery"):
+	elif body.is_in_group("SuitBattery") and suit:
 		if suit_power < 100:
 			suit_power += 15
 			body.queue_free()

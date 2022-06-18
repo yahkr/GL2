@@ -23,7 +23,7 @@ func can_charge(player) -> bool:
 	if charges > 0:
 		if type == ChargerType.HEALTH and player.health < 100:
 			return true
-		if type == ChargerType.SUIT and player.suit_power < 100:
+		if type == ChargerType.SUIT and player.suit_power < 100 and player.suit:
 			return true
 	return false
 
