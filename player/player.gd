@@ -4,12 +4,6 @@ class_name Player
 
 
 @export var speed: float
-var suit: bool:
-	set(value):
-		suit = value
-		$Indicators.visible = suit
-		%WeaponCategories.visible = suit
-		%ItemNotifications.visible = suit
 
 @onready var anim_tree := $AnimationTree as AnimationTree
 @onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
@@ -46,7 +40,16 @@ var suit_power: int:
 		suit_power = clamp(value, 0, 100)
 		suit_power_label.text = str(suit_power)
 
+var suit: bool:
+	set(value):
+		suit = value
+		$Indicators.visible = suit
+		%WeaponCategories.visible = suit
+		%ItemNotifications.visible = suit
+
 var current_interactable: Interactable
+
+var fvox_queue: Array[String]
 
 var acceleration: float
 var fall_velocity: float
@@ -69,9 +72,9 @@ var mouse_look_sensitivity: float
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	health = 10
+	health = 100
 	suit_power = 0
-	suit = false
+	suit = true
 
 
 func _process(_delta):
@@ -178,8 +181,10 @@ func move(delta):
 
 
 func play_fvox(sound_name: String):
-	sound_fvox.stream = load(fvox_file % sound_name)
-	sound_fvox.play()
+	fvox_queue.append(sound_name)
+	
+	if not sound_fvox.stream:
+		_on_sound_fvox_finished()
 
 
 func _on_area_3d_body_entered(body):
@@ -187,7 +192,6 @@ func _on_area_3d_body_entered(body):
 		body.queue_free()
 		suit = true
 		play_fvox("bell")
-		await sound_fvox.finished
 		play_fvox("hev_logon")
 		return
 	
@@ -208,9 +212,8 @@ func _on_area_3d_body_entered(body):
 			notification_instance.text = "*"
 			
 			play_fvox("fuzz")
-			
-			await sound_fvox.finished
-			await get_tree().create_timer(0.5).timeout
+			play_fvox("fuzz")
+			play_fvox("_comma")
 			
 			var snap := snapped(suit_power, 5)
 			var five := fmod(snap, 10)
@@ -218,8 +221,6 @@ func _on_area_3d_body_entered(body):
 			
 			if tens != 10:
 				play_fvox("power")
-				
-				await sound_fvox.finished
 			
 			match tens:
 				1:
@@ -245,17 +246,17 @@ func _on_area_3d_body_entered(body):
 					play_fvox("ninety")
 				10:
 					play_fvox("power_level_is")
-					
-					await sound_fvox.finished
-					
 					play_fvox("onehundred")
-			
-			if tens != 0:
-				await sound_fvox.finished
 			
 			if five and tens != 1:
 				play_fvox("five")
-				
-				await sound_fvox.finished
 			
 			play_fvox("percent")
+
+
+func _on_sound_fvox_finished():
+	if fvox_queue.size() > 0:
+		sound_fvox.stream = load(fvox_file % fvox_queue.pop_front())
+		sound_fvox.play()
+	else:
+		sound_fvox.stream = null
