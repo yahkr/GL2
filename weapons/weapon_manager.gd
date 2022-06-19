@@ -22,9 +22,11 @@ func cycle_weapon(previous: bool):
 	for i in get_child_count():
 		new_index += -1 if previous else 1
 		new_index = posmod(new_index, get_child_count())
-		if get_child(new_index).process_mode == Node.PROCESS_MODE_INHERIT:
+		
+		var weapon := get_child(new_index) as Weapon
+		if weapon and weapon.process_mode == Node.PROCESS_MODE_INHERIT:
+			select_weapon(new_index, true)
 			break
-	select_weapon(new_index, true)
 
 
 func select_weapon(index: int, show_hud := true):

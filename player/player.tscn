@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=50 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -14,6 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://c7vgxaewy3u0k" path="res://sounds/items/smallmedkit1.wav" id="12_h3h6x"]
 [ext_resource type="AudioStream" uid="uid://c01qlwuefurg2" path="res://sounds/items/battery_pickup.wav" id="13_8p2uw"]
 [ext_resource type="AudioStream" uid="uid://d2r0gb0j3dgwy" path="res://sounds/items/ammo_pickup.wav" id="14_cr7ok"]
+[ext_resource type="AudioStream" uid="uid://bt812rbv6xeop" path="res://sounds/player/geiger1.wav" id="15_jyrkk"]
+[ext_resource type="AudioStream" uid="uid://drluhhyeluqgj" path="res://sounds/player/geiger2.wav" id="16_j4nsf"]
+[ext_resource type="AudioStream" uid="uid://p26ej2dagt2a" path="res://sounds/player/geiger3.wav" id="17_m7v8c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngjqs"]
 
@@ -194,6 +197,17 @@ func _process(_delta):
 		text = \"FPS: \" + str(Engine.get_frames_per_second())
 "
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ud7gk"]
+streams_count = 3
+playback_mode = 1
+random_pitch = 1.0
+stream_0/stream = ExtResource( "15_jyrkk" )
+stream_0/weight = 1.0
+stream_1/stream = ExtResource( "16_j4nsf" )
+stream_1/weight = 1.0
+stream_2/stream = ExtResource( "17_m7v8c" )
+stream_2/weight = 1.0
+
 [sub_resource type="Animation" id="Animation_mtdyv"]
 resource_name = "Crouch"
 length = 0.001
@@ -369,7 +383,7 @@ transitions = ["Start", "RESET", SubResource( "AnimationNodeStateMachineTransiti
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_yfxdi"]
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource( "1_whha0" )
 speed = 5.0
 metadata/_edit_horizontal_guides_ = []
@@ -1157,6 +1171,11 @@ bus = &"SFX"
 unique_name_in_owner = true
 stream = ExtResource( "14_cr7ok" )
 
+[node name="SoundGeiger" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource( "AudioStreamRandomizer_ud7gk" )
+bus = &"SFX"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource( "AnimationLibrary_u17eu" )
@@ -1176,4 +1195,5 @@ one_shot = true
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Crowbar" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Pistol" method="_on_area_3d_body_entered"]
 [connection signal="finished" from="SoundFVOX" to="." method="_on_sound_fvox_finished"]
+[connection signal="finished" from="SoundGeiger" to="." method="_on_sound_geiger_finished"]
 [connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]

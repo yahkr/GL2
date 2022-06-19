@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1av2wkw5rwc0"]
+[gd_scene load_steps=15 format=3 uid="uid://1av2wkw5rwc0"]
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 [ext_resource type="PackedScene" uid="uid://ccsyutky0eas2" path="res://objects/wooden_crate/wooden_crate.tscn" id="2_ays1q"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://jnlrwj3lwwto" path="res://weapons/pistol/pistol_ammo.tscn" id="8_w5vg1"]
 [ext_resource type="PackedScene" uid="uid://b3b28asto85nv" path="res://weapons/crowbar/crowbar_item.tscn" id="9_sroxh"]
 [ext_resource type="PackedScene" uid="uid://dovtpq2ss6rr7" path="res://weapons/pistol/pistol_item.tscn" id="10_tms8i"]
+[ext_resource type="PackedScene" uid="uid://c1x7w47iac1kn" path="res://objects/radiation.tscn" id="11_palm6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -129,3 +130,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
 
 [node name="PistolItem" parent="." instance=ExtResource( "10_tms8i" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
+
+[node name="Radiation" parent="." instance=ExtResource( "11_palm6" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -2.5)
+
+[node name="Radiation2" parent="." instance=ExtResource( "11_palm6" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 2.5)
+strength = 0.25

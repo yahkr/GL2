@@ -16,6 +16,7 @@ class_name Player
 @onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
 @onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
 @onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
+@onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
 
 const AIR_ACCELERATION = 2.0
 const FALL_DAMAGE_THRESHOLD = 20.0
@@ -46,6 +47,13 @@ var suit: bool:
 		$Indicators.visible = suit
 		%WeaponCategories.visible = suit
 		%ItemNotifications.visible = suit
+
+
+var geiger: float:
+	set(value):
+		geiger = value
+		if geiger:
+			sound_geiger.play()
 
 var current_interactable: Interactable
 
@@ -260,3 +268,9 @@ func _on_sound_fvox_finished():
 		sound_fvox.play()
 	else:
 		sound_fvox.stream = null
+
+
+func _on_sound_geiger_finished():
+	if geiger > 0:
+		await get_tree().create_timer(1 - geiger).timeout
+		sound_geiger.play()
