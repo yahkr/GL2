@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://hi0bm8xj5rip" path="res://weapons/pistol/pistol_model.tscn" id="6_s3rtl"]
 
 [node name="Pistol" instance=ExtResource( "1_f3fct" )]
+process_mode = 4
 script = ExtResource( "2_sl3ep" )
 hit_range = 1000.0
 

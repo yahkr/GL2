@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1dt1jxil68xa"]
+
+[ext_resource type="PackedScene" uid="uid://ghxtrrrcr082" path="res://weapons/pistol/pistol_item_model.glb" id="1_tsnxm"]
+
+[node name="pistol_item_model" instance=ExtResource( "1_tsnxm" )]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="Pistol_reference_lod1" parent="w_pistolqc_skeleton/Skeleton3D" index="1"]
+visible = false
+
+[node name="w_pistol_physics" parent="w_pistolqc_skeleton/Skeleton3D" index="2"]
+visible = false

@@ -654,6 +654,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Crowbar" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_right = 120.0
 offset_bottom = 94.0
@@ -689,6 +690,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Gravity Gun" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_top = 102.0
 offset_right = 120.0
@@ -732,6 +734,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Pistol" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_right = 120.0
 offset_bottom = 94.0
@@ -767,6 +770,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Revolver" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_top = 102.0
 offset_right = 120.0
@@ -810,6 +814,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="SMG" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_right = 120.0
 offset_bottom = 94.0
@@ -845,6 +850,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Pulse Rifle" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_top = 102.0
 offset_right = 120.0
@@ -888,6 +894,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Shotgun" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_right = 120.0
 offset_bottom = 94.0
@@ -923,6 +930,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Crossbow" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_top = 102.0
 offset_right = 120.0
@@ -966,6 +974,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Grenade" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_right = 120.0
 offset_bottom = 94.0
@@ -1001,6 +1010,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RPG" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_top = 102.0
 offset_right = 120.0
@@ -1044,6 +1054,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Bugbait" type="PanelContainer" parent="WeaponCategories/Sixth" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
 minimum_size = Vector2(120, 60)
 offset_right = 120.0
 offset_bottom = 94.0
@@ -1152,6 +1163,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Crowbar" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Pistol" method="_on_area_3d_body_entered"]
 [connection signal="finished" from="SoundFVOX" to="." method="_on_sound_fvox_finished"]
 [connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]

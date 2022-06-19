@@ -7,7 +7,7 @@ var current_weapon := 0
 
 
 func _ready():
-	select_weapon(current_weapon)
+	select_weapon(current_weapon, false)
 
 
 func _process(_delta):
@@ -17,15 +17,16 @@ func _process(_delta):
 		select_weapon(current_weapon - 1)
 
 
-func select_weapon(index: int):
+func select_weapon(index: int, show_hud := true):
 	var weapon_select_items := get_tree().get_nodes_in_group("WeaponSelectItem")
 	
 	if current_weapon != index:
-		%SoundSwitchWeapon.play()
+		get_child(current_weapon).visible = false
 		
 		weapon_select_items[current_weapon].get_theme_stylebox("panel").border_color = "1a1a1ac8"
-		
-		get_child(current_weapon).visible = false
+	
+	if show_hud:
+		%SoundSwitchWeapon.play()
 		
 		timer.start()
 		var tween := get_tree().create_tween()

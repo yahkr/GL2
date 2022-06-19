@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwykapog2awvo"]
+
+[ext_resource type="PackedScene" uid="uid://celx8t8ccj17r" path="res://weapons/crowbar/crowbar_item_model.glb" id="1_fls2k"]
+
+[node name="crowbar_item_model" instance=ExtResource( "1_fls2k" )]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="w_crowbar_physics" parent="w_crowbarqc_skeleton/Skeleton3D" index="0"]
+visible = false
+
+[node name="w_Crowbar_reference_lod1" parent="w_crowbarqc_skeleton/Skeleton3D" index="2"]
+visible = false

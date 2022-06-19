@@ -13,6 +13,7 @@ stream_0/stream = ExtResource( "3_dduqe" )
 stream_0/weight = 1.0
 
 [node name="Crowbar" instance=ExtResource( "1_agbo3" )]
+process_mode = 4
 script = ExtResource( "2_dik0g" )
 
 [node name="Cooldown" parent="." index="0"]

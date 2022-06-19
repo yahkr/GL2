@@ -62,7 +62,7 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 offset_right = 792.0
-offset_bottom = 776.0
+offset_bottom = 880.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -686,6 +686,90 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/flashlight/HBoxContainer" groups=["MappingButton"]]
+minimum_size = Vector2(48, 0)
+offset_left = 525.0
+offset_right = 784.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="next_weapon" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
+minimum_size = Vector2(0, 48)
+offset_top = 780.0
+offset_right = 792.0
+offset_bottom = 828.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/next_weapon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="Action" type="Label" parent="ScrollContainer/VBoxContainer/next_weapon/HBoxContainer"]
+offset_top = 11.0
+offset_right = 258.0
+offset_bottom = 37.0
+size_flags_horizontal = 3
+text = "action"
+vertical_alignment = 1
+
+[node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/next_weapon/HBoxContainer" groups=["MappingButton"]]
+minimum_size = Vector2(48, 0)
+offset_left = 262.0
+offset_right = 521.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/next_weapon/HBoxContainer" groups=["MappingButton"]]
+minimum_size = Vector2(48, 0)
+offset_left = 525.0
+offset_right = 784.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="previous_weapon" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
+minimum_size = Vector2(0, 48)
+offset_top = 832.0
+offset_right = 792.0
+offset_bottom = 880.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/previous_weapon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="Action" type="Label" parent="ScrollContainer/VBoxContainer/previous_weapon/HBoxContainer"]
+offset_top = 11.0
+offset_right = 258.0
+offset_bottom = 37.0
+size_flags_horizontal = 3
+text = "action"
+vertical_alignment = 1
+
+[node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/previous_weapon/HBoxContainer" groups=["MappingButton"]]
+minimum_size = Vector2(48, 0)
+offset_left = 262.0
+offset_right = 521.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/previous_weapon/HBoxContainer" groups=["MappingButton"]]
 minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0

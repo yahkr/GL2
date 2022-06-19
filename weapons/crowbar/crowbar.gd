@@ -18,3 +18,12 @@ func _process(_delta):
 		else:
 			animation_player.play("misscenter" + str(randi() % 2 + 1))
 		hit()
+
+
+func _on_area_3d_body_entered(body):
+	if body.is_in_group("CrowbarItem"):
+		body.queue_free()
+		process_mode = Node.PROCESS_MODE_INHERIT
+		%SoundCollectAmmo.play()
+		get_parent().select_weapon(get_index(), false)
+		get_tree().get_nodes_in_group("WeaponSelectItem")[get_index()].modulate = Color.WHITE
