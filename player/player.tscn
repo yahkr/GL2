@@ -398,33 +398,42 @@ script = ExtResource( "2_0juje" )
 visible = false
 
 [node name="GravityGun" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Pistol" parent="Camera3D/WeaponManager" instance=ExtResource( "4_bjifu" )]
 visible = false
 
 [node name="Node3D" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Node3D2" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Node3D3" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Node3D4" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Node3D5" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Node3D6" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Node3D7" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Node3D8" type="Node3D" parent="Camera3D/WeaponManager"]
+process_mode = 4
 visible = false
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -555,6 +564,7 @@ size_flags_horizontal = 3
 
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
+visible = false
 offset_left = 1142.0
 offset_right = 1280.0
 offset_bottom = 40.0
