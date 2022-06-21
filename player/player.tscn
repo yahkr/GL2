@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=54 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -17,6 +17,9 @@
 [ext_resource type="AudioStream" uid="uid://bt812rbv6xeop" path="res://sounds/player/geiger1.wav" id="15_jyrkk"]
 [ext_resource type="AudioStream" uid="uid://drluhhyeluqgj" path="res://sounds/player/geiger2.wav" id="16_j4nsf"]
 [ext_resource type="AudioStream" uid="uid://p26ej2dagt2a" path="res://sounds/player/geiger3.wav" id="17_m7v8c"]
+[ext_resource type="AudioStream" uid="uid://cv1ue0c0q0osv" path="res://sounds/player/pl_burnpain1.wav" id="18_ggwlp"]
+[ext_resource type="AudioStream" uid="uid://bhotyj42mthb4" path="res://sounds/player/pl_burnpain2.wav" id="19_pdc8u"]
+[ext_resource type="AudioStream" uid="uid://dln5bs15hw17b" path="res://sounds/player/pl_burnpain3.wav" id="20_wpben"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngjqs"]
 
@@ -206,6 +209,16 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource( "16_j4nsf" )
 stream_1/weight = 1.0
 stream_2/stream = ExtResource( "17_m7v8c" )
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dn0sd"]
+streams_count = 3
+random_pitch = 1.0
+stream_0/stream = ExtResource( "18_ggwlp" )
+stream_0/weight = 1.0
+stream_1/stream = ExtResource( "19_pdc8u" )
+stream_1/weight = 1.0
+stream_2/stream = ExtResource( "20_wpben" )
 stream_2/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_mtdyv"]
@@ -1127,6 +1140,12 @@ theme = ExtResource( "2_t007i" )
 alignment = 2
 metadata/_edit_use_custom_anchors = true
 
+[node name="DeathOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 0, 0, 0.501961)
+
 [node name="OptionsMenu" parent="." instance=ExtResource( "2_jnfbw" )]
 visible = false
 
@@ -1176,6 +1195,10 @@ unique_name_in_owner = true
 stream = SubResource( "AudioStreamRandomizer_ud7gk" )
 bus = &"SFX"
 
+[node name="SoundBurn" type="AudioStreamPlayer" parent="."]
+stream = SubResource( "AudioStreamRandomizer_dn0sd" )
+bus = &"SFX"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource( "AnimationLibrary_u17eu" )
@@ -1191,9 +1214,13 @@ parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_yfxdi" )
 unique_name_in_owner = true
 one_shot = true
 
+[node name="TimerBurn" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Crowbar" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Pistol" method="_on_area_3d_body_entered"]
 [connection signal="finished" from="SoundFVOX" to="." method="_on_sound_fvox_finished"]
 [connection signal="finished" from="SoundGeiger" to="." method="_on_sound_geiger_finished"]
 [connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]
+[connection signal="timeout" from="TimerBurn" to="." method="_on_timer_burn_timeout"]

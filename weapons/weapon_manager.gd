@@ -37,19 +37,20 @@ func select_weapon(index: int, show_hud := true):
 		
 		weapon_select_items[current_weapon].get_theme_stylebox("panel").border_color = "1a1a1ac8"
 		
-		current_weapon = index
-		
-		get_child(current_weapon).emit_signal("weapon_selected")
-		
-		weapon_select_items[current_weapon].get_theme_stylebox("panel").border_color = "ffd600"
-		
-		var gun := get_child(current_weapon) as Gun
-		if gun:
-			%PrimaryAmmo.visible = true
-			%SecondaryAmmo.visible = gun.secondary_ammo >= 0
-		else:
-			%PrimaryAmmo.visible = false
-			%SecondaryAmmo.visible = false
+		if index >= 0:
+			current_weapon = index
+			
+			get_child(current_weapon).emit_signal("weapon_selected")
+			
+			weapon_select_items[current_weapon].get_theme_stylebox("panel").border_color = "ffd600"
+			
+			var gun := get_child(current_weapon) as Gun
+			if gun:
+				%PrimaryAmmo.visible = true
+				%SecondaryAmmo.visible = gun.secondary_ammo >= 0
+			else:
+				%PrimaryAmmo.visible = false
+				%SecondaryAmmo.visible = false
 	
 	if show_hud:
 		%SoundSwitchWeapon.play()

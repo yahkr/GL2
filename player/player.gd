@@ -11,12 +11,15 @@ class_name Player
 @onready var health_label := %HealthValue as Label
 @onready var suit_power_label := %SuitValue as Label
 @onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
+@onready var weapon_manager := $Camera3D/WeaponManager as RayCast3D
 @onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
 @onready var sound_flashlight := $SoundFlashlight as AudioStreamPlayer
 @onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
 @onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
 @onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
 @onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
+@onready var sound_burn := $SoundBurn as AudioStreamPlayer
+@onready var timer_burn := $TimerBurn as Timer
 
 const AIR_ACCELERATION = 2.0
 const FALL_DAMAGE_THRESHOLD = 20.0
@@ -29,7 +32,19 @@ const fvox_file = "res://sounds/fvox/%s.wav"
 
 var health: int:
 	set(value):
-		health = clamp(value, 0, 100)
+		value = clamp(value, 0, 100)
+		if health != value and value == 0:
+			play_fvox("flatline", true)
+			fvox_queue.clear()
+			timer_burn.paused = true
+			$DeathOverlay.visible = true
+			$Indicators.visible = false
+			$ItemNotifications.visible = false
+			$WeaponCategories.visible = false
+			$Crosshair.visible = false
+			weapon_manager.select_weapon(-1, false)
+			weapon_manager.set_process(false)
+		health = value
 		health_label.text = str(health)
 		if health < 20:
 			$Indicators/Health.modulate = Color(1.0, 0.25, 0.25)
@@ -48,6 +63,11 @@ var suit: bool:
 		%WeaponCategories.visible = suit
 		%ItemNotifications.visible = suit
 
+var burn: bool:
+	set(value):
+		burn = value
+		if burn and timer_burn.is_stopped():
+			_on_timer_burn_timeout()
 
 var geiger: float:
 	set(value):
@@ -87,6 +107,9 @@ func _ready():
 
 func _process(_delta):
 	look()
+	
+	if Input.is_anything_pressed() and health == 0:
+		get_tree().reload_current_scene()
 
 
 func _input(event):
@@ -103,8 +126,10 @@ func _input(event):
 
 func _physics_process(delta):
 	move(delta)
-	interact()
-	flashlight()
+	
+	if health > 0:
+		interact()
+		flashlight()
 
 
 func flashlight():
@@ -163,7 +188,7 @@ func move(delta):
 			health += int((fall_velocity + FALL_DAMAGE_THRESHOLD) * FALL_DAMAGE_MULTIPLIER)
 		fall_velocity = 0
 		acceleration = GROUND_ACCELERATION
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") and health > 0:
 			velocity.y = JUMP_VELOCITY
 	else:
 		velocity.y -= gravity * delta
@@ -171,7 +196,7 @@ func move(delta):
 		acceleration = AIR_ACCELERATION
 	
 	# Crouching and sprinting
-	if Input.is_action_pressed("crouch"):
+	if Input.is_action_pressed("crouch") or health == 0:
 		state_machine.travel("Crouch")
 	elif not test_move(transform, Vector3.UP):
 		if Input.is_action_pressed("sprint") and suit:
@@ -180,7 +205,9 @@ func move(delta):
 			state_machine.travel("RESET")
 	
 	# Get input and move with acceleration/deceleration
-	var move_input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var move_input := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	if health == 0:
+		move_input = Vector2.ZERO
 	move_input = move_input.rotated(-rotation.y)
 	movement = movement.lerp(move_input * speed, acceleration * delta)
 	velocity.x = movement.x
@@ -188,11 +215,15 @@ func move(delta):
 	move_and_slide()
 
 
-func play_fvox(sound_name: String):
-	fvox_queue.append(sound_name)
-	
-	if not sound_fvox.stream:
-		_on_sound_fvox_finished()
+func play_fvox(sound_name: String, immediate := false):
+	if immediate:
+		sound_fvox.stream = load(fvox_file % sound_name)
+		sound_fvox.play()
+	else:
+		fvox_queue.append(sound_name)
+		
+		if not sound_fvox.stream:
+			_on_sound_fvox_finished()
 
 
 func _on_area_3d_body_entered(body):
@@ -274,3 +305,10 @@ func _on_sound_geiger_finished():
 	if geiger > 0:
 		await get_tree().create_timer(1 - geiger).timeout
 		sound_geiger.play()
+
+
+func _on_timer_burn_timeout():
+	if burn:
+		health -= 10
+		sound_burn.play()
+		timer_burn.start()
