@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=63 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -20,6 +20,14 @@
 [ext_resource type="AudioStream" uid="uid://cv1ue0c0q0osv" path="res://sounds/player/pl_burnpain1.wav" id="18_ggwlp"]
 [ext_resource type="AudioStream" uid="uid://bhotyj42mthb4" path="res://sounds/player/pl_burnpain2.wav" id="19_pdc8u"]
 [ext_resource type="AudioStream" uid="uid://dln5bs15hw17b" path="res://sounds/player/pl_burnpain3.wav" id="20_wpben"]
+[ext_resource type="AudioStream" uid="uid://dbwi2bj1uu3vw" path="res://sounds/ambient/energy/zap1.wav" id="21_gatkg"]
+[ext_resource type="AudioStream" uid="uid://dqejwqfm1bdat" path="res://sounds/ambient/energy/zap2.wav" id="22_6kgdx"]
+[ext_resource type="AudioStream" uid="uid://bw0fg6adg0hxx" path="res://sounds/ambient/energy/zap3.wav" id="23_2k2hg"]
+[ext_resource type="AudioStream" uid="uid://cnii5lam117pi" path="res://sounds/ambient/energy/zap5.wav" id="24_hd1y7"]
+[ext_resource type="AudioStream" uid="uid://b7t2dig4ucggx" path="res://sounds/ambient/energy/zap6.wav" id="25_ymlf2"]
+[ext_resource type="AudioStream" uid="uid://ccrry76e6vfnr" path="res://sounds/ambient/energy/zap7.wav" id="26_luuks"]
+[ext_resource type="AudioStream" uid="uid://bmsf0ht30td6q" path="res://sounds/ambient/energy/zap8.wav" id="27_ylvwy"]
+[ext_resource type="AudioStream" uid="uid://fx1rkiaincdp" path="res://sounds/ambient/energy/zap9.wav" id="28_kk715"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngjqs"]
 
@@ -220,6 +228,25 @@ stream_1/stream = ExtResource( "19_pdc8u" )
 stream_1/weight = 1.0
 stream_2/stream = ExtResource( "20_wpben" )
 stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a4uaw"]
+streams_count = 8
+stream_0/stream = ExtResource( "21_gatkg" )
+stream_0/weight = 1.0
+stream_1/stream = ExtResource( "22_6kgdx" )
+stream_1/weight = 1.0
+stream_2/stream = ExtResource( "23_2k2hg" )
+stream_2/weight = 1.0
+stream_3/stream = ExtResource( "24_hd1y7" )
+stream_3/weight = 1.0
+stream_4/stream = ExtResource( "25_ymlf2" )
+stream_4/weight = 1.0
+stream_5/stream = ExtResource( "26_luuks" )
+stream_5/weight = 1.0
+stream_6/stream = ExtResource( "27_ylvwy" )
+stream_6/weight = 1.0
+stream_7/stream = ExtResource( "28_kk715" )
+stream_7/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_mtdyv"]
 resource_name = "Crouch"
@@ -1146,6 +1173,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(1, 0, 0, 0.501961)
 
+[node name="ColorFade" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 1, 1, 0)
+
 [node name="OptionsMenu" parent="." instance=ExtResource( "2_jnfbw" )]
 visible = false
 
@@ -1199,6 +1232,10 @@ bus = &"SFX"
 stream = SubResource( "AudioStreamRandomizer_dn0sd" )
 bus = &"SFX"
 
+[node name="SoundElectrocute" type="AudioStreamPlayer" parent="."]
+stream = SubResource( "AudioStreamRandomizer_a4uaw" )
+bus = &"SFX"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource( "AnimationLibrary_u17eu" )
@@ -1217,6 +1254,16 @@ one_shot = true
 [node name="TimerBurn" type="Timer" parent="."]
 one_shot = true
 
+[node name="TimerElectrocute" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerToxicSlime" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerToxicSlimeFVOX" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Crowbar" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Pistol" method="_on_area_3d_body_entered"]
@@ -1224,3 +1271,5 @@ one_shot = true
 [connection signal="finished" from="SoundGeiger" to="." method="_on_sound_geiger_finished"]
 [connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]
 [connection signal="timeout" from="TimerBurn" to="." method="_on_timer_burn_timeout"]
+[connection signal="timeout" from="TimerElectrocute" to="." method="_on_timer_electrocute_timeout"]
+[connection signal="timeout" from="TimerToxicSlime" to="." method="_on_timer_toxic_slime_timeout"]

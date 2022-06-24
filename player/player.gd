@@ -19,7 +19,11 @@ class_name Player
 @onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
 @onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
 @onready var sound_burn := $SoundBurn as AudioStreamPlayer
+@onready var sound_electrocute := $SoundElectrocute as AudioStreamPlayer
 @onready var timer_burn := $TimerBurn as Timer
+@onready var timer_electrocute := $TimerElectrocute as Timer
+@onready var timer_toxic_slime := $TimerToxicSlime as Timer
+@onready var timer_toxic_slime_fvox := $TimerToxicSlimeFVOX as Timer
 
 const AIR_ACCELERATION = 2.0
 const FALL_DAMAGE_THRESHOLD = 20.0
@@ -37,6 +41,8 @@ var health: int:
 			play_fvox("flatline", true)
 			fvox_queue.clear()
 			timer_burn.paused = true
+			timer_electrocute.paused = true
+			timer_toxic_slime.paused = true
 			$DeathOverlay.visible = true
 			$Indicators.visible = false
 			$ItemNotifications.visible = false
@@ -66,8 +72,21 @@ var suit: bool:
 var burn: bool:
 	set(value):
 		burn = value
-		if burn and timer_burn.is_stopped():
+		if timer_burn.is_stopped():
 			_on_timer_burn_timeout()
+
+var electrocute: bool:
+	set(value):
+		electrocute = value
+		if timer_electrocute.is_stopped():
+			_on_timer_electrocute_timeout()
+
+var toxic_slime: bool:
+	set(value):
+		toxic_slime = value
+		if timer_toxic_slime.is_stopped():
+			_on_timer_toxic_slime_timeout()
+
 
 var geiger: float:
 	set(value):
@@ -136,6 +155,13 @@ func flashlight():
 	if Input.is_action_just_pressed("flashlight") and suit:
 		%Flashlight.visible = !%Flashlight.visible
 		sound_flashlight.play()
+
+
+func flash_white():
+	var tween := get_tree().create_tween()
+	tween.tween_property(%ColorFade, "color", Color.WHITE, 0.05)
+#	await tween.finished
+	tween.tween_property(%ColorFade, "color", Color.TRANSPARENT, 0.1)
 
 
 func interact():
@@ -312,3 +338,24 @@ func _on_timer_burn_timeout():
 		health -= 10
 		sound_burn.play()
 		timer_burn.start()
+
+
+func _on_timer_electrocute_timeout():
+	if electrocute:
+		health -= 10
+		sound_electrocute.play()
+		timer_electrocute.start()
+
+
+func _on_timer_toxic_slime_timeout():
+	if toxic_slime:
+		health -= 10
+		timer_toxic_slime.start()
+		flash_white()
+		
+		if timer_toxic_slime_fvox.is_stopped():
+			timer_toxic_slime_fvox.start()
+			play_fvox("blip")
+			play_fvox("blip")
+			play_fvox("blip")
+			play_fvox("radiation_detected")

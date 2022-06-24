@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://1av2wkw5rwc0"]
+[gd_scene load_steps=18 format=3 uid="uid://1av2wkw5rwc0"]
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 [ext_resource type="PackedScene" uid="uid://ccsyutky0eas2" path="res://objects/wooden_crate/wooden_crate.tscn" id="2_ays1q"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dovtpq2ss6rr7" path="res://weapons/pistol/pistol_item.tscn" id="10_tms8i"]
 [ext_resource type="PackedScene" uid="uid://c1x7w47iac1kn" path="res://objects/radiation.tscn" id="11_palm6"]
 [ext_resource type="PackedScene" uid="uid://dgvon7n11vjaq" path="res://objects/fire.tscn" id="12_jbkk6"]
+[ext_resource type="PackedScene" uid="uid://k34g2edsgpth" path="res://objects/electricity.tscn" id="13_vmrns"]
+[ext_resource type="PackedScene" uid="uid://csrsdq4q33h42" path="res://objects/toxic_slime.tscn" id="14_t1fbb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -64,7 +66,7 @@ transform = Transform3D(-1.11759e-07, 1, 0, -1, -1.11759e-07, 0, 0, 0, 1, -11.6,
 size = Vector3(16.6, 1, 20)
 
 [node name="WoodenCrate" parent="." instance=ExtResource( "2_ays1q" )]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 8.5)
 
 [node name="HealthCharger" parent="." instance=ExtResource( "3_q5g7t" )]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1.7, 0.5)
@@ -133,11 +135,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
 
 [node name="Radiation" parent="." instance=ExtResource( "11_palm6" )]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 6.5)
-strength = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.01, 9)
 
-[node name="Radiation2" parent="." instance=ExtResource( "11_palm6" )]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 11.5)
+[node name="ToxicSlime" parent="Radiation" instance=ExtResource( "14_t1fbb" )]
 
 [node name="Fire" parent="." instance=ExtResource( "12_jbkk6" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="Electricity" parent="." instance=ExtResource( "13_vmrns" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
