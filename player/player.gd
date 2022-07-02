@@ -8,18 +8,24 @@ class_name Player
 @onready var anim_tree := $AnimationTree as AnimationTree
 @onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
 @onready var camera := $Camera3D as Camera3D
+@onready var floor_raycast := $FloorRayCast3D as RayCast3D
 @onready var health_label := %HealthValue as Label
 @onready var suit_power_label := %SuitValue as Label
 @onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
 @onready var weapon_manager := $Camera3D/WeaponManager as RayCast3D
 @onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
 @onready var sound_flashlight := $SoundFlashlight as AudioStreamPlayer
+@onready var sound_footstep_concrete := $SoundFootstepConcrete as AudioStreamPlayer
+@onready var sound_footstep_metal := $SoundFootstepMetal as AudioStreamPlayer
+@onready var sound_footstep_wood := $SoundFootstepWood as AudioStreamPlayer
+@onready var sound_grab := $SoundGrab as AudioStreamPlayer
 @onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
 @onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
 @onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
 @onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
 @onready var sound_burn := $SoundBurn as AudioStreamPlayer
 @onready var sound_electrocute := $SoundElectrocute as AudioStreamPlayer
+@onready var timer_footstep := $TimerFootstep as Timer
 @onready var timer_burn := $TimerBurn as Timer
 @onready var timer_electrocute := $TimerElectrocute as Timer
 @onready var timer_toxic_slime := $TimerToxicSlime as Timer
@@ -164,6 +170,9 @@ func flash_white():
 	tween.tween_property(%ColorFade, "color", Color.TRANSPARENT, 0.1)
 
 
+func set_footstep_volume(volume_db: int):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Footstep"), volume_db)
+
 func interact():
 	var interactable := use_raycast.get_collider() as Interactable
 	
@@ -173,6 +182,9 @@ func interact():
 			current_interactable = null
 	
 	if interactable:
+		if interactable.is_in_group("Pickup"):
+			sound_grab.play()
+		
 		if Input.is_action_pressed("use"):
 			interactable.interact(self)
 			current_interactable = interactable
@@ -210,12 +222,18 @@ func look():
 func move(delta):
 	# Gravity and jumping
 	if is_on_floor():
+		var horizontal_velocity := Vector2(velocity.x, velocity.z)
+		if fall_velocity < -1 or horizontal_velocity.length_squared() >= 1:
+			if timer_footstep.is_stopped():
+				play_footstep()
+		
 		if fall_velocity < -FALL_DAMAGE_THRESHOLD:
 			health += int((fall_velocity + FALL_DAMAGE_THRESHOLD) * FALL_DAMAGE_MULTIPLIER)
 		fall_velocity = 0
 		acceleration = GROUND_ACCELERATION
 		if Input.is_action_just_pressed("jump") and health > 0:
 			velocity.y = JUMP_VELOCITY
+			play_footstep()
 	else:
 		velocity.y -= gravity * delta
 		fall_velocity = velocity.y
@@ -239,6 +257,18 @@ func move(delta):
 	velocity.x = movement.x
 	velocity.z = movement.y
 	move_and_slide()
+
+
+func play_footstep():
+	var node := floor_raycast.get_collider() as Node3D
+	if node:
+		timer_footstep.start()
+		if node.is_in_group("MetalMaterial"):
+			sound_footstep_metal.play()
+		elif node.is_in_group("WoodMaterial"):
+			sound_footstep_wood.play()
+		else:
+			sound_footstep_concrete.play()
 
 
 func play_fvox(sound_name: String, immediate := false):

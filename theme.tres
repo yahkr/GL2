@@ -23,10 +23,10 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="Font" id="Font_il34i"]
-data/0 = ExtResource( "1_ykmml" )
+data/0 = ExtResource("1_ykmml")
 
 [resource]
-default_font = SubResource( "Font_il34i" )
+default_font = SubResource("Font_il34i")
 Label/colors/font_color = Color(1, 0.839216, 0, 1)
-Panel/styles/panel = SubResource( "StyleBoxFlat_sn4s6" )
-PanelContainer/styles/panel = SubResource( "StyleBoxFlat_c254r" )
+Panel/styles/panel = SubResource("StyleBoxFlat_sn4s6")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_c254r")

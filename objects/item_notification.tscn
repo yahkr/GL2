@@ -4,15 +4,16 @@
 [ext_resource type="Script" path="res://objects/item_notification.gd" id="1_dgw81"]
 
 [sub_resource type="Font" id="Font_mxx3q"]
-data/0 = ExtResource( "1_1qkj4" )
+data/0 = ExtResource("1_1qkj4")
 
 [node name="Icon" type="Label"]
 offset_right = 33.0
 offset_bottom = 82.0
 size_flags_vertical = 1
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
-theme_override_fonts/font = SubResource( "Font_mxx3q" )
+theme_override_fonts/font = SubResource("Font_mxx3q")
 theme_override_font_sizes/font_size = 64
 text = "+"
+horizontal_alignment = 2
 vertical_alignment = 1
-script = ExtResource( "1_dgw81" )
+script = ExtResource("1_dgw81")

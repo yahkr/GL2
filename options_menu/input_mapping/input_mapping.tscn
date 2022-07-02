@@ -13,7 +13,7 @@ size_flags_vertical = 3
 script = ExtResource( "1_g1fu5" )
 
 [node name="Header" type="Control" parent="."]
-minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 30)
 offset_right = 800.0
 offset_bottom = 30.0
 
@@ -31,7 +31,7 @@ offset_bottom = 30.0
 size_flags_horizontal = 3
 
 [node name="MouseKeyboard" type="Label" parent="Header/HBoxContainer"]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 265.0
 offset_top = 2.0
 offset_right = 526.0
@@ -42,7 +42,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Controller" type="Label" parent="Header/HBoxContainer"]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 530.0
 offset_top = 2.0
 offset_right = 792.0
@@ -67,7 +67,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="move_forward" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_right = 792.0
 offset_bottom = 48.0
 
@@ -88,7 +88,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_forward/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -98,7 +98,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_forward/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -108,7 +108,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="move_backward" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 52.0
 offset_right = 792.0
 offset_bottom = 100.0
@@ -130,7 +130,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_backward/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -140,7 +140,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_backward/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -150,7 +150,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="move_left" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 104.0
 offset_right = 792.0
 offset_bottom = 152.0
@@ -172,7 +172,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_left/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -182,7 +182,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_left/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -192,7 +192,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="move_right" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 156.0
 offset_right = 792.0
 offset_bottom = 204.0
@@ -214,7 +214,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_right/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -224,7 +224,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/move_right/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -234,7 +234,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="look_up" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 208.0
 offset_right = 792.0
 offset_bottom = 256.0
@@ -256,7 +256,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_up/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -266,7 +266,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_up/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -276,7 +276,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="look_down" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 260.0
 offset_right = 792.0
 offset_bottom = 308.0
@@ -298,7 +298,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_down/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -308,7 +308,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_down/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -318,7 +318,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="look_left" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 312.0
 offset_right = 792.0
 offset_bottom = 360.0
@@ -340,7 +340,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_left/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -350,7 +350,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_left/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -360,7 +360,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="look_right" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 364.0
 offset_right = 792.0
 offset_bottom = 412.0
@@ -382,7 +382,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_right/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -392,7 +392,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/look_right/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -402,7 +402,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="jump" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 416.0
 offset_right = 792.0
 offset_bottom = 464.0
@@ -424,7 +424,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/jump/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -434,7 +434,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/jump/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -444,7 +444,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="sprint" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 468.0
 offset_right = 792.0
 offset_bottom = 516.0
@@ -466,7 +466,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/sprint/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -476,7 +476,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/sprint/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -486,7 +486,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="crouch" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 520.0
 offset_right = 792.0
 offset_bottom = 568.0
@@ -508,7 +508,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/crouch/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -518,7 +518,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/crouch/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -528,7 +528,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="primary_attack" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 572.0
 offset_right = 792.0
 offset_bottom = 620.0
@@ -550,7 +550,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/primary_attack/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -560,7 +560,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/primary_attack/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -570,7 +570,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="secondary_attack" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 624.0
 offset_right = 792.0
 offset_bottom = 672.0
@@ -592,7 +592,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/secondary_attack/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -602,7 +602,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/secondary_attack/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -612,7 +612,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="reload" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 676.0
 offset_right = 792.0
 offset_bottom = 724.0
@@ -634,7 +634,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/reload/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -644,7 +644,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/reload/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -654,7 +654,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="flashlight" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 728.0
 offset_right = 792.0
 offset_bottom = 776.0
@@ -676,7 +676,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/flashlight/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -686,7 +686,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/flashlight/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -696,7 +696,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="next_weapon" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 780.0
 offset_right = 792.0
 offset_bottom = 828.0
@@ -718,7 +718,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/next_weapon/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -728,7 +728,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/next_weapon/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0
@@ -738,7 +738,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="previous_weapon" type="Panel" parent="ScrollContainer/VBoxContainer" groups=["Action"]]
-minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 48)
 offset_top = 832.0
 offset_right = 792.0
 offset_bottom = 880.0
@@ -760,7 +760,7 @@ text = "action"
 vertical_alignment = 1
 
 [node name="KBMMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/previous_weapon/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 262.0
 offset_right = 521.0
 offset_bottom = 48.0
@@ -770,7 +770,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ControllerMappingButton" type="Button" parent="ScrollContainer/VBoxContainer/previous_weapon/HBoxContainer" groups=["MappingButton"]]
-minimum_size = Vector2(48, 0)
+custom_minimum_size = Vector2(48, 0)
 offset_left = 525.0
 offset_right = 784.0
 offset_bottom = 48.0

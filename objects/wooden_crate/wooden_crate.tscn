@@ -1,18 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccsyutky0eas2"]
+[gd_scene load_steps=8 format=3 uid="uid://ccsyutky0eas2"]
 
-[ext_resource type="Script" path="res://objects/wooden_crate/wooden_crate.gd" id="1_xwglw"]
+[ext_resource type="Script" path="res://objects/interactable.gd" id="1_ynj0d"]
+[ext_resource type="ArrayMesh" uid="uid://iot5uhdvinlw" path="res://objects/wooden_crate/Crate1.obj" id="2_7t0ml"]
+[ext_resource type="Texture2D" uid="uid://cn3fyb86xcwxv" path="res://objects/wooden_crate/Crate01.png" id="3_4fbif"]
+[ext_resource type="Texture2D" uid="uid://bspe8k8eiumcs" path="res://objects/wooden_crate/Crate01_SPEC.png" id="4_rsbq3"]
+[ext_resource type="Texture2D" uid="uid://bdhxaj4g7h6jo" path="res://objects/wooden_crate/Crate01_NRM.png" id="5_xtrhj"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_pvh14"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gy7c"]
+albedo_texture = ExtResource("3_4fbif")
+metallic = 1.0
+metallic_texture = ExtResource("4_rsbq3")
+normal_enabled = true
+normal_texture = ExtResource("5_xtrhj")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_h4mag"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4qgcl"]
+points = PackedVector3Array(0.4407, 0.851201, 0.4407, -0.441, -0.030413, -0.441, -0.441, -0.030413, 0.441, -0.440899, 0.8514, -0.440899, 0.4407, -0.0301131, -0.4407, -0.440899, 0.8514, 0.440899, 0.4407, -0.0301131, 0.4407, 0.4407, 0.851201, -0.4407)
 
-[node name="WoodenCrate" type="RigidDynamicBody3D" groups=["WoodMaterial"]]
-script = ExtResource( "1_xwglw" )
+[node name="WoodenCrate" type="RigidDynamicBody3D" groups=["Pickup", "WoodMaterial"]]
+script = ExtResource("1_ynj0d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource( "BoxMesh_pvh14" )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = ExtResource("2_7t0ml")
+surface_material_override/0 = SubResource("StandardMaterial3D_0gy7c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource( "BoxShape3D_h4mag" )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("ConvexPolygonShape3D_4qgcl")

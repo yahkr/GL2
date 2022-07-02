@@ -66,7 +66,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/MouseSensitivity"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -103,7 +103,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -131,7 +131,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/MouseVerticalInverted"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -166,7 +166,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerHorizontalSensitivity"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -202,7 +202,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerVerticalSensitivity"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -239,7 +239,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -267,7 +267,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -294,7 +294,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerResponseCurve"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -328,7 +328,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerDeadzone"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -360,7 +360,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerOuterThreshold"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -403,7 +403,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/3DScale"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -440,7 +440,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="OptionButton" parent="Options/Tabs/Video/AntiAliasing"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -474,7 +474,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/Bloom"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -501,7 +501,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/Brightness"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -537,7 +537,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/FOV"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -573,7 +573,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="OptionButton" parent="Options/Tabs/Video/FSR"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -611,7 +611,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/Fullscreen"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -638,7 +638,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/MaxFPS"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -673,7 +673,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/ShowFPS"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -701,7 +701,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/VSync"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_right = 712.0
 offset_bottom = 31.0
@@ -733,7 +733,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeMaster"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -766,7 +766,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeSFX"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -799,7 +799,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeMusic"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0
@@ -832,7 +832,7 @@ text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeDialog"]
-minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(400, 0)
 offset_left = 312.0
 offset_top = 5.0
 offset_right = 712.0

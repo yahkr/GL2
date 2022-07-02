@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=79 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -10,15 +10,28 @@
 [ext_resource type="PackedScene" uid="uid://di8f1ywj7cdnn" path="res://weapons/pistol/pistol.tscn" id="4_bjifu"]
 [ext_resource type="FontData" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="6_scti2"]
 [ext_resource type="AudioStream" uid="uid://cfgs7h7q8l6tc" path="res://sounds/common/wpn_moveselect.wav" id="8_n4ouh"]
+[ext_resource type="AudioStream" uid="uid://c6oey01q5t84g" path="res://sounds/player/footsteps/concrete1.wav" id="9_mphdq"]
+[ext_resource type="AudioStream" uid="uid://cflhwlh0vdixx" path="res://sounds/player/footsteps/concrete2.wav" id="10_6nsok"]
 [ext_resource type="AudioStream" uid="uid://cu2o1akeaotuw" path="res://sounds/items/flashlight1.wav" id="11_b3cvp"]
+[ext_resource type="AudioStream" uid="uid://c651wg8am2sgj" path="res://sounds/player/footsteps/concrete3.wav" id="11_bhbqb"]
+[ext_resource type="AudioStream" uid="uid://dpdmf1r0jwi54" path="res://sounds/common/wpn_select.wav" id="12_8pmo1"]
+[ext_resource type="AudioStream" uid="uid://cmj3frnv1b1og" path="res://sounds/player/footsteps/concrete4.wav" id="12_32fmo"]
 [ext_resource type="AudioStream" uid="uid://c7vgxaewy3u0k" path="res://sounds/items/smallmedkit1.wav" id="12_h3h6x"]
 [ext_resource type="AudioStream" uid="uid://c01qlwuefurg2" path="res://sounds/items/battery_pickup.wav" id="13_8p2uw"]
+[ext_resource type="AudioStream" uid="uid://niaxoi1fy3v1" path="res://sounds/player/footsteps/metal1.wav" id="13_u3us2"]
+[ext_resource type="AudioStream" uid="uid://cse6klmw2mtkc" path="res://sounds/player/footsteps/metal2.wav" id="14_4wb0l"]
 [ext_resource type="AudioStream" uid="uid://d2r0gb0j3dgwy" path="res://sounds/items/ammo_pickup.wav" id="14_cr7ok"]
+[ext_resource type="AudioStream" uid="uid://d2jl3634y1rw2" path="res://sounds/player/footsteps/metal3.wav" id="15_273xr"]
 [ext_resource type="AudioStream" uid="uid://bt812rbv6xeop" path="res://sounds/player/geiger1.wav" id="15_jyrkk"]
+[ext_resource type="AudioStream" uid="uid://cw65egwuh7677" path="res://sounds/player/footsteps/metal4.wav" id="16_c2efu"]
 [ext_resource type="AudioStream" uid="uid://drluhhyeluqgj" path="res://sounds/player/geiger2.wav" id="16_j4nsf"]
+[ext_resource type="AudioStream" uid="uid://deccyf1bd4dwj" path="res://sounds/player/footsteps/wood1.wav" id="17_auacg"]
 [ext_resource type="AudioStream" uid="uid://p26ej2dagt2a" path="res://sounds/player/geiger3.wav" id="17_m7v8c"]
 [ext_resource type="AudioStream" uid="uid://cv1ue0c0q0osv" path="res://sounds/player/pl_burnpain1.wav" id="18_ggwlp"]
+[ext_resource type="AudioStream" uid="uid://jqdycu2ltn1e" path="res://sounds/player/footsteps/wood2.wav" id="18_yogrm"]
+[ext_resource type="AudioStream" uid="uid://bfb3jhq6n4dnw" path="res://sounds/player/footsteps/wood3.wav" id="19_0ds8t"]
 [ext_resource type="AudioStream" uid="uid://bhotyj42mthb4" path="res://sounds/player/pl_burnpain2.wav" id="19_pdc8u"]
+[ext_resource type="AudioStream" uid="uid://bmqfjfvllyyaa" path="res://sounds/player/footsteps/wood4.wav" id="20_nk7dq"]
 [ext_resource type="AudioStream" uid="uid://dln5bs15hw17b" path="res://sounds/player/pl_burnpain3.wav" id="20_wpben"]
 [ext_resource type="AudioStream" uid="uid://dbwi2bj1uu3vw" path="res://sounds/ambient/energy/zap1.wav" id="21_gatkg"]
 [ext_resource type="AudioStream" uid="uid://dqejwqfm1bdat" path="res://sounds/ambient/energy/zap2.wav" id="22_6kgdx"]
@@ -41,7 +54,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="Font" id="Font_gjiba"]
-data/0 = ExtResource( "6_scti2" )
+data/0 = ExtResource("6_scti2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bublb"]
 resource_local_to_scene = true
@@ -58,7 +71,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="Font" id="Font_u2p08"]
-data/0 = ExtResource( "6_scti2" )
+data/0 = ExtResource("6_scti2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45qn1"]
 resource_local_to_scene = true
@@ -208,44 +221,81 @@ func _process(_delta):
 		text = \"FPS: \" + str(Engine.get_frames_per_second())
 "
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c13u4"]
+streams_count = 4
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("9_mphdq")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("10_6nsok")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("11_bhbqb")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("12_32fmo")
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tli5h"]
+streams_count = 4
+random_pitch = 1.0
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("13_u3us2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("14_4wb0l")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("15_273xr")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("16_c2efu")
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n0axk"]
+streams_count = 4
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("17_auacg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("18_yogrm")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("19_0ds8t")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("20_nk7dq")
+stream_3/weight = 1.0
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ud7gk"]
 streams_count = 3
 playback_mode = 1
 random_pitch = 1.0
-stream_0/stream = ExtResource( "15_jyrkk" )
+stream_0/stream = ExtResource("15_jyrkk")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource( "16_j4nsf" )
+stream_1/stream = ExtResource("16_j4nsf")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource( "17_m7v8c" )
+stream_2/stream = ExtResource("17_m7v8c")
 stream_2/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dn0sd"]
 streams_count = 3
 random_pitch = 1.0
-stream_0/stream = ExtResource( "18_ggwlp" )
+stream_0/stream = ExtResource("18_ggwlp")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource( "19_pdc8u" )
+stream_1/stream = ExtResource("19_pdc8u")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource( "20_wpben" )
+stream_2/stream = ExtResource("20_wpben")
 stream_2/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a4uaw"]
 streams_count = 8
-stream_0/stream = ExtResource( "21_gatkg" )
+stream_0/stream = ExtResource("21_gatkg")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource( "22_6kgdx" )
+stream_1/stream = ExtResource("22_6kgdx")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource( "23_2k2hg" )
+stream_2/stream = ExtResource("23_2k2hg")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource( "24_hd1y7" )
+stream_3/stream = ExtResource("24_hd1y7")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource( "25_ymlf2" )
+stream_4/stream = ExtResource("25_ymlf2")
 stream_4/weight = 1.0
-stream_5/stream = ExtResource( "26_luuks" )
+stream_5/stream = ExtResource("26_luuks")
 stream_5/weight = 1.0
-stream_6/stream = ExtResource( "27_ylvwy" )
+stream_6/stream = ExtResource("27_ylvwy")
 stream_6/weight = 1.0
-stream_7/stream = ExtResource( "28_kk715" )
+stream_7/stream = ExtResource("28_kk715")
 stream_7/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_mtdyv"]
@@ -299,6 +349,44 @@ tracks/3/keys = {
 "update": 0,
 "values": [2.5]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FloorRayCast3D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.31, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TimerFootstep:wait_time")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [-20],
+"method": &"set_footstep_volume"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_45v5g"]
 length = 0.001
@@ -350,6 +438,44 @@ tracks/3/keys = {
 "update": 0,
 "values": [5.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FloorRayCast3D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.01, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TimerFootstep:wait_time")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0],
+"method": &"set_footstep_volume"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_grp1g"]
 resource_name = "Sprint"
@@ -380,12 +506,24 @@ tracks/1/keys = {
 "method": &"play"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TimerFootstep:wait_time")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u17eu"]
 _data = {
-"Crouch": SubResource( "Animation_mtdyv" ),
-"RESET": SubResource( "Animation_45v5g" ),
-"Sprint": SubResource( "Animation_grp1g" )
+"Crouch": SubResource("Animation_mtdyv"),
+"RESET": SubResource("Animation_45v5g"),
+"Sprint": SubResource("Animation_grp1g")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gbghh"]
@@ -411,20 +549,20 @@ xfade_time = 0.1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hiwme"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_biv5e"]
-states/Crouch/node = SubResource( "AnimationNodeAnimation_gbghh" )
+states/Crouch/node = SubResource("AnimationNodeAnimation_gbghh")
 states/Crouch/position = Vector2(283, 167)
-states/RESET/node = SubResource( "AnimationNodeAnimation_n4q6v" )
+states/RESET/node = SubResource("AnimationNodeAnimation_n4q6v")
 states/RESET/position = Vector2(283, 43)
-states/Sprint/node = SubResource( "AnimationNodeAnimation_60wjw" )
+states/Sprint/node = SubResource("AnimationNodeAnimation_60wjw")
 states/Sprint/position = Vector2(494, 167)
 states/Start/position = Vector2(71, 43)
-transitions = ["Start", "RESET", SubResource( "AnimationNodeStateMachineTransition_s8pjf" ), "RESET", "Crouch", SubResource( "AnimationNodeStateMachineTransition_ut2pv" ), "Crouch", "RESET", SubResource( "AnimationNodeStateMachineTransition_7miyi" ), "RESET", "Sprint", SubResource( "AnimationNodeStateMachineTransition_rw263" ), "Sprint", "RESET", SubResource( "AnimationNodeStateMachineTransition_hiwme" )]
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_s8pjf"), "RESET", "Crouch", SubResource("AnimationNodeStateMachineTransition_ut2pv"), "Crouch", "RESET", SubResource("AnimationNodeStateMachineTransition_7miyi"), "RESET", "Sprint", SubResource("AnimationNodeStateMachineTransition_rw263"), "Sprint", "RESET", SubResource("AnimationNodeStateMachineTransition_hiwme")]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_yfxdi"]
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
-script = ExtResource( "1_whha0" )
+script = ExtResource("1_whha0")
 speed = 5.0
 metadata/_edit_horizontal_guides_ = []
 
@@ -434,6 +572,10 @@ cull_mask = 1048573
 current = true
 fov = 90.0
 near = 0.01
+
+[node name="PickupPoint" type="Position3D" parent="Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
 unique_name_in_owner = true
@@ -446,16 +588,16 @@ collision_mask = 3
 [node name="WeaponManager" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, 0)
 collision_mask = 3
-script = ExtResource( "2_0juje" )
+script = ExtResource("2_0juje")
 
-[node name="Crowbar" parent="Camera3D/WeaponManager" instance=ExtResource( "3_iksgm" )]
+[node name="Crowbar" parent="Camera3D/WeaponManager" instance=ExtResource("3_iksgm")]
 visible = false
 
 [node name="GravityGun" type="Node3D" parent="Camera3D/WeaponManager"]
 process_mode = 4
 visible = false
 
-[node name="Pistol" parent="Camera3D/WeaponManager" instance=ExtResource( "4_bjifu" )]
+[node name="Pistol" parent="Camera3D/WeaponManager" instance=ExtResource("4_bjifu")]
 visible = false
 
 [node name="Node3D" type="Node3D" parent="Camera3D/WeaponManager"]
@@ -496,16 +638,20 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource( "CapsuleShape3D_ngjqs" )
+shape = SubResource("CapsuleShape3D_ngjqs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource( "CapsuleShape3D_ngjqs" )
+shape = SubResource("CapsuleShape3D_ngjqs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 cast_shadow = 0
-mesh = SubResource( "CapsuleMesh_52ae5" )
+mesh = SubResource("CapsuleMesh_52ae5")
 skeleton = NodePath("../..")
+
+[node name="FloorRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+target_position = Vector3(0, -0.1, 0)
 
 [node name="Crosshair" type="Panel" parent="."]
 anchor_left = 0.5
@@ -516,38 +662,37 @@ offset_left = -2.5
 offset_top = -2.5
 offset_right = 2.5
 offset_bottom = 2.5
-theme_override_styles/panel = SubResource( "StyleBoxFlat_wvpj5" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvpj5")
 
 [node name="Indicators" type="HBoxContainer" parent="."]
-visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -40.0
-theme = ExtResource( "2_t007i" )
+theme = ExtResource("2_t007i")
 theme_override_constants/separation = 8
 
-[node name="Health" type="Panel" parent="Indicators"]
-minimum_size = Vector2(110, 0)
-offset_right = 110.0
+[node name="Health" type="PanelContainer" parent="Indicators"]
+custom_minimum_size = Vector2(120, 0)
+offset_right = 120.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Indicators/Health"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 120.0
+offset_bottom = 40.0
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/Health/MarginContainer"]
 offset_left = 4.0
-offset_right = 106.0
+offset_right = 116.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Health" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
 offset_top = 9.0
-offset_right = 84.0
+offset_right = 94.0
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -557,8 +702,8 @@ vertical_alignment = 1
 
 [node name="HealthValue" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 88.0
-offset_right = 102.0
+offset_left = 98.0
+offset_right = 112.0
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -568,28 +713,28 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SuitPower" type="Panel" parent="Indicators"]
-minimum_size = Vector2(110, 0)
-offset_left = 118.0
-offset_right = 228.0
+[node name="SuitPower" type="PanelContainer" parent="Indicators"]
+custom_minimum_size = Vector2(120, 0)
+offset_left = 128.0
+offset_right = 248.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Indicators/SuitPower"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 120.0
+offset_bottom = 40.0
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/SuitPower/MarginContainer"]
 offset_left = 4.0
-offset_right = 106.0
+offset_right = 116.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Suit" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
 offset_top = 9.0
-offset_right = 84.0
+offset_right = 94.0
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -599,8 +744,8 @@ vertical_alignment = 1
 
 [node name="SuitValue" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 88.0
-offset_right = 102.0
+offset_left = 98.0
+offset_right = 112.0
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -611,20 +756,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Indicators"]
-offset_left = 236.0
-offset_right = 1134.0
+offset_left = 256.0
+offset_right = 1280.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
 visible = false
-offset_left = 1142.0
+custom_minimum_size = Vector2(120, 0)
+offset_left = 1160.0
 offset_right = 1280.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]
-offset_right = 138.0
+offset_right = 120.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -643,7 +789,7 @@ theme_override_constants/separation = -15
 [node name="Icon" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
 offset_right = 34.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource( "Font_gjiba" )
+theme_override_fonts/font = SubResource("Font_gjiba")
 theme_override_font_sizes/font_size = 24
 text = "p"
 horizontal_alignment = 1
@@ -660,41 +806,42 @@ offset_right = 50.0
 offset_bottom = 40.0
 
 [node name="LabelMagazine" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-minimum_size = Vector2(38, 0)
 offset_left = 58.0
-offset_right = 96.0
+offset_right = 82.0
 offset_bottom = 40.0
+size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
 text = "17"
 vertical_alignment = 1
 
 [node name="LabelReserve" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-minimum_size = Vector2(26, 32)
-offset_left = 104.0
+custom_minimum_size = Vector2(0, 32)
+offset_left = 90.0
 offset_top = 4.0
-offset_right = 130.0
+offset_right = 112.0
 offset_bottom = 36.0
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 text = "0"
 vertical_alignment = 2
 
 [node name="Spacer3" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-offset_left = 138.0
-offset_right = 138.0
+offset_left = 120.0
+offset_right = 120.0
 offset_bottom = 40.0
 
-[node name="SecondaryAmmo" type="Panel" parent="Indicators"]
+[node name="SecondaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
 visible = false
-minimum_size = Vector2(80, 0)
-offset_left = 944.0
-offset_right = 1024.0
+custom_minimum_size = Vector2(45, 0)
+offset_left = 1235.0
+offset_right = 1280.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Indicators/SecondaryAmmo"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 45.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
@@ -708,36 +855,36 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( "2_t007i" )
+theme = ExtResource("2_t007i")
 theme_override_constants/separation = 12
 
 [node name="First" type="VBoxContainer" parent="WeaponCategories"]
-offset_right = 120.0
+offset_right = 135.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Crowbar" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
-offset_right = 120.0
+custom_minimum_size = Vector2(135, 0)
+offset_right = 135.0
 offset_bottom = 94.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_bublb" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_bublb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/First/Crowbar"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/First/Crowbar/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "c"
 horizontal_alignment = 1
@@ -745,7 +892,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/First/Crowbar/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -755,26 +902,26 @@ vertical_alignment = 1
 
 [node name="Gravity Gun" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(135, 0)
 offset_top = 102.0
-offset_right = 120.0
+offset_right = 135.0
 offset_bottom = 196.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_45qn1" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_45qn1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/First/Gravity Gun"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Label" type="Label" parent="WeaponCategories/First/Gravity Gun/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "m"
 horizontal_alignment = 1
@@ -782,7 +929,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/First/Gravity Gun/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -791,33 +938,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Second" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 132.0
-offset_right = 252.0
+offset_left = 147.0
+offset_right = 282.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Pistol" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
-offset_right = 120.0
+custom_minimum_size = Vector2(135, 0)
+offset_right = 135.0
 offset_bottom = 94.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_mmuro" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_mmuro")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Second/Pistol"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Second/Pistol/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "d"
 horizontal_alignment = 1
@@ -825,7 +972,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Second/Pistol/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -835,26 +982,26 @@ vertical_alignment = 1
 
 [node name="Revolver" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(135, 0)
 offset_top = 102.0
-offset_right = 120.0
+offset_right = 135.0
 offset_bottom = 196.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_vufci" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_vufci")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Second/Revolver"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Second/Revolver/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "e"
 horizontal_alignment = 1
@@ -862,7 +1009,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Second/Revolver/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -871,33 +1018,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Third" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 264.0
-offset_right = 384.0
+offset_left = 294.0
+offset_right = 429.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="SMG" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
-offset_right = 120.0
+custom_minimum_size = Vector2(135, 0)
+offset_right = 135.0
 offset_bottom = 94.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_tg3sc" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_tg3sc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Third/SMG"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Third/SMG/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "a"
 horizontal_alignment = 1
@@ -905,7 +1052,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Third/SMG/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -915,26 +1062,26 @@ vertical_alignment = 1
 
 [node name="Pulse Rifle" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(135, 0)
 offset_top = 102.0
-offset_right = 120.0
+offset_right = 135.0
 offset_bottom = 196.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_pwgyn" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwgyn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Third/Pulse Rifle"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Third/Pulse Rifle/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "l"
 horizontal_alignment = 1
@@ -942,7 +1089,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Third/Pulse Rifle/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -951,33 +1098,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 396.0
-offset_right = 516.0
+offset_left = 441.0
+offset_right = 576.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Shotgun" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
-offset_right = 120.0
+custom_minimum_size = Vector2(135, 0)
+offset_right = 135.0
 offset_bottom = 94.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_e55v1" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_e55v1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fourth/Shotgun"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Fourth/Shotgun/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "b"
 horizontal_alignment = 1
@@ -985,7 +1132,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Fourth/Shotgun/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -995,26 +1142,26 @@ vertical_alignment = 1
 
 [node name="Crossbow" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(135, 0)
 offset_top = 102.0
-offset_right = 120.0
+offset_right = 135.0
 offset_bottom = 196.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_bt50b" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_bt50b")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fourth/Crossbow"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Fourth/Crossbow/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "g"
 horizontal_alignment = 1
@@ -1022,7 +1169,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Fourth/Crossbow/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1031,33 +1178,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 528.0
-offset_right = 648.0
+offset_left = 588.0
+offset_right = 723.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Grenade" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
-offset_right = 120.0
+custom_minimum_size = Vector2(135, 0)
+offset_right = 135.0
 offset_bottom = 94.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_4vy5q" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vy5q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fifth/Grenade"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Fifth/Grenade/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "k"
 horizontal_alignment = 1
@@ -1065,7 +1212,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Fifth/Grenade/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1075,26 +1222,26 @@ vertical_alignment = 1
 
 [node name="RPG" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(135, 0)
 offset_top = 102.0
-offset_right = 120.0
+offset_right = 135.0
 offset_bottom = 196.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_fhy4w" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_fhy4w")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fifth/RPG"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Fifth/RPG/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "i"
 horizontal_alignment = 1
@@ -1102,7 +1249,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Fifth/RPG/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1111,33 +1258,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 660.0
-offset_right = 780.0
+offset_left = 735.0
+offset_right = 870.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Bugbait" type="PanelContainer" parent="WeaponCategories/Sixth" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
-minimum_size = Vector2(120, 60)
-offset_right = 120.0
+custom_minimum_size = Vector2(135, 0)
+offset_right = 135.0
 offset_bottom = 94.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_4g7tn" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_4g7tn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Sixth/Bugbait"]
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 117.0
+offset_right = 132.0
 offset_bottom = 91.0
 
 [node name="Icon" type="Label" parent="WeaponCategories/Sixth/Bugbait/VBoxContainer"]
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource( "Font_u2p08" )
+theme_override_fonts/font = SubResource("Font_u2p08")
 theme_override_font_sizes/font_size = 48
 text = "j"
 horizontal_alignment = 1
@@ -1145,7 +1292,7 @@ vertical_alignment = 1
 
 [node name="Name" type="Label" parent="WeaponCategories/Sixth/Bugbait/VBoxContainer"]
 offset_top = 66.0
-offset_right = 114.0
+offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1163,7 +1310,7 @@ anchor_bottom = 0.75
 offset_right = -8.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = ExtResource( "2_t007i" )
+theme = ExtResource("2_t007i")
 alignment = 2
 metadata/_edit_use_custom_anchors = true
 
@@ -1179,7 +1326,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(1, 1, 1, 0)
 
-[node name="OptionsMenu" parent="." instance=ExtResource( "2_jnfbw" )]
+[node name="OptionsMenu" parent="." instance=ExtResource("2_jnfbw")]
 visible = false
 
 [node name="FPS" type="Label" parent="."]
@@ -1187,68 +1334,86 @@ process_mode = 3
 visible = false
 offset_right = 40.0
 offset_bottom = 23.0
-script = SubResource( "GDScript_qo00c" )
+script = SubResource("GDScript_qo00c")
 
 [node name="SoundCannotUse" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "3_5o8hl" )
+stream = ExtResource("3_5o8hl")
 bus = &"SFX"
 
-[node name="SoundFootstep" type="AudioStreamPlayer" parent="."]
-bus = &"SFX"
+[node name="SoundFootstepConcrete" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_c13u4")
+bus = &"Footstep"
+
+[node name="SoundFootstepMetal" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_tli5h")
+bus = &"Footstep"
+
+[node name="SoundFootstepWood" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_n0axk")
+bus = &"Footstep"
 
 [node name="SoundSprint" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "4_0cti2" )
+stream = ExtResource("4_0cti2")
 bus = &"SFX"
 
 [node name="SoundSwitchWeapon" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource( "8_n4ouh" )
+stream = ExtResource("8_n4ouh")
 bus = &"SFX"
 
 [node name="SoundFlashlight" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "11_b3cvp" )
+stream = ExtResource("11_b3cvp")
+bus = &"SFX"
+
+[node name="SoundGrab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8pmo1")
 bus = &"SFX"
 
 [node name="SoundHealthKit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "12_h3h6x" )
+stream = ExtResource("12_h3h6x")
 bus = &"SFX"
 
 [node name="SoundSuitBattery" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "13_8p2uw" )
+stream = ExtResource("13_8p2uw")
 bus = &"SFX"
 
 [node name="SoundFVOX" type="AudioStreamPlayer" parent="."]
 
 [node name="SoundCollectAmmo" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource( "14_cr7ok" )
+stream = ExtResource("14_cr7ok")
 
 [node name="SoundGeiger" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = SubResource( "AudioStreamRandomizer_ud7gk" )
+stream = SubResource("AudioStreamRandomizer_ud7gk")
 bus = &"SFX"
 
 [node name="SoundBurn" type="AudioStreamPlayer" parent="."]
-stream = SubResource( "AudioStreamRandomizer_dn0sd" )
+stream = SubResource("AudioStreamRandomizer_dn0sd")
 bus = &"SFX"
 
 [node name="SoundElectrocute" type="AudioStreamPlayer" parent="."]
-stream = SubResource( "AudioStreamRandomizer_a4uaw" )
+stream = SubResource("AudioStreamRandomizer_a4uaw")
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource( "AnimationLibrary_u17eu" )
+"": SubResource("AnimationLibrary_u17eu")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( "AnimationNodeStateMachine_biv5e" )
+tree_root = SubResource("AnimationNodeStateMachine_biv5e")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( "AnimationNodeStateMachinePlayback_yfxdi" )
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_yfxdi")
 
 [node name="TimerWeaponSelectFade" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
+
+[node name="TimerFootstep" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
 one_shot = true
 
 [node name="TimerBurn" type="Timer" parent="."]

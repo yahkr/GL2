@@ -18,7 +18,7 @@ func _ready():
 
 func _input(event):
 	if event.is_pressed():
-		if (event is InputEventKey and event.keycode == KEY_ESCAPE
+		if (event is InputEventKey and event.keycode == KEY_ESCAPE and not event.is_echo()
 				or event is InputEventJoypadButton and event.button_index == JOY_BUTTON_START):
 			if pause_controls.visible:
 				toggle_pause()

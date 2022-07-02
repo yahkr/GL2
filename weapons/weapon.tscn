@@ -17,39 +17,39 @@
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_colca"]
 streams_count = 4
 random_pitch = 1.0
-stream_0/stream = ExtResource( "1_o5ck0" )
+stream_0/stream = ExtResource("1_o5ck0")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource( "2_ntejh" )
+stream_1/stream = ExtResource("2_ntejh")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource( "3_ayk4n" )
+stream_2/stream = ExtResource("3_ayk4n")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource( "4_rs3oj" )
+stream_3/stream = ExtResource("4_rs3oj")
 stream_3/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t8377"]
 streams_count = 4
 random_pitch = 1.0
-stream_0/stream = ExtResource( "5_gwx1r" )
+stream_0/stream = ExtResource("5_gwx1r")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource( "6_kpu4v" )
+stream_1/stream = ExtResource("6_kpu4v")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource( "7_wb1pm" )
+stream_2/stream = ExtResource("7_wb1pm")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource( "8_7wjtn" )
+stream_3/stream = ExtResource("8_7wjtn")
 stream_3/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j08vq"]
 streams_count = 5
 random_pitch = 1.0
-stream_0/stream = ExtResource( "8_4vmch" )
+stream_0/stream = ExtResource("8_4vmch")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource( "9_p7r2x" )
+stream_1/stream = ExtResource("9_p7r2x")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource( "10_3272b" )
+stream_2/stream = ExtResource("10_3272b")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource( "11_7nua7" )
+stream_3/stream = ExtResource("11_7nua7")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource( "12_cdqh1" )
+stream_4/stream = ExtResource("12_cdqh1")
 stream_4/weight = 1.0
 
 [node name="Weapon" type="Node3D"]
@@ -60,12 +60,12 @@ one_shot = true
 
 [node name="SoundHitConcrete" type="AudioStreamPlayer3D" parent="."]
 top_level = true
-stream = SubResource( "AudioStreamRandomizer_colca" )
+stream = SubResource("AudioStreamRandomizer_colca")
 
 [node name="SoundHitMetal" type="AudioStreamPlayer3D" parent="."]
 top_level = true
-stream = SubResource( "AudioStreamRandomizer_t8377" )
+stream = SubResource("AudioStreamRandomizer_t8377")
 
 [node name="SoundHitWood" type="AudioStreamPlayer3D" parent="."]
 top_level = true
-stream = SubResource( "AudioStreamRandomizer_j08vq" )
+stream = SubResource("AudioStreamRandomizer_j08vq")

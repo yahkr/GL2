@@ -4,11 +4,11 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mict1"]
 
-[node name="HEVSuit" type="StaticBody3D" groups=["HEVSuit", "Metal"]]
+[node name="HEVSuit" type="StaticBody3D" groups=["HEVSuit", "MetalMaterial"]]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource( "CylinderShape3D_mict1" )
+shape = SubResource("CylinderShape3D_mict1")
 
-[node name="hev_suit_model" parent="." instance=ExtResource( "1_y1x0p" )]
+[node name="hev_suit_model" parent="." instance=ExtResource("1_y1x0p")]
