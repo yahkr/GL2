@@ -54,6 +54,9 @@ func hit():
 			bullet_hole_instance.look_at(
 					bullet_hole_instance.position - weapon_raycast.get_collision_normal()
 			)
+		
+		if "health" in node:
+			node.health -= 1
 
 func draw_weapon():
 	weapon_raycast.target_position = Vector3.FORWARD * hit_range

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=82 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -34,7 +34,9 @@
 [ext_resource type="AudioStream" uid="uid://bmqfjfvllyyaa" path="res://sounds/player/footsteps/wood4.wav" id="20_nk7dq"]
 [ext_resource type="AudioStream" uid="uid://dln5bs15hw17b" path="res://sounds/player/pl_burnpain3.wav" id="20_wpben"]
 [ext_resource type="AudioStream" uid="uid://dbwi2bj1uu3vw" path="res://sounds/ambient/energy/zap1.wav" id="21_gatkg"]
+[ext_resource type="AudioStream" uid="uid://0hkjhjokby2u" path="res://sounds/player/pl_fallpain3.wav" id="21_qk40d"]
 [ext_resource type="AudioStream" uid="uid://dqejwqfm1bdat" path="res://sounds/ambient/energy/zap2.wav" id="22_6kgdx"]
+[ext_resource type="AudioStream" uid="uid://cy4tw2oelvrj7" path="res://sounds/player/pl_fallpain1.wav" id="22_dt2if"]
 [ext_resource type="AudioStream" uid="uid://bw0fg6adg0hxx" path="res://sounds/ambient/energy/zap3.wav" id="23_2k2hg"]
 [ext_resource type="AudioStream" uid="uid://cnii5lam117pi" path="res://sounds/ambient/energy/zap5.wav" id="24_hd1y7"]
 [ext_resource type="AudioStream" uid="uid://b7t2dig4ucggx" path="res://sounds/ambient/energy/zap6.wav" id="25_ymlf2"]
@@ -257,6 +259,13 @@ stream_2/stream = ExtResource("19_0ds8t")
 stream_2/weight = 1.0
 stream_3/stream = ExtResource("20_nk7dq")
 stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6hani"]
+streams_count = 2
+stream_0/stream = ExtResource("21_qk40d")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("22_dt2if")
+stream_1/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ud7gk"]
 streams_count = 3
@@ -1377,6 +1386,10 @@ bus = &"SFX"
 stream = ExtResource("13_8p2uw")
 bus = &"SFX"
 
+[node name="SoundFallDamage" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_6hani")
+bus = &"SFX"
+
 [node name="SoundFVOX" type="AudioStreamPlayer" parent="."]
 
 [node name="SoundCollectAmmo" type="AudioStreamPlayer" parent="."]
@@ -1426,6 +1439,18 @@ one_shot = true
 one_shot = true
 
 [node name="TimerToxicSlimeFVOX" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="TimerVitalSignsDroppingFVOX" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="TimerMinorFractureFVOX" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="TimerMajorFractureFVOX" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
 

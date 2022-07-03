@@ -21,6 +21,7 @@ class_name Player
 @onready var sound_grab := $SoundGrab as AudioStreamPlayer
 @onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
 @onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
+@onready var sound_fall_damage := $SoundFallDamage as AudioStreamPlayer
 @onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
 @onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
 @onready var sound_burn := $SoundBurn as AudioStreamPlayer
@@ -30,9 +31,13 @@ class_name Player
 @onready var timer_electrocute := $TimerElectrocute as Timer
 @onready var timer_toxic_slime := $TimerToxicSlime as Timer
 @onready var timer_toxic_slime_fvox := $TimerToxicSlimeFVOX as Timer
+@onready var timer_vital_signs_dropping_fvox := $TimerVitalSignsDroppingFVOX as Timer
+@onready var timer_minor_fracture_fvox := $TimerMinorFractureFVOX as Timer
+@onready var timer_major_fracture_fvox := $TimerMajorFractureFVOX as Timer
+
 
 const AIR_ACCELERATION = 2.0
-const FALL_DAMAGE_THRESHOLD = 20.0
+const FALL_DAMAGE_THRESHOLD = 15.0
 const FALL_DAMAGE_MULTIPLIER = 15.0
 const GROUND_ACCELERATION = 20.0
 const JUMP_VELOCITY = 6.0
@@ -44,6 +49,22 @@ var health: int:
 	set(value):
 		value = clamp(value, 0, 100)
 		if health != value and value == 0:
+			if health > value:
+				if value < 10:
+					play_fvox("beep")
+					play_fvox("beep")
+					play_fvox("beep")
+					play_fvox("near_death")
+				elif value < 25:
+					play_fvox("beep")
+					play_fvox("beep")
+					play_fvox("beep")
+					play_fvox("health_critical")
+					play_fvox("boop")
+					play_fvox("boop")
+					play_fvox("boop")
+					play_fvox("seek_medic")
+				
 			play_fvox("flatline", true)
 			fvox_queue.clear()
 			timer_burn.paused = true
@@ -56,6 +77,7 @@ var health: int:
 			$Crosshair.visible = false
 			weapon_manager.select_weapon(-1, false)
 			weapon_manager.set_process(false)
+			current_pickup = null
 		health = value
 		health_label.text = str(health)
 		if health < 20:
@@ -101,6 +123,15 @@ var geiger: float:
 			sound_geiger.play()
 
 var current_interactable: Interactable
+var current_pickup: Node3D:
+	set(value):
+		if value == null:
+			current_pickup.freeze = false
+			current_pickup.collision_layer = 1
+		else:
+			value.freeze = true
+			value.collision_layer = 0
+		current_pickup = value
 
 var fvox_queue: Array[String]
 
@@ -135,6 +166,9 @@ func _process(_delta):
 	
 	if Input.is_anything_pressed() and health == 0:
 		get_tree().reload_current_scene()
+	
+	if current_pickup:
+		current_pickup.position = %PickupPoint.global_transform.origin
 
 
 func _input(event):
@@ -166,7 +200,6 @@ func flashlight():
 func flash_white():
 	var tween := get_tree().create_tween()
 	tween.tween_property(%ColorFade, "color", Color.WHITE, 0.05)
-#	await tween.finished
 	tween.tween_property(%ColorFade, "color", Color.TRANSPARENT, 0.1)
 
 
@@ -174,20 +207,25 @@ func set_footstep_volume(volume_db: int):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Footstep"), volume_db)
 
 func interact():
-	var interactable := use_raycast.get_collider() as Interactable
+	var node := use_raycast.get_collider() as Node3D
 	
-	if Input.is_action_just_released("use") or interactable != current_interactable:
+	if current_pickup and Input.is_action_just_pressed("use"):
+		current_pickup = null
+		return
+	
+	if Input.is_action_just_released("use") or node != current_interactable:
 		if current_interactable:
 			current_interactable.stop_interact()
 			current_interactable = null
 	
-	if interactable:
-		if interactable.is_in_group("Pickup"):
+	if use_raycast.is_colliding():
+		if node.is_in_group("Pickup") and Input.is_action_just_pressed("use"):
 			sound_grab.play()
+			current_pickup = node
 		
-		if Input.is_action_pressed("use"):
-			interactable.interact(self)
-			current_interactable = interactable
+		if node is Interactable and Input.is_action_pressed("use"):
+			node.interact(self)
+			current_interactable = node
 	elif Input.is_action_just_pressed("use"):
 		sound_cannot_use.play()
 
@@ -228,7 +266,30 @@ func move(delta):
 				play_footstep()
 		
 		if fall_velocity < -FALL_DAMAGE_THRESHOLD:
-			health += int((fall_velocity + FALL_DAMAGE_THRESHOLD) * FALL_DAMAGE_MULTIPLIER)
+			sound_fall_damage.play()
+			var fall_damage := int((fall_velocity + FALL_DAMAGE_THRESHOLD) * FALL_DAMAGE_MULTIPLIER)
+			if fall_damage < -25 and timer_major_fracture_fvox.is_stopped():
+				timer_major_fracture_fvox.start()
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("major_fracture")
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("automedic_on")
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("hiss")
+				play_fvox("morphine_shot")
+			elif timer_minor_fracture_fvox.is_stopped():
+				timer_minor_fracture_fvox.start()
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("boop")
+				play_fvox("minor_fracture")
+			health += fall_damage
 		fall_velocity = 0
 		acceleration = GROUND_ACCELERATION
 		if Input.is_action_just_pressed("jump") and health > 0:
@@ -379,7 +440,6 @@ func _on_timer_electrocute_timeout():
 
 func _on_timer_toxic_slime_timeout():
 	if toxic_slime:
-		health -= 10
 		timer_toxic_slime.start()
 		flash_white()
 		
@@ -389,3 +449,11 @@ func _on_timer_toxic_slime_timeout():
 			play_fvox("blip")
 			play_fvox("blip")
 			play_fvox("radiation_detected")
+		
+		if timer_vital_signs_dropping_fvox.is_stopped():
+			timer_vital_signs_dropping_fvox.start()
+			play_fvox("beep")
+			play_fvox("beep")
+			play_fvox("health_dropping2")
+		
+		health -= 10
