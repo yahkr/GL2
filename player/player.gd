@@ -26,6 +26,7 @@ class_name Player
 @onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
 @onready var sound_burn := $SoundBurn as AudioStreamPlayer
 @onready var sound_electrocute := $SoundElectrocute as AudioStreamPlayer
+@onready var sound_ladder := $SoundLadder as AudioStreamPlayer
 @onready var timer_footstep := $TimerFootstep as Timer
 @onready var timer_burn := $TimerBurn as Timer
 @onready var timer_electrocute := $TimerElectrocute as Timer
@@ -115,19 +116,21 @@ var toxic_slime: bool:
 		if timer_toxic_slime.is_stopped():
 			_on_timer_toxic_slime_timeout()
 
-
 var geiger: float:
 	set(value):
 		geiger = value
 		if geiger:
 			sound_geiger.play()
 
+var ladder: Array[StaticBody3D]
+
 var current_interactable: Interactable
 var current_pickup: Node3D:
 	set(value):
 		if value == null:
-			current_pickup.freeze = false
-			current_pickup.collision_layer = 1
+			if current_pickup:
+				current_pickup.freeze = false
+				current_pickup.collision_layer = 1
 		else:
 			value.freeze = true
 			value.collision_layer = 0
@@ -258,6 +261,10 @@ func look():
 
 
 func move(delta):
+	if not ladder.is_empty() and timer_footstep.is_stopped():
+		timer_footstep.start()
+		sound_ladder.play()
+	
 	# Gravity and jumping
 	if is_on_floor():
 		var horizontal_velocity := Vector2(velocity.x, velocity.z)
@@ -295,7 +302,7 @@ func move(delta):
 		if Input.is_action_just_pressed("jump") and health > 0:
 			velocity.y = JUMP_VELOCITY
 			play_footstep()
-	else:
+	elif ladder.is_empty():
 		velocity.y -= gravity * delta
 		fall_velocity = velocity.y
 		acceleration = AIR_ACCELERATION

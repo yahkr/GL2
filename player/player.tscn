@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=87 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -43,6 +43,10 @@
 [ext_resource type="AudioStream" uid="uid://ccrry76e6vfnr" path="res://sounds/ambient/energy/zap7.wav" id="26_luuks"]
 [ext_resource type="AudioStream" uid="uid://bmsf0ht30td6q" path="res://sounds/ambient/energy/zap8.wav" id="27_ylvwy"]
 [ext_resource type="AudioStream" uid="uid://fx1rkiaincdp" path="res://sounds/ambient/energy/zap9.wav" id="28_kk715"]
+[ext_resource type="AudioStream" uid="uid://cejafo78d7lvp" path="res://sounds/player/footsteps/ladder1.wav" id="44_eujcg"]
+[ext_resource type="AudioStream" uid="uid://c12kemh7pnh1l" path="res://sounds/player/footsteps/ladder2.wav" id="45_psnii"]
+[ext_resource type="AudioStream" uid="uid://dahpdwxbkgayw" path="res://sounds/player/footsteps/ladder3.wav" id="46_0bfmw"]
+[ext_resource type="AudioStream" uid="uid://cosle2pkgao7f" path="res://sounds/player/footsteps/ladder4.wav" id="47_i6xcc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngjqs"]
 
@@ -306,6 +310,18 @@ stream_6/stream = ExtResource("27_ylvwy")
 stream_6/weight = 1.0
 stream_7/stream = ExtResource("28_kk715")
 stream_7/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_au6bq"]
+streams_count = 4
+random_pitch = 1.0
+stream_0/stream = ExtResource("44_eujcg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("45_psnii")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("46_0bfmw")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("47_i6xcc")
+stream_3/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_mtdyv"]
 resource_name = "Crouch"
@@ -592,11 +608,11 @@ visible = false
 
 [node name="UseRayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -3)
-collision_mask = 3
+collision_mask = 11
 
 [node name="WeaponManager" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, 0)
-collision_mask = 3
+collision_mask = 11
 script = ExtResource("2_0juje")
 
 [node name="Crowbar" parent="Camera3D/WeaponManager" instance=ExtResource("3_iksgm")]
@@ -1407,6 +1423,10 @@ bus = &"SFX"
 
 [node name="SoundElectrocute" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_a4uaw")
+bus = &"SFX"
+
+[node name="SoundLadder" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_au6bq")
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

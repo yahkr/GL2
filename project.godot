@@ -187,6 +187,7 @@ locale/translations=PackedStringArray("res://translations/translations.de.transl
 3d_physics/layer_1="General"
 3d_physics/layer_2="Items"
 3d_physics/layer_3="Player"
+3d_physics/layer_4="RigidBody"
 
 [physics]
 

@@ -26,6 +26,8 @@ stream_1/stream = ExtResource("7_rp7d1")
 stream_1/weight = 1.0
 
 [node name="WoodenCrate" type="RigidDynamicBody3D" groups=["Pickup", "WoodMaterial"]]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_1hww2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
