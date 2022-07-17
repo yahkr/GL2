@@ -57,6 +57,10 @@ window/size/fullscreen=true
 
 import/fbx/enabled=false
 
+[gui]
+
+theme/custom_font="res://fonts/din1451alt.ttf"
+
 [input]
 
 ui_accept={

@@ -13,6 +13,7 @@ class_name Weapon
 @onready var weapon_raycast := get_parent() as RayCast3D
 
 const bullet_hole = preload("res://weapons/decals/bullet_hole.tscn")
+const item_notification = preload("res://objects/item_notification.tscn")
 
 
 signal weapon_selected

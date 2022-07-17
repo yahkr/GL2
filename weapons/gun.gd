@@ -21,6 +21,8 @@ class_name Gun
 		call_deferred("update_ammo_labels")
 		secondary_ammo = value
 
+const ammo_notification = preload("res://weapons/ammo_notification.tscn")
+
 
 func _ready():
 	super()

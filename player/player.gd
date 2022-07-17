@@ -49,6 +49,9 @@ const fvox_file = "res://sounds/fvox/%s.wav"
 var health: int:
 	set(value):
 		value = clamp(value, 0, 100)
+		if health > value:
+			%DamageIndicatorLeft.fade()
+			%DamageIndicatorRight.fade()
 		if health != value and value == 0:
 			if health > value:
 				if value < 10:
@@ -65,7 +68,6 @@ var health: int:
 					play_fvox("boop")
 					play_fvox("boop")
 					play_fvox("seek_medic")
-				
 			play_fvox("flatline", true)
 			fvox_queue.clear()
 			timer_burn.paused = true
@@ -76,6 +78,7 @@ var health: int:
 			$ItemNotifications.visible = false
 			$WeaponCategories.visible = false
 			$Crosshair.visible = false
+			$DamageIndicators.visible = false
 			weapon_manager.select_weapon(-1, false)
 			weapon_manager.set_process(false)
 			current_pickup = null

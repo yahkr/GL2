@@ -11,7 +11,7 @@ process_priority = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.588235)
-script = ExtResource( "1_b2bsq" )
+script = ExtResource("1_b2bsq")
 metadata/_edit_vertical_guides_ = []
 
 [node name="Options" type="VBoxContainer" parent="."]
@@ -379,7 +379,7 @@ offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "Value"
 
-[node name="InputMapping" parent="Options/Tabs" instance=ExtResource( "2_owuij" )]
+[node name="InputMapping" parent="Options/Tabs" instance=ExtResource("2_owuij")]
 process_mode = 2
 visible = false
 grow_vertical = 2
@@ -871,42 +871,42 @@ metadata/_edit_layout_mode = 1
 
 [node name="GameTitle" type="Label" parent="PauseControls"]
 offset_right = 500.0
-offset_bottom = 70.0
+offset_bottom = 59.0
 theme_override_font_sizes/font_size = 48
 text = "FPS"
 vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PauseControls"]
-offset_top = 74.0
+offset_top = 63.0
 offset_right = 500.0
-offset_bottom = 105.0
+offset_bottom = 90.0
 text = "Resume"
 flat = true
 alignment = 0
 
 [node name="OptionsButton" type="Button" parent="PauseControls"]
-offset_top = 109.0
+offset_top = 94.0
 offset_right = 500.0
-offset_bottom = 140.0
+offset_bottom = 121.0
 text = "Options"
 flat = true
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="PauseControls"]
-offset_top = 144.0
+offset_top = 125.0
 offset_right = 500.0
-offset_bottom = 175.0
+offset_bottom = 152.0
 text = "Quit"
 flat = true
 alignment = 0
 
 [node name="SoundHover" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource( "3_lbhr5" )
+stream = ExtResource("3_lbhr5")
 
 [node name="SoundClick" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource( "4_o2cmd" )
+stream = ExtResource("4_o2cmd")
 
 [connection signal="tab_changed" from="Options/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="Options/RestoreDefaultsButton" to="." method="_on_restore_defaults_button_pressed"]

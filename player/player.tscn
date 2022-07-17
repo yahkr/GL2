@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=89 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://pm25bhay4glh" path="res://weapons/crowbar/crowbar.tscn" id="3_iksgm"]
 [ext_resource type="AudioStream" uid="uid://fs0kme2hhi04" path="res://sounds/player/sprint.wav" id="4_0cti2"]
 [ext_resource type="PackedScene" uid="uid://di8f1ywj7cdnn" path="res://weapons/pistol/pistol.tscn" id="4_bjifu"]
-[ext_resource type="FontData" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="6_scti2"]
+[ext_resource type="Script" path="res://player/damage_indicator.gd" id="5_gienv"]
+[ext_resource type="FontFile" uid="uid://sumg0umwbx54" path="res://fonts/din1451alt.ttf" id="6_h7v46"]
+[ext_resource type="FontFile" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="6_scti2"]
 [ext_resource type="AudioStream" uid="uid://cfgs7h7q8l6tc" path="res://sounds/common/wpn_moveselect.wav" id="8_n4ouh"]
 [ext_resource type="AudioStream" uid="uid://c6oey01q5t84g" path="res://sounds/player/footsteps/concrete1.wav" id="9_mphdq"]
 [ext_resource type="AudioStream" uid="uid://cflhwlh0vdixx" path="res://sounds/player/footsteps/concrete2.wav" id="10_6nsok"]
@@ -52,15 +54,18 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_52ae5"]
 
+[sub_resource type="Gradient" id="Gradient_gww3o"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_whovi"]
+gradient = SubResource("Gradient_gww3o")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvpj5"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="Font" id="Font_gjiba"]
-data/0 = ExtResource("6_scti2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bublb"]
 resource_local_to_scene = true
@@ -75,9 +80,6 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
-
-[sub_resource type="Font" id="Font_u2p08"]
-data/0 = ExtResource("6_scti2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45qn1"]
 resource_local_to_scene = true
@@ -624,6 +626,11 @@ visible = false
 
 [node name="Pistol" parent="Camera3D/WeaponManager" instance=ExtResource("4_bjifu")]
 visible = false
+magazine_ammo = null
+magazine_size = null
+reserve_size = null
+reserve_ammo = null
+secondary_ammo = null
 
 [node name="Node3D" type="Node3D" parent="Camera3D/WeaponManager"]
 process_mode = 4
@@ -678,6 +685,31 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 target_position = Vector3(0, -0.1, 0)
 
+[node name="DamageIndicators" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="DamageIndicatorLeft" type="TextureRect" parent="DamageIndicators"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchor_bottom = 1.0
+offset_right = 32.0
+texture = SubResource("GradientTexture1D_whovi")
+ignore_texture_size = true
+script = ExtResource("5_gienv")
+
+[node name="DamageIndicatorRight" type="TextureRect" parent="DamageIndicators"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+texture = SubResource("GradientTexture1D_whovi")
+ignore_texture_size = true
+flip_h = true
+script = ExtResource("5_gienv")
+
 [node name="Crosshair" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -717,22 +749,24 @@ size_flags_vertical = 3
 
 [node name="Health" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
 offset_top = 9.0
-offset_right = 94.0
+offset_right = 92.0
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "HEALTH"
 vertical_alignment = 1
 
 [node name="HealthValue" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 98.0
+offset_left = 96.0
 offset_right = 112.0
-offset_bottom = 39.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
@@ -759,22 +793,24 @@ size_flags_vertical = 3
 
 [node name="Suit" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
 offset_top = 9.0
-offset_right = 94.0
+offset_right = 92.0
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "SUIT"
 vertical_alignment = 1
 
 [node name="SuitValue" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 98.0
+offset_left = 96.0
 offset_right = 112.0
-offset_bottom = 39.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
@@ -790,8 +826,8 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(120, 0)
-offset_left = 1160.0
-offset_right = 1280.0
+offset_left = 1107.0
+offset_right = 1227.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]
@@ -814,7 +850,7 @@ theme_override_constants/separation = -15
 [node name="Icon" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
 offset_right = 34.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource("Font_gjiba")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 24
 text = "p"
 horizontal_alignment = 1
@@ -823,6 +859,7 @@ horizontal_alignment = 1
 offset_top = 18.0
 offset_right = 34.0
 offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "MUN"
 
 [node name="Spacer2" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
@@ -832,21 +869,23 @@ offset_bottom = 40.0
 
 [node name="LabelMagazine" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
 offset_left = 58.0
-offset_right = 82.0
+offset_right = 90.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 30
 text = "17"
 vertical_alignment = 1
 
 [node name="LabelReserve" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
-offset_left = 90.0
+offset_left = 98.0
 offset_top = 4.0
 offset_right = 112.0
 offset_bottom = 36.0
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 20
 text = "0"
 vertical_alignment = 2
@@ -866,9 +905,10 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Indicators/SecondaryAmmo"]
 offset_right = 45.0
-offset_bottom = 39.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
@@ -909,7 +949,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "c"
 horizontal_alignment = 1
@@ -921,6 +961,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Crowbar"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -946,7 +987,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "m"
 horizontal_alignment = 1
@@ -958,6 +999,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Gravity Gun"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -989,7 +1031,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "d"
 horizontal_alignment = 1
@@ -1001,6 +1043,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Pistol"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1026,7 +1069,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "e"
 horizontal_alignment = 1
@@ -1038,6 +1081,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Revolver"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1069,7 +1113,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "a"
 horizontal_alignment = 1
@@ -1081,6 +1125,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "SMG"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1106,7 +1151,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "l"
 horizontal_alignment = 1
@@ -1118,6 +1163,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Pulse Rifle"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1149,7 +1195,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "b"
 horizontal_alignment = 1
@@ -1161,6 +1207,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Shotgun"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1186,7 +1233,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "g"
 horizontal_alignment = 1
@@ -1198,6 +1245,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Crossbow"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1229,7 +1277,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "k"
 horizontal_alignment = 1
@@ -1241,6 +1289,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Grenade"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1266,7 +1315,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "i"
 horizontal_alignment = 1
@@ -1278,6 +1327,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "RPG"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1309,7 +1359,7 @@ offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = SubResource("Font_u2p08")
+theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
 text = "j"
 horizontal_alignment = 1
@@ -1321,6 +1371,7 @@ offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("6_h7v46")
 text = "Bugbait"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1430,6 +1481,7 @@ stream = SubResource("AudioStreamRandomizer_au6bq")
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_u17eu")
 }

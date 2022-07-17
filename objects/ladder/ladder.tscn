@@ -18,7 +18,7 @@ size = Vector3(0.9, 2, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lduv7"]
 size = Vector3(0.1, 2, 0.1)
 
-[node name="Ladder" type="StaticBody3D"]
+[node name="Ladder" type="StaticBody3D" groups=["MetalMaterial"]]
 script = ExtResource("1_4rnh8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

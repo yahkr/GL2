@@ -1,23 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyb4aam33ccqi"]
+[gd_scene load_steps=3 format=3 uid="uid://cyb4aam33ccqi"]
 
 [ext_resource type="Script" path="res://objects/item_notification.gd" id="1_qilbv"]
-[ext_resource type="FontData" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="2_les3x"]
-
-[sub_resource type="Font" id="Font_mxx3q"]
-data/0 = ExtResource( "2_les3x" )
+[ext_resource type="FontFile" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="2_les3x"]
 
 [node name="AmmoNotification" type="HBoxContainer"]
 offset_right = 28.0
 offset_bottom = 23.0
 size_flags_horizontal = 8
-script = ExtResource( "1_qilbv" )
+script = ExtResource("1_qilbv")
 
 [node name="IconAmmo" type="Label" parent="."]
 offset_right = 19.0
-offset_bottom = 48.0
+offset_bottom = 43.0
 size_flags_vertical = 1
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
-theme_override_fonts/font = SubResource( "Font_mxx3q" )
+theme_override_fonts/font = ExtResource("2_les3x")
 theme_override_font_sizes/font_size = 32
 text = "p"
 vertical_alignment = 1
@@ -25,20 +22,21 @@ vertical_alignment = 1
 [node name="IconWeapon" type="Label" parent="."]
 offset_left = 23.0
 offset_right = 56.0
-offset_bottom = 48.0
+offset_bottom = 43.0
 size_flags_vertical = 1
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
-theme_override_fonts/font = SubResource( "Font_mxx3q" )
+theme_override_fonts/font = ExtResource("2_les3x")
 theme_override_font_sizes/font_size = 32
 text = "d"
 vertical_alignment = 1
 
 [node name="Text" type="Label" parent="."]
 offset_left = 60.0
-offset_right = 96.0
-offset_bottom = 48.0
+offset_right = 94.0
+offset_bottom = 43.0
 size_flags_vertical = 1
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
+theme_override_fonts/font = ExtResource("2_les3x")
 theme_override_font_sizes/font_size = 32
 text = "18"
 vertical_alignment = 1
