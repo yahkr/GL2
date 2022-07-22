@@ -14,6 +14,16 @@ const FSR = [0.77, 0.67, 0.59, 0.5]
 func _ready():
 	for tab in tabs.get_children():
 		initialize_tab(tab)
+	
+	Steam.steamInit()
+	Steam.overlay_toggled.connect(func(open):
+			if open and not visible:
+				toggle_pause()
+	)
+
+
+func _process(_delta):
+	Steam.run_callbacks()
 
 
 func _input(event):
