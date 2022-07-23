@@ -225,9 +225,12 @@ func interact():
 			current_interactable = null
 	
 	if use_raycast.is_colliding():
-		if node.is_in_group("Pickup") and Input.is_action_just_pressed("use"):
-			sound_grab.play()
-			current_pickup = node
+		if Input.is_action_just_pressed("use"):
+			if node.is_in_group("Pickup"):
+				sound_grab.play()
+				current_pickup = node
+			elif not node is Interactable:
+				sound_cannot_use.play()
 		
 		if node is Interactable and Input.is_action_pressed("use"):
 			node.interact(self)

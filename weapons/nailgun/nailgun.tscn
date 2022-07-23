@@ -12,6 +12,9 @@ hit_range = 1000.0
 magazine_ammo = 50
 magazine_size = 50
 
+[node name="Cooldown" parent="." index="0"]
+wait_time = 0.1
+
 [node name="Model" type="Node3D" parent="." index="7"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" index="0"]

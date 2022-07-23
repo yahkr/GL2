@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjw4bj31lew1j"]
+[gd_scene load_steps=3 format=3 uid="uid://cjw4bj31lew1j"]
 
 [ext_resource type="PackedScene" uid="uid://dm70kt3t2n0nq" path="res://weapons/weapon.tscn" id="1_o2sv8"]
+[ext_resource type="AudioStream" uid="uid://bpvb7dbfvpgdn" path="res://sounds/common/warning.wav" id="2_ugbw2"]
 
 [node name="Gun" instance=ExtResource("1_o2sv8")]
 
@@ -9,3 +10,6 @@
 [node name="SoundReload" type="AudioStreamPlayer" parent="." index="5"]
 
 [node name="SoundNoAmmo" type="AudioStreamPlayer" parent="." index="6"]
+
+[node name="SoundLowAmmo" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource("2_ugbw2")

@@ -2,6 +2,8 @@ extends Weapon
 
 class_name Gun
 
+
+@onready var sound_lowammo := $SoundLowAmmo as AudioStreamPlayer
 @onready var sound_noammo := $SoundNoAmmo as AudioStreamPlayer
 @onready var sound_reload := $SoundReload as AudioStreamPlayer
 @onready var sound_shoot := $SoundShoot as AudioStreamPlayer
@@ -9,6 +11,14 @@ class_name Gun
 @export var magazine_ammo := 18:
 	set(value):
 		call_deferred("update_ammo_labels")
+		if value == int(magazine_size / 4.0):
+			sound_lowammo.play()
+		elif value == 0 and reserve_ammo == 0:
+			owner.play_fvox("blip")
+			owner.play_fvox("ammo_depleted")
+			%WeaponCategories.find_child(name).modulate = Color.RED
+		elif %WeaponCategories:
+			%WeaponCategories.find_child(name).modulate = Color.WHITE
 		magazine_ammo = value
 @export var magazine_size := 18
 @export var reserve_size := 150
@@ -60,3 +70,7 @@ func update_ammo_labels():
 	%PrimaryAmmo/HBoxContainer/LabelMagazine.text = str(magazine_ammo)
 	%PrimaryAmmo/HBoxContainer/LabelReserve.text = str(reserve_ammo)
 	%SecondaryAmmo/Label.text = str(secondary_ammo)
+	if magazine_ammo == 0 and reserve_ammo == 0:
+		%PrimaryAmmo.modulate = Color.RED
+	else:
+		%PrimaryAmmo.modulate = Color.WHITE

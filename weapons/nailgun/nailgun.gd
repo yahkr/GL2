@@ -4,7 +4,7 @@ extends Gun
 @onready var area := $Area3D as Area3D
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	area.position = weapon_raycast.get_collision_point()
 	if shoot_gun():
 		for nail in area.get_overlapping_bodies():
@@ -25,7 +25,7 @@ func _on_area_3d_body_entered(body):
 		get_tree().get_nodes_in_group("WeaponSelectItem")[get_index()].modulate = Color.WHITE
 		var notification_instance = item_notification.instantiate()
 		%ItemNotifications.add_child(notification_instance)
-		notification_instance.text = "d"
+		notification_instance.text = "g"
 	elif body.is_in_group("NailGunAmmo"):
 		if reserve_ammo < reserve_size:
 			body.queue_free()

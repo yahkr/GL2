@@ -818,16 +818,15 @@ vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Indicators"]
 offset_left = 256.0
-offset_right = 1280.0
+offset_right = 1152.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(120, 0)
-offset_left = 1107.0
-offset_right = 1227.0
+offset_left = 1160.0
+offset_right = 1280.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]

@@ -48,6 +48,7 @@ func select_weapon(index: int, show_hud := true):
 			if gun:
 				%PrimaryAmmo.visible = true
 				%SecondaryAmmo.visible = gun.secondary_ammo >= 0
+				gun.update_ammo_labels()
 			else:
 				%PrimaryAmmo.visible = false
 				%SecondaryAmmo.visible = false
