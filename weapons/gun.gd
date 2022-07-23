@@ -37,8 +37,10 @@ func shoot_gun():
 			animation_player.play("fire")
 			magazine_ammo -= 1
 			hit()
+			return true
 		else:
 			sound_noammo.play()
+	return false
 
 
 func reload_gun():

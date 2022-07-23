@@ -7,21 +7,20 @@
 [ext_resource type="AudioStream" uid="uid://ba20clbgxjvnn" path="res://sounds/weapons/pistol/pistol_empty.wav" id="5_j2p7a"]
 [ext_resource type="PackedScene" uid="uid://hi0bm8xj5rip" path="res://weapons/pistol/pistol_model.tscn" id="6_s3rtl"]
 
-[node name="Pistol" instance=ExtResource( "1_f3fct" )]
-process_mode = 4
-script = ExtResource( "2_sl3ep" )
+[node name="Pistol" instance=ExtResource("1_f3fct")]
+script = ExtResource("2_sl3ep")
 hit_range = 1000.0
 
 [node name="Cooldown" parent="." index="0"]
 wait_time = 0.1
 
 [node name="SoundShoot" parent="." index="4"]
-stream = ExtResource( "3_4o35o" )
+stream = ExtResource("3_4o35o")
 
 [node name="SoundReload" parent="." index="5"]
-stream = ExtResource( "4_552xb" )
+stream = ExtResource("4_552xb")
 
 [node name="SoundNoAmmo" parent="." index="6"]
-stream = ExtResource( "5_j2p7a" )
+stream = ExtResource("5_j2p7a")
 
-[node name="Model" parent="." index="7" instance=ExtResource( "6_s3rtl" )]
+[node name="Model" parent="." index="7" instance=ExtResource("6_s3rtl")]

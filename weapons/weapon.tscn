@@ -53,6 +53,7 @@ stream_4/stream = ExtResource("12_cdqh1")
 stream_4/weight = 1.0
 
 [node name="Weapon" type="Node3D"]
+process_mode = 4
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.2

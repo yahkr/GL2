@@ -47,6 +47,10 @@ config/icon="res://icon.png"
 
 SaveManager="*res://options_menu/save_manager.gd"
 
+[debug]
+
+shapes/paths/geometry_color=Color(0.121569, 0.741176, 0.827451, 0.4)
+
 [display]
 
 window/size/viewport_width=1280
@@ -189,9 +193,10 @@ locale/translations=PackedStringArray("res://translations/translations.de.transl
 [layer_names]
 
 3d_physics/layer_1="General"
-3d_physics/layer_2="Items"
+3d_physics/layer_2="Item"
 3d_physics/layer_3="Player"
 3d_physics/layer_4="RigidBody"
+3d_physics/layer_5="Nail"
 
 [physics]
 

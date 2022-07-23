@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0734toll01c3"]
+
+[ext_resource type="PackedScene" uid="uid://cjw4bj31lew1j" path="res://weapons/gun.tscn" id="1_khsm4"]
+[ext_resource type="Script" path="res://weapons/nailgun/nailgun.gd" id="1_scg6i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mp3bo"]
+radius = 2.0
+
+[node name="NailGun" instance=ExtResource("1_khsm4")]
+script = ExtResource("1_scg6i")
+hit_range = 1000.0
+magazine_ammo = 50
+magazine_size = 50
+
+[node name="Model" type="Node3D" parent="." index="7"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model" index="0"]
+
+[node name="Area3D" type="Area3D" parent="." index="8"]
+top_level = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("SphereShape3D_mp3bo")

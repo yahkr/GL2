@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://lnd3rkeqj4tq"]
+
+[ext_resource type="PackedScene" uid="uid://dugkmvej33x3s" path="res://weapons/pistol/pistol_ammo_model.tscn" id="1_l0x84"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5o083"]
+size = Vector3(0.565, 0.35, 0.17)
+
+[node name="NailGunAmmo" type="RigidDynamicBody3D" groups=["NailGunAmmo"]]
+collision_layer = 2
+
+[node name="pistol_ammo_model" parent="." instance=ExtResource("1_l0x84")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+shape = SubResource("BoxShape3D_5o083")

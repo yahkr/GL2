@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=90 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://0ixmllseisdw" path="res://sounds/player/cannot_use.wav" id="3_5o8hl"]
 [ext_resource type="PackedScene" uid="uid://pm25bhay4glh" path="res://weapons/crowbar/crowbar.tscn" id="3_iksgm"]
 [ext_resource type="AudioStream" uid="uid://fs0kme2hhi04" path="res://sounds/player/sprint.wav" id="4_0cti2"]
+[ext_resource type="PackedScene" uid="uid://b0734toll01c3" path="res://weapons/nailgun/nailgun.tscn" id="4_36sk5"]
 [ext_resource type="PackedScene" uid="uid://di8f1ywj7cdnn" path="res://weapons/pistol/pistol.tscn" id="4_bjifu"]
 [ext_resource type="Script" path="res://player/damage_indicator.gd" id="5_gienv"]
 [ext_resource type="FontFile" uid="uid://sumg0umwbx54" path="res://fonts/din1451alt.ttf" id="6_h7v46"]
@@ -620,8 +621,7 @@ script = ExtResource("2_0juje")
 [node name="Crowbar" parent="Camera3D/WeaponManager" instance=ExtResource("3_iksgm")]
 visible = false
 
-[node name="GravityGun" type="Node3D" parent="Camera3D/WeaponManager"]
-process_mode = 4
+[node name="NailGun" parent="Camera3D/WeaponManager" instance=ExtResource("4_36sk5")]
 visible = false
 
 [node name="Pistol" parent="Camera3D/WeaponManager" instance=ExtResource("4_bjifu")]
@@ -966,7 +966,7 @@ text = "Crowbar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Gravity Gun" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
+[node name="NailGun" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(135, 0)
 offset_top = 102.0
@@ -976,31 +976,31 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_45qn1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/First/Gravity Gun"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/First/NailGun"]
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 132.0
 offset_bottom = 91.0
 
-[node name="Label" type="Label" parent="WeaponCategories/First/Gravity Gun/VBoxContainer"]
+[node name="Label" type="Label" parent="WeaponCategories/First/NailGun/VBoxContainer"]
 offset_right = 129.0
 offset_bottom = 62.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 48
-text = "m"
+text = "g"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="WeaponCategories/First/Gravity Gun/VBoxContainer"]
+[node name="Name" type="Label" parent="WeaponCategories/First/NailGun/VBoxContainer"]
 offset_top = 66.0
 offset_right = 129.0
 offset_bottom = 88.0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Gravity Gun"
+text = "Nail Gun"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1528,6 +1528,7 @@ one_shot = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Crowbar" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/NailGun" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Pistol" method="_on_area_3d_body_entered"]
 [connection signal="finished" from="SoundFVOX" to="." method="_on_sound_fvox_finished"]
 [connection signal="finished" from="SoundGeiger" to="." method="_on_sound_geiger_finished"]

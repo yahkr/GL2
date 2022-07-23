@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1av2wkw5rwc0"]
+[gd_scene load_steps=23 format=3 uid="uid://1av2wkw5rwc0"]
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 [ext_resource type="PackedScene" uid="uid://ccsyutky0eas2" path="res://objects/wooden_crate/wooden_crate.tscn" id="2_ays1q"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dgvon7n11vjaq" path="res://objects/fire.tscn" id="12_jbkk6"]
 [ext_resource type="PackedScene" uid="uid://k34g2edsgpth" path="res://objects/electricity.tscn" id="13_vmrns"]
 [ext_resource type="PackedScene" uid="uid://csrsdq4q33h42" path="res://objects/toxic_slime.tscn" id="14_t1fbb"]
+[ext_resource type="PackedScene" uid="uid://bhpa7xyyledlj" path="res://weapons/nailgun/nailgun_item.tscn" id="15_8vj1g"]
 [ext_resource type="PackedScene" uid="uid://cjpqp0773lvin" path="res://objects/ladder/ladder.tscn" id="15_s30a0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
@@ -144,12 +145,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 [node name="PistolAmmo3" parent="." instance=ExtResource("8_w5vg1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
-[node name="CrowbarItem" parent="." instance=ExtResource("9_sroxh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
-
-[node name="PistolItem" parent="." instance=ExtResource("10_tms8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
-
 [node name="Radiation" parent="." instance=ExtResource("11_palm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.01, 9)
 
@@ -175,3 +170,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 6,
 
 [node name="Ladder5" parent="." instance=ExtResource("15_s30a0")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 8, -5)
+
+[node name="CrowbarItem" parent="." instance=ExtResource("9_sroxh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+
+[node name="NailGunItem" parent="." instance=ExtResource("15_8vj1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
+
+[node name="PistolItem" parent="." instance=ExtResource("10_tms8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
