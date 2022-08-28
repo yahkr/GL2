@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://buvhtbqx5en03"
 path="res://.godot/imported/siren.wav-8a8e884dcf0050bd38e64ead78873a10.sample"
 

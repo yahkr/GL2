@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://5bkxg8xjcq1e"
 path="res://.godot/imported/town_zombie_call1.wav-327489d3b8cfd24d8200495a6b56b8ec.sample"
 

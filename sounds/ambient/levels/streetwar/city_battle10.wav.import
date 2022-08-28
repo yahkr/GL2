@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://8bcu40pwhehb"
 path="res://.godot/imported/city_battle10.wav-ef70a46f6d28677533406aa736710efb.sample"
 

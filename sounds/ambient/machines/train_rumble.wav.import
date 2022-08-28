@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dktkcw3wyh8db"
 path="res://.godot/imported/train_rumble.wav-f9b21b7cc3b6d1ebf0ffe3303073d354.sample"
 

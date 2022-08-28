@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://kcpvrxesidtv"
 path="res://.godot/imported/indoor2.wav-bb7aa423036fc56e760cba2fe88a58fc.sample"
 

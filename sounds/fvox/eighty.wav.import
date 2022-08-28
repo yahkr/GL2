@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dh3ynxhl6v4cj"
 path="res://.godot/imported/eighty.wav-fb0bd7c7c6cf2f5b74daa8288ffd2757.sample"
 

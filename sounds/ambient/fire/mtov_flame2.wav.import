@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dyu08tqfmbmr1"
 path="res://.godot/imported/mtov_flame2.wav-222eb710a1e5495ef5a32414f165f9c6.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dln5bs15hw17b"
 path="res://.godot/imported/pl_burnpain3.wav-1982532f00c464ef475f02e61ad3ae7c.sample"
 

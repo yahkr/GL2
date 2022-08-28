@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b78j44pmx1etm"
 path="res://.godot/imported/torniquette_applied.wav-c96d41303881d018e4f9c1db45b18671.sample"
 

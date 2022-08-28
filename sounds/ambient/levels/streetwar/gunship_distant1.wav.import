@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bm2j856ddyo1c"
 path="res://.godot/imported/gunship_distant1.wav-d395f3bec9f7c3ebc84eaa4887779c8c.sample"
 

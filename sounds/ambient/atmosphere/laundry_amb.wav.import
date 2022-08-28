@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://y25vvbji0wm3"
 path="res://.godot/imported/laundry_amb.wav-a14de9791b278c955e765fa2a22c3c7f.sample"
 

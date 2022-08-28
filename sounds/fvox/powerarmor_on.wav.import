@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cmnwsmmt4xvcm"
 path="res://.godot/imported/powerarmor_on.wav-f77f8c02a1ebcb05ff573f3c6abaf1a7.sample"
 

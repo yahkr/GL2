@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d2e1ec25s0jco"
 path="res://.godot/imported/squeekyfloor2.wav-02b4e7b8dd146130cef454a4481b4fa2.sample"
 

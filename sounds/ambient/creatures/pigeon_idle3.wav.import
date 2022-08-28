@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ci7w1nmxeqwom"
 path="res://.godot/imported/pigeon_idle3.wav-ec72d071d9713c86c8c8e1f11c96b85d.sample"
 

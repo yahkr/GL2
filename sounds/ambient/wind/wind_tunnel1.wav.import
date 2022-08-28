@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cjihifetskjak"
 path="res://.godot/imported/wind_tunnel1.wav-9ab123bf897698d368075c838f9c329d.sample"
 

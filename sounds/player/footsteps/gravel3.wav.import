@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cj83kc4qkebp5"
 path="res://.godot/imported/gravel3.wav-5324b22f67ecaa83589c25423ed4e330.sample"
 

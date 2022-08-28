@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://co22ffhuh31qd"
 path="res://.godot/imported/biohazard_detected.wav-a8d689dea61c55f6f0807f279084b88c.sample"
 

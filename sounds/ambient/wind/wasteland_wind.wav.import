@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b7tm1jqethneq"
 path="res://.godot/imported/wasteland_wind.wav-1cd400fa2d8d0fea65671014b0d466ed.sample"
 

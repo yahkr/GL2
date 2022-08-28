@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cnlpg71m7dty8"
 path="res://.godot/imported/roust_crash2.wav-de1e05851989f18f0f1995909017cb3e.sample"
 

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/din1451alt.ttf-4f428af213dc4ab02e27eb70c52bf9
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

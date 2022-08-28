@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bpsv6iyi8n2xl"
 path="res://.godot/imported/drywall_footstep4.wav-ea444ef24a72f8b830b18fb73caaf050.sample"
 

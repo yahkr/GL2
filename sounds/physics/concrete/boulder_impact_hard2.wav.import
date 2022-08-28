@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://h1wsbfxceppi"
 path="res://.godot/imported/boulder_impact_hard2.wav-b1fe02fe2f581f75985aab56854fffd0.sample"
 

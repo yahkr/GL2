@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ddrel758qu50d"
 path="res://.godot/imported/wpn_hudoff.wav-3fe2c11d29fc82086538fad570fde8ef.sample"
 

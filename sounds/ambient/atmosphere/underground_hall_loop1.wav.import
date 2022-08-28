@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bqw0gy55nfg5w"
 path="res://.godot/imported/underground_hall_loop1.wav-9edb4af117c27a8b439b25678822c790.sample"
 

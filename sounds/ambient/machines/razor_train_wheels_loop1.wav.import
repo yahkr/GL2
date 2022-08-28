@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b756kydrythsu"
 path="res://.godot/imported/razor_train_wheels_loop1.wav-4ad5d9a611be8a116705165b08d6b6a4.sample"
 

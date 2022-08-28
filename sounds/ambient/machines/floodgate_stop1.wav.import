@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bvsv34pktqeys"
 path="res://.godot/imported/floodgate_stop1.wav-4719355d8712cfec7e018ec708b11571.sample"
 

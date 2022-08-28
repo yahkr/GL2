@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dbplvxbxcflbx"
 path="res://.godot/imported/weapon_footstep1.wav-0b4ab32724fcd0ad89c42f35afd27518.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bisxaebk3b1u4"
 path="res://.godot/imported/cartrap_explode_impact1.wav-abe3a65056f6dc448b402e5a8e372eb0.sample"
 

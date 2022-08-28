@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bt7f0aqsa8fw4"
 path="res://.godot/imported/flesh_impact_hard6.wav-565bd46e9fc6129d188e042a518d0058.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://10sfio2luqcn"
 path="res://.godot/imported/manhack_machine_loop1.wav-b37978001e8e56e46a204a850d722989.sample"
 

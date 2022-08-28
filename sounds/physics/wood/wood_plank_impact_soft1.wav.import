@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://3eedjmxwi8eg"
 path="res://.godot/imported/wood_plank_impact_soft1.wav-3b7ac69a292fa70d192372dd88df9fe7.sample"
 

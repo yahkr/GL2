@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://5g1o6i62bm28"
 path="res://.godot/imported/ammocrate_open.wav-00a151533c3f468ebfe995b335a2cf06.sample"
 

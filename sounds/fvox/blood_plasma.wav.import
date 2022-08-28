@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b54l7ly6pj7y1"
 path="res://.godot/imported/blood_plasma.wav-a0081c42d06521b9cfa0d299d9259a0a.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dhctq5yfxx3ps"
 path="res://.godot/imported/concrete_impact_hard2.wav-2122a62c442ab4b1b82b3db194974c75.sample"
 

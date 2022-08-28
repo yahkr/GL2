@@ -1,6 +1,8 @@
 extends Control
 
 
+const FSR = [0.77, 0.67, 0.59, 0.5]
+
 @onready var player := get_parent()
 @onready var options := get_node("Options")
 @onready var pause_controls := get_node("PauseControls")
@@ -8,22 +10,20 @@ extends Control
 @onready var tabs := options.get_node("Tabs")
 @onready var input_mapping := tabs.get_node("InputMapping")
 
-const FSR = [0.77, 0.67, 0.59, 0.5]
-
 
 func _ready():
 	for tab in tabs.get_children():
 		initialize_tab(tab)
-	
-	Steam.steamInit()
-	Steam.overlay_toggled.connect(func(open):
-			if open and not visible:
-				toggle_pause()
-	)
+
+	# Steam.steamInit()
+	# Steam.overlay_toggled.connect(func(open):
+	# 		if open and not visible:
+	# 			toggle_pause()
+	# )
 
 
-func _process(_delta):
-	Steam.run_callbacks()
+# func _process(_delta):
+# 	Steam.run_callbacks()
 
 
 func _input(event):
@@ -46,7 +46,7 @@ func apply_option(new_value: Variant, option: StringName):
 			player.mouse_look_inverted_x = new_value
 		&"MouseVerticalInverted":
 			player.mouse_look_inverted_y = new_value
-		
+
 		# Controller
 		&"ControllerHorizontalSensitivity":
 			player.joypad_look_sensitivity_x = new_value
@@ -63,7 +63,7 @@ func apply_option(new_value: Variant, option: StringName):
 				InputMap.action_set_deadzone(action, new_value)
 		&"ControllerOuterThreshold":
 			player.joypad_look_outer_threshold = new_value
-		
+
 		# Video
 		&"3DScale":
 			get_viewport().scaling_3d_scale = new_value
@@ -108,31 +108,32 @@ func apply_option(new_value: Variant, option: StringName):
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 			else:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-		
+
 		# Audio
 		&"VolumeMaster":
 			new_value /= 4
-			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(new_value))
+			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(new_value))
 		&"VolumeSFX":
-			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(new_value))
+			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(new_value))
 		&"VolumeMusic":
-			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(new_value))
+			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(new_value))
 		&"VolumeDialog":
-			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialog"), linear2db(new_value))
+			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialog"), linear_to_db(new_value))
+
 
 func initialize_tab(tab: Control):
 	for option in tab.get_children():
 		if not option.is_in_group("Option"):
 			continue
-		
+
 		var name_label := option.get_node("Name")
 		name_label.text = tr(option.name)
-		
+
 		var setter := option.get_node("Setter")
 		var default_value: Variant = setter.get_meta("default_value")
 		var set_func: Callable
 		var change_signal: Signal
-		
+
 		if setter is Slider:
 			set_func = setter.set_value
 			change_signal = setter.value_changed
@@ -144,25 +145,25 @@ func initialize_tab(tab: Control):
 			change_signal = setter.item_selected
 		else:
 			continue
-		
+
 		var config_value = SaveManager.get_config_value(tab.name, option.name, default_value)
 		set_func.call(config_value)
-		
+
 		update_value_label(config_value, setter)
 		apply_option(config_value, option.name)
-		
+
 		if change_signal.get_connections().size() == 0:
 			change_signal.connect(update_value_label.bind(setter))
 			change_signal.connect(SaveManager.set_config_value.bind(tab.name, option.name))
 			change_signal.connect(apply_option.bind(option.name))
-	
+
 	SaveManager.save_config_file()
 
 
 func toggle_pause():
 	visible = !visible
 	get_tree().paused = visible
-	
+
 	if visible:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
@@ -185,7 +186,7 @@ func update_value_label(new_value: Variant, setter: Control):
 
 func _on_restore_defaults_button_pressed():
 	var tab_title: String = tab_bar.get_tab_title(tab_bar.current_tab)
-	
+
 	SaveManager.restore_defaults(tab_title)
 	if input_mapping.visible:
 		SaveManager.save_config_file()

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://be5banlskjx7g"
 path="res://.godot/imported/weapon_impact_soft3.wav-1da6ccae410654532837eaa36f6f0288.sample"
 

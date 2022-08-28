@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cu2o1akeaotuw"
 path="res://.godot/imported/flashlight1.wav-6f7742b0dedadc956dec5fb286bbbc06.sample"
 

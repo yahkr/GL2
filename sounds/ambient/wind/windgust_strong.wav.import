@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cr8l82p3s8vm1"
 path="res://.godot/imported/windgust_strong.wav-e77056d92d422f110c3a054658c0e68b.sample"
 

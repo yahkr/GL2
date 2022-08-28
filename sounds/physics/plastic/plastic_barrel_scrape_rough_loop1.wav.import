@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bncb2vfoke5li"
 path="res://.godot/imported/plastic_barrel_scrape_rough_loop1.wav-ee54d60c3e02cd94e7b92c8dbbba1c95.sample"
 

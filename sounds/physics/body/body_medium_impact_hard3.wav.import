@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dvw8drouqyajk"
 path="res://.godot/imported/body_medium_impact_hard3.wav-3411777e29197760176af10717cb5a6e.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c8qidhii725fr"
 path="res://.godot/imported/train_idle.wav-f0ef2de2d6805d949b89be612732ee62.sample"
 

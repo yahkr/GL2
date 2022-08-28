@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://da73fpsb51d2n"
 path="res://.godot/imported/dinnerplates3.wav-f90d365f030aa57751ec4a5d2c451d08.sample"
 

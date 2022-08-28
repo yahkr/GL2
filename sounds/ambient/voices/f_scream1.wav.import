@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://de21gr5iaddws"
 path="res://.godot/imported/f_scream1.wav-fe54150444e71b93ead20b29a68efbd5.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c2mmsr2cesajv"
 path="res://.godot/imported/truck_pass_overhead1.wav-49aa6b8a0ff4213bc5d7420d629856bc.sample"
 

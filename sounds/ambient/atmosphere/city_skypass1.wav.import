@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ba6otmitqwfl2"
 path="res://.godot/imported/city_skypass1.wav-769c40d7c8583e129021d0f166d90d81.sample"
 

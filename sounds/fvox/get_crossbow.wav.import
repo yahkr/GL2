@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://kogj1kd3seao"
 path="res://.godot/imported/get_crossbow.wav-a1526b674514d79d505527a54f3a8493.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://di7i5yftgmrel"
 path="res://.godot/imported/morphine_shot.wav-f83c968d4be680b0f753638a57133e65.sample"
 

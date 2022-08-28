@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dvsfrfegytqar"
 path="res://.godot/imported/windmill_wind_loop1.wav-281d04023cf9360a1b01c248c3d59d4a.sample"
 

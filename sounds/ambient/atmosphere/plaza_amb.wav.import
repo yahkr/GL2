@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dcpsbjoi7q162"
 path="res://.godot/imported/plaza_amb.wav-4e98a0881c971fae7004f27940c26a20.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bss4d2wwmorh0"
 path="res://.godot/imported/metal_groan.wav-c0f0e2f404d221f9e14051a844f4bbcf.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://7d3poj1k24t7"
 path="res://.godot/imported/terrain_rumble1.wav-2d09bcf797f24115215ba0dd58375b60.sample"
 

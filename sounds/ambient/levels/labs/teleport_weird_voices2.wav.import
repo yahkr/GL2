@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bd8taqg7ce5ee"
 path="res://.godot/imported/teleport_weird_voices2.wav-f3224dc524da17166df47ffecf37d9c4.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://7y02jov5rwj3"
 path="res://.godot/imported/wood_solid_impact_soft3.wav-391d796418f6cd0fa902719db1728f65.sample"
 

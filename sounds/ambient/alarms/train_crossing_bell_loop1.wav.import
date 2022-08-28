@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b4kr6y8xl2gib"
 path="res://.godot/imported/train_crossing_bell_loop1.wav-7fd36aa54680303ed474f83ceded57aa.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bcdtwoc54dnig"
 path="res://.godot/imported/apc_alarm_pass1.wav-0be13dabac0ce2625106a7354284eda2.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://sqq3ftw4p47i"
 path="res://.godot/imported/rubber_tire_impact_bullet2.wav-a69528838479658b88cb400485721a09.sample"
 

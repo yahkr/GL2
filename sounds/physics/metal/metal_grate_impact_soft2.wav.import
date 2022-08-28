@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d3bmhyqp5fub0"
 path="res://.godot/imported/metal_grate_impact_soft2.wav-147ee7ebc7b0cf273d83b8f096fbad76.sample"
 

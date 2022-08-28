@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cu6j0eks8wvx8"
 path="res://.godot/imported/rock_impact_hard2.wav-42751cdcd97569322affbf2082e698ce.sample"
 

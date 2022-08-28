@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dbp2nb3wfjrhq"
 path="res://.godot/imported/concrete_break3.wav-d305be30f59dc12ad39d71056fc2f34b.sample"
 

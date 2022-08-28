@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b0cvu7fgjwa1k"
 path="res://.godot/imported/teleport_active_loop1.wav-59a204776ecc1887a82a11de2b5956bd.sample"
 

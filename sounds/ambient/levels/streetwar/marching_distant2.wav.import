@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bfsg2lffvpspu"
 path="res://.godot/imported/marching_distant2.wav-d20d51743f3368ec3c6bb6320415eabf.sample"
 

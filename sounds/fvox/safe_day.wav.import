@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dq6m380cxhyhn"
 path="res://.godot/imported/safe_day.wav-d164f027fa228fc76984913bc97efa74.sample"
 

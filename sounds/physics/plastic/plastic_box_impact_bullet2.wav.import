@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://daun04tca3mmv"
 path="res://.godot/imported/plastic_box_impact_bullet2.wav-947091334e9058ee0700c0fe42c80775.sample"
 

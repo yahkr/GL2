@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bryn8q3l7t74o"
 path="res://.godot/imported/strider_distant1.wav-360064b706bd54be9e5a7b96415d8709.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b1ijhf0r8ke7c"
 path="res://.godot/imported/metal_chainlink_impact_soft1.wav-7330e50cd0f784ab8030e6694a74b5da.sample"
 

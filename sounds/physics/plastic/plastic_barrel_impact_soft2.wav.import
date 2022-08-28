@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c07dflha1ehtq"
 path="res://.godot/imported/plastic_barrel_impact_soft2.wav-144a36ae38091e2a4ec5e23eac736b85.sample"
 

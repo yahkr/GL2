@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cn5umhijjy4n3"
 path="res://.godot/imported/waterleak_loop1.wav-7e02208e919b4768a7df830a41758cbf.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bsbhu11j4ytvs"
 path="res://.godot/imported/whiteflash.wav-e203f0ae4c2242852f9e834346dc90ac.sample"
 

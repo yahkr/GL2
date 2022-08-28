@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d1dora21hjr2m"
 path="res://.godot/imported/metal_stress5.wav-9cc3e37df59fee6029cb94ad758546e8.sample"
 

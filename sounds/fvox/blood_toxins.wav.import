@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ngqgho388kyo"
 path="res://.godot/imported/blood_toxins.wav-21e45610e4113037275eb5db25ae3dbd.sample"
 

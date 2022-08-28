@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b5auw6gdfq3sj"
 path="res://.godot/imported/metalgrate1.wav-79c54b0ed12791868cdb5e612e65c8ba.sample"
 

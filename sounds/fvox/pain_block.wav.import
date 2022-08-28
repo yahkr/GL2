@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d3tcogqb6dj4k"
 path="res://.godot/imported/pain_block.wav-ce9d49bfecbc066f8200e5918645274c.sample"
 

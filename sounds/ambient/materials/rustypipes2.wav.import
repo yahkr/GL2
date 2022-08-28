@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://war0mjoxojyf"
 path="res://.godot/imported/rustypipes2.wav-99f5007cea8bef0e872349386d01c476.sample"
 

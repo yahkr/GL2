@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b10hf1m0pgfke"
 path="res://.godot/imported/swamp_stereo_frogs_loop1.wav-cbe802f6ce58822fd08cb16da38930b3.sample"
 

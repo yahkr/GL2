@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://qncn7qsfvaln"
 path="res://.godot/imported/cartrap_rope3.wav-942ed75c83ce6d1906be36a690d24141.sample"
 

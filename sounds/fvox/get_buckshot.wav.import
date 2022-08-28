@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://whyblejtpsrw"
 path="res://.godot/imported/get_buckshot.wav-2828687114d5d4b978a186740369fd6a.sample"
 

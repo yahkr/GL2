@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dv287i405bqw5"
 path="res://.godot/imported/paintcan_impact_hard3.wav-f834a749c358ad09b9f06e41f77ac705.sample"
 

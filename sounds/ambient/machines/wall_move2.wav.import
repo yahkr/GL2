@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c0dnp7jn66esp"
 path="res://.godot/imported/wall_move2.wav-1cb478c9f649bbb7ec64845e5db429df.sample"
 

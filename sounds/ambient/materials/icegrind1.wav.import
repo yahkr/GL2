@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d4lo7enc5md71"
 path="res://.godot/imported/icegrind1.wav-8f6f5d801903c775619dad5b53efa9a1.sample"
 

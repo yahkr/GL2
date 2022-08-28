@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ch5xxay3frypg"
 path="res://.godot/imported/concrete_block_scrape_rough_loop1.wav-d38d9d10f6c47125e72ad479043c2078.sample"
 

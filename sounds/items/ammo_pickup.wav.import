@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d2r0gb0j3dgwy"
 path="res://.godot/imported/ammo_pickup.wav-a47f10aaaf58346a317a3a06220a2d17.sample"
 

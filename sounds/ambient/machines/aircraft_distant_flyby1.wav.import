@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bgg5g6v5tooy5"
 path="res://.godot/imported/aircraft_distant_flyby1.wav-a98fd2d821f7dada391c46d99eeb913c.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b4khjj07jlfod"
 path="res://.godot/imported/canister_scrape_rough_loop1.wav-12a743aeb52d8707063a7d233ece711d.sample"
 

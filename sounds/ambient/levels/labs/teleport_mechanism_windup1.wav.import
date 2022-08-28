@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d34062yfjh3b1"
 path="res://.godot/imported/teleport_mechanism_windup1.wav-f2e4c0fe2f542a9dd53fd8dceb82ac85.sample"
 

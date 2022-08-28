@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bke0kxgu5a3j8"
 path="res://.godot/imported/trainstation_ambient_loop1.wav-77c8ffb5d31565a1b1cda8dbff74705f.sample"
 

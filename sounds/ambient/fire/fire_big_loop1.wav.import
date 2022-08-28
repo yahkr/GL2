@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://y3gj7cfg2jch"
 path="res://.godot/imported/fire_big_loop1.wav-ca9f6dc2821458beb85793c55c5bacc5.sample"
 

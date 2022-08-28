@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://teva2c6s81qb"
 path="res://.godot/imported/armor_gone.wav-32af3ada42de53de20aa38f3ee1c51fd.sample"
 

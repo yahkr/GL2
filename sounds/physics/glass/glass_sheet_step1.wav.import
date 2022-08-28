@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c5g6rye05ir6q"
 path="res://.godot/imported/glass_sheet_step1.wav-c22ee1aa96e158e73f106a827c403396.sample"
 

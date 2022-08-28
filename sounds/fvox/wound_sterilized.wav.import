@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cul37uw4tu6jj"
 path="res://.godot/imported/wound_sterilized.wav-70238a3f0cdabee05e8891c523b3078c.sample"
 

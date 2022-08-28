@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://crgl2apd0345f"
 path="res://.godot/imported/metal_grenade_scrape_smooth_loop1.wav-3eb7693931a138c944e51f75bfe1995a.sample"
 

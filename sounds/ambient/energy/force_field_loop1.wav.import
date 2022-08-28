@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://u1srixhw1aac"
 path="res://.godot/imported/force_field_loop1.wav-dc183d9021a88adeca51416e05122cf1.sample"
 

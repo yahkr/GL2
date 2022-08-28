@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://boeav621js8k2"
 path="res://.godot/imported/vent_scurry_medium.wav-b9be122b57631c2584b0ca293a7f55df.sample"
 

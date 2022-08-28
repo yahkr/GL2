@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bixw25ei58nfo"
 path="res://.godot/imported/teleport_preblast_suckin1.wav-78dcde6447adf0981e22a55be34c960f.sample"
 

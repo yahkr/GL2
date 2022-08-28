@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://sui56qgt3stk"
 path="res://.godot/imported/soda_can_impact_soft1.wav-3b17c82f7a4bfd178b56b80dd09d17ff.sample"
 

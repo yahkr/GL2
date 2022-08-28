@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://destr2f0ffexq"
 path="res://.godot/imported/sawblade_stick2.wav-6ecef355736d06e9538e3ce3d9f02dc6.sample"
 

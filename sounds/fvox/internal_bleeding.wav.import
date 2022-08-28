@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dhqrhd1pc8sl7"
 path="res://.godot/imported/internal_bleeding.wav-ff87112d6d6d0b753e68954b23a3f448.sample"
 

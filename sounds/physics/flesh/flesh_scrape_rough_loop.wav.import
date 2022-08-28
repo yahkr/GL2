@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c73hss46m3tn4"
 path="res://.godot/imported/flesh_scrape_rough_loop.wav-6738226548f19388844427b20664033c.sample"
 

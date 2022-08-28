@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dlw8ad3ojtgsa"
 path="res://.godot/imported/squeal1.wav-dc5c57a7bb7c6a21084649fd288b702a.sample"
 

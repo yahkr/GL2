@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b4d5r7dqmh26k"
 path="res://.godot/imported/flesh_burn.wav-06c45738b923a68692344eddec6762be.sample"
 

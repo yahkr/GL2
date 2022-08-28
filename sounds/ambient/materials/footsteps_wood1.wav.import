@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c54h7y2db5f44"
 path="res://.godot/imported/footsteps_wood1.wav-d3b4d53c425454f14c8c4e41a7b73ff8.sample"
 

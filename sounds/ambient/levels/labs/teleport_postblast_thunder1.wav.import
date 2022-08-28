@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://hufrge6gv7y6"
 path="res://.godot/imported/teleport_postblast_thunder1.wav-02cee8b82c2a7d3ccacf67e0db0b4f86.sample"
 

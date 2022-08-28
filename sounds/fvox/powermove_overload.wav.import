@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b880oodcsgmc0"
 path="res://.godot/imported/powermove_overload.wav-5be95b816416604b8938ec92c9b5fd31.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cthmp46n5poyd"
 path="res://.godot/imported/bleeding_stopped.wav-b3549dfd68a58ef3feff2173f73931b0.sample"
 

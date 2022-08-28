@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://qw1vk83qqilv"
 path="res://.godot/imported/spindown.wav-c295126027d8f5685280ba49dcad7bb7.sample"
 

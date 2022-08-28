@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d0uqnq2ln6qc1"
 path="res://.godot/imported/tile_impact_bullet3.wav-c3ac03052230552f611ca187f5c54c8c.sample"
 

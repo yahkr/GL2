@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dh7w1wxb21cv0"
 path="res://.godot/imported/woodpanel3.wav-61b5f78f82544d682b3bb768f84850a9.sample"
 

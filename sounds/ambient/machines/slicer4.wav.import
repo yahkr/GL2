@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bubt4hq8c0p5p"
 path="res://.godot/imported/slicer4.wav-caa31d37dffba918f28ff27c106006ca.sample"
 

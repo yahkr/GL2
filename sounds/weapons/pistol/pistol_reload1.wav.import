@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cfploo25vr4ww"
 path="res://.godot/imported/pistol_reload1.wav-8f05965e690e6f9575fc570c2c038170.sample"
 

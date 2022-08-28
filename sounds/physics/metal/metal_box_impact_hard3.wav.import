@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dmlxxj2evl4bi"
 path="res://.godot/imported/metal_box_impact_hard3.wav-3db1f2086d00e25d96f1b2da2b0a7ebf.sample"
 

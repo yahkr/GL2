@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://derr2f5t7q118"
 path="res://.godot/imported/antlion_hill_ambient2.wav-c9ed05c6e93e77e07a77dcf3f98d30e9.sample"
 

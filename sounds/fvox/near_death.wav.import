@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cnvhap57ajfo7"
 path="res://.godot/imported/near_death.wav-ccedd39dedbb16c5c35cd398f88dbc08.sample"
 

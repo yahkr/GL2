@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ifc347oi6fed"
 path="res://.godot/imported/get_tripmine.wav-e0167cf4c2789f761c8d08e57a8f7ce8.sample"
 

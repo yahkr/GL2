@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://hmevj5b8kd7x"
 path="res://.godot/imported/quiet_cellblock_amb.wav-746fb89fa7ec8f24032ce18ea83a6477.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cc4tkddr4x3pq"
 path="res://.godot/imported/station_train_squeel.wav-9afe7038a8829b9293a67f87a444ffaa.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bni0ngjvxlfm1"
 path="res://.godot/imported/ceilingtile_break1.wav-5ade2e836cda4fb7f0fca18b5fb09272.sample"
 

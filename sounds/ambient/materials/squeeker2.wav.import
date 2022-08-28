@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c7tj8vmjtanb"
 path="res://.godot/imported/squeeker2.wav-74fe7c2998c4305cb4b949b3060cf01c.sample"
 

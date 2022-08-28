@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bwlacor20i3kr"
 path="res://.godot/imported/heli_pass2.wav-4a1cde257fc998f33713c209d8c74a32.sample"
 

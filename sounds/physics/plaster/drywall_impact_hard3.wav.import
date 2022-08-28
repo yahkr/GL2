@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ch83bo7n5e4wp"
 path="res://.godot/imported/drywall_impact_hard3.wav-56f160a013156d9114f595bd21983ff8.sample"
 

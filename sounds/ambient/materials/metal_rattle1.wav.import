@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://tbwg1mew6dee"
 path="res://.godot/imported/metal_rattle1.wav-86b88a4b8da376b3110fd1912cd38f2d.sample"
 

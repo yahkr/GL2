@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cck4s2oyctk6j"
 path="res://.godot/imported/water_flow_loop1.wav-66619305faa5bbea598b62c98e09ada0.sample"
 

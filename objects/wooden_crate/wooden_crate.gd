@@ -1,4 +1,4 @@
-extends RigidDynamicBody3D
+extends RigidBody3D
 
 
 @onready var sound_break := $SoundBreak as AudioStreamPlayer3D

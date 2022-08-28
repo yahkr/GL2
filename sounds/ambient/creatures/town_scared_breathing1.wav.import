@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cguiulutf8hvi"
 path="res://.godot/imported/town_scared_breathing1.wav-171c2ef508e55100a2562f8aee8bf75a.sample"
 

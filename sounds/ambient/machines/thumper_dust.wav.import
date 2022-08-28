@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cxbdj8123bk0j"
 path="res://.godot/imported/thumper_dust.wav-1dfe5b6ded73e45bbf3d31c9606564ac.sample"
 

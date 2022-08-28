@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cw5tjy4hjl7jx"
 path="res://.godot/imported/combine_bank_alarm_loop4.wav-79dce91245789eaae3bd98a07a3b460b.sample"
 

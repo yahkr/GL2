@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dfha4wcvik4be"
 path="res://.godot/imported/equipment_beep_loop1.wav-032e1e01102b2d22ff98e856259e5ad0.sample"
 

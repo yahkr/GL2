@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bcx0vb38huar8"
 path="res://.godot/imported/city_beacon_loop1.wav-3a384e4301957ff0c53e1124124866dc.sample"
 

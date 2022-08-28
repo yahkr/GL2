@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c2k1sdtomq5ce"
 path="res://.godot/imported/citizen_beaten4.wav-87499249b13185e59c049493cbdf4446.sample"
 

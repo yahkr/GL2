@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c65vihb81yp0v"
 path="res://.godot/imported/crying_loop1.wav-17840b0b04a8921a2496473b7658d859.sample"
 

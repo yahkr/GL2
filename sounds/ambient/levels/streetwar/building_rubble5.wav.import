@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cxpu265f6x37a"
 path="res://.godot/imported/building_rubble5.wav-7acda9746f9911e7ba3c7d79834d9c1a.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://duyo5ytvjfnyx"
 path="res://.godot/imported/minor_fracture.wav-0cd3f9276e9f9cc9a4052667a5a97164.sample"
 

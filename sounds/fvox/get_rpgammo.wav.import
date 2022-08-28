@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://686be6tkah5k"
 path="res://.godot/imported/get_rpgammo.wav-6671f165abcde024ef8e3ddf8afe4b7e.sample"
 

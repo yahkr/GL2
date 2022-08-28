@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bhlciterd1koi"
 path="res://.godot/imported/train_horn_distant1.wav-33b53716d4f47f0cd7ebbc9d10107e0e.sample"
 

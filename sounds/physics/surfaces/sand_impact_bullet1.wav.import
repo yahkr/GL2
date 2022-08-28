@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cti2jqqqxpvvn"
 path="res://.godot/imported/sand_impact_bullet1.wav-3ca956521efe6774cc8467e4b477c257.sample"
 

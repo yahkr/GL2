@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c0ewxew15m6ck"
 path="res://.godot/imported/buttonrollover.wav-96b486900867ddd0283ddcad12fe59d3.sample"
 

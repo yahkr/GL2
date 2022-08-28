@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://8b0wpficx10y"
 path="res://.godot/imported/heat_damage.wav-24e820dbac61ce4ab0a3fc5eedad87d3.sample"
 

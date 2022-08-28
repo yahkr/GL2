@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cnoghdfr2af2j"
 path="res://.godot/imported/captain_room.wav-9234bef6ceff58509b3466b167042505.sample"
 

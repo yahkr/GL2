@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ditpb3fojjglx"
 path="res://.godot/imported/wood_crate_impact_hard3.wav-58b3c88f16a092e2800cc778b2b123ef.sample"
 

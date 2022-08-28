@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bjnrsoff2r8lo"
 path="res://.godot/imported/truck_pass_distant2.wav-781af018c83ce4ca5c26cd0392de20d9.sample"
 

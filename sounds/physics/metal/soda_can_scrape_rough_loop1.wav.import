@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://2ugac6klh6oh"
 path="res://.godot/imported/soda_can_scrape_rough_loop1.wav-2cf7e261c06d5f1a69f387348fb154e8.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://e1i2ev0tfiso"
 path="res://.godot/imported/blip.wav-1490115900ed5145aa660859eee77670.sample"
 

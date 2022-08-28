@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cyabmlenh6r16"
 path="res://.godot/imported/city_firebell_loop1.wav-7e0e54afe0c6c606549ad19bcd6de2d4.sample"
 

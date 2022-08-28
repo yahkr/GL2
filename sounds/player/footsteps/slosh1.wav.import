@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cpeljstnhcawm"
 path="res://.godot/imported/slosh1.wav-829a6ece2bd623884e5add94c6d1cbc2.sample"
 

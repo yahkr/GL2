@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cnqamdon07q43"
 path="res://.godot/imported/blood_loss.wav-31231a38c5fa0d7e3ac2d4ced875cd68.sample"
 

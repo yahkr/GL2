@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://nuo36kcqiesx"
 path="res://.godot/imported/glass_pottery_break2.wav-4a122c0c066aba5b191fdc84b1c44296.sample"
 

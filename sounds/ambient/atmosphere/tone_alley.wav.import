@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://h0388y7yqjtf"
 path="res://.godot/imported/tone_alley.wav-2a429d7fc69b7452ed471fd5814c17d0.sample"
 

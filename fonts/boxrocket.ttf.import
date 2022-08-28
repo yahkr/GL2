@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/boxrocket.ttf-e6c2bda2192f908c1dfbaa7f7bbacba
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

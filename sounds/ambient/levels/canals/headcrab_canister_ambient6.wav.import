@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cvd3ums4qtgv6"
 path="res://.godot/imported/headcrab_canister_ambient6.wav-be4beeda8029d8a0f03bc8149779bb93.sample"
 

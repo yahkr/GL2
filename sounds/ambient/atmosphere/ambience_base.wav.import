@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c8sep28b36lne"
 path="res://.godot/imported/ambience_base.wav-6a41c8dee6d968af525eedb3c57b8983.sample"
 

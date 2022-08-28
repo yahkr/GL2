@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dkylqid8u2by0"
 path="res://.godot/imported/health_dropping.wav-d9b58810b90c03253e42cc50226b30d4.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bid631nmpi42d"
 path="res://.godot/imported/flesh_bloody_break.wav-49835141908fb6c0e3d4f6efeaa01ae1.sample"
 

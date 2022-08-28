@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dvu68gr3aj8qq"
 path="res://.godot/imported/footsteps_stairs2.wav-47be3994ee006e7bc9fbd01e29deee6c.sample"
 

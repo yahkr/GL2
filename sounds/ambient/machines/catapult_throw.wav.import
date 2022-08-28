@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://br2drdprlrq5r"
 path="res://.godot/imported/catapult_throw.wav-b6450dfd02eb31f19c0b6c65a0b7f4d9.sample"
 

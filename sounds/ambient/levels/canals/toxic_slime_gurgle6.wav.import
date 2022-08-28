@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ca7sk1k575xc5"
 path="res://.godot/imported/toxic_slime_gurgle6.wav-fcbb6931f501775b219dc76e7654211a.sample"
 

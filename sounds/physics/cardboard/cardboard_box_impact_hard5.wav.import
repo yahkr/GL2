@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://d0wmmgrbur6wb"
 path="res://.godot/imported/cardboard_box_impact_hard5.wav-37a2b3c2ee77b2764cbbf79bd4e4891c.sample"
 

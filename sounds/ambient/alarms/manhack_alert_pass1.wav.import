@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://caenh4tyn556j"
 path="res://.godot/imported/manhack_alert_pass1.wav-00ba02a589aca19433260425f6647823.sample"
 

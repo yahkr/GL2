@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://br00mrqnvlms3"
 path="res://.godot/imported/citadel_end_explosion1.wav-fe24016d938a258f9f038ea171af037f.sample"
 

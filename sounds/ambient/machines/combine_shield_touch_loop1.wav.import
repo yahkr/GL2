@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://4f30cmekjpor"
 path="res://.godot/imported/combine_shield_touch_loop1.wav-4f38d2bbea433ace6ef19fc2fe50948b.sample"
 

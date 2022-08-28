@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cjhtq3ow556y6"
 path="res://.godot/imported/seagull_pain3.wav-385e195a9f4e3bb0a3c95f13131e63c2.sample"
 

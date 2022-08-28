@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://de472tr7hlm47"
 path="res://.godot/imported/metal_large_debris1.wav-15f40a83957830180fdcb8cb0ac12ea7.sample"
 

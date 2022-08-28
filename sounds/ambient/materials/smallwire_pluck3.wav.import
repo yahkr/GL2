@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://crft08bnhq87r"
 path="res://.godot/imported/smallwire_pluck3.wav-badc012a9f361a1ded02871eed86657b.sample"
 

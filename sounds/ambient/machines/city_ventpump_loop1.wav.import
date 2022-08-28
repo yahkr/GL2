@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://c08ovsacqbse7"
 path="res://.godot/imported/city_ventpump_loop1.wav-534474899c060ff12a331a1b47859462.sample"
 

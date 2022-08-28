@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b45t7sdcvhb06"
 path="res://.godot/imported/alarm1.wav-5ab4359c34dc289469ef538786df4648.sample"
 

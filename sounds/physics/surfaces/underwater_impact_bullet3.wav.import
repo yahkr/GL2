@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://i2nx0yfjft1m"
 path="res://.godot/imported/underwater_impact_bullet3.wav-a3896ebfc20cf24a9f63fa083c9d37cf.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b1qe3fkks6p7h"
 path="res://.godot/imported/creaking.wav-ab62196007c7d4fa85dd93630deeb4c8.sample"
 

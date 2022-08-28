@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://euwecuamb383"
 path="res://.godot/imported/machine_moving_loop4.wav-72d0ecf241afbbf96e9839e9f185ca73.sample"
 

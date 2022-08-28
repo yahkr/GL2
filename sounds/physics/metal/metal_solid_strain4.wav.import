@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://67rofbxy16cr"
 path="res://.godot/imported/metal_solid_strain4.wav-1ef25c1bc2f6252d3cd47880ed85a15b.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://djhbfemvlk73u"
 path="res://.godot/imported/keyboard_fast3_1second.wav-df47a89bc7fb80d84f4548a59ff90bec.sample"
 

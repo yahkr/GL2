@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bo105epohnt4i"
 path="res://.godot/imported/automedic_on.wav-22a980e6cd66b51b524e90752483008e.sample"
 

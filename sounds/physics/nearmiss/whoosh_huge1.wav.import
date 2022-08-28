@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bg85vmuixqx00"
 path="res://.godot/imported/whoosh_huge1.wav-8aab73de1a1db22c60108f3bb8f5892f.sample"
 

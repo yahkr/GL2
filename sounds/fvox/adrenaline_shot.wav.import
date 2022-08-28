@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://b11cmrgm5pnun"
 path="res://.godot/imported/adrenaline_shot.wav-771a52a70e6a26a9cde55565b88e936c.sample"
 

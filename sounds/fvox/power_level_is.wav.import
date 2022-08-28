@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bc1s4xoshhipl"
 path="res://.godot/imported/power_level_is.wav-e5cc91f0ba9bb4fcb9982b254f008df7.sample"
 

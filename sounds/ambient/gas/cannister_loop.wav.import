@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://spn1gfq8bs6y"
 path="res://.godot/imported/cannister_loop.wav-f68d2f50484c5c81f1275408a9b34a72.sample"
 

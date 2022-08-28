@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dy4yp8ch2yh2"
 path="res://.godot/imported/crowbar_swing1.wav-577134e9b881ae2cbdf545825f0d1178.sample"
 

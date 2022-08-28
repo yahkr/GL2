@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dj6nf61qwg4k8"
 path="res://.godot/imported/machine_ring_resonance_loop1.wav-6996e80665b0fe53c908e5c60b3576fa.sample"
 

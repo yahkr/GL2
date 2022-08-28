@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ba4vh8e2pqvt4"
 path="res://.godot/imported/shutter6.wav-f21ac62838ce0f8c40f7483be0d6c6a4.sample"
 

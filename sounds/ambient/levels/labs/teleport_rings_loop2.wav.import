@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dlktx1snxju1k"
 path="res://.godot/imported/teleport_rings_loop2.wav-d6e61704b2a12a1ebd411aeb2e2b84e2.sample"
 

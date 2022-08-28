@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bot72iwbdbxaq"
 path="res://.godot/imported/electric_machine.wav-9fc1711b8d33ac81ab82805768c90d31.sample"
 

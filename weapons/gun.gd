@@ -7,6 +7,7 @@ class_name Gun
 @onready var sound_noammo := $SoundNoAmmo as AudioStreamPlayer
 @onready var sound_reload := $SoundReload as AudioStreamPlayer
 @onready var sound_shoot := $SoundShoot as AudioStreamPlayer
+@onready var weapon_categories := %WeaponCategories
 
 @export var magazine_ammo := 18:
 	set(value):
@@ -16,9 +17,9 @@ class_name Gun
 		elif value == 0 and reserve_ammo == 0:
 			owner.play_fvox("blip")
 			owner.play_fvox("ammo_depleted")
-			%WeaponCategories.find_child(name).modulate = Color.RED
-		elif %WeaponCategories:
-			%WeaponCategories.find_child(name).modulate = Color.WHITE
+			weapon_categories.find_child(name).modulate = Color.RED
+		elif weapon_categories:
+			weapon_categories.find_child(name).modulate = Color.WHITE
 		magazine_ammo = value
 @export var magazine_size := 18
 @export var reserve_size := 150

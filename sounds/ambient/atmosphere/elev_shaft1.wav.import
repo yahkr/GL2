@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cuulgetqhyx7l"
 path="res://.godot/imported/elev_shaft1.wav-09868c96d91acbfbfd6a8d1f1428eba5.sample"
 

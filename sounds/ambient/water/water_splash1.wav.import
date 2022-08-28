@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ql7sgxc6avl5"
 path="res://.godot/imported/water_splash1.wav-a3e190ae8753544bf8bb61054216feca.sample"
 

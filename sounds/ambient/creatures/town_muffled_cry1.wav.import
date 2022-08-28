@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://cqhdc54741run"
 path="res://.godot/imported/town_muffled_cry1.wav-545c05785e943768cc454c6d14bb8c3c.sample"
 

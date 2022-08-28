@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://ds85kupiym6vp"
 path="res://.godot/imported/minor_lacerations.wav-c4e63b8e5333584cb2c541448d6d57ee.sample"
 

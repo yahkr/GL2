@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dw3jep41kmge0"
 path="res://.godot/imported/toxic_slime_sizzle2.wav-ac4b61ade5ab896103fcaf7b70099395.sample"
 

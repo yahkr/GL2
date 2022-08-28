@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://uc5evcmm0imo"
 path="res://.godot/imported/courtyard_mach_loop.wav-cc7d5704285c8db21137a3ddc9a900b0.sample"
 

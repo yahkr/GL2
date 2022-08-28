@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://bg5nowi65f111"
 path="res://.godot/imported/antitoxin_shot.wav-9c5426c1561ab45d807a87dc651e3f2d.sample"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://38drb5njtjyr"
 path="res://.godot/imported/wood_box_scrape_rough_loop1.wav-aa68d4a17542bdbecef43d96adf4c216.sample"
 
