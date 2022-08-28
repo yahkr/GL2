@@ -1,40 +1,5 @@
-extends CharacterBody3D
-
 class_name Player
-
-
-@export var speed: float
-
-@onready var anim_tree := $AnimationTree as AnimationTree
-@onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
-@onready var camera := $Camera3D as Camera3D
-@onready var floor_raycast := $FloorRayCast3D as RayCast3D
-@onready var health_label := %HealthValue as Label
-@onready var suit_power_label := %SuitValue as Label
-@onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
-@onready var weapon_manager := $Camera3D/WeaponManager as RayCast3D
-@onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
-@onready var sound_flashlight := $SoundFlashlight as AudioStreamPlayer
-@onready var sound_footstep_concrete := $SoundFootstepConcrete as AudioStreamPlayer
-@onready var sound_footstep_metal := $SoundFootstepMetal as AudioStreamPlayer
-@onready var sound_footstep_wood := $SoundFootstepWood as AudioStreamPlayer
-@onready var sound_grab := $SoundGrab as AudioStreamPlayer
-@onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
-@onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
-@onready var sound_fall_damage := $SoundFallDamage as AudioStreamPlayer
-@onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
-@onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
-@onready var sound_burn := $SoundBurn as AudioStreamPlayer
-@onready var sound_electrocute := $SoundElectrocute as AudioStreamPlayer
-@onready var sound_ladder := $SoundLadder as AudioStreamPlayer
-@onready var timer_footstep := $TimerFootstep as Timer
-@onready var timer_burn := $TimerBurn as Timer
-@onready var timer_electrocute := $TimerElectrocute as Timer
-@onready var timer_toxic_slime := $TimerToxicSlime as Timer
-@onready var timer_toxic_slime_fvox := $TimerToxicSlimeFVOX as Timer
-@onready var timer_vital_signs_dropping_fvox := $TimerVitalSignsDroppingFVOX as Timer
-@onready var timer_minor_fracture_fvox := $TimerMinorFractureFVOX as Timer
-@onready var timer_major_fracture_fvox := $TimerMajorFractureFVOX as Timer
+extends CharacterBody3D
 
 
 const AIR_ACCELERATION = 2.0
@@ -42,16 +7,25 @@ const FALL_DAMAGE_THRESHOLD = 15.0
 const FALL_DAMAGE_MULTIPLIER = 15.0
 const GROUND_ACCELERATION = 20.0
 const JUMP_VELOCITY = 6.0
+const SUIT_ABSORBTION = 0.8
 
-const item_notification = preload("res://objects/item_notification.tscn")
-const fvox_file = "res://sounds/fvox/%s.wav"
+const ITEM_NOTIFICATION = preload("res://objects/item_notification.tscn")
+const FVOX_FILE = "res://sounds/fvox/%s.wav"
+
+@export var speed: float
 
 var health: int:
 	set(value):
-		value = clamp(value, 0, 100)
 		if health > value:
 			%DamageIndicatorLeft.fade()
 			%DamageIndicatorRight.fade()
+			var absorbed_damage := ceili((health - value) * SUIT_ABSORBTION)
+			var new_suit_power := suit_power - absorbed_damage
+			suit_power = new_suit_power
+			if new_suit_power < 0:
+				value += new_suit_power
+			value += absorbed_damage
+		value = clamp(value, 0, 100)
 		if health != value and value == 0:
 			if health > value:
 				if value < 10:
@@ -158,72 +132,104 @@ var mouse_look_inverted_x: bool
 var mouse_look_inverted_y: bool
 var mouse_look_sensitivity: float
 
+@onready var anim_tree := $AnimationTree as AnimationTree
+@onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
+@onready var camera := $Camera3D as Camera3D
+@onready var floor_raycast := $FloorRayCast3D as RayCast3D
+@onready var health_label := %HealthValue as Label
+@onready var suit_power_label := %SuitValue as Label
+@onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
+@onready var weapon_manager := $Camera3D/WeaponManager as RayCast3D
+@onready var sound_cannot_use := $SoundCannotUse as AudioStreamPlayer
+@onready var sound_flashlight := $SoundFlashlight as AudioStreamPlayer
+@onready var sound_footstep_concrete := $SoundFootstepConcrete as AudioStreamPlayer
+@onready var sound_footstep_metal := $SoundFootstepMetal as AudioStreamPlayer
+@onready var sound_footstep_wood := $SoundFootstepWood as AudioStreamPlayer
+@onready var sound_grab := $SoundGrab as AudioStreamPlayer
+@onready var sound_suit_battery := $SoundSuitBattery as AudioStreamPlayer
+@onready var sound_health_kit := $SoundHealthKit as AudioStreamPlayer
+@onready var sound_fall_damage := $SoundFallDamage as AudioStreamPlayer
+@onready var sound_fvox := $SoundFVOX as AudioStreamPlayer
+@onready var sound_geiger := $SoundGeiger as AudioStreamPlayer
+@onready var sound_burn := $SoundBurn as AudioStreamPlayer
+@onready var sound_electrocute := $SoundElectrocute as AudioStreamPlayer
+@onready var sound_ladder := $SoundLadder as AudioStreamPlayer
+@onready var timer_footstep := $TimerFootstep as Timer
+@onready var timer_burn := $TimerBurn as Timer
+@onready var timer_electrocute := $TimerElectrocute as Timer
+@onready var timer_toxic_slime := $TimerToxicSlime as Timer
+@onready var timer_toxic_slime_fvox := $TimerToxicSlimeFVOX as Timer
+@onready var timer_vital_signs_dropping_fvox := $TimerVitalSignsDroppingFVOX as Timer
+@onready var timer_minor_fracture_fvox := $TimerMinorFractureFVOX as Timer
+@onready var timer_major_fracture_fvox := $TimerMajorFractureFVOX as Timer
 
-func _ready():
+
+func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 	health = 100
-	suit_power = 0
+	suit_power = 100
 	suit = true
 
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	look()
-	
+
 	if Input.is_anything_pressed() and health == 0:
 		get_tree().reload_current_scene()
-	
+
 	if current_pickup:
 		current_pickup.position = %PickupPoint.global_transform.origin
 
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var input = event.relative
 		if mouse_look_inverted_x:
 			input.x *= -1
 		if mouse_look_inverted_y:
 			input.y *= -1
-		
+
 		rotate_y(-input.x * mouse_look_sensitivity / 500)
 		camera.rotate_x(-input.y * mouse_look_sensitivity / 500)
 
 
-func _physics_process(delta):
+func _physics_process(delta: float)  -> void:
 	move(delta)
-	
+
 	if health > 0:
 		interact()
 		flashlight()
 
 
-func flashlight():
+func flashlight() -> void:
 	if Input.is_action_just_pressed("flashlight") and suit:
 		%Flashlight.visible = !%Flashlight.visible
 		sound_flashlight.play()
 
 
-func flash_white():
+func flash_white() -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(%ColorFade, "color", Color.WHITE, 0.05)
 	tween.tween_property(%ColorFade, "color", Color.TRANSPARENT, 0.1)
 
 
-func set_footstep_volume(volume_db: int):
+func set_footstep_volume(volume_db: int) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Footstep"), volume_db)
 
-func interact():
+
+func interact() -> void:
 	var node := use_raycast.get_collider() as Node3D
-	
+
 	if current_pickup and Input.is_action_just_pressed("use"):
 		current_pickup = null
 		return
-	
+
 	if Input.is_action_just_released("use") or node != current_interactable:
 		if current_interactable:
 			current_interactable.stop_interact()
 			current_interactable = null
-	
+
 	if use_raycast.is_colliding():
 		if Input.is_action_just_pressed("use"):
 			if node.is_in_group("Pickup"):
@@ -231,7 +237,7 @@ func interact():
 				current_pickup = node
 			elif not node is Interactable:
 				sound_cannot_use.play()
-		
+
 		if node is Interactable and Input.is_action_pressed("use"):
 			node.interact(self)
 			current_interactable = node
@@ -239,45 +245,45 @@ func interact():
 		sound_cannot_use.play()
 
 
-func look():
+func look() -> void:
 	var look_input = Input.get_vector("look_left", "look_right", "look_up", "look_down")
-	
+
 	if joypad_look_inverted_x:
 		look_input.x *= -1
 	if joypad_look_inverted_y:
 		look_input.y *= -1
-	
+
 	if abs(look_input.x) > 1 - joypad_look_outer_threshold:
 		look_input.x = round(look_input.x)
 	joypad_look.x = abs(look_input.x) ** joypad_look_curve * joypad_look_sensitivity_x / 10
 	if look_input.x < 0:
 		joypad_look.x *= -1
-	
+
 	if abs(look_input.y) > 1 - joypad_look_outer_threshold:
 		look_input.y = round(look_input.y)
 	joypad_look.y = abs(look_input.y) ** joypad_look_curve * joypad_look_sensitivity_y / 10
 	if look_input.y < 0:
 		joypad_look.y *= -1
-	
+
 	rotate_y(-joypad_look.x)
 	camera.rotate_x(-joypad_look.y)
-	
+
 	# Clamp vertical camera rotation for both mouse and joypad
 	camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2)
 
 
-func move(delta):
+func move(delta: float) -> void:
 	if not ladder.is_empty() and timer_footstep.is_stopped():
 		timer_footstep.start()
 		sound_ladder.play()
-	
+
 	# Gravity and jumping
 	if is_on_floor():
 		var horizontal_velocity := Vector2(velocity.x, velocity.z)
 		if fall_velocity < -1 or horizontal_velocity.length_squared() >= 1:
 			if timer_footstep.is_stopped():
 				play_footstep()
-		
+
 		if fall_velocity < -FALL_DAMAGE_THRESHOLD:
 			sound_fall_damage.play()
 			var fall_damage := int((fall_velocity + FALL_DAMAGE_THRESHOLD) * FALL_DAMAGE_MULTIPLIER)
@@ -312,7 +318,7 @@ func move(delta):
 		velocity.y -= gravity * delta
 		fall_velocity = velocity.y
 		acceleration = AIR_ACCELERATION
-	
+
 	# Crouching and sprinting
 	if Input.is_action_pressed("crouch") or health == 0:
 		state_machine.travel("Crouch")
@@ -321,7 +327,7 @@ func move(delta):
 			state_machine.travel("Sprint")
 		else:
 			state_machine.travel("RESET")
-	
+
 	# Get input and move with acceleration/deceleration
 	var move_input := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if health == 0:
@@ -333,7 +339,7 @@ func move(delta):
 	move_and_slide()
 
 
-func play_footstep():
+func play_footstep() -> void:
 	var node := floor_raycast.get_collider() as Node3D
 	if node:
 		timer_footstep.start()
@@ -345,52 +351,52 @@ func play_footstep():
 			sound_footstep_concrete.play()
 
 
-func play_fvox(sound_name: String, immediate := false):
+func play_fvox(sound_name: String, immediate := false) -> void:
 	if immediate:
-		sound_fvox.stream = load(fvox_file % sound_name)
+		sound_fvox.stream = load(FVOX_FILE % sound_name)
 		sound_fvox.play()
 	else:
 		fvox_queue.append(sound_name)
-		
+
 		if not sound_fvox.stream:
 			_on_sound_fvox_finished()
 
 
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(body: PhysicsBody3D) -> void:
 	if body.is_in_group("HEVSuit") and not suit:
 		body.queue_free()
 		suit = true
 		play_fvox("bell")
 		play_fvox("hev_logon")
 		return
-	
+
 	if body.is_in_group("HealthKit"):
 		if health < 100:
 			health += 15
 			body.queue_free()
 			sound_health_kit.play()
-			var notification_instance = item_notification.instantiate()
+			var notification_instance = ITEM_NOTIFICATION.instantiate()
 			%ItemNotifications.add_child(notification_instance)
 	elif body.is_in_group("SuitBattery") and suit:
 		if suit_power < 100:
 			suit_power += 15
 			body.queue_free()
 			sound_suit_battery.play()
-			var notification_instance = item_notification.instantiate()
+			var notification_instance = ITEM_NOTIFICATION.instantiate()
 			%ItemNotifications.add_child(notification_instance)
 			notification_instance.text = "*"
-			
+
 			play_fvox("fuzz")
 			play_fvox("fuzz")
 			play_fvox("_comma")
-			
+
 			var snap := snapped(suit_power, 5)
 			var five := fmod(snap, 10)
 			var tens := int(snap / 10)
-			
+
 			if tens != 10:
 				play_fvox("power")
-			
+
 			match tens:
 				1:
 					if five:
@@ -416,57 +422,57 @@ func _on_area_3d_body_entered(body):
 				10:
 					play_fvox("power_level_is")
 					play_fvox("onehundred")
-			
+
 			if five and tens != 1:
 				play_fvox("five")
-			
+
 			play_fvox("percent")
 
 
-func _on_sound_fvox_finished():
+func _on_sound_fvox_finished() -> void:
 	if fvox_queue.size() > 0:
-		sound_fvox.stream = load(fvox_file % fvox_queue.pop_front())
+		sound_fvox.stream = load(FVOX_FILE % fvox_queue.pop_front())
 		sound_fvox.play()
 	else:
 		sound_fvox.stream = null
 
 
-func _on_sound_geiger_finished():
+func _on_sound_geiger_finished() -> void:
 	if geiger > 0:
 		await get_tree().create_timer(1 - geiger).timeout
 		sound_geiger.play()
 
 
-func _on_timer_burn_timeout():
+func _on_timer_burn_timeout() -> void:
 	if burn:
 		health -= 10
 		sound_burn.play()
 		timer_burn.start()
 
 
-func _on_timer_electrocute_timeout():
+func _on_timer_electrocute_timeout() -> void:
 	if electrocute:
 		health -= 10
 		sound_electrocute.play()
 		timer_electrocute.start()
 
 
-func _on_timer_toxic_slime_timeout():
+func _on_timer_toxic_slime_timeout() -> void:
 	if toxic_slime:
 		timer_toxic_slime.start()
 		flash_white()
-		
+
 		if timer_toxic_slime_fvox.is_stopped():
 			timer_toxic_slime_fvox.start()
 			play_fvox("blip")
 			play_fvox("blip")
 			play_fvox("blip")
 			play_fvox("radiation_detected")
-		
+
 		if timer_vital_signs_dropping_fvox.is_stopped():
 			timer_vital_signs_dropping_fvox.start()
 			play_fvox("beep")
 			play_fvox("beep")
 			play_fvox("health_dropping2")
-		
+
 		health -= 10
