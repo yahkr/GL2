@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://iet4ka6ng1ll"]
+
+[ext_resource type="FontFile" uid="uid://cxrthusyadan2" path="res://fonts/boxrocket.ttf" id="1_e22xl"]
+[ext_resource type="FontFile" uid="uid://sumg0umwbx54" path="res://fonts/din1451alt.ttf" id="2_mdrnd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bublb"]
+resource_local_to_scene = true
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Crowbar" type="PanelContainer" groups=["WeaponSelectItem"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(135, 0)
+offset_right = 135.0
+offset_bottom = 94.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bublb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 132.0
+offset_bottom = 91.0
+
+[node name="Icon" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_right = 129.0
+offset_bottom = 62.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("1_e22xl")
+theme_override_font_sizes/font_size = 48
+text = "c"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+offset_top = 66.0
+offset_right = 129.0
+offset_bottom = 88.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
+theme_override_fonts/font = ExtResource("2_mdrnd")
+text = "Crowbar"
+horizontal_alignment = 1
+vertical_alignment = 1

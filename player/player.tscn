@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=91 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cfgs7h7q8l6tc" path="res://sounds/common/wpn_moveselect.wav" id="8_n4ouh"]
 [ext_resource type="AudioStream" uid="uid://c6oey01q5t84g" path="res://sounds/player/footsteps/concrete1.wav" id="9_mphdq"]
 [ext_resource type="AudioStream" uid="uid://cflhwlh0vdixx" path="res://sounds/player/footsteps/concrete2.wav" id="10_6nsok"]
+[ext_resource type="PackedScene" uid="uid://iet4ka6ng1ll" path="res://weapons/weapon_select_item.tscn" id="10_ttwuh"]
 [ext_resource type="AudioStream" uid="uid://cu2o1akeaotuw" path="res://sounds/items/flashlight1.wav" id="11_b3cvp"]
 [ext_resource type="AudioStream" uid="uid://c651wg8am2sgj" path="res://sounds/player/footsteps/concrete3.wav" id="11_bhbqb"]
 [ext_resource type="AudioStream" uid="uid://dpdmf1r0jwi54" path="res://sounds/common/wpn_select.wav" id="12_8pmo1"]
@@ -68,7 +69,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bublb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7i5j1"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -82,7 +83,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45qn1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wyym"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -96,7 +97,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmuro"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w06wf"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -110,7 +111,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vufci"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hemi0"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -124,7 +125,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tg3sc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qxln"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -138,7 +139,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwgyn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr26s"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -152,7 +153,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e55v1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgnsk"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -166,7 +167,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt50b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn3lw"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -180,7 +181,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vy5q"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcdsq"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -194,7 +195,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhy4w"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lp1cb"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -208,7 +209,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g7tn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kd0n6"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -601,7 +602,7 @@ current = true
 fov = 90.0
 near = 0.01
 
-[node name="PickupPoint" type="Position3D" parent="Camera3D"]
+[node name="PickupPoint" type="Marker3D" parent="Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
@@ -686,14 +687,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 target_position = Vector3(0, -0.1, 0)
 
 [node name="DamageIndicators" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DamageIndicatorLeft" type="TextureRect" parent="DamageIndicators"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 32.0
+grow_vertical = 2
 texture = SubResource("GradientTexture1D_whovi")
 ignore_texture_size = true
 script = ExtResource("5_gienv")
@@ -701,16 +709,21 @@ script = ExtResource("5_gienv")
 [node name="DamageIndicatorRight" type="TextureRect" parent="DamageIndicators"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -32.0
+grow_horizontal = 0
+grow_vertical = 2
 texture = SubResource("GradientTexture1D_whovi")
 ignore_texture_size = true
 flip_h = true
 script = ExtResource("5_gienv")
 
 [node name="Crosshair" type="Panel" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -719,28 +732,36 @@ offset_left = -2.5
 offset_top = -2.5
 offset_right = 2.5
 offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wvpj5")
 
 [node name="Indicators" type="HBoxContainer" parent="."]
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("2_t007i")
 theme_override_constants/separation = 8
 
 [node name="Health" type="PanelContainer" parent="Indicators"]
 custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 offset_right = 120.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Indicators/Health"]
+layout_mode = 2
 offset_right = 120.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/Health/MarginContainer"]
+layout_mode = 2
 offset_left = 4.0
 offset_right = 116.0
 offset_bottom = 40.0
@@ -748,6 +769,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Health" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_top = 9.0
 offset_right = 92.0
 offset_bottom = 31.0
@@ -760,6 +782,7 @@ vertical_alignment = 1
 
 [node name="HealthValue" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 96.0
 offset_right = 112.0
 offset_bottom = 40.0
@@ -774,17 +797,20 @@ vertical_alignment = 1
 
 [node name="SuitPower" type="PanelContainer" parent="Indicators"]
 custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 offset_left = 128.0
 offset_right = 248.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Indicators/SuitPower"]
+layout_mode = 2
 offset_right = 120.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/SuitPower/MarginContainer"]
+layout_mode = 2
 offset_left = 4.0
 offset_right = 116.0
 offset_bottom = 40.0
@@ -792,6 +818,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Suit" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
+layout_mode = 2
 offset_top = 9.0
 offset_right = 92.0
 offset_bottom = 31.0
@@ -804,6 +831,7 @@ vertical_alignment = 1
 
 [node name="SuitValue" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 96.0
 offset_right = 112.0
 offset_bottom = 40.0
@@ -817,6 +845,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Indicators"]
+layout_mode = 2
+anchors_preset = 0
 offset_left = 256.0
 offset_right = 1152.0
 offset_bottom = 40.0
@@ -825,11 +855,13 @@ size_flags_horizontal = 3
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 offset_left = 1160.0
 offset_right = 1280.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]
+layout_mode = 2
 offset_right = 120.0
 offset_bottom = 40.0
 grow_horizontal = 2
@@ -837,9 +869,12 @@ grow_vertical = 2
 theme_override_constants/separation = 8
 
 [node name="Spacer" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+layout_mode = 2
+anchors_preset = 0
 offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+layout_mode = 2
 offset_left = 8.0
 offset_right = 42.0
 offset_bottom = 40.0
@@ -847,6 +882,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = -15
 
 [node name="Icon" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 34.0
 offset_bottom = 33.0
 theme_override_fonts/font = ExtResource("6_scti2")
@@ -855,6 +891,7 @@ text = "p"
 horizontal_alignment = 1
 
 [node name="Mun" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 18.0
 offset_right = 34.0
 offset_bottom = 40.0
@@ -862,11 +899,14 @@ theme_override_fonts/font = ExtResource("6_h7v46")
 text = "MUN"
 
 [node name="Spacer2" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+layout_mode = 2
+anchors_preset = 0
 offset_left = 50.0
 offset_right = 50.0
 offset_bottom = 40.0
 
 [node name="LabelMagazine" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+layout_mode = 2
 offset_left = 58.0
 offset_right = 90.0
 offset_bottom = 40.0
@@ -879,6 +919,7 @@ vertical_alignment = 1
 
 [node name="LabelReserve" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 offset_left = 98.0
 offset_top = 4.0
 offset_right = 112.0
@@ -890,6 +931,8 @@ text = "0"
 vertical_alignment = 2
 
 [node name="Spacer3" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
+layout_mode = 2
+anchors_preset = 0
 offset_left = 120.0
 offset_right = 120.0
 offset_bottom = 40.0
@@ -898,11 +941,13 @@ offset_bottom = 40.0
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
 offset_left = 1235.0
 offset_right = 1280.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Indicators/SecondaryAmmo"]
+layout_mode = 2
 offset_right = 45.0
 offset_bottom = 40.0
 grow_horizontal = 2
@@ -915,469 +960,210 @@ vertical_alignment = 1
 
 [node name="WeaponCategories" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_t007i")
 theme_override_constants/separation = 12
 
 [node name="First" type="VBoxContainer" parent="WeaponCategories"]
+layout_mode = 2
 offset_right = 135.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Crowbar" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
-offset_right = 135.0
-offset_bottom = 94.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bublb")
+[node name="Crowbar" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7i5j1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/First/Crowbar"]
+[node name="Number" type="Label" parent="WeaponCategories/First/Crowbar"]
+layout_mode = 2
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/First/Crowbar/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
+offset_right = 22.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "c"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = " 1"
 
-[node name="Name" type="Label" parent="WeaponCategories/First/Crowbar/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Crowbar"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="NailGun" type="PanelContainer" parent="WeaponCategories/First" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
+[node name="NailGun" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
 offset_top = 102.0
-offset_right = 135.0
 offset_bottom = 196.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_45qn1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wyym")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/First/NailGun"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Label" type="Label" parent="WeaponCategories/First/NailGun/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
+[node name="Icon" parent="WeaponCategories/First/NailGun/VBoxContainer" index="0"]
 text = "g"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Name" type="Label" parent="WeaponCategories/First/NailGun/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
+[node name="Name" parent="WeaponCategories/First/NailGun/VBoxContainer" index="1"]
 text = "Nail Gun"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Second" type="VBoxContainer" parent="WeaponCategories"]
+layout_mode = 2
 offset_left = 147.0
 offset_right = 282.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Pistol" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
-offset_right = 135.0
-offset_bottom = 94.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_mmuro")
+[node name="Pistol" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w06wf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Second/Pistol"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Second/Pistol/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
+[node name="Icon" parent="WeaponCategories/Second/Pistol/VBoxContainer" index="0"]
 text = "d"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Name" type="Label" parent="WeaponCategories/Second/Pistol/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
+[node name="Name" parent="WeaponCategories/Second/Pistol/VBoxContainer" index="1"]
 text = "Pistol"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Revolver" type="PanelContainer" parent="WeaponCategories/Second" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
-offset_top = 102.0
-offset_right = 135.0
-offset_bottom = 196.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vufci")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Second/Revolver"]
+[node name="Number" type="Label" parent="WeaponCategories/Second/Pistol"]
+layout_mode = 2
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Second/Revolver/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
+offset_right = 22.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "e"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = " 2"
 
-[node name="Name" type="Label" parent="WeaponCategories/Second/Revolver/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Revolver"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Revolver" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
+offset_top = 102.0
+offset_bottom = 196.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hemi0")
 
 [node name="Third" type="VBoxContainer" parent="WeaponCategories"]
+layout_mode = 2
 offset_left = 294.0
 offset_right = 429.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="SMG" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
-offset_right = 135.0
-offset_bottom = 94.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tg3sc")
+[node name="SMG" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3qxln")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Third/SMG"]
+[node name="Number" type="Label" parent="WeaponCategories/Third/SMG"]
+layout_mode = 2
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Third/SMG/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
+offset_right = 22.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "a"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = " 3"
 
-[node name="Name" type="Label" parent="WeaponCategories/Third/SMG/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "SMG"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Pulse Rifle" type="PanelContainer" parent="WeaponCategories/Third" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
+[node name="Pulse Rifle" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
 offset_top = 102.0
-offset_right = 135.0
 offset_bottom = 196.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pwgyn")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Third/Pulse Rifle"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Third/Pulse Rifle/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "l"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Name" type="Label" parent="WeaponCategories/Third/Pulse Rifle/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Pulse Rifle"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_xr26s")
 
 [node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
+layout_mode = 2
 offset_left = 441.0
 offset_right = 576.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Shotgun" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
-offset_right = 135.0
-offset_bottom = 94.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_e55v1")
+[node name="Shotgun" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgnsk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fourth/Shotgun"]
+[node name="Number" type="Label" parent="WeaponCategories/Fourth/Shotgun"]
+layout_mode = 2
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Fourth/Shotgun/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
+offset_right = 22.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "b"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = " 4"
 
-[node name="Name" type="Label" parent="WeaponCategories/Fourth/Shotgun/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Shotgun"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Crossbow" type="PanelContainer" parent="WeaponCategories/Fourth" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
+[node name="Crossbow" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
 offset_top = 102.0
-offset_right = 135.0
 offset_bottom = 196.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bt50b")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fourth/Crossbow"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Fourth/Crossbow/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "g"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Name" type="Label" parent="WeaponCategories/Fourth/Crossbow/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Crossbow"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_wn3lw")
 
 [node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
+layout_mode = 2
 offset_left = 588.0
 offset_right = 723.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Grenade" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
-offset_right = 135.0
-offset_bottom = 94.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4vy5q")
+[node name="Grenade" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xcdsq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fifth/Grenade"]
+[node name="Number" type="Label" parent="WeaponCategories/Fifth/Grenade"]
+layout_mode = 2
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Fifth/Grenade/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
+offset_right = 22.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "k"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = " 5"
 
-[node name="Name" type="Label" parent="WeaponCategories/Fifth/Grenade/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Grenade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RPG" type="PanelContainer" parent="WeaponCategories/Fifth" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
+[node name="RPG" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
 offset_top = 102.0
-offset_right = 135.0
 offset_bottom = 196.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_fhy4w")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Fifth/RPG"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Fifth/RPG/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "i"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Name" type="Label" parent="WeaponCategories/Fifth/RPG/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "RPG"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_lp1cb")
 
 [node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
+layout_mode = 2
 offset_left = 735.0
 offset_right = 870.0
 offset_bottom = 720.0
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Bugbait" type="PanelContainer" parent="WeaponCategories/Sixth" groups=["WeaponSelectItem"]]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(135, 0)
-offset_right = 135.0
-offset_bottom = 94.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4g7tn")
+[node name="Bugbait" parent="WeaponCategories/Sixth" instance=ExtResource("10_ttwuh")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kd0n6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WeaponCategories/Sixth/Bugbait"]
+[node name="Number" type="Label" parent="WeaponCategories/Sixth/Bugbait"]
+layout_mode = 2
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 91.0
-
-[node name="Icon" type="Label" parent="WeaponCategories/Sixth/Bugbait/VBoxContainer"]
-offset_right = 129.0
-offset_bottom = 62.0
-size_flags_vertical = 1
+offset_right = 22.0
+offset_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
 theme_override_fonts/font = ExtResource("6_scti2")
-theme_override_font_sizes/font_size = 48
-text = "j"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Name" type="Label" parent="WeaponCategories/Sixth/Bugbait/VBoxContainer"]
-offset_top = 66.0
-offset_right = 129.0
-offset_bottom = 88.0
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
-theme_override_fonts/font = ExtResource("6_h7v46")
-text = "Bugbait"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+text = " 6"
 
 [node name="ItemNotifications" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 visible = false
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.75
 anchor_right = 1.0
@@ -1391,18 +1177,27 @@ metadata/_edit_use_custom_anchors = true
 
 [node name="DeathOverlay" type="ColorRect" parent="."]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(1, 0, 0, 0.501961)
 
 [node name="ColorFade" type="ColorRect" parent="."]
 unique_name_in_owner = true
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_jnfbw")]
 visible = false
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FPS" type="Label" parent="."]
 process_mode = 3
@@ -1535,3 +1330,7 @@ one_shot = true
 [connection signal="timeout" from="TimerBurn" to="." method="_on_timer_burn_timeout"]
 [connection signal="timeout" from="TimerElectrocute" to="." method="_on_timer_electrocute_timeout"]
 [connection signal="timeout" from="TimerToxicSlime" to="." method="_on_timer_toxic_slime_timeout"]
+
+[editable path="WeaponCategories/First/Crowbar"]
+[editable path="WeaponCategories/First/NailGun"]
+[editable path="WeaponCategories/Second/Pistol"]
