@@ -168,8 +168,8 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	health = 100
-	suit_power = 100
-	suit = true
+	suit_power = 0
+	suit = false
 
 
 func _process(_delta: float) -> void:

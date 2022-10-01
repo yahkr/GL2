@@ -70,13 +70,13 @@ func apply_option(new_value: Variant, option: StringName):
 		&"AntiAliasing":
 			match new_value:
 				0:
-					get_viewport().msaa = Viewport.MSAA_DISABLED
+					get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 				1:
-					get_viewport().msaa = Viewport.MSAA_DISABLED
+					get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
 				2:
-					get_viewport().msaa = Viewport.MSAA_2X
+					get_viewport().msaa_3d = Viewport.MSAA_2X
 					get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 		&"Bloom":
 			player.get_world_3d().environment.glow_enabled = new_value
