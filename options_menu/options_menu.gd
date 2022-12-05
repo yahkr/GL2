@@ -100,7 +100,7 @@ func apply_option(new_value: Variant, option: StringName):
 			else:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		&"MaxFPS":
-			Engine.target_fps = new_value
+			Engine.max_fps = new_value
 		&"ShowFPS":
 			player.get_node("FPS").visible = new_value
 		&"VSync":

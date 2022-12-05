@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/suit_battery_model.glb-dfc2ffb42f66aa39286eb6
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true

@@ -132,6 +132,9 @@ var mouse_look_inverted_x: bool
 var mouse_look_inverted_y: bool
 var mouse_look_sensitivity: float
 
+var look_delta: Vector3
+var time: float
+
 @onready var anim_tree := $AnimationTree as AnimationTree
 @onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
 @onready var camera := $Camera3D as Camera3D
@@ -172,8 +175,9 @@ func _ready() -> void:
 	suit = false
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	look()
+	weapon_manager.position = weapon_manager.position.lerp(look_delta / 8, delta * 8)
 
 	if Input.is_anything_pressed() and health == 0:
 		get_tree().reload_current_scene()
@@ -190,8 +194,10 @@ func _input(event: InputEvent) -> void:
 		if mouse_look_inverted_y:
 			input.y *= -1
 
-		rotate_y(-input.x * mouse_look_sensitivity / 500)
-		camera.rotate_x(-input.y * mouse_look_sensitivity / 500)
+		look_delta = Vector3(-input.x, 0, -input.y) * mouse_look_sensitivity / 500
+
+		rotate_y(look_delta.x)
+		camera.rotate_x(look_delta.z)
 
 
 func _physics_process(delta: float)  -> void:
@@ -265,6 +271,11 @@ func look() -> void:
 	if look_input.y < 0:
 		joypad_look.y *= -1
 
+	if abs(joypad_look.x) > 0:
+		look_delta.x = -joypad_look.y
+	if abs(joypad_look.y) > 0:
+		look_delta.y = -joypad_look.x
+
 	rotate_y(-joypad_look.x)
 	camera.rotate_x(-joypad_look.y)
 
@@ -332,6 +343,17 @@ func move(delta: float) -> void:
 	var move_input := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if health == 0:
 		move_input = Vector2.ZERO
+
+	var view_movement: Vector3
+	view_movement.x = -move_input.x * sin(time * 6) * 0.002
+	view_movement.z = -move_input.y * sin(time * 8) * 0.001
+	view_movement *= speed
+	if move_input.length_squared() > 0:
+		time += delta
+	else:
+		time = 0
+	weapon_manager.position = weapon_manager.position.lerp(view_movement, delta * 8)
+
 	move_input = move_input.rotated(-rotation.y)
 	movement = movement.lerp(move_input * speed, acceleration * delta)
 	velocity.x = movement.x
@@ -390,7 +412,7 @@ func _on_area_3d_body_entered(body: PhysicsBody3D) -> void:
 			play_fvox("fuzz")
 			play_fvox("_comma")
 
-			var snap := snapped(suit_power, 5)
+			var snap := snappedi(suit_power, 5)
 			var five := fmod(snap, 10)
 			var tens := int(snap / 10)
 
