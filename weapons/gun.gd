@@ -55,16 +55,28 @@ func shoot_gun():
 
 
 func reload_gun():
-	if not visible or animation_player.current_animation == "fire1":
+	if (
+			not visible
+			or animation_player.current_animation != "idle01"
+			and not (
+					animation_player.current_animation.begins_with("fire")
+					and animation_player.current_animation_position > 0.1
+			)
+	):
 		return
-	
+
 	if Input.is_action_just_pressed("reload") or magazine_ammo == 0:
-		var reload_ammo: int = min(reserve_ammo, magazine_size - magazine_ammo)
-		if reload_ammo > 0:
-			reserve_ammo -= reload_ammo
-			magazine_ammo += reload_ammo
+		var amount: int = min(reserve_ammo, magazine_size - magazine_ammo)
+		if amount > 0:
 			sound_reload.play()
 			animation_player.play("reload")
+			animation_player.animation_finished.connect(refill_ammo.bind(amount), CONNECT_ONE_SHOT)
+
+
+func refill_ammo(anim: String, amount: int):
+	if anim == "reload":
+		reserve_ammo -= amount
+		magazine_ammo += amount
 
 
 func update_ammo_labels():

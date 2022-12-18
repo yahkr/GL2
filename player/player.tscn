@@ -69,7 +69,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwk0q"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly3q5"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -83,7 +83,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kspad"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht61u"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -97,7 +97,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqc6l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4f5gv"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -111,7 +111,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qhxs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmayb"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -125,7 +125,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy5yl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2u4d"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -139,7 +139,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grwd3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsyyj"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -153,7 +153,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6llak"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tleq"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -167,7 +167,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcix6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8wpy"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -181,7 +181,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_filue"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyn6s"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -195,7 +195,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrpq1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec2ne"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -209,7 +209,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ohwk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnqao"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -519,7 +519,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [10.0]
+"values": [7.5]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -678,6 +678,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ngjqs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_52ae5")
 skeleton = NodePath("../..")
@@ -836,12 +837,13 @@ vertical_alignment = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 256.0
-offset_right = 1152.0
+offset_right = 1280.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(120, 0)
 offset_left = 1160.0
 offset_right = 1280.0
@@ -955,7 +957,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Crowbar" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_kwk0q")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ly3q5")
 
 [node name="VBoxContainer" parent="WeaponCategories/First/Crowbar" index="0"]
 layout_mode = 3
@@ -981,7 +983,7 @@ text = " 1"
 [node name="NailGun" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
 offset_top = 102.0
 offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_kspad")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ht61u")
 
 [node name="VBoxContainer" parent="WeaponCategories/First/NailGun" index="0"]
 layout_mode = 3
@@ -1002,7 +1004,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Pistol" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_xqc6l")
+theme_override_styles/panel = SubResource("StyleBoxFlat_4f5gv")
 
 [node name="VBoxContainer" parent="WeaponCategories/Second/Pistol" index="0"]
 layout_mode = 3
@@ -1030,7 +1032,7 @@ text = " 2"
 [node name="Revolver" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
 offset_top = 102.0
 offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_8qhxs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xmayb")
 
 [node name="Third" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 294.0
@@ -1040,7 +1042,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="SMG" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_vy5yl")
+theme_override_styles/panel = SubResource("StyleBoxFlat_j2u4d")
 
 [node name="Number" type="Label" parent="WeaponCategories/Third/SMG"]
 offset_left = 3.0
@@ -1057,7 +1059,7 @@ text = " 3"
 [node name="Pulse Rifle" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
 offset_top = 102.0
 offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_grwd3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xsyyj")
 
 [node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 441.0
@@ -1067,7 +1069,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Shotgun" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_6llak")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tleq")
 
 [node name="Number" type="Label" parent="WeaponCategories/Fourth/Shotgun"]
 offset_left = 3.0
@@ -1084,7 +1086,7 @@ text = " 4"
 [node name="Crossbow" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
 offset_top = 102.0
 offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wcix6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8wpy")
 
 [node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 588.0
@@ -1094,7 +1096,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Grenade" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_filue")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dyn6s")
 
 [node name="Number" type="Label" parent="WeaponCategories/Fifth/Grenade"]
 offset_left = 3.0
@@ -1111,7 +1113,7 @@ text = " 5"
 [node name="RPG" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
 offset_top = 102.0
 offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wrpq1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ec2ne")
 
 [node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
 offset_left = 735.0
@@ -1121,7 +1123,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Bugbait" parent="WeaponCategories/Sixth" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_3ohwk")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fnqao")
 
 [node name="Number" type="Label" parent="WeaponCategories/Sixth/Bugbait"]
 offset_left = 3.0

@@ -1,17 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://csrsdq4q33h42"]
+[gd_scene load_steps=5 format=3 uid="uid://csrsdq4q33h42"]
 
 [ext_resource type="Script" path="res://objects/toxic_slime.gd" id="1_8rj74"]
-[ext_resource type="Texture2D" uid="uid://bdmhcwxs486k7" path="res://textures/toxic_slime.png" id="1_41kqq"]
-[ext_resource type="Texture2D" uid="uid://d27tsdgv1bfyh" path="res://textures/toxic_slime_normal.png" id="2_np1aa"]
+[ext_resource type="Material" uid="uid://dviw78x3frjcm" path="res://materials/toxic_slime.tres" id="2_f88mr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3qb2f"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xdp4"]
-albedo_texture = ExtResource( "1_41kqq" )
-metallic_specular = 0.1
-roughness = 0.1
-normal_enabled = true
-normal_texture = ExtResource( "2_np1aa" )
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ic7gh"]
 size = Vector3(2, 1, 2)
@@ -19,16 +11,16 @@ size = Vector3(2, 1, 2)
 [node name="ToxicSlime" type="Area3D"]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource( "1_8rj74" )
+script = ExtResource("1_8rj74")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource( "PlaneMesh_3qb2f" )
+mesh = SubResource("PlaneMesh_3qb2f")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource( "StandardMaterial3D_7xdp4" )
+surface_material_override/0 = ExtResource("2_f88mr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource( "BoxShape3D_ic7gh" )
+shape = SubResource("BoxShape3D_ic7gh")
 
 [connection signal="body_entered" from="." to="." method="_on_toxic_slime_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_toxic_slime_body_exited"]

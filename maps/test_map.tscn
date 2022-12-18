@@ -1,8 +1,11 @@
 [gd_scene load_steps=23 format=3 uid="uid://1av2wkw5rwc0"]
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
+[ext_resource type="Material" uid="uid://neer5cdq4dir" path="res://materials/concrete_01.tres" id="2_5h2iq"]
 [ext_resource type="PackedScene" uid="uid://ccsyutky0eas2" path="res://objects/wooden_crate/wooden_crate.tscn" id="2_ays1q"]
+[ext_resource type="Material" uid="uid://btsog81cv3whj" path="res://materials/bricks_01.tres" id="3_8n1si"]
 [ext_resource type="PackedScene" uid="uid://c48v5iawad8b6" path="res://objects/health_charger/health_charger.tscn" id="3_q5g7t"]
+[ext_resource type="Material" uid="uid://bb5yowbgqripo" path="res://materials/metal_02.tres" id="3_yclor"]
 [ext_resource type="PackedScene" uid="uid://dljem16vksx4f" path="res://objects/suit_charger/suit_charger.tscn" id="4_70oby"]
 [ext_resource type="PackedScene" uid="uid://dtofapfmqp1k" path="res://objects/suit_battery/suit_battery.tscn" id="5_q20qu"]
 [ext_resource type="PackedScene" uid="uid://rd8yuk5xc4pq" path="res://objects/health_kit/health_kit.tscn" id="6_77lcb"]
@@ -12,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dovtpq2ss6rr7" path="res://weapons/pistol/pistol_item.tscn" id="10_tms8i"]
 [ext_resource type="PackedScene" uid="uid://c1x7w47iac1kn" path="res://objects/radiation.tscn" id="11_palm6"]
 [ext_resource type="PackedScene" uid="uid://dgvon7n11vjaq" path="res://objects/fire.tscn" id="12_jbkk6"]
-[ext_resource type="PackedScene" uid="uid://k34g2edsgpth" path="res://objects/electricity.tscn" id="13_vmrns"]
 [ext_resource type="PackedScene" uid="uid://csrsdq4q33h42" path="res://objects/toxic_slime.tscn" id="14_t1fbb"]
 [ext_resource type="PackedScene" uid="uid://bhpa7xyyledlj" path="res://weapons/nailgun/nailgun_item.tscn" id="15_8vj1g"]
 [ext_resource type="PackedScene" uid="uid://cjpqp0773lvin" path="res://objects/ladder/ladder.tscn" id="15_s30a0"]
@@ -28,18 +30,13 @@ sky_material = SubResource("ProceduralSkyMaterial_5p674")
 background_mode = 2
 sky = SubResource("Sky_heffr")
 tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
 glow_enabled = true
 glow_bloom = 0.05
-adjustment_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylasf"]
-albedo_color = Color(0.180392, 0.180392, 0.180392, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6v6g"]
-albedo_color = Color(0.32549, 0.2, 0.101961, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjhj1"]
-metallic = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_eh0qd"]
+size = Vector3(20, 5, 12)
 
 [node name="TestMap" type="Node3D"]
 
@@ -47,135 +44,138 @@ metallic = 1.0
 environment = SubResource("Environment_5gtbi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.835505, -0.0118194, 0.549356, 0.469846, -0.533759, 0.703097, 0.284913, 0.845554, 0.451512, 0, 0, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 250.0
 
 [node name="Player" parent="." instance=ExtResource("1_pv543")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="HEVSuit" parent="." instance=ExtResource("7_l2yjo")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.142626, 0, 7.59912)
+
+[node name="CrowbarItem" parent="." instance=ExtResource("9_sroxh")]
+transform = Transform3D(0.40558, -0.579228, 0.707107, 0.819152, 0.573576, 0, -0.40558, 0.579228, 0.707107, 0.1, 0.02, 5)
+
+[node name="NailGunItem" parent="." instance=ExtResource("15_8vj1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 10, -10)
+
+[node name="PistolItem" parent="." instance=ExtResource("10_tms8i")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2, 0.02, 8)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(20, 1, 20)
-material = SubResource("StandardMaterial3D_ylasf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 7)
+size = Vector3(20, 1, 6)
+material = ExtResource("2_5h2iq")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -7)
+size = Vector3(20, 1, 6)
+material = ExtResource("2_5h2iq")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(20, 1, 8)
+material = ExtResource("2_5h2iq")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -5)
-size = Vector3(2, 10, 2)
-material = SubResource("StandardMaterial3D_ylasf")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 5, -9.5)
+size = Vector3(1, 10, 2)
+material = ExtResource("2_5h2iq")
 
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." groups=["WoodMaterial"]]
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
 use_collision = true
 
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 9.5)
+size = Vector3(20, 11, 1)
+material = ExtResource("3_8n1si")
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -0.5, 10)
-size = Vector3(20, 1, 20)
-material = SubResource("StandardMaterial3D_p6v6g")
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4.5, -10.5)
+size = Vector3(20, 11, 1)
+material = ExtResource("3_8n1si")
 
 [node name="CSGCombiner3D3" type="CSGCombiner3D" parent="." groups=["MetalMaterial"]]
 use_collision = true
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.433, 28.41)
-size = Vector3(20, 1, 20)
-material = SubResource("StandardMaterial3D_tjhj1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 5, -0.5)
+size = Vector3(1, 10, 19)
+material = ExtResource("3_yclor")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.5, 5, -0.5)
+size = Vector3(1, 10, 19)
+material = ExtResource("3_yclor")
 
 [node name="HealthCharger" parent="." instance=ExtResource("3_q5g7t")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1.7, 0.5)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.4, 1.7, -10)
 
 [node name="SuitCharger" parent="." instance=ExtResource("4_70oby")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1.7, -0.4)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, 1.7, -10)
 
 [node name="WoodenCrate" parent="." instance=ExtResource("2_ays1q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+transform = Transform3D(0.789341, 0, 0.613955, 0, 1, 0, -0.613955, 0, 0.789341, -6, 0, 6)
+
+[node name="WoodenCrate2" parent="." instance=ExtResource("2_ays1q")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -7.16856, 0, 6.97765)
+
+[node name="WoodenCrate3" parent="." instance=ExtResource("2_ays1q")]
+transform = Transform3D(0.592449, 0, 0.805608, 0, 1, 0, -0.805608, 0, 0.592449, -7.22125, 0, 5.73958)
 
 [node name="SuitBattery" parent="." instance=ExtResource("5_q20qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-
-[node name="SuitBattery2" parent="." instance=ExtResource("5_q20qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
-
-[node name="SuitBattery3" parent="." instance=ExtResource("5_q20qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
-
-[node name="SuitBattery4" parent="." instance=ExtResource("5_q20qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
-
-[node name="SuitBattery5" parent="." instance=ExtResource("5_q20qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
-
-[node name="SuitBattery6" parent="." instance=ExtResource("5_q20qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
-
-[node name="SuitBattery7" parent="." instance=ExtResource("5_q20qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9)
 
 [node name="HealthKit" parent="." instance=ExtResource("6_77lcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
-
-[node name="HealthKit2" parent="." instance=ExtResource("6_77lcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
-
-[node name="HealthKit3" parent="." instance=ExtResource("6_77lcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
-
-[node name="HealthKit4" parent="." instance=ExtResource("6_77lcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
-
-[node name="HealthKit5" parent="." instance=ExtResource("6_77lcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
-
-[node name="HealthKit6" parent="." instance=ExtResource("6_77lcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
-
-[node name="HealthKit7" parent="." instance=ExtResource("6_77lcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
-
-[node name="HEVSuit" parent="." instance=ExtResource("7_l2yjo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142626, 0, 7.59912)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
 
 [node name="PistolAmmo" parent="." instance=ExtResource("8_w5vg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 8)
 
 [node name="PistolAmmo2" parent="." instance=ExtResource("8_w5vg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 8)
 
 [node name="PistolAmmo3" parent="." instance=ExtResource("8_w5vg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 8)
 
 [node name="Radiation" parent="." instance=ExtResource("11_palm6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.01, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
-[node name="ToxicSlime" parent="Radiation" instance=ExtResource("14_t1fbb")]
+[node name="Radiation2" parent="." instance=ExtResource("11_palm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+strength = 0.5
+
+[node name="CollisionShape3D" parent="Radiation2" index="0"]
+shape = SubResource("BoxShape3D_eh0qd")
 
 [node name="Fire" parent="." instance=ExtResource("12_jbkk6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
 
-[node name="Electricity" parent="." instance=ExtResource("13_vmrns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+[node name="Ladder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -9)
 
-[node name="Ladder" parent="." instance=ExtResource("15_s30a0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, -5)
+[node name="Ladder" parent="Ladder" instance=ExtResource("15_s30a0")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 0, 0)
 
-[node name="Ladder2" parent="." instance=ExtResource("15_s30a0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 2, -5)
+[node name="Ladder2" parent="Ladder" instance=ExtResource("15_s30a0")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 2, 0)
 
-[node name="Ladder3" parent="." instance=ExtResource("15_s30a0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 4, -5)
+[node name="Ladder3" parent="Ladder" instance=ExtResource("15_s30a0")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 4, 0)
 
-[node name="Ladder4" parent="." instance=ExtResource("15_s30a0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 6, -5)
+[node name="Ladder4" parent="Ladder" instance=ExtResource("15_s30a0")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 6, 0)
 
-[node name="Ladder5" parent="." instance=ExtResource("15_s30a0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 8, -5)
+[node name="Ladder5" parent="Ladder" instance=ExtResource("15_s30a0")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 8, 0)
 
-[node name="CrowbarItem" parent="." instance=ExtResource("9_sroxh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+[node name="ToxicSlime" parent="." instance=ExtResource("14_t1fbb")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.1, 0)
 
-[node name="NailGunItem" parent="." instance=ExtResource("15_8vj1g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
-
-[node name="PistolItem" parent="." instance=ExtResource("10_tms8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
+[editable path="Radiation"]
+[editable path="Radiation2"]
+[editable path="ToxicSlime"]

@@ -11,7 +11,7 @@ offsets = PackedFloat32Array(0, 0.150259, 0.365285, 1)
 colors = PackedColorArray(0.449219, 0.168208, 0, 1, 1.5, 0.9, 0, 1, 2, 0.319771, 0, 1, 0.570313, 0.0493741, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_5ox2p"]
-gradient = SubResource( "Gradient_i58xx" )
+gradient = SubResource("Gradient_i58xx")
 use_hdr = true
 
 [sub_resource type="Curve" id="Curve_vnl72"]
@@ -19,9 +19,9 @@ _data = [Vector2(0.00795756, 0), 0.0, 0.0, 0, 0, Vector2(0.259947, 1), 0.0, 0.0,
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_tww7p"]
-curve = SubResource( "Curve_vnl72" )
+curve = SubResource("Curve_vnl72")
 
-[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_rpqvx"]
+[sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_rpqvx"]
 emission_shape = 1
 emission_sphere_radius = 0.5
 direction = Vector3(0, 1, 0)
@@ -33,8 +33,8 @@ angular_velocity_max = 40.0
 linear_accel_max = 1.0
 angle_max = 360.0
 scale_min = 0.8
-scale_curve = SubResource( "CurveTexture_tww7p" )
-color_ramp = SubResource( "GradientTexture1D_5ox2p" )
+scale_curve = SubResource("CurveTexture_tww7p")
+color_ramp = SubResource("GradientTexture1D_5ox2p")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 anim_offset_max = 1.0
@@ -44,36 +44,40 @@ transparency = 1
 blend_mode = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource( "2_gb7v6" )
+albedo_texture = ExtResource("2_gb7v6")
 billboard_mode = 3
 particles_anim_h_frames = 6
 particles_anim_v_frames = 5
 particles_anim_loop = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_vheob"]
-material = SubResource( "StandardMaterial3D_eaw5y" )
+material = SubResource("StandardMaterial3D_eaw5y")
 
 [node name="Fire" type="Area3D"]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource( "1_gq3qs" )
+script = ExtResource("1_gq3qs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource( "CylinderShape3D_ciamm" )
+shape = SubResource("CylinderShape3D_ciamm")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 amount = 200
 lifetime = 0.5
 randomness = 1.0
-local_coords = false
 draw_order = 3
-process_material = SubResource( "ParticlesMaterial_rpqvx" )
-draw_pass_1 = SubResource( "QuadMesh_vheob" )
+process_material = SubResource("ParticlesMaterial_rpqvx")
+draw_pass_1 = SubResource("QuadMesh_vheob")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( "3_ilu4r" )
+stream = ExtResource("3_ilu4r")
 autoplay = true
 max_distance = 10.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0.894118, 0.65098, 0, 1)
+light_energy = 4.0
 
 [connection signal="body_entered" from="." to="." method="_on_fire_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_fire_body_exited"]

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dviw78x3frjcm"]
+
+[ext_resource type="Texture2D" uid="uid://bdmhcwxs486k7" path="res://textures/toxic_slime.png" id="1_pgslr"]
+[ext_resource type="Texture2D" uid="uid://d27tsdgv1bfyh" path="res://textures/toxic_slime_normal.png" id="2_nuqy3"]
+
+[resource]
+albedo_texture = ExtResource("1_pgslr")
+metallic_specular = 0.1
+roughness = 0.1
+normal_enabled = true
+normal_texture = ExtResource("2_nuqy3")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true

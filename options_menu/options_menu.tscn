@@ -8,6 +8,7 @@
 [node name="OptionsMenu" type="ColorRect"]
 process_mode = 3
 process_priority = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.588235)
@@ -16,6 +17,7 @@ metadata/_edit_vertical_guides_ = []
 
 [node name="Options" type="VBoxContainer" parent="."]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -35,6 +37,8 @@ tab_2/title = "Video"
 tab_3/title = "Audio"
 
 [node name="Tabs" type="Control" parent="Options"]
+layout_mode = 3
+anchors_preset = 0
 offset_top = 35.0
 offset_right = 1024.0
 offset_bottom = 565.0
@@ -42,6 +46,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Controls" type="VBoxContainer" parent="Options/Tabs"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
@@ -112,6 +117,8 @@ text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -140,6 +147,8 @@ text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/MouseVerticalInverted"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -248,6 +257,8 @@ text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -276,6 +287,8 @@ text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -382,11 +395,13 @@ text = "Value"
 [node name="InputMapping" parent="Options/Tabs" instance=ExtResource("2_owuij")]
 process_mode = 2
 visible = false
+anchors_preset = 13
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="Video" type="VBoxContainer" parent="Options/Tabs"]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
@@ -455,6 +470,8 @@ popup/item_2/id = 2
 metadata/default_value = 1
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/AntiAliasing"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -483,6 +500,8 @@ text = "Value"
 metadata/default_value = true
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/Bloom"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -592,6 +611,8 @@ popup/item_4/id = 4
 metadata/default_value = 0
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/FSR"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -620,6 +641,8 @@ text = "Value"
 metadata/default_value = true
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/Fullscreen"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -682,6 +705,8 @@ text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/ShowFPS"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -710,6 +735,8 @@ text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/VSync"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 716.0
 offset_right = 1024.0
 offset_bottom = 31.0
@@ -717,6 +744,7 @@ size_flags_horizontal = 3
 
 [node name="Audio" type="VBoxContainer" parent="Options/Tabs"]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
@@ -860,6 +888,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "RestoreDefaults"
 
 [node name="PauseControls" type="VBoxContainer" parent="."]
+anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 32.0
@@ -872,8 +901,9 @@ metadata/_edit_layout_mode = 1
 [node name="GameTitle" type="Label" parent="PauseControls"]
 offset_right = 500.0
 offset_bottom = 59.0
+theme_override_colors/font_color = Color(0.262745, 0.627451, 0.278431, 1)
 theme_override_font_sizes/font_size = 48
-text = "FPS"
+text = "Code Green"
 vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PauseControls"]

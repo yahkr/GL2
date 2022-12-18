@@ -29,7 +29,7 @@ func is_attacking() -> bool:
 			and Input.is_action_just_pressed("primary_attack")
 			and cooldown.is_stopped()
 			and not (animation_player.current_animation == "draw"
-					and animation_player.current_animation_position < 0.5)
+					and animation_player.current_animation_position < 1.0)
 			and animation_player.current_animation != "reload")
 
 

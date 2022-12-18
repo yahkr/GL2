@@ -54,7 +54,16 @@ func cycle_weapon(previous: bool, category := -1):
 
 func select_weapon(index: int, show_hud := true):
 	if current_weapon != index:
-		get_child(current_weapon).visible = false
+		var current_weapon_node := get_child(current_weapon)
+		current_weapon_node.visible = false
+		# Cancel ammo refill on weapon switch
+		if current_weapon_node is Gun:
+			if current_weapon_node.animation_player.animation_finished.is_connected(
+					current_weapon_node.refill_ammo
+			):
+				current_weapon_node.animation_player.animation_finished.disconnect(
+					current_weapon_node.refill_ammo
+				)
 
 		var weapon_select_items := get_tree().get_nodes_in_group("WeaponSelectItem")
 
@@ -62,16 +71,16 @@ func select_weapon(index: int, show_hud := true):
 
 		if index >= 0:
 			current_weapon = index
+			current_weapon_node = get_child(current_weapon)
 
-			get_child(current_weapon).emit_signal("weapon_selected")
+			current_weapon_node.emit_signal("weapon_selected")
 
 			weapon_select_items[current_weapon].get_theme_stylebox("panel").border_color = "ffd600"
 
-			var gun := get_child(current_weapon) as Gun
-			if gun:
+			if current_weapon_node is Gun:
 				%PrimaryAmmo.visible = true
-				%SecondaryAmmo.visible = gun.secondary_ammo >= 0
-				gun.update_ammo_labels()
+				%SecondaryAmmo.visible = current_weapon_node.secondary_ammo >= 0
+				current_weapon_node.update_ammo_labels()
 			else:
 				%PrimaryAmmo.visible = false
 				%SecondaryAmmo.visible = false
