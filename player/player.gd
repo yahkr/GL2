@@ -177,7 +177,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	look()
-	weapon_manager.position = weapon_manager.position.lerp(look_delta / 8, delta * 8)
+	weapon_manager.position = weapon_manager.position.lerp(look_delta / 6, delta * 6)
 
 	if Input.is_anything_pressed() and health == 0:
 		get_tree().reload_current_scene()
@@ -194,7 +194,7 @@ func _input(event: InputEvent) -> void:
 		if mouse_look_inverted_y:
 			input.y *= -1
 
-		look_delta = Vector3(-input.x, 0, -input.y) * mouse_look_sensitivity / 500
+		look_delta = Vector3(-input.x, 0, -input.y) * mouse_look_sensitivity / 1000
 
 		rotate_y(look_delta.x)
 		camera.rotate_x(look_delta.z)

@@ -69,4 +69,7 @@ func draw_weapon():
 
 func play_idle(anim_name: String):
 	if anim_name != "holster":
-		animation_player.play("idle01")
+		if not animation_player.has_animation("idle01"):
+			animation_player.play("idle")
+		else:
+			animation_player.play("idle01")

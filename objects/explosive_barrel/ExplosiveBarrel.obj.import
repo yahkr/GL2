@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bv17sq0hi6u0"
+path="res://.godot/imported/ExplosiveBarrel.obj-0db8cd019f1273f5305a4417f78ddb57.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ExplosiveBarrel.obj-0db8cd019f1273f5305a4417f78ddb57.mesh"]
+
+source_file="res://objects/explosive_barrel/ExplosiveBarrel.obj"
+dest_files=["res://.godot/imported/ExplosiveBarrel.obj-0db8cd019f1273f5305a4417f78ddb57.mesh", "res://.godot/imported/ExplosiveBarrel.obj-0db8cd019f1273f5305a4417f78ddb57.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

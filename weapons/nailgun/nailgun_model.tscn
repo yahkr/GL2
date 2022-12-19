@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu436pratf10n"]
+
+[ext_resource type="PackedScene" uid="uid://c6mpqwvd8ea6a" path="res://weapons/nailgun/nailgun_model.glb" id="1_gcvh7"]
+
+[node name="nailgun_model" instance=ExtResource("1_gcvh7")]
+transform = Transform3D(-0.01, 0, 8.74228e-10, 0, 0.01, 0, -8.74228e-10, 0, -0.01, 0, 0, 0.13)
+
+[node name="Skeleton3D" parent="v_crossbowqc_skeleton" index="0"]
+bones/0/position = Vector3(-7.1687, -24.6049, 3.89431)
+bones/1/position = Vector3(9.37036, 7.58821, 8.12022)
+bones/1/rotation = Quaternion(0.175472, 0.333706, 0.887963, -0.263386)
+bones/2/position = Vector3(11.4817, -2.94586e-06, -3.34573e-05)
+bones/3/rotation = Quaternion(-0.989936, -0.0576134, 0.116741, 0.0554867)
+bones/6/position = Vector3(6.02814, -1.57956e-06, -6.12189e-07)
+bones/6/rotation = Quaternion(0.218134, 0.311142, 0.711242, -0.59139)
+bones/7/position = Vector3(11.6926, 7.01854e-07, -1.4603e-06)
+bones/7/rotation = Quaternion(1.64629e-09, -1.07043e-08, -0.258974, 0.965884)
+bones/8/position = Vector3(11.4817, -2.90201e-06, -3.15654e-05)
+bones/8/rotation = Quaternion(-0.657375, -0.177158, 0.0226266, 0.732094)
+bones/9/position = Vector3(3.8597, -0.142403, -1.19197)
+bones/10/position = Vector3(1.31256, -8.00638e-07, -8.93838e-08)
+bones/12/position = Vector3(3.94232, 0.0467763, -0.431445)
+bones/13/position = Vector3(1.53909, 1.51713e-06, -2.86102e-06)
+bones/14/position = Vector3(1.19632, 3.48004e-06, -2.38433e-07)
+bones/15/position = Vector3(3.88368, -0.0467666, 0.431443)
+bones/16/position = Vector3(1.71958, 4.39267e-07, 1.4413e-06)
+bones/17/position = Vector3(1.20918, -3.58573e-06, -1.88827e-06)
+bones/17/rotation = Quaternion(0.0004334, 0.00147983, -0.281076, 0.959684)
+bones/18/position = Vector3(3.85986, -0.137944, 1.33246)
+bones/19/position = Vector3(1.71943, 5.16698e-06, 7.29827e-07)
+bones/20/position = Vector3(1.09967, 6.21323e-06, 7.17387e-07)
+bones/22/position = Vector3(1.78979, 1.05178e-06, -1.78813e-06)
+bones/24/position = Vector3(0.203169, 5.91246, 16.1426)
+bones/24/rotation = Quaternion(0.257589, 0.038905, -0.121275, 0.957824)

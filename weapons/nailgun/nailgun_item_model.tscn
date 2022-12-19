@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0v4ujkco61ti"]
+
+[ext_resource type="PackedScene" uid="uid://bafqrjl30otq4" path="res://weapons/nailgun/nailgun_item_model.glb" id="1_gjgc8"]
+
+[node name="nailgun_item_model" instance=ExtResource("1_gjgc8")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="w_crossbow_physics" parent="w_crossbowqc_skeleton/Skeleton3D" index="0"]
+visible = false
+
+[node name="w_crossbow_reference_lod1" parent="w_crossbowqc_skeleton/Skeleton3D" index="2"]
+visible = false
+
+[node name="w_crossbow_reference_lod2" parent="w_crossbowqc_skeleton/Skeleton3D" index="3"]
+visible = false
+
+[node name="w_crossbow_reference_lod3" parent="w_crossbowqc_skeleton/Skeleton3D" index="4"]
+visible = false

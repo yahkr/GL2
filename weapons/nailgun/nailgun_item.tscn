@@ -1,16 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhpa7xyyledlj"]
 
-[ext_resource type="PackedScene" uid="uid://b1dt1jxil68xa" path="res://weapons/pistol/pistol_item_model.tscn" id="1_8kdnw"]
+[ext_resource type="PackedScene" uid="uid://c0v4ujkco61ti" path="res://weapons/nailgun/nailgun_item_model.tscn" id="1_rayfh"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_67n7r"]
-points = PackedVector3Array(0.308834, 1.50853, -3.48464, -0.531051, -5.3788, 1.38618, -0.6991, -1.01152, -5.50011, -0.0269026, 1.33998, 4.07418, 0.812801, -5.3788, 2.89857, 0.980851, 0.836378, -5.8369, 1.1489, -0.00363851, 4.24257, -0.6991, -5.3788, 3.90684, -0.6991, 0.836378, -5.8369, 0.812801, -1.01152, -5.50011, -0.531051, 0.332098, 2.56284, 0.812801, 1.33998, 3.90684, 0.644752, 0.16423, 4.9151, 0.812801, -5.3788, 3.90684, 0.644752, -5.3788, 1.55457, 1.1489, -0.171507, 0.546311, 0.141147, 0.499967, 4.9151, 1.1489, 0.836378, 0.210574, 0.980851, -0.171507, -5.16437, -0.6991, -4.53811, 3.90684, -0.531051, 1.17211, -3.98877, -0.320469, 0.168072, 3.90229, -0.6991, -5.3788, 1.72297, 1.1489, -0.675786, 4.24257, 0.141147, 1.50853, -3.98877, -0.6991, 0.668509, -4.3245, 0.644752, -1.17939, -5.33277, 0.812801, -0.843655, -5.66851, 0.476884, -5.3788, 1.38618, -0.531051, 0.499967, 2.05871, -0.6991, -0.843655, -5.66851, 0.644752, 0.499967, 4.9151)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hwiho"]
+points = PackedVector3Array(15.5748, 2.48667, -9.11077, -0.0030489, 6.97587, 0.931778, 0.893563, 4.40534, 16.7503, 15.5748, -2.0097, -9.11077, 0.454406, 2.69268, -21.4174, -0.314117, 2.69268, -21.4174, -15.5779, 2.48667, -9.11077, -0.89661, 4.40534, 16.7503, 0.893563, -0.741862, 16.7503, -0.0030489, -3.49483, 2.36643, 3.42481, -2.0097, -17.5767, 0.454406, 1.73437, -21.4174, -0.314117, 1.73437, -21.4174, -15.5779, -2.0097, -9.11077, -0.89661, -0.741862, 16.7503, -3.42786, -2.0097, -17.5767)
 
-[node name="NailGunItem" type="RigidDynamicBody3D" groups=["NailGunItem"]]
+[node name="NailGunItem" type="RigidBody3D" groups=["NailGunItem"]]
 collision_layer = 2
 
-[node name="pistol_item_model" parent="." instance=ExtResource("1_8kdnw")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.16, 0)
+[node name="nailgun_item_model" parent="." instance=ExtResource("1_rayfh")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.16, 0)
-shape = SubResource("ConvexPolygonShape3D_67n7r")
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_hwiho")

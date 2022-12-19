@@ -1,25 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0734toll01c3"]
+[gd_scene load_steps=8 format=3 uid="uid://b0734toll01c3"]
 
 [ext_resource type="PackedScene" uid="uid://cjw4bj31lew1j" path="res://weapons/gun.tscn" id="1_khsm4"]
 [ext_resource type="Script" path="res://weapons/nailgun/nailgun.gd" id="1_scg6i"]
+[ext_resource type="PackedScene" uid="uid://bu436pratf10n" path="res://weapons/nailgun/nailgun_model.tscn" id="3_fn5gm"]
+[ext_resource type="AudioStream" uid="uid://pydiv47khe06" path="res://sounds/crossbow/hit1.wav" id="3_o83nf"]
+[ext_resource type="AudioStream" uid="uid://odrldlt47smt" path="res://sounds/crossbow/reload1.wav" id="4_xgsec"]
+[ext_resource type="AudioStream" uid="uid://ba20clbgxjvnn" path="res://sounds/weapons/pistol/pistol_empty.wav" id="5_4ng46"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mp3bo"]
 radius = 2.0
 
 [node name="NailGun" instance=ExtResource("1_khsm4")]
 script = ExtResource("1_scg6i")
-hit_range = 1000.0
 magazine_ammo = 50
 magazine_size = 50
+hit_range = 1000.0
 
 [node name="Cooldown" parent="." index="0"]
 wait_time = 0.1
 
-[node name="Model" type="Node3D" parent="." index="7"]
+[node name="SoundShoot" parent="." index="4"]
+stream = ExtResource("3_o83nf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Model" index="0"]
+[node name="SoundReload" parent="." index="5"]
+stream = ExtResource("4_xgsec")
 
-[node name="Area3D" type="Area3D" parent="." index="8"]
+[node name="SoundNoAmmo" parent="." index="6"]
+stream = ExtResource("5_4ng46")
+
+[node name="Model" parent="." index="8" instance=ExtResource("3_fn5gm")]
+
+[node name="Area3D" type="Area3D" parent="." index="9"]
 top_level = true
 collision_layer = 0
 collision_mask = 16

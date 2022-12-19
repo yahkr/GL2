@@ -23,4 +23,4 @@ stream = ExtResource("4_552xb")
 [node name="SoundNoAmmo" parent="." index="6"]
 stream = ExtResource("5_j2p7a")
 
-[node name="Model" parent="." index="7" instance=ExtResource("6_s3rtl")]
+[node name="Model" parent="." index="8" instance=ExtResource("6_s3rtl")]

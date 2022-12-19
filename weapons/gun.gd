@@ -57,7 +57,7 @@ func shoot_gun():
 func reload_gun():
 	if (
 			not visible
-			or animation_player.current_animation != "idle01"
+			or not animation_player.current_animation.begins_with("idle")
 			and not (
 					animation_player.current_animation.begins_with("fire")
 					and animation_player.current_animation_position > 0.1
