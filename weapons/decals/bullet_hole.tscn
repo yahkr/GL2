@@ -1,11 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmxliqqs4nr4i"]
+[gd_scene load_steps=13 format=3 uid="uid://cmxliqqs4nr4i"]
 
 [ext_resource type="Texture2D" uid="uid://deojj7f6tr0yw" path="res://weapons/decals/bullet_hole.png" id="1_4b1sj"]
+[ext_resource type="Script" path="res://weapons/decals/bullet_hole.gd" id="1_cfo8u"]
+[ext_resource type="Texture2D" uid="uid://caj87a5htqjo4" path="res://textures/smoke.png" id="2_ya8a2"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gxxpf"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_u18dh"]
 size = Vector3(0.01, 0.01, 0.01)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r2cec"]
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6un0"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.223529, 0.223529, 0.223529, 0.580392)
+albedo_texture = ExtResource("2_ya8a2")
+billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_obnwu"]
+material = SubResource("StandardMaterial3D_s6un0")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6rod"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.627451, 0.427451, 0.0196078, 0.705882)
+albedo_texture = ExtResource("2_ya8a2")
+billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_kkisc"]
+material = SubResource("StandardMaterial3D_s6rod")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8btvo"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+color = Color(1, 0.839216, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fnrwa"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 1, 0.862745, 1)
+emission_energy_multiplier = 100.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4f076"]
+material = SubResource("StandardMaterial3D_fnrwa")
+top_radius = 0.001
+bottom_radius = 0.001
+height = 0.1
+radial_segments = 16
+
 [node name="BulletHole" type="Node3D"]
+script = ExtResource("1_cfo8u")
 
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -17,4 +73,32 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_gxxpf")
+shape = SubResource("BoxShape3D_u18dh")
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="Concrete" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r2cec")
+draw_pass_1 = SubResource("QuadMesh_obnwu")
+
+[node name="Wood" type="GPUParticles3D" parent="Particles"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r2cec")
+draw_pass_1 = SubResource("QuadMesh_kkisc")
+
+[node name="Metal" type="GPUParticles3D" parent="Particles"]
+cast_shadow = 0
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8btvo")
+draw_pass_1 = SubResource("CylinderMesh_4f076")

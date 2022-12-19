@@ -83,7 +83,7 @@ func update_ammo_labels():
 	%PrimaryAmmo/HBoxContainer/LabelMagazine.text = str(magazine_ammo)
 	%PrimaryAmmo/HBoxContainer/LabelReserve.text = str(reserve_ammo)
 	%SecondaryAmmo/Label.text = str(secondary_ammo)
-	if magazine_ammo == 0 and reserve_ammo == 0:
+	if magazine_ammo == 0:
 		%PrimaryAmmo.modulate = Color.RED
 	else:
 		%PrimaryAmmo.modulate = Color.WHITE

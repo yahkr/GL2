@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dymutk8nhnnpj" path="res://weapons/crowbar/crowbar_model.glb" id="1_eijlo"]
 
-[node name="crowbar_model" instance=ExtResource( "1_eijlo" )]
-transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0.2)
+[node name="crowbar_model" instance=ExtResource("1_eijlo")]
+transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0.13)
 
 [node name="Skeleton3D" parent="v_crowbarqc_skeleton" index="0"]
 bones/0/position = Vector3(-0.003761, -29.4313, 14.6137)
@@ -21,6 +21,7 @@ bones/11/position = Vector3(-1.35941, 1.32036, 0.1211)
 bones/11/rotation = Quaternion(0.288, -0.400379, 0.0957101, 0.864634)
 
 [node name="crowbar_reference" parent="v_crowbarqc_skeleton/Skeleton3D" index="0"]
+layers = 524288
 cast_shadow = 0
 
 [node name="AnimationPlayer" parent="." index="1"]

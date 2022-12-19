@@ -36,17 +36,20 @@ func is_attacking() -> bool:
 func hit():
 	var node := weapon_raycast.get_collider() as Node3D
 	if node:
+		var bullet_hole_instance = bullet_hole.instantiate()
 		if node.is_in_group("MetalMaterial"):
 			sound_hit_metal.position = weapon_raycast.get_collision_point()
 			sound_hit_metal.play()
+			bullet_hole_instance.metal()
 		elif node.is_in_group("WoodMaterial"):
 			sound_hit_wood.position = weapon_raycast.get_collision_point()
 			sound_hit_wood.play()
+			bullet_hole_instance.wood()
 		else:
 			sound_hit_concrete.position = weapon_raycast.get_collision_point()
 			sound_hit_concrete.play()
+			bullet_hole_instance.concrete()
 		
-		var bullet_hole_instance = bullet_hole.instantiate()
 		get_tree().get_root().add_child(bullet_hole_instance)
 		bullet_hole_instance.position = weapon_raycast.get_collision_point()
 		if Vector3.UP.is_equal_approx(weapon_raycast.get_collision_normal()):

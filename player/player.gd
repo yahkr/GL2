@@ -176,6 +176,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	$SubViewportContainer/SubViewport/Camera3D.global_transform = $Camera3D.global_transform
 	look()
 	weapon_manager.position = weapon_manager.position.lerp(look_delta / 6, delta * 6)
 

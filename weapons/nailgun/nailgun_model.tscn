@@ -32,3 +32,6 @@ bones/20/position = Vector3(1.09967, 6.21323e-06, 7.17387e-07)
 bones/22/position = Vector3(1.78979, 1.05178e-06, -1.78813e-06)
 bones/24/position = Vector3(0.203169, 5.91246, 16.1426)
 bones/24/rotation = Quaternion(0.257589, 0.038905, -0.121275, 0.957824)
+
+[node name="Crossbow_reference" parent="v_crossbowqc_skeleton/Skeleton3D" index="0"]
+layers = 524288

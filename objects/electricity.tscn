@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1mme7"]
 
-[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_swmyr"]
+[sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_swmyr"]
 particle_flag_align_y = true
 direction = Vector3(0, 1, 0)
 spread = 90.0
@@ -13,35 +13,35 @@ initial_velocity_min = 2.0
 initial_velocity_max = 3.0
 color = Color(1, 0.839216, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c75cl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udhx1"]
 vertex_color_use_as_albedo = true
 emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy = 10.0
+emission = Color(1, 0.923333, 0.8, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_85yws"]
-material = SubResource( "StandardMaterial3D_c75cl" )
-top_radius = 0.005
-bottom_radius = 0.005
-height = 0.2
+material = SubResource("StandardMaterial3D_udhx1")
+top_radius = 0.002
+bottom_radius = 0.002
+height = 0.1
+radial_segments = 16
 
 [node name="Electricity" type="Area3D"]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource( "1_m8ce5" )
+script = ExtResource("1_m8ce5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource( "BoxShape3D_1mme7" )
+shape = SubResource("BoxShape3D_1mme7")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( "2_alsg6" )
+stream = ExtResource("2_alsg6")
 autoplay = true
 max_distance = 10.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 cast_shadow = 0
-process_material = SubResource( "ParticlesMaterial_swmyr" )
-draw_pass_1 = SubResource( "CylinderMesh_85yws" )
+process_material = SubResource("ParticlesMaterial_swmyr")
+draw_pass_1 = SubResource("CylinderMesh_85yws")
 
 [connection signal="body_entered" from="." to="." method="_on_electricity_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_electricity_body_exited"]

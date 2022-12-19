@@ -223,6 +223,7 @@ locale/translations=PackedStringArray("res://translations/translations.de.transl
 
 [layer_names]
 
+3d_render/layer_20="Weapons"
 3d_physics/layer_1="General"
 3d_physics/layer_2="Item"
 3d_physics/layer_3="Player"
