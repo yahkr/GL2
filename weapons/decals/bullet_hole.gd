@@ -16,7 +16,6 @@ func wood():
 	$Particles/Concrete.queue_free()
 	$Particles/Metal.queue_free()
 	$Particles/Wood.emitting = true
-	await get_tree().create_timer(5.0).timeout
 
 
 func metal():

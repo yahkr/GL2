@@ -8,40 +8,13 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Weapon",
-"class": &"Gun",
-"language": &"GDScript",
-"path": "res://weapons/gun.gd"
-}, {
-"base": "Node3D",
-"class": &"Interactable",
-"language": &"GDScript",
-"path": "res://objects/interactable.gd"
-}, {
-"base": "CharacterBody3D",
-"class": &"Player",
-"language": &"GDScript",
-"path": "res://player/player.gd"
-}, {
-"base": "Node3D",
-"class": &"Weapon",
-"language": &"GDScript",
-"path": "res://weapons/weapon.gd"
-}]
-_global_script_class_icons={
-"Gun": "",
-"Interactable": "",
-"Player": "",
-"Weapon": ""
-}
-
 [application]
 
 config/name="FPS"
 run/main_scene="res://maps/test_map.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
@@ -56,6 +29,10 @@ shapes/paths/geometry_color=Color(0.121569, 0.741176, 0.827451, 0.4)
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/fullscreen=true
+
+[editor]
+
+export/convert_text_resources_to_binary=true
 
 [filesystem]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dwt6ysj2g1h6u"]
+[gd_scene load_steps=92 format=3 uid="uid://dwt6ysj2g1h6u"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_whha0"]
 [ext_resource type="Script" path="res://weapons/weapon_manager.gd" id="2_0juje"]
@@ -52,7 +52,9 @@
 [ext_resource type="AudioStream" uid="uid://dahpdwxbkgayw" path="res://sounds/player/footsteps/ladder3.wav" id="46_0bfmw"]
 [ext_resource type="AudioStream" uid="uid://cosle2pkgao7f" path="res://sounds/player/footsteps/ladder4.wav" id="47_i6xcc"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngjqs"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nald0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8scdq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_52ae5"]
 
@@ -69,7 +71,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hjxl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tgcp"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -83,7 +85,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glexq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df5fy"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -97,7 +99,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gui78"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq5cb"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -111,7 +113,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v14ic"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vilbw"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -125,7 +127,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vxdi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx4gi"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -139,7 +141,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oga4c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pntvs"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -153,7 +155,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q12st"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tncyq"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -167,7 +169,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wamx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mapa4"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -181,7 +183,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt3ve"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yjpy"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -195,7 +197,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpf4j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsuqb"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -209,7 +211,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsg08"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5wi2"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -565,7 +567,6 @@ animation = &"RESET"
 animation = &"Sprint"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s8pjf"]
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ut2pv"]
 xfade_time = 0.1
@@ -671,11 +672,11 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_ngjqs")
+shape = SubResource("CylinderShape3D_nald0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_ngjqs")
+shape = SubResource("CylinderShape3D_8scdq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 visible = false
@@ -686,6 +687,9 @@ skeleton = NodePath("../..")
 [node name="FloorRayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 target_position = Vector3(0, -0.1, 0)
+
+[node name="LadderRayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -0.7)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -716,18 +720,18 @@ grow_vertical = 2
 [node name="DamageIndicatorLeft" type="TextureRect" parent="DamageIndicators"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 9
+layout_mode = 0
 anchor_bottom = 1.0
 offset_right = 32.0
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_whovi")
-ignore_texture_size = true
+expand_mode = 1
 script = ExtResource("5_gienv")
 
 [node name="DamageIndicatorRight" type="TextureRect" parent="DamageIndicators"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 11
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -735,7 +739,7 @@ offset_left = -32.0
 grow_horizontal = 0
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_whovi")
-ignore_texture_size = true
+expand_mode = 1
 flip_h = true
 script = ExtResource("5_gienv")
 
@@ -766,28 +770,20 @@ theme_override_constants/separation = 8
 
 [node name="Health" type="PanelContainer" parent="Indicators"]
 custom_minimum_size = Vector2(120, 0)
-offset_right = 120.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Indicators/Health"]
-offset_right = 120.0
-offset_bottom = 40.0
+layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/Health/MarginContainer"]
-offset_left = 4.0
-offset_right = 116.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Health" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
-offset_top = 9.0
-offset_right = 92.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("6_h7v46")
 text = "HEALTH"
@@ -795,11 +791,7 @@ vertical_alignment = 1
 
 [node name="HealthValue" type="Label" parent="Indicators/Health/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 96.0
-offset_right = 112.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 30
@@ -809,29 +801,20 @@ vertical_alignment = 1
 
 [node name="SuitPower" type="PanelContainer" parent="Indicators"]
 custom_minimum_size = Vector2(120, 0)
-offset_left = 128.0
-offset_right = 248.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Indicators/SuitPower"]
-offset_right = 120.0
-offset_bottom = 40.0
+layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/SuitPower/MarginContainer"]
-offset_left = 4.0
-offset_right = 116.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Suit" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
-offset_top = 9.0
-offset_right = 92.0
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("6_h7v46")
 text = "SUIT"
@@ -839,11 +822,7 @@ vertical_alignment = 1
 
 [node name="SuitValue" type="Label" parent="Indicators/SuitPower/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-offset_left = 96.0
-offset_right = 112.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 30
@@ -852,66 +831,44 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="Indicators"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 256.0
-offset_right = 1280.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PrimaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(120, 0)
-offset_left = 1160.0
-offset_right = 1280.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Indicators/PrimaryAmmo"]
-offset_right = 120.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Spacer" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-offset_left = 8.0
-offset_right = 42.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = -15
 
 [node name="Icon" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
-offset_right = 34.0
-offset_bottom = 33.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 24
 text = "p"
 horizontal_alignment = 1
 
 [node name="Mun" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer/VBoxContainer"]
-offset_top = 18.0
-offset_right = 34.0
-offset_bottom = 40.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("6_h7v46")
 text = "MUN"
 
 [node name="Spacer2" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 50.0
-offset_right = 50.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="LabelMagazine" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-offset_left = 58.0
-offset_right = 90.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("6_scti2")
@@ -921,10 +878,7 @@ vertical_alignment = 1
 
 [node name="LabelReserve" type="Label" parent="Indicators/PrimaryAmmo/HBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
-offset_left = 98.0
-offset_top = 4.0
-offset_right = 112.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 20
@@ -932,25 +886,16 @@ text = "0"
 vertical_alignment = 2
 
 [node name="Spacer3" type="Control" parent="Indicators/PrimaryAmmo/HBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 120.0
-offset_right = 120.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="SecondaryAmmo" type="PanelContainer" parent="Indicators"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(45, 0)
-offset_left = 1235.0
-offset_right = 1280.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Indicators/SecondaryAmmo"]
-offset_right = 45.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_fonts/font = ExtResource("6_scti2")
 theme_override_font_sizes/font_size = 30
 text = "0"
@@ -969,28 +914,16 @@ theme = ExtResource("2_t007i")
 theme_override_constants/separation = 12
 
 [node name="First" type="VBoxContainer" parent="WeaponCategories"]
-offset_right = 135.0
-offset_bottom = 720.0
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Crowbar" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_4hjxl")
-
-[node name="VBoxContainer" parent="WeaponCategories/First/Crowbar" index="0"]
-layout_mode = 3
-
-[node name="Icon" parent="WeaponCategories/First/Crowbar/VBoxContainer" index="0"]
-layout_mode = 3
-
-[node name="Name" parent="WeaponCategories/First/Crowbar/VBoxContainer" index="1"]
-layout_mode = 3
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1tgcp")
 
 [node name="Number" type="Label" parent="WeaponCategories/First/Crowbar"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 22.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -999,47 +932,32 @@ theme_override_font_sizes/font_size = 24
 text = " 1"
 
 [node name="NailGun" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
-offset_top = 102.0
-offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_glexq")
-
-[node name="VBoxContainer" parent="WeaponCategories/First/NailGun" index="0"]
-layout_mode = 3
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_df5fy")
 
 [node name="Icon" parent="WeaponCategories/First/NailGun/VBoxContainer" index="0"]
-layout_mode = 3
 text = "g"
 
 [node name="Name" parent="WeaponCategories/First/NailGun/VBoxContainer" index="1"]
-layout_mode = 3
 text = "Nail Gun"
 
 [node name="Second" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 147.0
-offset_right = 282.0
-offset_bottom = 720.0
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Pistol" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_gui78")
-
-[node name="VBoxContainer" parent="WeaponCategories/Second/Pistol" index="0"]
-layout_mode = 3
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kq5cb")
 
 [node name="Icon" parent="WeaponCategories/Second/Pistol/VBoxContainer" index="0"]
-layout_mode = 3
 text = "d"
 
 [node name="Name" parent="WeaponCategories/Second/Pistol/VBoxContainer" index="1"]
-layout_mode = 3
 text = "Pistol"
 
 [node name="Number" type="Label" parent="WeaponCategories/Second/Pistol"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 22.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1048,25 +966,20 @@ theme_override_font_sizes/font_size = 24
 text = " 2"
 
 [node name="Revolver" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
-offset_top = 102.0
-offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_v14ic")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vilbw")
 
 [node name="Third" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 294.0
-offset_right = 429.0
-offset_bottom = 720.0
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="SMG" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_3vxdi")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dx4gi")
 
 [node name="Number" type="Label" parent="WeaponCategories/Third/SMG"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 22.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1075,25 +988,20 @@ theme_override_font_sizes/font_size = 24
 text = " 3"
 
 [node name="Pulse Rifle" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
-offset_top = 102.0
-offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_oga4c")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pntvs")
 
 [node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 441.0
-offset_right = 576.0
-offset_bottom = 720.0
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Shotgun" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_q12st")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tncyq")
 
 [node name="Number" type="Label" parent="WeaponCategories/Fourth/Shotgun"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 22.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1102,25 +1010,20 @@ theme_override_font_sizes/font_size = 24
 text = " 4"
 
 [node name="Crossbow" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
-offset_top = 102.0
-offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5wamx")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mapa4")
 
 [node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 588.0
-offset_right = 723.0
-offset_bottom = 720.0
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Grenade" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_mt3ve")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yjpy")
 
 [node name="Number" type="Label" parent="WeaponCategories/Fifth/Grenade"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 22.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
@@ -1129,25 +1032,20 @@ theme_override_font_sizes/font_size = 24
 text = " 5"
 
 [node name="RPG" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
-offset_top = 102.0
-offset_bottom = 196.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jpf4j")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nsuqb")
 
 [node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
-offset_left = 735.0
-offset_right = 870.0
-offset_bottom = 720.0
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Bugbait" parent="WeaponCategories/Sixth" instance=ExtResource("10_ttwuh")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_jsg08")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5wi2")
 
 [node name="Number" type="Label" parent="WeaponCategories/Sixth/Bugbait"]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 22.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 0.839216, 0, 1)
