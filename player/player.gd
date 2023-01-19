@@ -99,7 +99,7 @@ var geiger: float:
 		if geiger:
 			sound_geiger.play()
 
-#var ladder: Array[StaticBody3D]
+var ladder: Array[StaticBody3D]
 
 var current_interactable: Interactable
 var current_pickup: Node3D:
@@ -139,7 +139,6 @@ var time: float
 @onready var state_machine = anim_tree["parameters/playback"] as AnimationNodeStateMachinePlayback
 @onready var camera := $Camera3D as Camera3D
 @onready var floor_raycast := $FloorRayCast3D as RayCast3D
-@onready var ladder_raycast := $LadderRayCast3D as RayCast3D
 @onready var health_label := %HealthValue as Label
 @onready var suit_power_label := %SuitValue as Label
 @onready var use_raycast := $Camera3D/UseRayCast3D as RayCast3D
@@ -286,6 +285,10 @@ func look() -> void:
 
 
 func move(delta: float) -> void:
+	if not ladder.is_empty() and timer_footstep.is_stopped():
+		timer_footstep.start()
+		sound_ladder.play()
+
 	# Gravity and jumping
 	if is_on_floor():
 		var horizontal_velocity := Vector2(velocity.x, velocity.z)
@@ -323,7 +326,7 @@ func move(delta: float) -> void:
 		if Input.is_action_just_pressed("jump") and health > 0:
 			velocity.y = JUMP_VELOCITY
 			play_footstep()
-	else:#if ladder.is_empty():
+	elif ladder.is_empty():
 		velocity.y -= gravity * delta
 		fall_velocity = velocity.y
 		acceleration = AIR_ACCELERATION
@@ -342,7 +345,7 @@ func move(delta: float) -> void:
 	if health == 0:
 		move_input = Vector2.ZERO
 
-	var view_movement := Vector3.ZERO
+	var view_movement: Vector3
 	view_movement.x = -move_input.x * sin(time * 6) * 0.002
 	view_movement.z = -move_input.y * sin(time * 8) * 0.001
 	view_movement *= speed
@@ -352,35 +355,10 @@ func move(delta: float) -> void:
 		time = 0
 	weapon_manager.position = weapon_manager.position.lerp(view_movement, delta * 8)
 
-	var ladder_climb_state := get_ladder_climb_state(move_input.y)
-
-	if ladder_climb_state != 0:
-		ladder_raycast.top_level = true
-		ladder_raycast.position = position
-		fall_velocity = 0
-		velocity = Vector3.ZERO
-		movement = Vector2.ZERO
-
-		if move_input.y > 0:
-			velocity = Vector3(0, -300 * delta, 0)
-		elif move_input.y < 0:
-			velocity = Vector3(0, 300 * delta, 0)
-
-		if ladder_climb_state == 2:
-			velocity.y = -velocity.y
-
-		if move_input.y != 0 and timer_footstep.is_stopped():
-			timer_footstep.start()
-			sound_ladder.play()
-	else:
-		ladder_raycast.top_level = false
-		ladder_raycast.rotation = Vector3.ZERO
-		ladder_raycast.position = Vector3.ZERO
-		move_input = move_input.rotated(-rotation.y)
-		movement = movement.lerp(move_input * speed, acceleration * delta)
-		velocity.x = movement.x
-		velocity.z = movement.y
-
+	move_input = move_input.rotated(-rotation.y)
+	movement = movement.lerp(move_input * speed, acceleration * delta)
+	velocity.x = movement.x
+	velocity.z = movement.y
 	move_and_slide()
 
 
@@ -405,25 +383,6 @@ func play_fvox(sound_name: String, immediate := false) -> void:
 
 		if not sound_fvox.stream:
 			_on_sound_fvox_finished()
-
-
-func get_ladder_climb_state(climb_direction: float) -> int:
-	var node := ladder_raycast.get_collider() as Node3D
-	if node and node.is_in_group("Ladder"):
-		var climb_state: int
-		if global_transform.basis.z.angle_to(node.global_transform.basis.z) > PI / 2:
-			climb_direction = -climb_direction
-			climb_state = 2
-		else:
-			climb_state = 1
-
-		if is_on_floor() and climb_direction > 0:
-			return 0
-
-		if velocity.y < 0 and not is_on_floor() or velocity.y >= 0:
-			return climb_state
-
-	return 0
 
 
 func _on_area_3d_body_entered(body: PhysicsBody3D) -> void:
@@ -454,7 +413,7 @@ func _on_area_3d_body_entered(body: PhysicsBody3D) -> void:
 			play_fvox("fuzz")
 			play_fvox("_comma")
 
-			var snap := snappedi(suit_power, 5)
+			var snap := snappedf(suit_power, 5)
 			var five := fmod(snap, 10)
 			var tens := int(snap / 10)
 

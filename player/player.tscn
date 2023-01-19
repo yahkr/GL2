@@ -52,11 +52,12 @@
 [ext_resource type="AudioStream" uid="uid://dahpdwxbkgayw" path="res://sounds/player/footsteps/ladder3.wav" id="46_0bfmw"]
 [ext_resource type="AudioStream" uid="uid://cosle2pkgao7f" path="res://sounds/player/footsteps/ladder4.wav" id="47_i6xcc"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_nald0"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ruukn"]
+radius = 0.67
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8scdq"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_52ae5"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_kjckw"]
 
 [sub_resource type="Gradient" id="Gradient_gww3o"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
@@ -71,7 +72,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tgcp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dchr"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -85,7 +86,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df5fy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fack"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -99,7 +100,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq5cb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iql0v"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -113,7 +114,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vilbw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxg1v"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -127,7 +128,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx4gi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5psk"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -141,7 +142,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pntvs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hle44"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -155,7 +156,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tncyq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_726gm"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -169,7 +170,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mapa4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1v67"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -183,7 +184,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yjpy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbeh5"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -197,7 +198,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsuqb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ht8i"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -211,7 +212,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5wi2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qqun"]
 resource_local_to_scene = true
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.784314)
 border_width_left = 3
@@ -335,82 +336,34 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:shape:height")
+tracks/0/path = NodePath(".:speed")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.5]
+"values": [2.5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
+tracks/1/path = NodePath("TimerFootstep:wait_time")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.5]
+"values": [1.0]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:position")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.4, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:speed")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.5]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FloorRayCast3D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.31, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("TimerFootstep:wait_time")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -418,94 +371,142 @@ tracks/6/keys = {
 "method": &"set_footstep_volume"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_45v5g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:shape:height")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.9, 0)]
-}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:speed")
+tracks/3/path = NodePath("FloorRayCast3D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [5.0]
+"values": [Vector3(0, 0.51, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("FloorRayCast3D:position")
+tracks/4/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.01, 0)]
+"values": [1.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("TimerFootstep:wait_time")
+tracks/5/path = NodePath("CollisionShape3D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.5]
+"values": [Vector3(0, 1.5, 0)]
 }
-tracks/6/type = "method"
+tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath(".")
+tracks/6/path = NodePath("CollisionShape3D:shape:height")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_45v5g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TimerFootstep:wait_time")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0],
 "method": &"set_footstep_volume"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FloorRayCast3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.01, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape3D:shape:height")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
 }
 
 [sub_resource type="Animation" id="Animation_grp1g"]
@@ -610,6 +611,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
 unique_name_in_owner = true
 visible = false
+spot_range = 8.0
+spot_angle = 40.0
+spot_angle_attenuation = 8.0
 
 [node name="UseRayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -3)
@@ -668,11 +672,11 @@ visible = false
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CylinderShape3D_nald0")
+shape = SubResource("CylinderShape3D_ruukn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -681,15 +685,12 @@ shape = SubResource("CylinderShape3D_8scdq")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 visible = false
 cast_shadow = 0
-mesh = SubResource("CapsuleMesh_52ae5")
+mesh = SubResource("CylinderMesh_kjckw")
 skeleton = NodePath("../..")
 
 [node name="FloorRayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 target_position = Vector3(0, -0.1, 0)
-
-[node name="LadderRayCast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, -0.7)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -920,7 +921,7 @@ theme_override_constants/separation = 8
 
 [node name="Crowbar" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1tgcp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6dchr")
 
 [node name="Number" type="Label" parent="WeaponCategories/First/Crowbar"]
 layout_mode = 2
@@ -933,7 +934,7 @@ text = " 1"
 
 [node name="NailGun" parent="WeaponCategories/First" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_df5fy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fack")
 
 [node name="Icon" parent="WeaponCategories/First/NailGun/VBoxContainer" index="0"]
 text = "g"
@@ -948,7 +949,7 @@ theme_override_constants/separation = 8
 
 [node name="Pistol" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kq5cb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_iql0v")
 
 [node name="Icon" parent="WeaponCategories/Second/Pistol/VBoxContainer" index="0"]
 text = "d"
@@ -967,7 +968,7 @@ text = " 2"
 
 [node name="Revolver" parent="WeaponCategories/Second" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vilbw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxg1v")
 
 [node name="Third" type="VBoxContainer" parent="WeaponCategories"]
 layout_mode = 2
@@ -976,7 +977,7 @@ theme_override_constants/separation = 8
 
 [node name="SMG" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dx4gi")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l5psk")
 
 [node name="Number" type="Label" parent="WeaponCategories/Third/SMG"]
 layout_mode = 2
@@ -989,7 +990,7 @@ text = " 3"
 
 [node name="Pulse Rifle" parent="WeaponCategories/Third" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pntvs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hle44")
 
 [node name="Fourth" type="VBoxContainer" parent="WeaponCategories"]
 layout_mode = 2
@@ -998,7 +999,7 @@ theme_override_constants/separation = 8
 
 [node name="Shotgun" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tncyq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_726gm")
 
 [node name="Number" type="Label" parent="WeaponCategories/Fourth/Shotgun"]
 layout_mode = 2
@@ -1011,7 +1012,7 @@ text = " 4"
 
 [node name="Crossbow" parent="WeaponCategories/Fourth" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mapa4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1v67")
 
 [node name="Fifth" type="VBoxContainer" parent="WeaponCategories"]
 layout_mode = 2
@@ -1020,7 +1021,7 @@ theme_override_constants/separation = 8
 
 [node name="Grenade" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4yjpy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sbeh5")
 
 [node name="Number" type="Label" parent="WeaponCategories/Fifth/Grenade"]
 layout_mode = 2
@@ -1033,7 +1034,7 @@ text = " 5"
 
 [node name="RPG" parent="WeaponCategories/Fifth" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nsuqb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ht8i")
 
 [node name="Sixth" type="VBoxContainer" parent="WeaponCategories"]
 layout_mode = 2
@@ -1042,7 +1043,7 @@ theme_override_constants/separation = 8
 
 [node name="Bugbait" parent="WeaponCategories/Sixth" instance=ExtResource("10_ttwuh")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p5wi2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qqun")
 
 [node name="Number" type="Label" parent="WeaponCategories/Sixth/Bugbait"]
 layout_mode = 2
@@ -1216,6 +1217,7 @@ one_shot = true
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Crowbar" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/NailGun" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Camera3D/WeaponManager/Pistol" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="finished" from="SoundFVOX" to="." method="_on_sound_fvox_finished"]
 [connection signal="finished" from="SoundGeiger" to="." method="_on_sound_geiger_finished"]
 [connection signal="timeout" from="TimerWeaponSelectFade" to="Camera3D/WeaponManager" method="_on_timer_weapon_select_fade_timeout"]
