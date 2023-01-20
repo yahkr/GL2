@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn3fyb86xcwxv"
-path.s3tc="res://.godot/imported/Crate01.png-f14527a098e9fbb53d9e34b6e5369b45.s3tc.ctex"
-path.etc2="res://.godot/imported/Crate01.png-f14527a098e9fbb53d9e34b6e5369b45.etc2.ctex"
+path.s3tc="res://.godot/imported/crate01.png-b861e92952d3a360795e99bb9d59a0ed.s3tc.ctex"
+path.etc2="res://.godot/imported/crate01.png-b861e92952d3a360795e99bb9d59a0ed.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/wooden_crate/Crate01.png"
-dest_files=["res://.godot/imported/Crate01.png-f14527a098e9fbb53d9e34b6e5369b45.s3tc.ctex", "res://.godot/imported/Crate01.png-f14527a098e9fbb53d9e34b6e5369b45.etc2.ctex"]
+source_file="res://objects/wooden_crate/crate01.png"
+dest_files=["res://.godot/imported/crate01.png-b861e92952d3a360795e99bb9d59a0ed.s3tc.ctex", "res://.godot/imported/crate01.png-b861e92952d3a360795e99bb9d59a0ed.etc2.ctex"]
 
 [params]
 

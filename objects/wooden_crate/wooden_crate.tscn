@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccsyutky0eas2"]
+[gd_scene load_steps=11 format=3 uid="uid://konb3ww0iqy2"]
 
 [ext_resource type="Script" path="res://objects/wooden_crate/wooden_crate.gd" id="1_1hww2"]
-[ext_resource type="ArrayMesh" uid="uid://iot5uhdvinlw" path="res://objects/wooden_crate/Crate1.obj" id="2_7t0ml"]
-[ext_resource type="Texture2D" uid="uid://cn3fyb86xcwxv" path="res://objects/wooden_crate/Crate01.png" id="3_4fbif"]
-[ext_resource type="Texture2D" uid="uid://bspe8k8eiumcs" path="res://objects/wooden_crate/Crate01_SPEC.png" id="4_rsbq3"]
-[ext_resource type="Texture2D" uid="uid://bdhxaj4g7h6jo" path="res://objects/wooden_crate/Crate01_NRM.png" id="5_xtrhj"]
+[ext_resource type="ArrayMesh" uid="uid://iot5uhdvinlw" path="res://objects/wooden_crate/crate1.obj" id="2_7t0ml"]
+[ext_resource type="Texture2D" uid="uid://cn3fyb86xcwxv" path="res://objects/wooden_crate/crate01.png" id="3_4fbif"]
+[ext_resource type="Texture2D" uid="uid://bspe8k8eiumcs" path="res://objects/wooden_crate/crate01_spec.png" id="4_rsbq3"]
+[ext_resource type="Texture2D" uid="uid://bdhxaj4g7h6jo" path="res://objects/wooden_crate/crate01_NRM.png" id="5_xtrhj"]
 [ext_resource type="AudioStream" uid="uid://crx74d2skk18y" path="res://sounds/physics/wood/wood_box_break1.wav" id="6_dtcks"]
 [ext_resource type="AudioStream" uid="uid://bk7jdnpjbtffu" path="res://sounds/physics/wood/wood_box_break2.wav" id="7_rp7d1"]
 

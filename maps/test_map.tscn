@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://1av2wkw5rwc0"]
+[gd_scene load_steps=24 format=3 uid="uid://1av2wkw5rwc0"]
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 [ext_resource type="Material" uid="uid://neer5cdq4dir" path="res://materials/concrete_01.tres" id="2_5h2iq"]
-[ext_resource type="PackedScene" uid="uid://ccsyutky0eas2" path="res://objects/wooden_crate/wooden_crate.tscn" id="2_ays1q"]
+[ext_resource type="PackedScene" uid="uid://konb3ww0iqy2" path="res://objects/wooden_crate/wooden_crate.tscn" id="2_ays1q"]
 [ext_resource type="Material" uid="uid://btsog81cv3whj" path="res://materials/bricks_01.tres" id="3_8n1si"]
 [ext_resource type="PackedScene" uid="uid://c48v5iawad8b6" path="res://objects/health_charger/health_charger.tscn" id="3_q5g7t"]
 [ext_resource type="Material" uid="uid://bb5yowbgqripo" path="res://materials/metal_02.tres" id="3_yclor"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://csrsdq4q33h42" path="res://objects/toxic_slime.tscn" id="14_t1fbb"]
 [ext_resource type="PackedScene" uid="uid://bhpa7xyyledlj" path="res://weapons/nailgun/nailgun_item.tscn" id="15_8vj1g"]
 [ext_resource type="PackedScene" uid="uid://cjpqp0773lvin" path="res://objects/ladder/ladder.tscn" id="15_s30a0"]
+[ext_resource type="PackedScene" uid="uid://dksp348jcs3ao" path="res://objects/explosive_barrel/explosive_barrel.tscn" id="19_n6sjg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -178,26 +179,11 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 6, 0)
 [node name="Ladder5" parent="Ladder" instance=ExtResource("15_s30a0")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 8, 0)
 
-[node name="Ladder2" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 8.5, 0, -9.5)
-
-[node name="Ladder" parent="Ladder2" instance=ExtResource("15_s30a0")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 0, 0)
-
-[node name="Ladder2" parent="Ladder2" instance=ExtResource("15_s30a0")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 2, 0)
-
-[node name="Ladder3" parent="Ladder2" instance=ExtResource("15_s30a0")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 4, 0)
-
-[node name="Ladder4" parent="Ladder2" instance=ExtResource("15_s30a0")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 6, 0)
-
-[node name="Ladder5" parent="Ladder2" instance=ExtResource("15_s30a0")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 8, 0)
-
 [node name="ToxicSlime" parent="." instance=ExtResource("14_t1fbb")]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.1, 0)
+
+[node name="ExplosiveBarrel" parent="." instance=ExtResource("19_n6sjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49666, 0, 6.77464)
 
 [editable path="Radiation"]
 [editable path="Radiation2"]

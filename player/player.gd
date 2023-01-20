@@ -184,8 +184,11 @@ func _process(delta: float) -> void:
 	$SubViewportContainer/SubViewport/Camera3D.global_transform = $Camera3D.global_transform
 	weapon_manager.position = weapon_manager.position.lerp(look_delta / 6, delta * 6)
 
-	if Input.is_anything_pressed() and health == 0:
-		get_tree().reload_current_scene()
+	if health == 0:
+		get_tree().create_timer(1.0).timeout.connect(func():
+			if Input.is_anything_pressed():
+				get_tree().reload_current_scene()
+		)
 
 	if current_pickup:
 		current_pickup.position = %PickupPoint.global_transform.origin

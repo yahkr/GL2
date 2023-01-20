@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdhxaj4g7h6jo"
-path.s3tc="res://.godot/imported/Crate01_NRM.png-732f4eb9607dcad5bda84136790d71f3.s3tc.ctex"
-path.etc2="res://.godot/imported/Crate01_NRM.png-732f4eb9607dcad5bda84136790d71f3.etc2.ctex"
+path.s3tc="res://.godot/imported/crate01_NRM.png-a1d5ec82a2e86af64005d9dda3cbb6be.s3tc.ctex"
+path.etc2="res://.godot/imported/crate01_NRM.png-a1d5ec82a2e86af64005d9dda3cbb6be.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/wooden_crate/Crate01_NRM.png"
-dest_files=["res://.godot/imported/Crate01_NRM.png-732f4eb9607dcad5bda84136790d71f3.s3tc.ctex", "res://.godot/imported/Crate01_NRM.png-732f4eb9607dcad5bda84136790d71f3.etc2.ctex"]
+source_file="res://objects/wooden_crate/crate01_NRM.png"
+dest_files=["res://.godot/imported/crate01_NRM.png-a1d5ec82a2e86af64005d9dda3cbb6be.s3tc.ctex", "res://.godot/imported/crate01_NRM.png-a1d5ec82a2e86af64005d9dda3cbb6be.etc2.ctex"]
 
 [params]
 

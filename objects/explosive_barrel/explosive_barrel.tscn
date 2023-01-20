@@ -1,0 +1,62 @@
+[gd_scene load_steps=16 format=3 uid="uid://dksp348jcs3ao"]
+
+[ext_resource type="Script" path="res://objects/explosive_barrel/explosive_barrel.gd" id="1_vom0v"]
+[ext_resource type="ArrayMesh" uid="uid://bv17sq0hi6u0" path="res://objects/explosive_barrel/explosive_barrel.obj" id="2_sdjw6"]
+[ext_resource type="Texture2D" uid="uid://dhppxgpj0kdf3" path="res://objects/explosive_barrel/mat_base_color.png" id="3_tf31g"]
+[ext_resource type="Texture2D" uid="uid://1o5wrc24kj3q" path="res://objects/explosive_barrel/mat_ambient_occlusion.png" id="4_kbntt"]
+[ext_resource type="Texture2D" uid="uid://baks22h7d8y5u" path="res://objects/explosive_barrel/mat_height.png" id="5_1vvcc"]
+[ext_resource type="Texture2D" uid="uid://cffohi1tisull" path="res://objects/explosive_barrel/mat_metallic.png" id="6_fmmv3"]
+[ext_resource type="Texture2D" uid="uid://c88xmk6q267eb" path="res://objects/explosive_barrel/mat_normal_directx.png" id="7_a4nwb"]
+[ext_resource type="Texture2D" uid="uid://c4mb5a04do2m3" path="res://objects/explosive_barrel/mat_roughness.png" id="8_dcmxl"]
+[ext_resource type="AudioStream" uid="uid://bjae5ne856f53" path="res://sounds/weapons/explode3.wav" id="9_lvuhh"]
+[ext_resource type="AudioStream" uid="uid://bc5nhlgxw6x3i" path="res://sounds/weapons/explode4.wav" id="10_42ngd"]
+[ext_resource type="AudioStream" uid="uid://bjc217f2ly45i" path="res://sounds/weapons/explode5.wav" id="11_jq5fu"]
+[ext_resource type="PackedScene" uid="uid://dgvon7n11vjaq" path="res://objects/fire.tscn" id="12_e78ue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr0fg"]
+albedo_texture = ExtResource("3_tf31g")
+metallic = 1.0
+metallic_texture = ExtResource("6_fmmv3")
+roughness_texture = ExtResource("8_dcmxl")
+normal_enabled = true
+normal_texture = ExtResource("7_a4nwb")
+ao_enabled = true
+ao_texture = ExtResource("4_kbntt")
+heightmap_texture = ExtResource("5_1vvcc")
+heightmap_flip_texture = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cmumu"]
+height = 1.79
+radius = 0.56
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p5url"]
+streams_count = 3
+stream_0/stream = ExtResource("9_lvuhh")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("10_42ngd")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("11_jq5fu")
+stream_2/weight = 1.0
+
+[node name="ExplosiveBarrel" type="RigidBody3D" groups=["MetalMaterial", "Pickup"]]
+collision_layer = 8
+collision_mask = 5
+mass = 3.0
+script = ExtResource("1_vom0v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.78, 0)
+mesh = ExtResource("2_sdjw6")
+surface_material_override/0 = SubResource("StandardMaterial3D_vr0fg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.88, 0, 0, 0, 0.88, 0, 0, 0, 0.88, 0, 0.79, 0)
+shape = SubResource("CylinderShape3D_cmumu")
+
+[node name="SoundBreak" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_p5url")
+
+[node name="Fire" parent="." instance=ExtResource("12_e78ue")]
+visible = false
+monitoring = false
+monitorable = false
