@@ -49,7 +49,7 @@ func hit():
 			sound_hit_concrete.position = weapon_raycast.get_collision_point()
 			sound_hit_concrete.play()
 			bullet_hole_instance.concrete()
-		
+
 		get_tree().get_root().add_child(bullet_hole_instance)
 		bullet_hole_instance.position = weapon_raycast.get_collision_point()
 		if Vector3.UP.is_equal_approx(weapon_raycast.get_collision_normal()):
@@ -58,9 +58,12 @@ func hit():
 			bullet_hole_instance.look_at(
 					bullet_hole_instance.position - weapon_raycast.get_collision_normal()
 			)
-		
+
 		if "health" in node:
 			node.health -= 1
+
+		if node is RigidBody3D:
+			node.apply_force(-global_transform.basis.z * 200)
 
 func draw_weapon():
 	weapon_raycast.target_position = Vector3.FORWARD * hit_range
