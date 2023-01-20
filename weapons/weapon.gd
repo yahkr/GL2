@@ -63,7 +63,9 @@ func hit():
 			node.health -= 1
 
 		if node is RigidBody3D:
-			node.apply_force(-global_transform.basis.z * 200)
+			var hit_force := -global_transform.basis.z
+			hit_force.y = 0
+			node.apply_force(hit_force * 200)
 
 func draw_weapon():
 	weapon_raycast.target_position = Vector3.FORWARD * hit_range
