@@ -346,7 +346,7 @@ func move(delta: float) -> void:
 		move_input = Vector2.ZERO
 
 	# View Bob
-	var view_movement: Vector3
+	var view_movement := Vector3.ZERO
 	var unrotated_velocity := velocity.rotated(Vector3.UP, -rotation.y)
 	view_movement.x = -unrotated_velocity.x * sin(time * 6) * 0.001
 	view_movement.z = -unrotated_velocity.z * sin(time * 8) * 0.001
@@ -392,7 +392,7 @@ func play_footstep() -> void:
 			sound_footstep_concrete.play()
 
 
-func climb_ladder(climb_speed: int) -> void:
+func climb_ladder(climb_speed: float) -> void:
 	velocity.y = climb_speed
 
 	if climb_speed < 0 and floor_raycast.is_colliding():

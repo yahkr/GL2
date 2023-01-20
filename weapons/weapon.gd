@@ -64,7 +64,8 @@ func hit():
 
 func draw_weapon():
 	weapon_raycast.target_position = Vector3.FORWARD * hit_range
-	animation_player.stop()
+	if not animation_player.current_animation.is_empty():
+		animation_player.stop()
 	animation_player.play("draw", 0)
 	animation_player.advance(0)
 	visible = true
