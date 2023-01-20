@@ -12,6 +12,8 @@ const SUIT_ABSORBTION = 0.8
 const ITEM_NOTIFICATION = preload("res://objects/item_notification.tscn")
 const FVOX_FILE = "res://sounds/fvox/%s.wav"
 
+@export var subviewport: SubViewport
+
 @export var speed: float
 
 var health: int:
@@ -169,6 +171,8 @@ var time: float
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	update_subviewport_size()
+	get_viewport().size_changed.connect(update_subviewport_size)
 
 	health = 100
 	suit_power = 0
@@ -176,8 +180,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	$SubViewportContainer/SubViewport/Camera3D.global_transform = $Camera3D.global_transform
 	look()
+	$SubViewportContainer/SubViewport/Camera3D.global_transform = $Camera3D.global_transform
 	weapon_manager.position = weapon_manager.position.lerp(look_delta / 6, delta * 6)
 
 	if Input.is_anything_pressed() and health == 0:
@@ -285,10 +289,6 @@ func look() -> void:
 
 
 func move(delta: float) -> void:
-	if not ladder.is_empty() and timer_footstep.is_stopped():
-		timer_footstep.start()
-		sound_ladder.play()
-
 	# Gravity and jumping
 	if is_on_floor():
 		var horizontal_velocity := Vector2(velocity.x, velocity.z)
@@ -345,9 +345,11 @@ func move(delta: float) -> void:
 	if health == 0:
 		move_input = Vector2.ZERO
 
+	# View Bob
 	var view_movement: Vector3
-	view_movement.x = -move_input.x * sin(time * 6) * 0.002
-	view_movement.z = -move_input.y * sin(time * 8) * 0.001
+	var unrotated_velocity := velocity.rotated(Vector3.UP, -rotation.y)
+	view_movement.x = -unrotated_velocity.x * sin(time * 6) * 0.001
+	view_movement.z = -unrotated_velocity.z * sin(time * 8) * 0.001
 	view_movement *= speed
 	if move_input.length_squared() > 0:
 		time += delta
@@ -356,9 +358,25 @@ func move(delta: float) -> void:
 	weapon_manager.position = weapon_manager.position.lerp(view_movement, delta * 8)
 
 	move_input = move_input.rotated(-rotation.y)
-	movement = movement.lerp(move_input * speed, acceleration * delta)
-	velocity.x = movement.x
-	velocity.z = movement.y
+
+	if not ladder.is_empty():
+		# Ladder Climbing
+		velocity = Vector3.ZERO
+		movement = Vector2.ZERO
+		state_machine.travel("RESET")
+
+		var ladder_move_angle := ladder[0].global_transform.basis.z.angle_to(Vector3(move_input.x, 0, move_input.y))
+		if ladder_move_angle > PI / 2:
+			climb_ladder(200 * delta)
+		elif ladder_move_angle == 0 and move_input.y <= 0:
+			velocity.y = 0
+		else:
+			climb_ladder(-200 * delta)
+	else:
+		# Standard Movement
+		movement = movement.lerp(move_input * speed, acceleration * delta)
+		velocity.x = movement.x
+		velocity.z = movement.y
 	move_and_slide()
 
 
@@ -374,6 +392,17 @@ func play_footstep() -> void:
 			sound_footstep_concrete.play()
 
 
+func climb_ladder(climb_speed: int) -> void:
+	velocity.y = climb_speed
+
+	if climb_speed < 0 and floor_raycast.is_colliding():
+		ladder.clear()
+
+	if timer_footstep.is_stopped():
+		timer_footstep.start()
+		sound_ladder.play()
+
+
 func play_fvox(sound_name: String, immediate := false) -> void:
 	if immediate:
 		sound_fvox.stream = load(FVOX_FILE % sound_name)
@@ -385,7 +414,14 @@ func play_fvox(sound_name: String, immediate := false) -> void:
 			_on_sound_fvox_finished()
 
 
-func _on_area_3d_body_entered(body: PhysicsBody3D) -> void:
+func update_subviewport_size():
+	subviewport.size = get_viewport().size
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Ladder"):
+		ladder.append(body)
+
 	if body.is_in_group("HEVSuit") and not suit:
 		body.queue_free()
 		suit = true
@@ -450,6 +486,11 @@ func _on_area_3d_body_entered(body: PhysicsBody3D) -> void:
 				play_fvox("five")
 
 			play_fvox("percent")
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.is_in_group("Ladder"):
+		ladder.erase(body)
 
 
 func _on_sound_fvox_finished() -> void:
