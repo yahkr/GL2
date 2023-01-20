@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1av2wkw5rwc0"]
+[gd_scene load_steps=23 format=3 uid="uid://1av2wkw5rwc0"]
 
 [ext_resource type="PackedScene" uid="uid://dwt6ysj2g1h6u" path="res://player/player.tscn" id="1_pv543"]
 [ext_resource type="Material" uid="uid://neer5cdq4dir" path="res://materials/concrete_01.tres" id="2_5h2iq"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://csrsdq4q33h42" path="res://objects/toxic_slime.tscn" id="14_t1fbb"]
 [ext_resource type="PackedScene" uid="uid://bhpa7xyyledlj" path="res://weapons/nailgun/nailgun_item.tscn" id="15_8vj1g"]
 [ext_resource type="PackedScene" uid="uid://cjpqp0773lvin" path="res://objects/ladder/ladder.tscn" id="15_s30a0"]
-[ext_resource type="PackedScene" uid="uid://k34g2edsgpth" path="res://objects/electricity.tscn" id="19_swqpl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5p674"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -199,9 +198,6 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 8, 0)
 
 [node name="ToxicSlime" parent="." instance=ExtResource("14_t1fbb")]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.1, 0)
-
-[node name="Electricity" parent="." instance=ExtResource("19_swqpl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02739, -2.38419e-07, 6.74644)
 
 [editable path="Radiation"]
 [editable path="Radiation2"]

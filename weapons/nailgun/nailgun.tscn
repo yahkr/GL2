@@ -12,9 +12,13 @@ radius = 2.0
 
 [node name="NailGun" instance=ExtResource("1_khsm4")]
 script = ExtResource("1_scg6i")
-magazine_ammo = 50
-magazine_size = 50
+idle_empty_animation = "idle_empty"
+magazine_ammo = 1
+magazine_size = 1
+reserve_size = 50
+reserve_ammo = 5
 hit_range = 1000.0
+idle_animation = "idle"
 
 [node name="Cooldown" parent="." index="0"]
 wait_time = 0.1
@@ -27,6 +31,9 @@ stream = ExtResource("4_xgsec")
 
 [node name="SoundNoAmmo" parent="." index="6"]
 stream = ExtResource("5_4ng46")
+
+[node name="SoundLowAmmo" parent="." index="7"]
+stream = null
 
 [node name="Model" parent="." index="8" instance=ExtResource("3_fn5gm")]
 

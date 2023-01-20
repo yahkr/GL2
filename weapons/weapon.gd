@@ -3,7 +3,11 @@ extends Node3D
 class_name Weapon
 
 
+const bullet_hole = preload("res://weapons/decals/bullet_hole.tscn")
+const item_notification = preload("res://objects/item_notification.tscn")
+
 @export var hit_range := 3.0
+@export var idle_animation := "idle01"
 
 @onready var animation_player := $Model/AnimationPlayer as AnimationPlayer
 @onready var cooldown := $Cooldown as Timer
@@ -11,10 +15,6 @@ class_name Weapon
 @onready var sound_hit_metal := $SoundHitMetal as AudioStreamPlayer3D
 @onready var sound_hit_wood := $SoundHitWood as AudioStreamPlayer3D
 @onready var weapon_raycast := get_parent() as RayCast3D
-
-const bullet_hole = preload("res://weapons/decals/bullet_hole.tscn")
-const item_notification = preload("res://objects/item_notification.tscn")
-
 
 signal weapon_selected
 
@@ -72,7 +72,6 @@ func draw_weapon():
 
 func play_idle(anim_name: String):
 	if anim_name != "holster":
-		if not animation_player.has_animation("idle01"):
-			animation_player.play("idle")
-		else:
-			animation_player.play("idle01")
+		animation_player.stop()
+		animation_player.play(idle_animation)
+		animation_player.advance(0)

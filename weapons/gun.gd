@@ -3,21 +3,27 @@ extends Weapon
 class_name Gun
 
 
+const ammo_notification = preload("res://weapons/ammo_notification.tscn")
+
 @onready var sound_lowammo := $SoundLowAmmo as AudioStreamPlayer
 @onready var sound_noammo := $SoundNoAmmo as AudioStreamPlayer
 @onready var sound_reload := $SoundReload as AudioStreamPlayer
 @onready var sound_shoot := $SoundShoot as AudioStreamPlayer
 @onready var weapon_categories := %WeaponCategories
 
+@onready var initial_idle_animation := idle_animation
+
+@export var idle_empty_animation := "idle01empty"
 @export var magazine_ammo := 18:
 	set(value):
 		call_deferred("update_ammo_labels")
 		if value == int(magazine_size / 4.0):
 			sound_lowammo.play()
-		elif value == 0 and reserve_ammo == 0:
+		if value == 0 and reserve_ammo == 0:
 			owner.play_fvox("blip")
 			owner.play_fvox("ammo_depleted")
 			weapon_categories.find_child(name).modulate = Color.RED
+			idle_animation = idle_empty_animation
 		elif weapon_categories:
 			weapon_categories.find_child(name).modulate = Color.WHITE
 		magazine_ammo = value
@@ -32,8 +38,6 @@ class_name Gun
 		call_deferred("update_ammo_labels")
 		secondary_ammo = value
 
-const ammo_notification = preload("res://weapons/ammo_notification.tscn")
-
 
 func _ready():
 	super()
@@ -44,9 +48,14 @@ func shoot_gun():
 		if magazine_ammo > 0:
 			cooldown.start()
 			sound_shoot.play()
-			animation_player.stop()
-			animation_player.play("fire")
+			if $Model.has_node("MuzzleFlash"):
+				$Model/MuzzleFlash.emit()
 			magazine_ammo -= 1
+			animation_player.stop()
+			if magazine_ammo == 0 and animation_player.has_animation("fireempty"):
+				animation_player.play("fireempty")
+			else:
+				animation_player.play("fire")
 			hit()
 			return true
 		else:
@@ -71,6 +80,7 @@ func reload_gun():
 			sound_reload.play()
 			animation_player.play("reload")
 			animation_player.animation_finished.connect(refill_ammo.bind(amount), CONNECT_ONE_SHOT)
+			idle_animation = initial_idle_animation
 
 
 func refill_ammo(anim: String, amount: int):

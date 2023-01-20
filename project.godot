@@ -14,7 +14,6 @@ config/name="Code Green"
 run/main_scene="res://maps/test_map.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
-boot_splash/minimum_display_time=2000
 
 [autoload]
 
