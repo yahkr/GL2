@@ -14,5 +14,5 @@ func _physics_process(delta: float) -> void:
 		if player:
 			var dist := shapecast.get_collision_point(index).distance_squared_to(global_position)
 			player.health -= int(exp((36 - dist) * 0.14))
-	await get_tree().create_timer(lifetimey).timeout
+	await get_tree().create_timer(lifetime).timeout
 	queue_free()
