@@ -280,9 +280,9 @@ func look() -> void:
 		joypad_look.y *= -1
 
 	if abs(joypad_look.x) > 0:
-		look_delta.x = -joypad_look.y
+		look_delta.x = -joypad_look.x
 	if abs(joypad_look.y) > 0:
-		look_delta.y = -joypad_look.x
+		look_delta.z = -joypad_look.y
 
 	rotate_y(-joypad_look.x)
 	camera.rotate_x(-joypad_look.y)
@@ -353,7 +353,7 @@ func move(delta: float) -> void:
 	var unrotated_velocity := velocity.rotated(Vector3.UP, -rotation.y)
 	view_movement.x = -unrotated_velocity.x * sin(time * 6) * 0.001
 	view_movement.z = -unrotated_velocity.z * sin(time * 8) * 0.001
-	view_movement *= speed
+	view_movement *= speed / 2
 	if move_input.length_squared() > 0:
 		time += delta
 	else:

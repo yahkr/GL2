@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bu436pratf10n"]
 
-[ext_resource type="PackedScene" uid="uid://c6mpqwvd8ea6a" path="res://weapons/nailgun/nailgun_model.glb" id="1_gcvh7"]
+[ext_resource type="PackedScene" uid="uid://bhuxu1rhgaiav" path="res://weapons/nailgun/nailgun_model.glb" id="1_gcvh7"]
 
 [node name="nailgun_model" instance=ExtResource("1_gcvh7")]
 transform = Transform3D(-0.01, 0, 8.74228e-10, 0, 0.01, 0, -8.74228e-10, 0, -0.01, 0, 0, 0.13)

@@ -50,13 +50,13 @@ func hit():
 			sound_hit_concrete.play()
 			bullet_hole_instance.concrete()
 
-		get_tree().get_root().add_child(bullet_hole_instance)
-		bullet_hole_instance.position = weapon_raycast.get_collision_point()
+		node.add_child(bullet_hole_instance)
+		bullet_hole_instance.global_position = weapon_raycast.get_collision_point()
 		if Vector3.UP.is_equal_approx(weapon_raycast.get_collision_normal()):
-			bullet_hole_instance.rotation.x = -PI / 2
+			bullet_hole_instance.global_rotation.x = -PI / 2
 		else:
 			bullet_hole_instance.look_at(
-					bullet_hole_instance.position - weapon_raycast.get_collision_normal()
+					bullet_hole_instance.global_position - weapon_raycast.get_collision_normal()
 			)
 
 		if "health" in node:

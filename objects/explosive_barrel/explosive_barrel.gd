@@ -13,7 +13,7 @@ var health := 3:
 		if health == 0:
 			sound_break.play()
 			var explosion_instance := explosion.instantiate()
-			get_tree().get_root().add_child(explosion_instance)
+			get_tree().current_scene.add_child(explosion_instance)
 			explosion_instance.global_position = global_position + Vector3.UP * 0.4
 			freeze = true
 			visible = false

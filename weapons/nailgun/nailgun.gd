@@ -9,7 +9,7 @@ func _physics_process(_delta):
 	if shoot_gun():
 		for nail in area.get_overlapping_bodies():
 			var path = Path3D.new()
-			get_tree().get_root().add_child(path)
+			get_tree().current_scene.add_child(path)
 			path.curve = Curve3D.new()
 			path.curve.add_point(weapon_raycast.get_collision_point())
 			path.curve.add_point(nail.global_position)

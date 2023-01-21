@@ -8,7 +8,7 @@ func _ready() -> void:
 	emitting = true
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	for index in shapecast.get_collision_count():
 		var player := shapecast.get_collider(index) as Player
 		if player:

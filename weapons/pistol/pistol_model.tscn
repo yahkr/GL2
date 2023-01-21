@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://hi0bm8xj5rip"]
 
-[ext_resource type="PackedScene" uid="uid://bnas0unub6rf3" path="res://weapons/pistol/pistol_model.glb" id="1_ha0ln"]
+[ext_resource type="PackedScene" uid="uid://8awpshhm6ncp" path="res://weapons/pistol/pistol_model.glb" id="1_ha0ln"]
 [ext_resource type="Texture2D" uid="uid://caj87a5htqjo4" path="res://textures/smoke.png" id="2_ymxrt"]
 [ext_resource type="Script" path="res://weapons/muzzleflash.gd" id="3_f38rw"]
 
