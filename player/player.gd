@@ -176,7 +176,7 @@ func _ready() -> void:
 
 	health = 100
 	suit_power = 0
-	suit = false
+	suit = true
 
 
 func _process(delta: float) -> void:

@@ -78,6 +78,4 @@ func draw_weapon():
 
 func play_idle(anim_name: String):
 	if anim_name != "holster":
-		animation_player.stop()
 		animation_player.play(idle_animation)
-		animation_player.advance(0)
