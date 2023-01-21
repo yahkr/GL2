@@ -339,7 +339,8 @@ func move(delta: float) -> void:
 		state_machine.travel("Crouch")
 	elif not test_move(transform, Vector3.UP):
 		if Input.is_action_pressed("sprint") and suit:
-			state_machine.travel("Sprint")
+			if state_machine.get_current_node() != "Sprint":
+				state_machine.travel("Sprint")
 		else:
 			state_machine.travel("RESET")
 
