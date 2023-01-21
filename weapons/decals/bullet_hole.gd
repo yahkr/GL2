@@ -2,8 +2,7 @@ extends Node3D
 
 
 func _ready():
-	await get_tree().create_timer(5.0).timeout
-	$Particles.queue_free()
+	get_tree().create_timer(4.0).timeout.connect($Particles.queue_free)
 
 
 func concrete():
