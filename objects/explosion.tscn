@@ -3,22 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://caj87a5htqjo4" path="res://textures/smoke.png" id="1_5d35m"]
 [ext_resource type="Script" path="res://objects/explosion.gd" id="2_ilvsr"]
 
-[sub_resource type="Gradient" id="Gradient_a1xlr"]
+[sub_resource type="Gradient" id="Gradient_ngwdo"]
 offsets = PackedFloat32Array(0, 0.0964912, 0.289474)
 colors = PackedColorArray(0.802938, 0.220137, 0, 1, 0.282353, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_l23wh"]
-gradient = SubResource("Gradient_a1xlr")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c1461"]
+gradient = SubResource("Gradient_ngwdo")
 use_hdr = true
 
-[sub_resource type="Curve" id="Curve_pcl3f"]
+[sub_resource type="Curve" id="Curve_il5of"]
 _data = [Vector2(0.00795756, 0), 0.0, 0.0, 0, 0, Vector2(0.259947, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_p2wit"]
-curve = SubResource("Curve_pcl3f")
+[sub_resource type="CurveTexture" id="CurveTexture_ppdfp"]
+curve = SubResource("Curve_il5of")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5exud"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lrps6"]
 emission_shape = 1
 emission_sphere_radius = 0.5
 direction = Vector3(0, 1, 0)
@@ -29,13 +29,13 @@ angular_velocity_max = 40.0
 linear_accel_max = 1.0
 angle_max = 360.0
 scale_min = 0.8
-scale_curve = SubResource("CurveTexture_p2wit")
-color_ramp = SubResource("GradientTexture1D_l23wh")
+scale_curve = SubResource("CurveTexture_ppdfp")
+color_ramp = SubResource("GradientTexture1D_c1461")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 anim_offset_max = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t6kw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1s38"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -45,10 +45,10 @@ particles_anim_h_frames = 6
 particles_anim_v_frames = 5
 particles_anim_loop = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_ei4li"]
-material = SubResource("StandardMaterial3D_3t6kw")
+[sub_resource type="QuadMesh" id="QuadMesh_al5ii"]
+material = SubResource("StandardMaterial3D_n1s38")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_1ahq3"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_xccpk"]
 radius = 6.0
 
 [node name="Explosion" type="GPUParticles3D" node_paths=PackedStringArray("shapecast")]
@@ -57,12 +57,12 @@ amount = 50
 one_shot = true
 explosiveness = 1.0
 draw_order = 3
-process_material = SubResource("ParticleProcessMaterial_5exud")
-draw_pass_1 = SubResource("QuadMesh_ei4li")
+process_material = SubResource("ParticleProcessMaterial_lrps6")
+draw_pass_1 = SubResource("QuadMesh_al5ii")
 script = ExtResource("2_ilvsr")
 shapecast = NodePath("ShapeCast3D")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
-shape = SubResource("SphereShape3D_1ahq3")
+shape = SubResource("SphereShape3D_xccpk")
 target_position = Vector3(0, 0, 0)
 collision_mask = 4
