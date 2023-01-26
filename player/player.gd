@@ -507,8 +507,7 @@ func _on_sound_fvox_finished() -> void:
 
 func _on_sound_geiger_finished() -> void:
 	if geiger > 0:
-		await get_tree().create_timer(1 - geiger).timeout
-		sound_geiger.play()
+		get_tree().create_timer(1 - geiger).timeout.connect(sound_geiger.play)
 
 
 func _on_timer_burn_timeout() -> void:

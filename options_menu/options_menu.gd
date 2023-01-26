@@ -119,6 +119,8 @@ func apply_option(new_value: Variant, option: StringName):
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(new_value))
 		&"VolumeDialog":
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialog"), linear_to_db(new_value))
+		&"VolumeFVOX":
+			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("FVOX"), linear_to_db(new_value))
 
 
 func initialize_tab(tab: Control):

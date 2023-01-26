@@ -30,10 +30,12 @@ Fullscreen,Fullscreen:,Vollbild:
 MaxFPS,Maximum FPS:,Maximale FPS:
 ShowFPS,Show FPS:,FPS anzeigen:
 VSync,V-Sync:,V-Sync:
-VolumeMaster,Master volume:,Gesamt-Lautstärke:
-VolumeSFX,Sound effects volume:,Geräusch-Lautstärke:
-VolumeMusic,Music volume:,Musik-Lautstärke:
-VolumeDialog,Dialog volume:,Dialog-Lautstärke
+Volume,,Lautstärke
+VolumeMaster,Master:,Gesamt:
+VolumeSFX,Sound effects:,Geräusche:
+VolumeMusic,Music:,Musik:
+VolumeDialog,Dialog:,Dialog:
+VolumeFVOX,HEV suit voice:,HEV Anzug Stimme:
 RestoreDefaults,Restore default values,Standardwerte wiederherstellen
 MouseKeyboard,Mouse/Keyboard,Maus/Tastatur
 look_up,Look up,Nach oben schauen

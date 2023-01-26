@@ -17,7 +17,7 @@ metadata/_edit_vertical_guides_ = []
 
 [node name="Options" type="VBoxContainer" parent="."]
 visible = false
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -25,8 +25,7 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="TabBar" type="TabBar" parent="Options"]
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 tab_alignment = 1
@@ -37,45 +36,34 @@ tab_2/title = "Video"
 tab_3/title = "Audio"
 
 [node name="Tabs" type="Control" parent="Options"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 35.0
-offset_right = 1024.0
-offset_bottom = 565.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Controls" type="VBoxContainer" parent="Options/Tabs"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 
 [node name="Mouse" type="Label" parent="Options/Tabs/Controls"]
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Mouse"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="MouseSensitivity" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 30.0
-offset_right = 1024.0
-offset_bottom = 56.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/MouseSensitivity"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/MouseSensitivity"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 0.1
 max_value = 2.0
@@ -88,98 +76,68 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Controls/MouseSensitivity"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="MouseHorizontalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 60.0
-offset_right = 1024.0
-offset_bottom = 91.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/MouseHorizontalInverted"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="MouseVerticalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 95.0
-offset_right = 1024.0
-offset_bottom = 126.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/MouseVerticalInverted"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/MouseVerticalInverted"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/MouseVerticalInverted"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Controller" type="Label" parent="Options/Tabs/Controls"]
-offset_top = 130.0
-offset_right = 1024.0
-offset_bottom = 156.0
+layout_mode = 2
 text = "Controller"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="ControllerHorizontalSensitivity" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 160.0
-offset_right = 1024.0
-offset_bottom = 186.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerHorizontalSensitivity"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerHorizontalSensitivity"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 0.1
 max_value = 2.0
@@ -192,30 +150,22 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerHorizontalSensitivity"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="ControllerVerticalSensitivity" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 190.0
-offset_right = 1024.0
-offset_bottom = 216.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerVerticalSensitivity"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerVerticalSensitivity"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 0.1
 max_value = 2.0
@@ -228,90 +178,62 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerVerticalSensitivity"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="ControllerHorizontalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 220.0
-offset_right = 1024.0
-offset_bottom = 251.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/ControllerHorizontalInverted"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ControllerVerticalInverted" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 255.0
-offset_right = 1024.0
-offset_bottom = 286.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Controls/ControllerVerticalInverted"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ControllerResponseCurve" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 290.0
-offset_right = 1024.0
-offset_bottom = 316.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerResponseCurve"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerResponseCurve"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 1.0
 max_value = 4.0
@@ -322,30 +244,22 @@ ticks_on_borders = true
 metadata/default_value = 2.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerResponseCurve"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="ControllerDeadzone" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 320.0
-offset_right = 1024.0
-offset_bottom = 346.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerDeadzone"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerDeadzone"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 0.5
 step = 0.01
@@ -354,30 +268,22 @@ ticks_on_borders = true
 metadata/default_value = 0.1
 
 [node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerDeadzone"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="ControllerOuterThreshold" type="HBoxContainer" parent="Options/Tabs/Controls" groups=["Option"]]
-offset_top = 350.0
-offset_right = 1024.0
-offset_bottom = 376.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Controls/ControllerOuterThreshold"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Controls/ControllerOuterThreshold"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 0.5
 step = 0.01
@@ -386,43 +292,41 @@ ticks_on_borders = true
 metadata/default_value = 0.01
 
 [node name="Value" type="Label" parent="Options/Tabs/Controls/ControllerOuterThreshold"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="InputMapping" parent="Options/Tabs" instance=ExtResource("2_owuij")]
 process_mode = 2
 visible = false
-anchors_preset = 13
+layout_mode = 0
+anchor_left = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_right = 800.0
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="Video" type="VBoxContainer" parent="Options/Tabs"]
 visible = false
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 
 [node name="3DScale" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/3DScale"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/3DScale"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 0.5
 max_value = 2.0
@@ -435,30 +339,22 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Video/3DScale"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="AntiAliasing" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 30.0
-offset_right = 1024.0
-offset_bottom = 61.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/AntiAliasing"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="OptionButton" parent="Options/Tabs/Video/AntiAliasing"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 item_count = 3
 popup/item_0/text = "Disabled"
@@ -470,61 +366,41 @@ popup/item_2/id = 2
 metadata/default_value = 1
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/AntiAliasing"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Bloom" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 65.0
-offset_right = 1024.0
-offset_bottom = 96.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/Bloom"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/Bloom"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = true
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/Bloom"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Brightness" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 100.0
-offset_right = 1024.0
-offset_bottom = 126.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/Brightness"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/Brightness"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 0.5
 max_value = 2.0
@@ -537,30 +413,22 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Video/Brightness"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="FOV" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 130.0
-offset_right = 1024.0
-offset_bottom = 156.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/FOV"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/FOV"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 60.0
 max_value = 120.0
@@ -572,30 +440,22 @@ ticks_on_borders = true
 metadata/default_value = 90.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Video/FOV"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="FSR" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 160.0
-offset_right = 1024.0
-offset_bottom = 191.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/FSR"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="OptionButton" parent="Options/Tabs/Video/FSR"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 item_count = 5
 popup/item_0/text = "Disabled"
@@ -611,61 +471,41 @@ popup/item_4/id = 4
 metadata/default_value = 0
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/FSR"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Fullscreen" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 195.0
-offset_right = 1024.0
-offset_bottom = 226.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/Fullscreen"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/Fullscreen"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = true
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/Fullscreen"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="MaxFPS" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 230.0
-offset_right = 1024.0
-offset_bottom = 256.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/MaxFPS"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Video/MaxFPS"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 min_value = 10.0
 max_value = 240.0
@@ -676,96 +516,75 @@ ticks_on_borders = true
 metadata/default_value = 240.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Video/MaxFPS"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="ShowFPS" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 260.0
-offset_right = 1024.0
-offset_bottom = 291.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/ShowFPS"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/ShowFPS"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/ShowFPS"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VSync" type="HBoxContainer" parent="Options/Tabs/Video" groups=["Option"]]
-offset_top = 295.0
-offset_right = 1024.0
-offset_bottom = 326.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Video/VSync"]
-offset_top = 2.0
-offset_right = 308.0
-offset_bottom = 28.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="CheckBox" parent="Options/Tabs/Video/VSync"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_right = 712.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_vertical = 4
 text = "Value"
 metadata/default_value = false
 
 [node name="Spacer" type="Control" parent="Options/Tabs/Video/VSync"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Audio" type="VBoxContainer" parent="Options/Tabs"]
 visible = false
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 
+[node name="Volume" type="Label" parent="Options/Tabs/Audio"]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="VolumeMaster" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeMaster"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeMaster"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
@@ -775,30 +594,22 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeMaster"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="VolumeSFX" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
-offset_top = 30.0
-offset_right = 1024.0
-offset_bottom = 56.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeSFX"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeSFX"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
@@ -808,30 +619,22 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeSFX"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="VolumeMusic" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
-offset_top = 60.0
-offset_right = 1024.0
-offset_bottom = 86.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeMusic"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeMusic"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
@@ -841,30 +644,22 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeMusic"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="VolumeDialog" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
-offset_top = 90.0
-offset_right = 1024.0
-offset_bottom = 116.0
+layout_mode = 2
 
 [node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeDialog"]
-offset_right = 308.0
-offset_bottom = 26.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 horizontal_alignment = 2
 
 [node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeDialog"]
 custom_minimum_size = Vector2(400, 0)
-offset_left = 312.0
-offset_top = 5.0
-offset_right = 712.0
-offset_bottom = 21.0
+layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
@@ -874,21 +669,42 @@ ticks_on_borders = true
 metadata/default_value = 1.0
 
 [node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeDialog"]
-offset_left = 716.0
-offset_right = 1024.0
-offset_bottom = 26.0
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Value"
+
+[node name="VolumeFVOX" type="HBoxContainer" parent="Options/Tabs/Audio" groups=["Option"]]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Options/Tabs/Audio/VolumeFVOX"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 2
+
+[node name="Setter" type="HSlider" parent="Options/Tabs/Audio/VolumeFVOX"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+allow_greater = true
+tick_count = 11
+ticks_on_borders = true
+metadata/default_value = 1.0
+
+[node name="Value" type="Label" parent="Options/Tabs/Audio/VolumeFVOX"]
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
 
 [node name="RestoreDefaultsButton" type="Button" parent="Options"]
-offset_top = 569.0
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "RestoreDefaults"
 
 [node name="PauseControls" type="VBoxContainer" parent="."]
-anchors_preset = 4
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 32.0
@@ -899,33 +715,26 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="GameTitle" type="Label" parent="PauseControls"]
-offset_right = 500.0
-offset_bottom = 59.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0.262745, 0.627451, 0.278431, 1)
 theme_override_font_sizes/font_size = 48
 text = "Code Green"
 vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PauseControls"]
-offset_top = 63.0
-offset_right = 500.0
-offset_bottom = 90.0
+layout_mode = 2
 text = "Resume"
 flat = true
 alignment = 0
 
 [node name="OptionsButton" type="Button" parent="PauseControls"]
-offset_top = 94.0
-offset_right = 500.0
-offset_bottom = 121.0
+layout_mode = 2
 text = "Options"
 flat = true
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="PauseControls"]
-offset_top = 125.0
-offset_right = 500.0
-offset_bottom = 152.0
+layout_mode = 2
 text = "Quit"
 flat = true
 alignment = 0

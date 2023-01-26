@@ -11,11 +11,9 @@ var health := 3:
 			freeze = true
 			visible = false
 			$CollisionShape3D.disabled = true
-			var array := [1, 2, 3, 4, 5, 6, 7, 8]
-			array.shuffle()
-			for i in array.size() - 3:
+			for i in range(1,9):
 				var chunk: PackedScene
-				chunk = load("res://objects/wooden_crate/wodden_crate_chunk_0%s.tscn" % array[i])
+				chunk = load("res://objects/wooden_crate/wodden_crate_chunk_0%s.tscn" % i)
 				var chunk_instance := chunk.instantiate()
 				get_tree().current_scene.add_child(chunk_instance)
 				chunk_instance.position = position
