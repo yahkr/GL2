@@ -121,10 +121,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.4, 
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.4, 1.7, -10)
 
 [node name="WoodenCrate" parent="." instance=ExtResource("2_ays1q")]
-transform = Transform3D(0.789341, 0, 0.613955, 0, 1, 0, -0.613955, 0, 0.789341, -6, 0, 6)
+transform = Transform3D(0.951514, 0, 0.307606, 0, 1, 0, -0.307606, 0, 0.951514, -5.49423, 2.38419e-07, 6.30065)
 
 [node name="WoodenCrate2" parent="." instance=ExtResource("2_ays1q")]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -7.16856, 0, 6.97765)
+transform = Transform3D(0.846779, 0, -0.531945, 0, 1, 0, 0.531945, 0, 0.846779, -6.94776, -2.38419e-07, 7.59209)
 
 [node name="WoodenCrate3" parent="." instance=ExtResource("2_ays1q")]
 transform = Transform3D(0.592449, 0, 0.805608, 0, 1, 0, -0.805608, 0, 0.592449, -7.22125, 0, 5.73958)

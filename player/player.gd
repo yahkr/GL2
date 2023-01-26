@@ -5,7 +5,7 @@ extends CharacterBody3D
 const AIR_ACCELERATION = 2.0
 const FALL_DAMAGE_THRESHOLD = 15.0
 const FALL_DAMAGE_MULTIPLIER = 15.0
-const GROUND_ACCELERATION = 20.0
+const GROUND_ACCELERATION = 15.0
 const JUMP_VELOCITY = 6.0
 const SUIT_ABSORBTION = 0.8
 
@@ -104,15 +104,15 @@ var geiger: float:
 var ladder: Array[StaticBody3D]
 
 var current_interactable: Interactable
-var current_pickup: Node3D:
+var current_pickup: CollisionObject3D:
 	set(value):
 		if value == null:
 			if current_pickup:
 				current_pickup.freeze = false
-				current_pickup.collision_layer = 1
+				current_pickup.collision_mask = 0xd
 		else:
 			value.freeze = true
-			value.collision_layer = 0
+			value.collision_mask = 0x9
 		current_pickup = value
 
 var fvox_queue: Array[String]
@@ -191,7 +191,7 @@ func _process(delta: float) -> void:
 		)
 
 	if current_pickup:
-		current_pickup.position = %PickupPoint.global_transform.origin
+		current_pickup.position = %PickupPoint.global_position - Vector3.UP / 2
 
 
 func _input(event: InputEvent) -> void:

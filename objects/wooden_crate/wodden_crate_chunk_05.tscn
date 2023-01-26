@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3kw7ytunk666"]
+
+[ext_resource type="PackedScene" uid="uid://brovdvxemedr3" path="res://objects/wooden_crate/wooden_crate_chunk05_model.glb" id="1_u66yq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dxk73"]
+points = PackedVector3Array(-0.0488379, -0.0180379, 0.371331, -0.0488379, 0.0173411, -0.442238, 0.0502234, -0.0180379, -0.442238, 0.0502234, 0.0173411, 0.350206, -0.0488379, 0.0173411, 0.364318, -0.0488379, -0.0180379, -0.442238, 0.0502234, 0.0173411, -0.442238, 0.0502234, -0.0180379, 0.385616, -0.00637614, -0.0180379, 0.442238, 0.00776162, 0.0173411, 0.385616, -0.0205333, -0.0180379, 0.435139, -0.0276022, 0.0173411, 0.378517, -0.0346808, -0.0180379, 0.406741, 0.0360662, 0.0173411, 0.364318)
+
+[node name="WoddenCrateChunk05" type="RigidBody3D" groups=["WoodMaterial"]]
+collision_layer = 8
+
+[node name="wooden_crate_chunk05_model" parent="." instance=ExtResource("1_u66yq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525, 1.18, -0.057)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525, 1.18, -0.057)
+shape = SubResource("ConvexPolygonShape3D_dxk73")

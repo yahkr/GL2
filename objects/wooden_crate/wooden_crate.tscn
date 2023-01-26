@@ -1,21 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://konb3ww0iqy2"]
+[gd_scene load_steps=7 format=3 uid="uid://konb3ww0iqy2"]
 
 [ext_resource type="Script" path="res://objects/wooden_crate/wooden_crate.gd" id="1_1hww2"]
-[ext_resource type="ArrayMesh" uid="uid://iot5uhdvinlw" path="res://objects/wooden_crate/crate1.obj" id="2_7t0ml"]
-[ext_resource type="Texture2D" uid="uid://cn3fyb86xcwxv" path="res://objects/wooden_crate/crate01.png" id="3_4fbif"]
-[ext_resource type="Texture2D" uid="uid://bspe8k8eiumcs" path="res://objects/wooden_crate/crate01_spec.png" id="4_rsbq3"]
-[ext_resource type="Texture2D" uid="uid://bdhxaj4g7h6jo" path="res://objects/wooden_crate/crate01_NRM.png" id="5_xtrhj"]
+[ext_resource type="PackedScene" uid="uid://dtstl6nw628mh" path="res://objects/wooden_crate/wooden_crate_model.glb" id="2_omjdt"]
 [ext_resource type="AudioStream" uid="uid://crx74d2skk18y" path="res://sounds/physics/wood/wood_box_break1.wav" id="6_dtcks"]
 [ext_resource type="AudioStream" uid="uid://bk7jdnpjbtffu" path="res://sounds/physics/wood/wood_box_break2.wav" id="7_rp7d1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gy7c"]
-albedo_texture = ExtResource("3_4fbif")
-metallic = 1.0
-metallic_texture = ExtResource("4_rsbq3")
-normal_enabled = true
-normal_texture = ExtResource("5_xtrhj")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_4mi2b"]
+size = Vector3(1.2, 1.2, 1.2)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p5url"]
 streams_count = 2
@@ -26,16 +17,15 @@ stream_1/weight = 1.0
 
 [node name="WoodenCrate" type="RigidBody3D" groups=["Pickup", "WoodMaterial"]]
 collision_layer = 8
-collision_mask = 5
+collision_mask = 13
+mass = 100.0
 script = ExtResource("1_1hww2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
-mesh = ExtResource("2_7t0ml")
-surface_material_override/0 = SubResource("StandardMaterial3D_0gy7c")
+[node name="wooden_crate_model" parent="." instance=ExtResource("2_omjdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.88, 0, 0, 0, 0.88, 0, 0, 0, 0.88, 0, 0.44, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("BoxShape3D_4mi2b")
 
 [node name="SoundBreak" type="AudioStreamPlayer3D" parent="."]

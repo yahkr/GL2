@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp0imaj2imuhb"]
+
+[ext_resource type="PackedScene" uid="uid://bkiluk02yn5ka" path="res://objects/wooden_crate/wooden_crate_chunk01_model.glb" id="1_68fja"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xce1k"]
+points = PackedVector3Array(0.591848, 0.0504286, 0.298273, 0, -0.0420476, -0.570848, -0.591848, -0.0420476, -0.0529447, 0.591848, -0.0420476, 0.538704, -0.536347, 0.0504286, 0.575857, 0.221885, 0.0504286, -0.478357, 0.591848, -0.0420476, -0.441316, -0.591848, -0.0420476, 0.538704, -0.462308, 0.0504286, -0.0529447, 0.591848, 0.0504286, 0.575857, 0.573309, 0.0504286, -0.256334, -0.591848, 0.0134236, -0.0714653, 0, 0.0134236, -0.552327, -0.0184228, -0.0420476, 0.575857, 0.573309, 0.0134236, -0.441316, -0.536347, 0.0504286, 0.0578421, -0.0553843, 0.0504286, -0.348825, 0.591848, 0.0134236, -0.422795, 0.517809, 0.0134236, -0.459836, 0.0553843, 0.0134236, -0.552327, 0.0369615, -0.0420476, -0.570848, 0.073923, -0.0420476, 0.575857, -0.425347, 0.0504286, -0.0898736, -0.591848, -0.00504266, -0.0714653, 0.203346, 0.0504286, -0.478357, 0.517809, 0.0504286, -0.293376, -0.517809, 0.0504286, 0.0208009, 0.517809, -0.00504266, -0.459836)
+
+[node name="WoddenCrateChunk01" type="RigidBody3D" groups=["WoodMaterial"]]
+collision_layer = 8
+
+[node name="wooden_crate_chunk01_model" parent="." instance=ExtResource("1_68fja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033, 0)
+shape = SubResource("ConvexPolygonShape3D_xce1k")
