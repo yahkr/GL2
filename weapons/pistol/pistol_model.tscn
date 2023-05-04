@@ -13,7 +13,7 @@ transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2_ymxrt")
 emission_enabled = true
-emission = Color(0.945098, 0.513726, 0, 1)
+emission = Color(1, 0.65098, 0, 1)
 billboard_mode = 3
 particles_anim_h_frames = 6
 particles_anim_v_frames = 5
@@ -21,7 +21,7 @@ particles_anim_loop = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_0a1k8"]
 material = SubResource("StandardMaterial3D_ehj5s")
-size = Vector2(5, 5)
+size = Vector2(0.05, 0.05)
 
 [node name="pistol_model" instance=ExtResource("1_ha0ln")]
 transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0.1)
@@ -80,17 +80,17 @@ cast_shadow = 0
 
 [node name="AnimationPlayer" parent="." index="1"]
 playback_default_blend_time = 0.2
-playback_speed = 1.5
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="." index="2"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -5.4479, -4.17381, 32.316)
 layers = 524288
 emitting = false
 amount = 1
-lifetime = 0.1
+lifetime = 0.01
 one_shot = true
 speed_scale = 10.0
 explosiveness = 1.0
+fixed_fps = 0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_adcxx")
 draw_pass_1 = SubResource("QuadMesh_0a1k8")
