@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/print_screen.png-2ad908c57bc0a7e15da12f23e05f
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

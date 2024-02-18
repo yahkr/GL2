@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/metaldoor042a.png-94828b9b9814d6b9be6fb2dc6eb
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

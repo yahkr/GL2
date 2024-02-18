@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/axis_3-.png-43ae64b4b3d20978321d83eb7c605cc9.
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

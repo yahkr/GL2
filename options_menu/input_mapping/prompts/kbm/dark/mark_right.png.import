@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/mark_right.png-2133dd64f1c84dc98ea4a5bc055cdc
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

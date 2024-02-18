@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/quote.png-22e6812f349bbe9d6ce08cc07ce9d0a9.ct
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

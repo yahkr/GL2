@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/semicolon.png-4b89727cc5bf3e854971c1b942a941b
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
