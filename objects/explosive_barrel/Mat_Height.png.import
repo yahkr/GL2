@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baks22h7d8y5u"
-path.s3tc="res://.godot/imported/mat_height.png-35cb47caf49ef671906b9b014a4879f1.s3tc.ctex"
+path.s3tc="res://.godot/imported/Mat_Height.png-f13183a284e252b676dda9a07946011c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/explosive_barrel/mat_height.png"
-dest_files=["res://.godot/imported/mat_height.png-35cb47caf49ef671906b9b014a4879f1.s3tc.ctex"]
+source_file="res://objects/explosive_barrel/Mat_Height.png"
+dest_files=["res://.godot/imported/Mat_Height.png-f13183a284e252b676dda9a07946011c.s3tc.ctex"]
 
 [params]
 

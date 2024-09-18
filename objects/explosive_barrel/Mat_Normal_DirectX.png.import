@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c88xmk6q267eb"
-path.s3tc="res://.godot/imported/mat_normal_directx.png-309d82000dae54dca76e92ea36936630.s3tc.ctex"
+path.s3tc="res://.godot/imported/Mat_Normal_DirectX.png-9747f90b461a9704e9551e18337e9161.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/explosive_barrel/mat_normal_directx.png"
-dest_files=["res://.godot/imported/mat_normal_directx.png-309d82000dae54dca76e92ea36936630.s3tc.ctex"]
+source_file="res://objects/explosive_barrel/Mat_Normal_DirectX.png"
+dest_files=["res://.godot/imported/Mat_Normal_DirectX.png-9747f90b461a9704e9551e18337e9161.s3tc.ctex"]
 
 [params]
 

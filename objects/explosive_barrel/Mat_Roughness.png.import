@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4mb5a04do2m3"
-path.s3tc="res://.godot/imported/mat_roughness.png-be84c5266021fca8cf1577701f221f58.s3tc.ctex"
+path.s3tc="res://.godot/imported/Mat_Roughness.png-4cb97dc520a3685a595fe11801f197ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/explosive_barrel/mat_roughness.png"
-dest_files=["res://.godot/imported/mat_roughness.png-be84c5266021fca8cf1577701f221f58.s3tc.ctex"]
+source_file="res://objects/explosive_barrel/Mat_Roughness.png"
+dest_files=["res://.godot/imported/Mat_Roughness.png-4cb97dc520a3685a595fe11801f197ba.s3tc.ctex"]
 
 [params]
 
